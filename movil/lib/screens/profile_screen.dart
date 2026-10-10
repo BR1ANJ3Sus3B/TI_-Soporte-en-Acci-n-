@@ -151,12 +151,6 @@ class ProfileScreen extends StatelessWidget {
                       color: AppColors.primary,
                     ),
                     StatCard(
-                      title: 'Seguridad',
-                      value: profile.skills['Ciberseguridad']?.toString() ?? '0',
-                      icon: Icons.shield_rounded,
-                      color: AppColors.danger,
-                    ),
-                    StatCard(
                       title: 'Bases de datos',
                       value: profile.skills['Bases de Datos']?.toString() ?? '0',
                       icon: Icons.storage_rounded,
