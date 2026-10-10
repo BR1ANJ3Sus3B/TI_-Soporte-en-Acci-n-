@@ -56,6 +56,8 @@ Las 21 imágenes se incorporaron en [`docs/imagenes/`](../imagenes/) y se enlaza
 | 12 | Canvas | Enlazada |
 | 13-21 | Bocetos de la PWA (9 pantallas) | Enlazadas |
 | movil1-21 y 6.png | Bocetos de la aplicación móvil (21 pantallas, incluidas por orden) | Enlazadas |
+| Seis roles en acción para soporte TI.png | Roles de usuario y permisos | Enlazada |
+| TI_ Soporte en acción con MongoDB.png | Arquitectura y datos compartidos | Enlazada |
 
 Notas de las imágenes:
 

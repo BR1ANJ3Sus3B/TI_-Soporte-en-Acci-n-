@@ -1,9 +1,10 @@
 {
   "proyecto": "TI: Soporte en Acción",
-  "descripcion": "Inventario de las 21 imágenes incluidas en docs/imagenes/. Cada archivo corresponde, en orden, a una sección del documento del proyecto (docs/proyecto/README.md).",
+  "descripcion": "Inventario de las imágenes incluidas en docs/imagenes/. El bloque 'imagenes' corresponde, en orden, a las secciones del documento del proyecto (docs/proyecto/README.md); 'imagenes_moviles' son los bocetos de la app móvil e 'imagenes_extra' son ilustraciones adicionales.",
   "nota": "Las ilustraciones de sprites, storyboards y bocetos son material conceptual; no son recursos jugables listos para importar sin revisión. Las hojas de sprite conservan rótulos de Godot de una versión anterior; el motor definido para el proyecto es Unity.",
   "total": 21,
   "total_moviles": 21,
+  "total_extra": 2,
   "imagenes": [
     {
       "archivo": "01-publico-objetivo.png",
@@ -154,5 +155,19 @@
     { "archivo": "movil19.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 19", "tipo": "boceto", "descripcion": "Pantalla móvil 19 (título por orden)." },
     { "archivo": "movil20.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 20", "tipo": "boceto", "descripcion": "Pantalla móvil 20 (título por orden)." },
     { "archivo": "movil21.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 21", "tipo": "boceto", "descripcion": "Pantalla móvil 21 (título por orden)." }
+  ],
+  "imagenes_extra": [
+    {
+      "archivo": "Seis roles en acción para soporte TI.png",
+      "seccion": "Roles de usuario y permisos",
+      "tipo": "ilustración",
+      "descripcion": "Los seis personajes (Alex, Saboteador, Martín, Richar, Sofía y Marco) en acción para soporte de TI."
+    },
+    {
+      "archivo": "TI_ Soporte en acción con MongoDB.png",
+      "seccion": "Arquitectura y datos compartidos",
+      "tipo": "ilustración",
+      "descripcion": "TI: Soporte en Acción con MongoDB, referencia de la arquitectura y la base de datos."
+    }
   ]
 }
