@@ -116,9 +116,13 @@ Una persona puede tener permisos de jugador y administrador. Para las pruebas co
 
 La API comprobará la identidad, el rol y la propiedad del recurso en cada solicitud. Ocultar un botón en Flutter o React no será suficiente. Un jugador no podrá obtener los resultados de otra cuenta cambiando su identificador. Las contraseñas se almacenarán mediante un hash adecuado y las credenciales se excluirán del repositorio.
 
+![Seis roles en acción para soporte TI](<../imagenes/Seis roles en acción para soporte TI.png>)
+
 ## Arquitectura y datos compartidos
 
 Propongo una API REST con Node.js y Express y una base de datos MongoDB, como una alternativa de implementación para los servicios compartidos. Unity, Flutter y React se comunicarán con la API mediante HTTPS; la base de datos será accesible únicamente desde el servidor. La elección del alojamiento quedará para la etapa de despliegue.
+
+![TI: Soporte en acción con MongoDB](<../imagenes/TI_ Soporte en acción con MongoDB.png>)
 
 | Componente | Responsabilidad |
 | --- | --- |

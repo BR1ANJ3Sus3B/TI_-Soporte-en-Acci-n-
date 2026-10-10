@@ -10,7 +10,7 @@ El contenido completo del proyecto (objetivos, roles, arquitectura, requerimient
 - [Cobertura documental](proyecto/COBERTURA_DOCUMENTAL.md)
 - [Inventario de imágenes](inventario-imagenes.json)
 
-Las 21 imágenes del proyecto están en [`docs/imagenes/`](imagenes/).
+Las imágenes del proyecto están en [`docs/imagenes/`](imagenes/).
 
 ## Organización
 
