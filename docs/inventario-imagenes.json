@@ -1,0 +1,158 @@
+{
+  "proyecto": "TI: Soporte en Acción",
+  "descripcion": "Inventario de las 21 imágenes incluidas en docs/imagenes/. Cada archivo corresponde, en orden, a una sección del documento del proyecto (docs/proyecto/README.md).",
+  "nota": "Las ilustraciones de sprites, storyboards y bocetos son material conceptual; no son recursos jugables listos para importar sin revisión. Las hojas de sprite conservan rótulos de Godot de una versión anterior; el motor definido para el proyecto es Unity.",
+  "total": 21,
+  "total_moviles": 21,
+  "imagenes": [
+    {
+      "archivo": "01-publico-objetivo.png",
+      "seccion": "Público objetivo",
+      "tipo": "ilustración",
+      "descripcion": "Referencia visual del público objetivo (imagen 1 de 2)."
+    },
+    {
+      "archivo": "02-publico-objetivo.png",
+      "seccion": "Público objetivo",
+      "tipo": "ilustración",
+      "descripcion": "Referencia visual del público objetivo (imagen 2 de 2)."
+    },
+    {
+      "archivo": "03-hoja-de-sprite-de-alex.png",
+      "seccion": "Personaje principal (Alex)",
+      "tipo": "hoja de sprite",
+      "descripcion": "Hoja de sprite de Alex, personaje principal."
+    },
+    {
+      "archivo": "04-hoja-de-sprite-del-saboteador.png",
+      "seccion": "Enemigo principal (Saboteador)",
+      "tipo": "hoja de sprite",
+      "descripcion": "Hoja de sprite del Saboteador, antagonista principal."
+    },
+    {
+      "archivo": "05-hoja-de-sprite-de-martin.png",
+      "seccion": "Personajes secundarios (Martín)",
+      "tipo": "hoja de sprite",
+      "descripcion": "Hoja de sprite de Martín, jefe del Departamento de TI."
+    },
+    {
+      "archivo": "06-hoja-de-sprite-de-richar.jpeg",
+      "seccion": "Personajes secundarios (Richar)",
+      "tipo": "hoja de sprite",
+      "descripcion": "Hoja de sprite de Richar, especialista en redes."
+    },
+    {
+      "archivo": "07-hoja-de-sprite-de-sofia.jpeg",
+      "seccion": "Personajes secundarios (Sofía)",
+      "tipo": "hoja de sprite",
+      "descripcion": "Hoja de sprite de Sofía, empleada de Contabilidad."
+    },
+    {
+      "archivo": "08-hoja-de-sprite-de-marco.jpeg",
+      "seccion": "Personajes secundarios (Marco)",
+      "tipo": "hoja de sprite",
+      "descripcion": "Hoja de sprite de Marco, desarrollador de software."
+    },
+    {
+      "archivo": "09-primer-nivel.png",
+      "seccion": "Storyboard (Primer nivel)",
+      "tipo": "storyboard",
+      "descripcion": "Storyboard del primer nivel, El Primer Día."
+    },
+    {
+      "archivo": "10-segundo-nivel.jpeg",
+      "seccion": "Storyboard (Segundo nivel)",
+      "tipo": "storyboard",
+      "descripcion": "Referencia visual del taller de hardware del segundo nivel."
+    },
+    {
+      "archivo": "11-tercer-nivel.png",
+      "seccion": "Storyboard (Tercer nivel)",
+      "tipo": "storyboard",
+      "descripcion": "Referencia visual del tercer nivel."
+    },
+    {
+      "archivo": "12-canvas.png",
+      "seccion": "Canvas",
+      "tipo": "canvas",
+      "descripcion": "Canvas con la propuesta de valor del proyecto."
+    },
+    {
+      "archivo": "13-pantalla-1-inicio-de-sesion.png",
+      "seccion": "Bocetos de la PWA - Pantalla 1",
+      "tipo": "boceto",
+      "descripcion": "Inicio de sesión."
+    },
+    {
+      "archivo": "14-pantalla-2-registro.png",
+      "seccion": "Bocetos de la PWA - Pantalla 2",
+      "tipo": "boceto",
+      "descripcion": "Registro."
+    },
+    {
+      "archivo": "15-pantalla-3-inicio.png",
+      "seccion": "Bocetos de la PWA - Pantalla 3",
+      "tipo": "boceto",
+      "descripcion": "Inicio (panel del jugador)."
+    },
+    {
+      "archivo": "16-pantalla-4-misiones.png",
+      "seccion": "Bocetos de la PWA - Pantalla 4",
+      "tipo": "boceto",
+      "descripcion": "Misiones."
+    },
+    {
+      "archivo": "17-pantalla-5-detalle-de-mision.png",
+      "seccion": "Bocetos de la PWA - Pantalla 5",
+      "tipo": "boceto",
+      "descripcion": "Detalle de misión."
+    },
+    {
+      "archivo": "18-pantalla-6-guias.png",
+      "seccion": "Bocetos de la PWA - Pantalla 6",
+      "tipo": "boceto",
+      "descripcion": "Guías."
+    },
+    {
+      "archivo": "19-pantalla-7-lectura-de-guia.png",
+      "seccion": "Bocetos de la PWA - Pantalla 7",
+      "tipo": "boceto",
+      "descripcion": "Lectura de guía."
+    },
+    {
+      "archivo": "20-pantalla-8-progreso.png",
+      "seccion": "Bocetos de la PWA - Pantalla 8",
+      "tipo": "boceto",
+      "descripcion": "Progreso."
+    },
+    {
+      "archivo": "21-pantalla-9-perfil.png",
+      "seccion": "Bocetos de la PWA - Pantalla 9",
+      "tipo": "boceto",
+      "descripcion": "Perfil."
+    }
+  ],
+  "imagenes_moviles": [
+    { "archivo": "movil1.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 1", "tipo": "boceto", "descripcion": "Pantalla móvil 1 (título por orden)." },
+    { "archivo": "movil2.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 2", "tipo": "boceto", "descripcion": "Pantalla móvil 2 (título por orden)." },
+    { "archivo": "movil3.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 3", "tipo": "boceto", "descripcion": "Pantalla móvil 3 (título por orden)." },
+    { "archivo": "movil4.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 4", "tipo": "boceto", "descripcion": "Pantalla móvil 4 (título por orden)." },
+    { "archivo": "movil5.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 5", "tipo": "boceto", "descripcion": "Pantalla móvil 5 (título por orden)." },
+    { "archivo": "6.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 6", "tipo": "boceto", "descripcion": "Pantalla móvil 6 (archivo entregado como 6.png)." },
+    { "archivo": "movil7.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 7", "tipo": "boceto", "descripcion": "Pantalla móvil 7 (título por orden)." },
+    { "archivo": "movil8.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 8", "tipo": "boceto", "descripcion": "Pantalla móvil 8 (título por orden)." },
+    { "archivo": "movil9.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 9", "tipo": "boceto", "descripcion": "Pantalla móvil 9 (título por orden)." },
+    { "archivo": "movil10.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 10", "tipo": "boceto", "descripcion": "Pantalla móvil 10 (título por orden)." },
+    { "archivo": "movil11.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 11", "tipo": "boceto", "descripcion": "Pantalla móvil 11 (título por orden)." },
+    { "archivo": "movil12.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 12", "tipo": "boceto", "descripcion": "Pantalla móvil 12 (título por orden)." },
+    { "archivo": "movil13.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 13", "tipo": "boceto", "descripcion": "Pantalla móvil 13 (título por orden)." },
+    { "archivo": "movil14.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 14", "tipo": "boceto", "descripcion": "Pantalla móvil 14 (título por orden)." },
+    { "archivo": "movil15.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 15", "tipo": "boceto", "descripcion": "Pantalla móvil 15 (título por orden)." },
+    { "archivo": "movil16.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 16", "tipo": "boceto", "descripcion": "Pantalla móvil 16 (título por orden)." },
+    { "archivo": "movil17.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 17", "tipo": "boceto", "descripcion": "Pantalla móvil 17 (título por orden)." },
+    { "archivo": "movil18.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 18", "tipo": "boceto", "descripcion": "Pantalla móvil 18 (título por orden)." },
+    { "archivo": "movil19.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 19", "tipo": "boceto", "descripcion": "Pantalla móvil 19 (título por orden)." },
+    { "archivo": "movil20.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 20", "tipo": "boceto", "descripcion": "Pantalla móvil 20 (título por orden)." },
+    { "archivo": "movil21.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 21", "tipo": "boceto", "descripcion": "Pantalla móvil 21 (título por orden)." }
+  ]
+}
