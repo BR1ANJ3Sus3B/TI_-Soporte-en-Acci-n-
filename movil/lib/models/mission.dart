@@ -66,17 +66,17 @@ class Mission {
 
   /// Etiqueta legible de la dificultad.
   String get difficultyLabel => switch (difficulty) {
-        1 => 'Fácil',
-        2 => 'Media',
-        _ => 'Difícil',
-      };
+    1 => 'Fácil',
+    2 => 'Media',
+    _ => 'Difícil',
+  };
 
   /// Color asociado a la dificultad para usar en chips e indicadores.
   Color get difficultyColor => switch (difficulty) {
-        1 => const Color(0xFF22C55E),
-        2 => const Color(0xFFF59E0B),
-        _ => const Color(0xFFEF4444),
-      };
+    1 => const Color(0xFF22C55E),
+    2 => const Color(0xFFF59E0B),
+    _ => const Color(0xFFEF4444),
+  };
 
   /// Indica si la misión ya fue completada.
   bool get isCompleted => status == MissionStatus.completed;

@@ -16,9 +16,9 @@ class HomeScreen extends StatelessWidget {
   static const String routeName = '/home';
 
   Mission get _currentMission => MockData.missions.firstWhere(
-        (Mission m) => m.status == MissionStatus.inProgress,
-        orElse: () => MockData.missions.first,
-      );
+    (Mission m) => m.status == MissionStatus.inProgress,
+    orElse: () => MockData.missions.first,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +27,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: AppColors.backgroundGradient,
-        ),
+        decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
         child: SafeArea(
           child: CustomScrollView(
             slivers: <Widget>[
@@ -99,12 +97,12 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(height: 12),
                       MissionCard(
                         mission: mission,
-                        showStartButton: mission.status != MissionStatus.completed,
+                        showStartButton:
+                            mission.status != MissionStatus.completed,
                         onTap: () {
-                          Navigator.of(context).pushNamed(
-                            '/mission-detail',
-                            arguments: mission.id,
-                          );
+                          Navigator.of(
+                            context,
+                          ).pushNamed('/mission-detail', arguments: mission.id);
                         },
                       ),
                     ],
@@ -132,10 +130,7 @@ class HomeScreen extends StatelessWidget {
                           gradient: const LinearGradient(
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
-                            colors: <Color>[
-                              AppColors.card,
-                              Color(0xFF182235),
-                            ],
+                            colors: <Color>[AppColors.card, Color(0xFF182235)],
                           ),
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(color: AppColors.border),
@@ -196,10 +191,7 @@ class _ActivityItem extends StatelessWidget {
         const SizedBox(width: 12),
         Text(
           text,
-          style: const TextStyle(
-            color: AppColors.textPrimary,
-            fontSize: 14,
-          ),
+          style: const TextStyle(color: AppColors.textPrimary, fontSize: 14),
         ),
       ],
     );

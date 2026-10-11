@@ -21,9 +21,7 @@ class ProfileScreen extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: AppColors.backgroundGradient,
-        ),
+        decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
         child: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(20),
@@ -45,10 +43,7 @@ class ProfileScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[
-                        AppColors.card,
-                        Color(0xFF182235),
-                      ],
+                      colors: <Color>[AppColors.card, Color(0xFF182235)],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),
@@ -134,7 +129,8 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     StatCard(
                       title: 'Soporte',
-                      value: profile.skills['Soporte Técnico']?.toString() ?? '0',
+                      value:
+                          profile.skills['Soporte Técnico']?.toString() ?? '0',
                       icon: Icons.build_rounded,
                       color: AppColors.success,
                     ),
@@ -152,7 +148,8 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     StatCard(
                       title: 'Bases de datos',
-                      value: profile.skills['Bases de Datos']?.toString() ?? '0',
+                      value:
+                          profile.skills['Bases de Datos']?.toString() ?? '0',
                       icon: Icons.storage_rounded,
                       color: AppColors.primary,
                     ),

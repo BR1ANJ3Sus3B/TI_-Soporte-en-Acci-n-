@@ -16,9 +16,7 @@ class SettingsScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: AppColors.backgroundGradient,
-        ),
+        decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
         child: SafeArea(
           child: ListView(
             padding: const EdgeInsets.all(20),
@@ -27,34 +25,22 @@ class SettingsScreen extends StatelessWidget {
               _SettingsTile(
                 icon: Icons.volume_up_rounded,
                 title: 'Sonido',
-                trailing: const Switch.adaptive(
-                  value: true,
-                  onChanged: null,
-                ),
+                trailing: const Switch.adaptive(value: true, onChanged: null),
               ),
               _SettingsTile(
                 icon: Icons.music_note_rounded,
                 title: 'Música',
-                trailing: const Switch.adaptive(
-                  value: true,
-                  onChanged: null,
-                ),
+                trailing: const Switch.adaptive(value: true, onChanged: null),
               ),
               _SettingsTile(
                 icon: Icons.vibration_rounded,
                 title: 'Vibración',
-                trailing: const Switch.adaptive(
-                  value: false,
-                  onChanged: null,
-                ),
+                trailing: const Switch.adaptive(value: false, onChanged: null),
               ),
               _SettingsTile(
                 icon: Icons.notifications_rounded,
                 title: 'Notificaciones',
-                trailing: const Switch.adaptive(
-                  value: true,
-                  onChanged: null,
-                ),
+                trailing: const Switch.adaptive(value: true, onChanged: null),
               ),
               _SettingsTile(
                 icon: Icons.language_rounded,
@@ -147,10 +133,7 @@ class _SettingsTile extends StatelessWidget {
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: <Color>[
-            AppColors.card,
-            Color(0xFF182235),
-          ],
+          colors: <Color>[AppColors.card, Color(0xFF182235)],
         ),
         borderRadius: BorderRadius.circular(14),
         border: Border.all(color: AppColors.border),

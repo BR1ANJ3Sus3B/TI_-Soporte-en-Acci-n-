@@ -4,10 +4,7 @@ import 'package:ti_soporte_accion/theme/app_colors.dart';
 
 /// Tarjeta reutilizable para mostrar un personaje importante de la historia.
 class CharacterCard extends StatelessWidget {
-  const CharacterCard({
-    super.key,
-    required this.character,
-  });
+  const CharacterCard({super.key, required this.character});
 
   /// Personaje a mostrar.
   final GameCharacter character;
@@ -42,10 +39,7 @@ class CharacterCard extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: <Color>[
-            AppColors.card,
-            const Color(0xFF182235),
-          ],
+          colors: <Color>[AppColors.card, const Color(0xFF182235)],
         ),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: color.withValues(alpha: 0.6)),

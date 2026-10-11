@@ -4,11 +4,7 @@ import 'package:ti_soporte_accion/theme/app_colors.dart';
 
 /// Chip reutilizable para mostrar el estado de una misión.
 class StatusChip extends StatelessWidget {
-  const StatusChip({
-    super.key,
-    required this.status,
-    required this.text,
-  });
+  const StatusChip({super.key, required this.status, required this.text});
 
   /// Estado de la misión.
   final MissionStatus status;
@@ -68,11 +64,7 @@ class StatusChip extends StatelessWidget {
 
 /// Chip reutilizable para mostrar la dificultad de una misión.
 class DifficultyChip extends StatelessWidget {
-  const DifficultyChip({
-    super.key,
-    required this.label,
-    required this.color,
-  });
+  const DifficultyChip({super.key, required this.label, required this.color});
 
   /// Etiqueta de dificultad (Fácil, Media, Difícil).
   final String label;

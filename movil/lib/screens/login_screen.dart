@@ -14,9 +14,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: AppColors.backgroundGradient,
-        ),
+        decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(24),
@@ -50,10 +48,7 @@ class LoginScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[
-                        AppColors.card,
-                        Color(0xFF182235),
-                      ],
+                      colors: <Color>[AppColors.card, Color(0xFF182235)],
                     ),
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(color: AppColors.border),

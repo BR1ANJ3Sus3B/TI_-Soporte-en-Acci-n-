@@ -18,9 +18,7 @@ class MissionsScreen extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: AppColors.backgroundGradient,
-        ),
+        decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(20),
@@ -52,10 +50,9 @@ class MissionsScreen extends StatelessWidget {
                       return MissionCard(
                         mission: mission,
                         onTap: () {
-                          Navigator.of(context).pushNamed(
-                            '/mission-detail',
-                            arguments: mission.id,
-                          );
+                          Navigator.of(
+                            context,
+                          ).pushNamed('/mission-detail', arguments: mission.id);
                         },
                       );
                     },

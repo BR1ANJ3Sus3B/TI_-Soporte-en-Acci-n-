@@ -44,11 +44,7 @@ class AppColors {
   static const LinearGradient backgroundGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
-    colors: <Color>[
-      Color(0xFF0B1120),
-      Color(0xFF0F172A),
-      Color(0xFF0B1120),
-    ],
+    colors: <Color>[Color(0xFF0B1120), Color(0xFF0F172A), Color(0xFF0B1120)],
   );
 
   /// Gradiente usado en barras de experiencia y botones principales.
