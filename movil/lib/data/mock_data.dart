@@ -226,21 +226,15 @@ class MockData {
       description: 'Personaje de apoyo dentro de la empresa.',
       type: CharacterRole.support,
     ),
-    GameCharacter(
-      name: 'Elena',
-      role: 'Colaboradora de la Organización',
-      description: 'Actúa como contacto entre áreas.',
-      type: CharacterRole.organization,
-    ),
-    GameCharacter(
-      name: 'Saboteador',
-      role: 'Agente Interno',
-      description:
-          'Provoca incidentes intencionalmente para dificultar el trabajo.',
-      type: CharacterRole.antagonist,
-    ),
-  ];
-}
+      GameCharacter(
+        name: 'Saboteador',
+        role: 'Agente Interno',
+        description:
+            'Provoca incidentes intencionalmente para dificultar el trabajo.',
+        type: CharacterRole.antagonist,
+      ),
+    ];
+  }
 
 /// Área de la empresa representada en el mapa.
 class MapArea {
