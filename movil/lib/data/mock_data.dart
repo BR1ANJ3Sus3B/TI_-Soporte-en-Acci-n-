@@ -22,13 +22,12 @@ class MockData {
     skills: <String, int>{
       'Soporte Técnico': 4,
       'Redes': 2,
-      'Programación': 3,
-      'Bases de Datos': 2,
-      'Ciberseguridad': 1,
-    },
-    missionsCompleted: 5,
-    incidentsResolved: 8,
-  );
+        'Programación': 3,
+        'Bases de Datos': 2,
+      },
+      missionsCompleted: 5,
+      incidentsResolved: 8,
+    );
 
   /// Lista de misiones simuladas.
   static const List<Mission> missions = <Mission>[
@@ -119,12 +118,6 @@ class MockData {
       level: player.skills['Bases de Datos'] ?? 0,
       icon: Icons.storage_rounded,
       color: const Color(0xFF7C3AED),
-    ),
-    Skill(
-      name: 'Ciberseguridad',
-      level: player.skills['Ciberseguridad'] ?? 0,
-      icon: Icons.shield_rounded,
-      color: const Color(0xFFEF4444),
     ),
   ];
 
