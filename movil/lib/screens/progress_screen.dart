@@ -22,9 +22,7 @@ class ProgressScreen extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: AppColors.backgroundGradient,
-        ),
+        decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
         child: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(20),
@@ -54,10 +52,7 @@ class ProgressScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[
-                        AppColors.card,
-                        Color(0xFF182235),
-                      ],
+                      colors: <Color>[AppColors.card, Color(0xFF182235)],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),
@@ -109,10 +104,7 @@ class ProgressScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[
-                        AppColors.card,
-                        Color(0xFF182235),
-                      ],
+                      colors: <Color>[AppColors.card, Color(0xFF182235)],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),
@@ -129,7 +121,11 @@ class ProgressScreen extends StatelessWidget {
                               children: <Widget>[
                                 Row(
                                   children: <Widget>[
-                                    Icon(skill.icon, color: skill.color, size: 18),
+                                    Icon(
+                                      skill.icon,
+                                      color: skill.color,
+                                      size: 18,
+                                    ),
                                     const SizedBox(width: 10),
                                     Text(
                                       skill.name,
@@ -158,9 +154,7 @@ class ProgressScreen extends StatelessWidget {
                                 child: FractionallySizedBox(
                                   alignment: Alignment.centerLeft,
                                   widthFactor: skill.progress,
-                                  child: Container(
-                                    color: skill.color,
-                                  ),
+                                  child: Container(color: skill.color),
                                 ),
                               ),
                             ),
@@ -186,56 +180,62 @@ class ProgressScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[
-                        AppColors.card,
-                        Color(0xFF182235),
-                      ],
+                      colors: <Color>[AppColors.card, Color(0xFF182235)],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),
                   ),
                   child: Column(
                     children: achievements.map((Achievement a) {
-                      final color = a.unlocked ? AppColors.success : AppColors.textSecondary;
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Icon(a.icon, color: color, size: 22),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text(
-                                    a.title,
-                                    style: TextStyle(
-                                      color: a.unlocked
-                                          ? AppColors.textPrimary
-                                          : AppColors.textSecondary,
-                                      fontWeight: FontWeight.w700,
+                      final color = a.unlocked
+                          ? AppColors.success
+                          : AppColors.textSecondary;
+                      return InkWell(
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed('/achievement-detail', arguments: a);
+                        },
+                        borderRadius: BorderRadius.circular(12),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Icon(a.icon, color: color, size: 22),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      a.title,
+                                      style: TextStyle(
+                                        color: a.unlocked
+                                            ? AppColors.textPrimary
+                                            : AppColors.textSecondary,
+                                        fontWeight: FontWeight.w700,
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 4),
-                                  Text(
-                                    a.description,
-                                    style: const TextStyle(
-                                      color: AppColors.textSecondary,
-                                      fontSize: 13,
-                                      height: 1.5,
+                                    const SizedBox(height: 4),
+                                    Text(
+                                      a.description,
+                                      style: const TextStyle(
+                                        color: AppColors.textSecondary,
+                                        fontSize: 13,
+                                        height: 1.5,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                            if (a.unlocked)
-                              const Icon(
-                                Icons.verified_rounded,
-                                color: AppColors.success,
-                                size: 18,
-                              ),
-                          ],
+                              if (a.unlocked)
+                                const Icon(
+                                  Icons.verified_rounded,
+                                  color: AppColors.success,
+                                  size: 18,
+                                ),
+                            ],
+                          ),
                         ),
                       );
                     }).toList(),

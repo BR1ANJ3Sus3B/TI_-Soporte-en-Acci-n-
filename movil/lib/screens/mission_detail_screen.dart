@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/data/mock_data.dart';
+import 'package:ti_soporte_accion/models/achievement.dart';
 import 'package:ti_soporte_accion/models/mission.dart';
+import 'package:ti_soporte_accion/services/achievement_notification_service.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
 import 'package:ti_soporte_accion/widgets/chips.dart';
 
@@ -24,9 +26,7 @@ class MissionDetailScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: AppColors.backgroundGradient,
-        ),
+        decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
         child: SafeArea(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(20),
@@ -60,8 +60,8 @@ class MissionDetailScreen extends StatelessWidget {
                       text: mission.isCompleted
                           ? 'Completada'
                           : (mission.status == MissionStatus.inProgress
-                              ? 'En curso'
-                              : 'Disponible'),
+                                ? 'En curso'
+                                : 'Disponible'),
                     ),
                     DifficultyChip(
                       label: mission.difficultyLabel,
@@ -139,10 +139,7 @@ class MissionDetailScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[
-                        AppColors.card,
-                        Color(0xFF182235),
-                      ],
+                      colors: <Color>[AppColors.card, Color(0xFF182235)],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),
@@ -192,6 +189,14 @@ class MissionDetailScreen extends StatelessWidget {
                   width: double.infinity,
                   child: FilledButton(
                     onPressed: () {
+                      final Achievement achievement = MockData.achievements
+                          .firstWhere(
+                            (Achievement a) => a.category == mission.area,
+                            orElse: () => MockData.achievements.first,
+                          );
+                      AchievementNotificationService.instance.notifyUnlock(
+                        achievement,
+                      );
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text(

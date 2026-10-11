@@ -35,10 +35,7 @@ class MissionCard extends StatelessWidget {
             gradient: const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: <Color>[
-                AppColors.card,
-                Color(0xFF182235),
-              ],
+              colors: <Color>[AppColors.card, Color(0xFF182235)],
             ),
             borderRadius: BorderRadius.circular(16),
             border: Border.all(color: AppColors.border),
@@ -71,8 +68,8 @@ class MissionCard extends StatelessWidget {
                     text: mission.isCompleted
                         ? 'Completada'
                         : (mission.status == MissionStatus.inProgress
-                            ? 'En curso'
-                            : 'Disponible'),
+                              ? 'En curso'
+                              : 'Disponible'),
                   ),
                 ],
               ),
