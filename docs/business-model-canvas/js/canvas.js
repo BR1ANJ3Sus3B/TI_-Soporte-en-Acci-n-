@@ -1,920 +1,1350 @@
-/* ==========================================================================
-   TI: Soporte en Acción — Business Model Canvas Interactivo
-   Práctica 04 · js/canvas.js
-   Canvas de 9 componentes con modales, tooltips, conexiones y animaciones.
-   Sin dependencias externas: HTML5 + CSS3 + JavaScript.
-   ========================================================================== */
-"use strict";
+(function () {
+  "use strict";
 
-/* ------------------------------------------------------------------ *
- *  DATOS DEL CANVAS — 9 componentes
- * ------------------------------------------------------------------ */
-const CANVAS_DATA = [
-  {
-    id: "segmentos",
-    index: "01",
-    area: "segments",
-    title: "Segmentos de clientes / usuarios",
-    short: "Jóvenes y estudiantes que quieren acercarse a las TI jugando.",
-    icon: { type: "img", src: "./img/estudiante.png", alt: "Estudiante, usuario objetivo del videojuego" },
-    chips: [
-      { text: "Jóvenes de 15 a 30 años", tip: "Público principal interesado en videojuegos, tecnología y retos." },
-      { text: "Estudiantes de TI e informática", tip: "Estudiantes que desean practicar soporte, redes, hardware y programación." },
-      { text: "Instituciones educativas", tip: "Escuelas, universidades y centros de capacitación interesados en el material." },
-      { text: "Sin conocimientos técnicos previos", tip: "No se requieren conocimientos avanzados para comenzar a jugar." },
-      { text: "Roles: Jugador y Administrador", tip: "El rol Docente o evaluador se contempla como ampliación opcional." }
-    ],
-    person: { img: "./img/estudiante.png", label: "Persona: jugador / estudiante" },
-    detail: {
-      desc: "TI: Soporte en Acción está dirigido a jóvenes interesados en los videojuegos, la tecnología y la resolución de problemas, que desean acercarse al mundo de las Tecnologías de la Información sin requerir conocimientos técnicos avanzados.",
-      metrics: [
-        { value: "15–30 años", label: "Rango de edad" },
-        { value: "Sin requisitos", label: "Conocimientos previos" },
-        { value: "3", label: "Aplicaciones integradas" }
-      ],
-      sections: [
-        {
-          heading: "Perfil del público objetivo",
-          list: [
-            "Edad: jóvenes de entre 15 y 30 años.",
-            "Intereses: videojuegos, tecnología y resolución de problemas.",
-            "Perfil: principalmente estudiantes y personas que desean conocer más sobre las TI.",
-            "Conocimientos previos: no se requieren conocimientos técnicos avanzados.",
-            "Áreas relacionadas: soporte técnico, programación, redes, bases de datos y ciberseguridad."
-          ]
-        },
-        {
-          heading: "Roles del sistema",
-          list: [
-            "Jugador: juega en Unity; consulta misiones, guías y su progreso; edita datos básicos de su perfil.",
-            "Administrador: gestiona misiones, guías y cuentas; publica contenido desde la PWA.",
-            "Docente o evaluador (ampliación opcional): consulta el progreso de grupos autorizados."
-          ]
-        },
-        {
-          heading: "Público adicional",
-          list: [
-            "Escuelas, universidades y centros de capacitación que busquen material de apoyo para clases de informática y soporte técnico."
-          ]
-        }
-      ],
-      gallery: [
-        { img: "./img/estudiante.png", caption: "Estudiante / jugador" },
-        { img: "./img/elena.png", caption: "Docente / evaluadora" }
-      ],
-      tags: ["15–30 años", "Estudiantes", "Jugador", "Administrador", "Docente (futuro)"]
-    }
-  },
-  {
-    id: "propuesta-valor",
-    index: "02",
-    area: "value",
-    title: "Propuesta de valor",
-    short: "Videojuego educativo 2D pixel art que enseña TI resolviendo casos reales.",
-    icon: { type: "img", src: "./img/propuesta-valor.png", alt: "Icono de propuesta de valor" },
-    chips: [
-      { text: "Videojuego educativo 2D pixel art", tip: "Combina entretenimiento y aprendizaje en una experiencia interactiva." },
-      { text: "Aprender TI resolviendo casos reales", tip: "Soporte, redes, hardware, programación, bases de datos y ciberseguridad." },
-      { text: "Historia con Alex y el Saboteador", tip: "Aventura y simulación ambientada en NovaTech Solutions." },
-      { text: "Ecosistema Unity + Flutter + PWA", tip: "El progreso se comparte entre el videojuego, la app móvil y la web." },
-      { text: "Premium, sin publicidad", tip: "Compra única; sin microtransacciones obligatorias." }
-    ],
-    person: { img: "./img/alex.png", label: "Protagonista: Alex" },
-    detail: {
-      desc: "Un videojuego de aventura y simulación que combina el entretenimiento y el aprendizaje: cada problema representa una nueva misión y cada solución permite adquirir experiencia y avanzar en la historia.",
-      metrics: [
-        { value: "2D pixel art", label: "Estilo visual" },
-        { value: "3 productos", label: "Experiencia integrada" },
-        { value: "0", label: "Publicidad y microtransacciones" }
-      ],
-      sections: [
-        {
-          heading: "Qué ofrece",
-          list: [
-            "Aprender soporte técnico, redes, hardware, programación, bases de datos y ciberseguridad jugando.",
-            "Historia de aventura y simulación con Alex y el Saboteador en NovaTech Solutions.",
-            "Retos y minijuegos que desarrollan observación, análisis y toma de decisiones.",
-            "Ecosistema integrado: videojuego en Unity, app móvil en Flutter y PWA en React.",
-            "Modelo Premium sin publicidad ni pagos obligatorios durante la partida."
-          ]
-        },
-        {
-          heading: "Valor diferencial",
-          list: [
-            "Cada misión resuelta otorga experiencia y desbloquea nuevos desafíos.",
-            "Progresión con niveles de dificultad creciente.",
-            "No requiere conocimientos técnicos avanzados para comenzar."
-          ]
-        },
-        {
-          heading: "Ciclo de juego",
-          list: [
-            "Recibir un reporte → investigar el problema → analizar la situación → encontrar la solución → obtener experiencia → avanzar al siguiente desafío."
-          ]
-        }
-      ],
-      gallery: [
-        { img: "./img/alex.png", caption: "Alex, protagonista" },
-        { img: "./img/saboteador.png", caption: "El Saboteador, antagonista" }
-      ],
-      tags: ["Educativo", "2D pixel art", "Aventura", "Simulación", "Premium"]
-    }
-  },
-  {
-    id: "canales",
-    index: "03",
-    area: "channels",
-    title: "Canales",
-    short: "Cómo se distribuye y llega el producto a los usuarios.",
-    icon: { type: "img", src: "./img/canales.png", alt: "Icono de canales" },
-    chips: [
-      { text: "Tiendas digitales (PC)", tip: "Distribución principal del videojuego completo." },
-      { text: "App móvil Flutter (Android)", tip: "Aplicación complementaria de acompañamiento." },
-      { text: "PWA instalable (Chrome/Edge)", tip: "Panel del jugador y de administración desde el navegador." },
-      { text: "GitHub Pages", tip: "Publica el Canvas y la documentación del proyecto." },
-      { text: "Licencias institucionales", tip: "Convenios con escuelas y universidades." }
-    ],
-    person: { img: "./img/martin.png", label: "Canal interno: Departamento de TI" },
-    detail: {
-      desc: "Los canales son los puntos de contacto por los que el videojuego y sus aplicaciones complementarias llegan a los usuarios y a las instituciones.",
-      metrics: [
-        { value: "PC", label: "Plataforma inicial" },
-        { value: "Android", label: "Móvil (Flutter)" },
-        { value: "Chrome / Edge", label: "PWA (React)" }
-      ],
-      sections: [
-        {
-          heading: "Distribución del videojuego",
-          list: ["Tiendas digitales para PC, con demo gratuita de las primeras misiones."]
-        },
-        {
-          heading: "Aplicaciones complementarias",
-          list: [
-            "App móvil en Flutter, con Android como prioridad.",
-            "PWA en React instalable desde Chrome y Edge."
-          ]
-        },
-        {
-          heading: "Documentación y comunidad",
-          list: [
-            "GitHub Pages publica el Canvas interactivo y la documentación del proyecto.",
-            "Convenios y licencias educativas con escuelas y universidades."
-          ]
-        }
-      ],
-      gallery: [
-        { img: "./img/canales.png", caption: "Canal digital" },
-        { img: "./img/elena.png", caption: "Canal institucional" }
-      ],
-      tags: ["Tiendas digitales", "Flutter", "PWA", "GitHub Pages", "Instituciones"]
-    }
-  },
-  {
-    id: "relaciones",
-    index: "04",
-    area: "relationships",
-    title: "Relación con los usuarios",
-    short: "Acompañamiento, retroalimentación y comunidad alrededor del juego.",
-    icon: { type: "img", src: "./img/relaciones.png", alt: "Icono de relación con los usuarios" },
-    chips: [
-      { text: "Acompañamiento en móvil y PWA", tip: "Misiones, guías y progreso al alcance del jugador." },
-      { text: "Retroalimentación en el juego", tip: "El juego evalúa acciones y muestra aciertos y errores." },
-      { text: "Guías educativas", tip: "Apoyo sobre soporte, hardware y redes; guías públicas sin conexión." },
-      { text: "Cuenta única compartida", tip: "Un mismo perfil en Unity, Flutter y React." },
-      { text: "Actualizaciones y expansiones", tip: "Nuevas misiones del Saboteador y nuevas áreas." }
-    ],
-    person: { img: "./img/sofia.png", label: "Usuario: Sofía (primera misión)" },
-    detail: {
-      desc: "La relación con los usuarios se sostiene mediante el acompañamiento diario en la app móvil y la PWA, la retroalimentación dentro del videojuego y los materiales educativos.",
-      metrics: [
-        { value: "1 cuenta", label: "Compartida en 3 apps" },
-        { value: "+100 XP", label: "Recompensa nivel 1" },
-        { value: "Sin conexión", label: "Guías públicas (PWA)" }
-      ],
-      sections: [
-        {
-          heading: "Acompañamiento",
-          list: [
-            "La app móvil y la PWA muestran misiones, guías y progreso del jugador.",
-            "Una misma cuenta permite consultar el avance desde cualquier aplicación."
-          ]
-        },
-        {
-          heading: "Retroalimentación",
-          list: [
-            "El videojuego evalúa las acciones del jugador y muestra aciertos y errores.",
-            "Al completar misiones se otorgan experiencia (XP) y reputación."
-          ]
-        },
-        {
-          heading: "Soporte educativo y comunidad",
-          list: [
-            "Guías de soporte técnico, hardware y redes consultables.",
-            "Las guías públicas se abren sin conexión en la PWA.",
-            "Actualizaciones, expansiones y nuevas misiones del Saboteador."
-          ]
-        }
-      ],
-      gallery: [
-        { img: "./img/sofia.png", caption: "Sofía" },
-        { img: "./img/richar.png", caption: "Richar" }
-      ],
-      tags: ["Acompañamiento", "Retroalimentación", "Guías", "Cuenta única"]
-    }
-  },
-  {
-    id: "ingresos",
-    index: "05",
-    area: "revenue",
-    title: "Fuentes de ingresos / sostenibilidad",
-    short: "Modelo Premium de compra única y licencias educativas.",
-    icon: {
-      type: "svg",
-      markup:
-        '<svg viewBox="0 0 32 32" role="img" aria-hidden="true">' +
-        '<rect x="3" y="18" width="6" height="11" fill="#15803d"/>' +
-        '<rect x="12" y="12" width="6" height="17" fill="#22c55e"/>' +
-        '<rect x="21" y="5" width="6" height="24" fill="#4ade80"/>' +
-        '<path d="M4 13 L13 5 L20 9 L29 1" fill="none" stroke="#f59e0b" stroke-width="2"/>' +
-        "</svg>"
+  /* ============================================================
+     DATOS DEL CANVAS — TI: SOPORTE EN ACCIÓN
+     ============================================================ */
+
+  var HERO_BADGES = [
+    "Videojuego educativo",
+    "2D pixel art",
+    "Simulación de soporte TI",
+    "Misiones y puzzles",
+    "XP · niveles · logros",
+    "Entorno seguro",
+    "Problemas reales de TI",
+  ];
+
+  var FLOW_STEPS = [
+    { label: "Misión", tip: "El jugador recibe una misión contextualizada en el área de TI." },
+    { label: "Investigación", tip: "Busca y recopila pistas en el entorno del videojuego." },
+    { label: "Análisis", tip: "Revisa correos, reportes e indicadores relacionados con el incidente." },
+    { label: "Diagnóstico", tip: "Identifica la causa del problema y decide el siguiente paso." },
+    { label: "Solución", tip: "Realiza las acciones de soporte y verifica la resolución." },
+    { label: "Evaluación", tip: "Analiza el resultado de la intervención realizada.", gain: true },
+    { label: "Retroalimentación", tip: "Comentarios y guía sobre el desempeño del jugador.", gain: true },
+    { label: "XP", tip: "El jugador obtiene puntos de experiencia por la misión.", win: true },
+    { label: "Logro", tip: "Progresión en nivel, logros e insignias.", win: true },
+  ];
+
+  var CHARACTERS = [
+    {
+      id: "alex",
+      img: "./img/personajes/alex.png",
+      name: "Alex",
+      role: "Protagonista · Técnico junior",
+      desc: "Jugador controlable. Resuelve incidentes de soporte, redes, programación, servidores y ciberseguridad.",
     },
-    chips: [
-      { text: "Venta única Premium", tip: "Precio inicial tentativo: $99–$119 MXN." },
-      { text: "Licencias educativas", tip: "Instituciones que compran varias licencias para sus estudiantes." },
-      { text: "Expansiones / DLC opcionales", tip: "Contenido adicional de ciberseguridad, servidores, redes y hardware." },
-      { text: "Demo gratuita", tip: "Incluye las primeras misiones." },
-      { text: "MVP académico sin cobros", tip: "La primera entrega no implementa pagos ni licencias comerciales." }
-    ],
-    person: { img: "./img/marco.png", label: "Valor de desarrollo: Marco" },
-    detail: {
-      desc: "Se propone un modelo Premium de compra única: el jugador compra el videojuego una vez y accede a la historia, las misiones y los contenidos educativos sin publicidad ni pagos obligatorios.",
+    {
+      id: "martin",
+      img: "./img/personajes/martin.png",
+      name: "Martín",
+      role: "Mentor · Soporte senior",
+      desc: "Guía la formación de Alex y canaliza los casos del servicio de soporte de NovaTech Solutions.",
+    },
+    {
+      id: "richar",
+      img: "./img/personajes/richar.png",
+      name: "Richar",
+      role: "Redes y servidores",
+      desc: "Serio y concentrado, con humor sarcástico. Administra la infraestructura y los servidores.",
+    },
+    {
+      id: "marco",
+      img: "./img/personajes/marco.png",
+      name: "Marco",
+      role: "Desarrollo de software",
+      desc: "Actor secundario dentro del área de TI; apoyo en casos de soporte y programación.",
+    },
+    {
+      id: "sofia",
+      img: "./img/personajes/sofia.png",
+      name: "Sofía",
+      role: "Empleada de NovaTech Solutions",
+      desc: "Personaje secundario que aporta contexto y apoyo en el área de TI de la empresa.",
+    },
+    {
+      id: "saboteador",
+      img: "./img/personajes/saboteador.png",
+      name: "Saboteador",
+      role: "Antagonista · Misterioso",
+      desc: "Causa incidentes deliberadamente y es el motor del conflicto. Su identidad se desconoce.",
+      antagonist: true,
+    },
+  ];
+
+  var GALLERY = [
+    { src: "./img/galeria/alex-llegada.png", caption: "Alex llega a NovaTech Solutions" },
+    { src: "./img/galeria/sala-servidores.png", caption: "Sala de servidores" },
+    { src: "./img/galeria/oficina-soporte.png", caption: "Oficina de soporte" },
+    { src: "./img/galeria/alex-computadora.png", caption: "Puesto de trabajo de Alex" },
+    { src: "./img/galeria/alex-martin.png", caption: "Alex hablando con Martín" },
+    { src: "./img/galeria/richar-servidores.png", caption: "Richar en los servidores" },
+    { src: "./img/galeria/marco-programando.png", caption: "Marco programando" },
+    { src: "./img/galeria/sofia-novatech.png", caption: "Sofía en NovaTech Solutions" },
+    { src: "./img/galeria/problema-red.png", caption: "Problema de red detectado" },
+    { src: "./img/galeria/error-programacion.png", caption: "Error de programación" },
+    { src: "./img/galeria/mision-seguridad.png", caption: "Misión de ciberseguridad" },
+    { src: "./img/galeria/saboteador.png", caption: "Aparición del Saboteador" },
+    { src: "./img/galeria/logro-desbloqueado.png", caption: "Logro desbloqueado" },
+  ];
+
+  var VARIANT_CLASS = {
+    propuesta_valor: "",
+    ingresos: "is-green",
+    costos: "is-alt",
+  };
+
+  var COMPONENTS = [
+    {
+      id: "socios",
+      area: "socios",
+      index: "Componente 1 — Socios clave",
+      title: "Socios clave",
+      short: "Aliados académicos y tecnológicos que respaldan el proyecto.",
+      icon: "./img/socios/universidad.png",
+      cover: "./img/socios/equipo.png",
+      chips: [
+        { t: "Institución educativa", tip: "Avala el proyecto y el Proyecto Integrador." },
+        { t: "Docentes / asesores", tip: "Guían el desarrollo y evalúan el avance." },
+        { t: "Equipo Proyecto Integrador", tip: "Responsable del análisis, diseño y programación." },
+        { t: "GitHub + Unity/Flutter", tip: "Plataformas y ecosistemas de desarrollo." },
+        { t: "Tecnologías open source", tip: "Herramientas gratuitas y de código abierto." },
+      ],
+      tags: ["Universidad", "Docentes", "Proyecto Integrador", "GitHub", "Open source"],
+      gallery: [
+        "./img/socios/universidad.png",
+        "./img/socios/docente.png",
+        "./img/socios/equipo.png",
+        "./img/socios/github.png",
+        "./img/socios/open-source.png",
+      ],
       metrics: [
-        { value: "$99–$119 MXN", label: "Precio tentativo" },
-        { value: "Compra única", label: "Modelo Premium" },
-        { value: "Gratis", label: "Demo inicial" }
+        { v: "3", l: "tipos de socios" },
+        { v: "1", l: "institución educativa" },
+        { v: "Open source", l: "enfoque tecnológico" },
       ],
       sections: [
         {
-          heading: "Ingresos previstos",
-          list: [
-            "Venta única del videojuego completo (modelo Premium) en PC.",
-            "Versión educativa con licencias para escuelas, universidades y centros de capacitación.",
-            "Expansiones o DLC opcionales."
-          ]
+          h: "Institucional",
+          body: "La institución educativa y los docentes/asesores avalan el proyecto dentro del Proyecto Integrador, sin convenios comerciales.",
         },
         {
-          heading: "Contenido adicional",
-          list: [
-            "Ciberseguridad avanzada, administración de servidores y redes empresariales.",
-            "Reparación avanzada de hardware, nuevas misiones del Saboteador y nuevas áreas de NovaTech Solutions."
-          ]
+          h: "Equipo",
+          body: "Brian Jesús Mendoza Márquez es responsable del análisis, diseño y programación, apoyado por el equipo del Proyecto Integrador.",
         },
         {
-          heading: "Sostenibilidad académica",
+          h: "Tecnológico",
           list: [
-            "El MVP académico no implementará cobros, licencias comerciales ni pagos en las aplicaciones complementarias."
-          ]
-        }
+            "GitHub: control de versiones y publicación.",
+            "Ecosistema Unity: videojuego principal.",
+            "Ecosistema Flutter: aplicación móvil complementaria.",
+            "Tecnologías open source y planes educativos.",
+          ],
+        },
       ],
+      note: "No se contemplan tiendas digitales ni convenios comerciales inventados: los socios son académicos y tecnológicos.",
+    },
+    {
+      id: "actividades",
+      area: "actividades",
+      index: "Componente 2 — Actividades clave",
+      title: "Actividades clave",
+      short: "Desarrollo del videojuego, sus aplicaciones y su calidad.",
+      icon: "./img/actividades/mision.png",
+      cover: "./img/actividades/programacion.png",
+      chips: [
+        { t: "Gameplay (Unity/C#)", tip: "Desarrollo principal del videojuego." },
+        { t: "Apps móvil + PWA", tip: "Flutter y React/PWA." },
+        { t: "API y servicios", tip: "Lógica compartida del proyecto." },
+        { t: "Diseño de misiones", tip: "Misiones, niveles, diálogos y puzzles." },
+        { t: "Pruebas y docs", tip: "Calidad, documentación y mantenimiento." },
+      ],
+      tags: ["Gameplay", "Apps", "API", "Diseño", "Calidad"],
       gallery: [
-        { img: "./img/marco.png", caption: "Desarrollo" },
-        { img: "./img/costos.png", caption: "Costos" }
+        "./img/actividades/mision.png",
+        "./img/actividades/investigacion.png",
+        "./img/actividades/programacion.png",
+        "./img/actividades/redes.png",
+        "./img/actividades/servidor.png",
+        "./img/actividades/xp.png",
+        "./img/actividades/logro.png",
       ],
-      tags: ["Premium", "$99–$119 MXN", "Licencias", "DLC", "Demo gratis"]
-    }
-  },
-  {
-    id: "recursos",
-    index: "06",
-    area: "resources",
-    title: "Recursos clave",
-    short: "Tecnologías, contenido y personas que hacen posible el proyecto.",
-    icon: { type: "img", src: "./img/recursos.png", alt: "Icono de recursos clave" },
-    chips: [
-      { text: "Unity + assets pixel art", tip: "Motor y arte 2D del videojuego." },
-      { text: "Flutter y React / PWA", tip: "Aplicaciones complementarias." },
-      { text: "API REST + MongoDB + Keycloak", tip: "Servicios compartidos, datos y autenticación." },
-      { text: "Docker + Grafana", tip: "Despliegue y monitoreo." },
-      { text: "Git, GitHub y GitHub Pages", tip: "Control de versiones y publicación." }
-    ],
-    person: { img: "./img/richar.png", label: "Infraestructura: Richar" },
-    detail: {
-      desc: "Los recursos clave son los activos tecnológicos, de contenido y humanos necesarios para construir y mantener todo el ecosistema.",
       metrics: [
-        { value: "11", label: "Tecnologías base" },
-        { value: "1", label: "Responsable único" },
-        { value: "MongoDB", label: "Base de datos" }
+        { v: "Unity", l: "videojuego principal" },
+        { v: "Flutter", l: "app móvil" },
+        { v: "React/PWA", l: "panel web" },
       ],
       sections: [
         {
-          heading: "Tecnológicos",
-          list: [
-            "Unity y C# para el videojuego.",
-            "Flutter y Dart para la app móvil.",
-            "React y PWA para la aplicación web.",
-            "API REST (Node.js, Express y Mongoose como propuesta).",
-            "MongoDB como base de datos.",
-            "Keycloak para autenticación.",
-            "Docker y Grafana para despliegue y monitoreo.",
-            "Git, GitHub y GitHub Pages."
-          ]
+          h: "Desarrollo",
+          body: "Programación del videojuego en Unity (C#), aplicación móvil en Flutter, panel web responsivo en React/PWA y la API de servicios.",
         },
         {
-          heading: "De contenido",
-          list: [
-            "Assets pixel art, hojas de sprite y storyboards.",
-            "Diseño de misiones, niveles e historia."
-          ]
+          h: "Diseño",
+          body: "Diseño de personajes, escenarios, mapas, diálogos y puzzles para cada misión del soporte TI.",
         },
         {
-          heading: "Humanos",
-          list: ["Responsable único del proyecto: Brian Jesús Mendoza Márquez."]
-        }
+          h: "Calidad",
+          list: [
+            "Pruebas funcionales y de integración.",
+            "Monitoreo y mantenimiento de servicios.",
+            "Documentación técnica y manuales.",
+          ],
+        },
+        {
+          h: "Flujo de misión",
+          body: "El jugador aprende siguiendo un ciclo completo por misión:",
+          flow: true,
+        },
       ],
+    },
+    {
+      id: "recursos",
+      area: "recursos",
+      index: "Componente 3 — Recursos clave",
+      title: "Recursos clave",
+      short: "Tecnologías, activos del videojuego y equipo humano.",
+      icon: "./img/recursos/servidor.png",
+      cover: "./img/recursos/servidor.png",
+      chips: [
+        { t: "Unity · Flutter · React/PWA · API", tip: "Entornos y servicios principales." },
+        { t: "Keycloak · MongoDB", tip: "Autenticación y base de datos." },
+        { t: "Docker · Grafana", tip: "Infraestructura y monitoreo." },
+        { t: "Git · GitHub · Pages", tip: "Versionado y publicación." },
+        { t: "Sprites · mapas · sonidos", tip: "Assets propios del videojuego." },
+      ],
+      tags: ["Tecnologías", "Server", "Assets", "Equipo"],
       gallery: [
-        { img: "./img/recursos.png", caption: "Servidores y datos" },
-        { img: "./img/richar.png", caption: "Infraestructura de red" }
+        "./img/recursos/servidor.png",
+        "./img/recursos/base-datos.png",
+        "./img/recursos/mapa.png",
+        "./img/recursos/sprites.png",
+        "./img/recursos/equipo.png",
       ],
-      tags: ["Unity", "Flutter", "React/PWA", "API REST", "MongoDB", "Keycloak", "Docker", "Grafana", "Git"]
-    }
-  },
-  {
-    id: "actividades",
-    index: "07",
-    area: "activities",
-    title: "Actividades clave",
-    short: "Desarrollo, diseño, calidad y publicación del proyecto.",
-    icon: { type: "img", src: "./img/actividades.png", alt: "Icono de actividades clave" },
-    chips: [
-      { text: "Desarrollo del videojuego en Unity", tip: "Escenas, diálogos, movimiento y misiones." },
-      { text: "Desarrollo móvil y web", tip: "Pantallas en Flutter y PWA en React." },
-      { text: "Diseño de niveles e historia", tip: "Definir requisitos, alcance e historia." },
-      { text: "API, seguridad y datos", tip: "Implementar servicios, autorización y almacenamiento." },
-      { text: "Pruebas, documentación y publicación", tip: "Verificar, documentar y publicar en GitHub Pages." }
-    ],
-    person: { img: "./img/marco.png", label: "Desarrollo de software: Marco" },
-    detail: {
-      desc: "Estas son las actividades esenciales para crear, mantener y publicar el videojuego y sus aplicaciones complementarias.",
       metrics: [
-        { value: "6", label: "Etapas del plan" },
-        { value: "3", label: "Clientes a integrar" },
-        { value: "RF-01 a RF-21", label: "Alcance inicial" }
+        { v: "4", l: "entornos de juego" },
+        { v: "API", l: "servicios compartidos" },
+        { v: "Assets", l: "contenido propio" },
       ],
       sections: [
         {
-          heading: "Desarrollo",
+          h: "Tecnologías",
           list: [
-            "Programar escenas, interacciones, diálogos y retos en Unity.",
-            "Construir las pantallas de la app Flutter y de la PWA en React.",
-            "Implementar la API REST, la autorización y el almacenamiento en MongoDB."
-          ]
+            "Videojuego: Unity (C#).",
+            "App móvil: Flutter (Dart).",
+            "Panel web: React + PWA.",
+            "Servicios: API, Keycloak, MongoDB.",
+            "Infraestructura: Docker, Grafana.",
+            "Versionado: Git, GitHub, GitHub Pages.",
+          ],
         },
         {
-          heading: "Diseño",
-          list: [
-            "Definir requisitos, alcance, roles, historia, misiones y pantallas.",
-            "Diseñar niveles y minijuegos con dificultad creciente."
-          ]
+          h: "Recursos del videojuego",
+          body: "Sprites, personajes, mapas, animaciones, diálogos, misiones, puzzles, sonidos e interfaces en estilo 2D pixel art.",
         },
         {
-          heading: "Calidad y entrega",
-          list: [
-            "Probar el flujo completo de las tres aplicaciones.",
-            "Documentar y preparar evidencias y presentación.",
-            "Publicar la documentación en GitHub Pages."
-          ]
-        }
+          h: "Recursos humanos",
+          body: "Analista, diseñador, programador (Brian Jesús Mendoza Márquez), además de los docentes y el equipo del Proyecto Integrador.",
+        },
       ],
+    },
+    {
+      id: "propuesta-valor",
+      area: "propuesta",
+      index: "Componente 4 — Propuesta de valor",
+      title: "Propuesta de valor",
+      short:
+        "Aprender TI jugando: el jugador encarna a Alex y resuelve problemas reales de soporte en un entorno seguro y gamificado.",
+      icon: "./img/personajes/alex.png",
+      cover: "./img/propuesta/alex-propuesta-valor.png",
+      valueQuote:
+        "Aprender y practicar habilidades de Tecnologías de la Información mediante un videojuego educativo que simula problemas reales de soporte y servicio técnico en un entorno seguro y gamificado.",
+      chips: [
+        { t: "Aprendizaje práctico" },
+        { t: "Simulación" },
+        { t: "Gamificación" },
+        { t: "Entorno seguro" },
+        { t: "Problemas reales" },
+        { t: "Retroalimentación" },
+        { t: "XP" },
+        { t: "Niveles" },
+        { t: "Logros" },
+        { t: "Preparación profesional" },
+      ],
+      tags: ["Aprender jugando", "Simulación TI", "Sin riesgos"],
       gallery: [
-        { img: "./img/marco.png", caption: "Programación" },
-        { img: "./img/martin.png", caption: "Supervisión de TI" }
+        "./img/propuesta/alex-propuesta-valor.png",
+        "./img/galeria/alex-computadora.png",
+        "./img/galeria/problema-red.png",
       ],
-      tags: ["Unity", "Flutter", "React/PWA", "API", "Pruebas", "Documentación"]
-    }
-  },
-  {
-    id: "socios",
-    index: "08",
-    area: "partners",
-    title: "Socios clave",
-    short: "Aliados para distribución, infraestructura y educación.",
-    icon: { type: "img", src: "./img/socios.png", alt: "Icono de socios clave" },
-    chips: [
-      { text: "Instituciones educativas", tip: "Escuelas y universidades mediante convenios y licencias." },
-      { text: "Tiendas digitales", tip: "Distribución y venta del videojuego en PC." },
-      { text: "Alojamiento y nube", tip: "Infraestructura para la API, MongoDB y el monitoreo." },
-      { text: "Comunidad de jugadores", tip: "Retroalimentación sobre misiones y contenido." },
-      { text: "Herramientas de código abierto", tip: "Unity, Flutter, React, Keycloak, MongoDB, Docker, Grafana, Git y GitHub." }
-    ],
-    person: { img: "./img/martin.png", label: "NovaTech Solutions" },
-    detail: {
-      desc: "Los socios clave aportan distribución, infraestructura, respaldo educativo y tecnología para sostener el proyecto.",
       metrics: [
-        { value: "Instituciones", label: "Respaldo educativo" },
-        { value: "Nube", label: "Infraestructura" },
-        { value: "Open source", label: "Base tecnológica" }
+        { v: "9", l: "áreas de TI" },
+        { v: "XP + logros", l: "feedback continuo" },
+        { v: "Seguro", l: "entorno simulado" },
       ],
       sections: [
         {
-          heading: "Educación",
-          list: ["Instituciones educativas para licencias y convenios de uso en clase."]
+          h: "Propuesta",
+          body: "El jugador afronta incidentes inspirados en problemas reales de un servicio de soporte TI, obteniendo retroalimentación y progresión.",
         },
         {
-          heading: "Distribución",
-          list: ["Tiendas digitales para la venta del videojuego en PC."]
-        },
-        {
-          heading: "Infraestructura",
-          list: ["Proveedor de alojamiento y servicios en la nube para la API, MongoDB y el monitoreo con Grafana."]
-        },
-        {
-          heading: "Tecnología y comunidad",
+          h: "El jugador (Alex)",
           list: [
-            "Herramientas de código abierto: Unity, Flutter, React, Keycloak, MongoDB, Docker, Grafana, Git y GitHub.",
-            "Comunidad de jugadores y estudiantes que aporta retroalimentación."
-          ]
-        }
+            "Investigar, analizar y diagnosticar incidentes.",
+            "Hablar con personajes y buscar pistas.",
+            "Decidir el siguiente paso y aplicarlo.",
+            "Recibir retroalimentación y desbloquear XP, niveles, logros e insignias.",
+          ],
+        },
+        {
+          h: "Áreas que se practican",
+          body: "Soporte, redes, programación, bases de datos, servidores, infraestructura y ciberseguridad.",
+        },
       ],
+    },
+    {
+      id: "relacion",
+      area: "relacion",
+      index: "Componente 5 — Relación con el usuario",
+      title: "Relación con el usuario",
+      short: "El juego mantiene al estudiante motivado con progresión y logros.",
+      icon: "./img/relacion/logro-desbloqueado.png",
+      cover: "./img/relacion/logro-desbloqueado.png",
+      chips: [
+        { t: "Misiones y progreso", tip: "Avance por misiones completadas." },
+        { t: "XP · niveles · logros", tip: "Progresión del jugador." },
+        { t: "Insignias y estadísticas", tip: "Reconocimiento del desempeño." },
+        { t: "Notificaciones", tip: "Alertas de logros y eventos." },
+        { t: "Retroalimentación", tip: "Guia posterior a cada misión." },
+      ],
+      tags: ["Progreso", "XP", "Logros", "Feedback"],
       gallery: [
-        { img: "./img/martin.png", caption: "NovaTech Solutions" },
-        { img: "./img/socios.png", caption: "Alianzas" }
+        "./img/relacion/logro-desbloqueado.png",
+        "./img/relacion/barra-xp.png",
+        "./img/relacion/insignias.png",
+        "./img/relacion/progreso.png",
+        "./img/relacion/notificacion.png",
       ],
-      tags: ["Instituciones", "Tiendas digitales", "Hosting", "Comunidad", "Open source"]
-    }
-  },
-  {
-    id: "costos",
-    index: "09",
-    area: "costs",
-    title: "Estructura de costos",
-    short: "Desarrollo, infraestructura, contenido y mantenimiento.",
-    icon: { type: "img", src: "./img/costos.png", alt: "Icono de estructura de costos" },
-    chips: [
-      { text: "Tiempo de desarrollo (responsable único)", tip: "Análisis, diseño, programación, pruebas y documentación." },
-      { text: "Licencias y herramientas", tip: "Herramientas de desarrollo y licencias necesarias." },
-      { text: "Hosting, API y MongoDB", tip: "Infraestructura para los servicios compartidos." },
-      { text: "Monitoreo con Grafana", tip: "Supervisión del funcionamiento de los servicios." },
-      { text: "Diseño, sonido y publicación", tip: "Assets gráficos, sonido y publicación en tiendas." }
-    ],
-    person: { img: "./img/richar.png", label: "Operación: infraestructura" },
-    detail: {
-      desc: "Los costos se concentran en el tiempo de desarrollo individual y en la infraestructura para los servicios compartidos y la publicación.",
       metrics: [
-        { value: "1", label: "Responsable de desarrollo" },
-        { value: "Sin publicidad", label: "Costo de marketing" },
-        { value: "MVP sin cobros", label: "Costo de pasarelas de pago" }
+        { v: "XP", l: "por misión" },
+        { v: "Insignias", l: "reconocimiento" },
+        { v: "Historial", l: "de progreso" },
       ],
       sections: [
         {
-          heading: "Desarrollo",
-          list: ["Tiempo del responsable único en análisis, diseño, programación, pruebas y documentación."]
+          h: "Producción automotivada",
+          body: "La relación se construye dentro del juego: cada misión aporta experiencia, niveles, insignias y un historial de progreso visible.",
         },
         {
-          heading: "Infraestructura",
-          list: [
-            "Hosting de la API REST y de la base de datos MongoDB.",
-            "Monitoreo con Grafana.",
-            "Registro de dominio y publicación."
-          ]
+          h: "Feedback",
+          body: "Notificaciones, retroalimentación y estadísticas mantienen al estudiante informado de su avance y lo motivan a continuar.",
         },
         {
-          heading: "Contenido y herramientas",
-          list: [
-            "Assets gráficos y sonido.",
-            "Licencias y herramientas de desarrollo."
-          ]
+          h: "Flujo de interacción",
+          body: "Jugador → misión → retroalimentación → XP → nivel → logro → notificación.",
         },
-        {
-          heading: "Operación",
-          list: ["Mantenimiento, actualizaciones y publicación en tiendas digitales."]
-        }
       ],
+    },
+    {
+      id: "canales",
+      area: "canales",
+      index: "Componente 6 — Canales",
+      title: "Canales",
+      short: "Diversos entornos para jugar, administrar y documentar.",
+      icon: "./img/canales/unity-pc.png",
+      cover: "./img/canales/unity-pc.png",
+      chips: [
+        { t: "Unity · PC", tip: "Videojuego principal para escritorio." },
+        { t: "Flutter · móvil", tip: "App complementaria." },
+        { t: "React/PWA · web", tip: "Panel de administración." },
+        { t: "GitHub Pages", tip: "Documentación y este Canvas." },
+      ],
+      tags: ["PC", "Móvil", "Web", "Docs"],
       gallery: [
-        { img: "./img/costos.png", caption: "Costos" },
-        { img: "./img/richar.png", caption: "Infraestructura" }
+        "./img/canales/unity-pc.png",
+        "./img/canales/flutter-movil.png",
+        "./img/canales/react-pwa.png",
+        "./img/canales/github-pages.png",
       ],
-      tags: ["Desarrollo", "Hosting", "MongoDB", "Grafana", "Mantenimiento"]
-    }
+      metrics: [
+        { v: "4", l: "canales" },
+        { v: "1", l: "videojuego principal" },
+        { v: "3", l: "entornos de acceso" },
+      ],
+      sections: [
+        {
+          h: "Videojuego principal",
+          body: "Unity (PC) es el canal central donde se desarrollan las misiones del soporte TI.",
+        },
+        {
+          h: "Aplicaciones complementarias",
+          list: [
+            "Flutter (móvil): acceso complementario según disponibilidad.",
+            "React/PWA (web): panel de administración y seguimiento.",
+            "GitHub Pages: publicación de la documentación y del Canvas.",
+          ],
+        },
+        {
+          h: "Estrategia",
+          body: "Un mismo proyecto integrador se publica en varios entornos con identidad visual consistente.",
+        },
+      ],
+    },
+    {
+      id: "segmentos",
+      area: "segmentos",
+      index: "Componente 7 — Segmentos de mercado",
+      title: "Segmentos de mercado",
+      short: "Estudiantes de TI como jugadores, con roles de apoyo educativo.",
+      icon: "./img/usuarios/jugador-estudiante.png",
+      cover: "./img/usuarios/jugador-estudiante.png",
+      chips: [
+        { t: "Jugador / Estudiante", tip: "Perfil principal del jugador." },
+        { t: "Docente / Evaluador", tip: "Usa el juego como apoyo." },
+        { t: "Administrador", tip: "Gestiona acceso y configuraciones." },
+        { t: "Editor de contenido", tip: "Crea y actualiza contenido." },
+        { t: "Institución educativa", tip: "Implementa el proyecto." },
+      ],
+      tags: ["Jugador", "Docente", "Institución"],
+      gallery: [
+        "./img/usuarios/jugador-estudiante.png",
+        "./img/usuarios/docente.png",
+        "./img/usuarios/administrador.png",
+        "./img/usuarios/editor.png",
+        "./img/usuarios/institucion.png",
+      ],
+      metrics: [
+        { v: "5", l: "segmentos" },
+        { v: "1", l: "jugador principal" },
+        { v: "2", l: "roles de apoyo" },
+      ],
+      sections: [
+        {
+          h: "Perfiles identificados",
+          list: [
+            "Jugador / Estudiante: interactúa con el juego y completa misiones.",
+            "Docente / Evaluador: usa el videojuego como herramienta de apoyo.",
+            "Administrador: gestiona usuarios, acceso y configuración.",
+            "Editor de contenido: crea y mantiene misiones y materiales.",
+            "Institución educativa: implementa y difunde el proyecto.",
+          ],
+        },
+        {
+          h: "Aclaración",
+          body: "No se define un rango de edad específico ni características poblacionales no establecidas oficialmente por el proyecto.",
+        },
+      ],
+    },
+    {
+      id: "costos",
+      area: "costos",
+      index: "Componente 8 — Estructura de costes",
+      title: "Estructura de costes",
+      short: "Costos de desarrollo, operación e infraestructura del proyecto.",
+      icon: "./img/costos/servidor.png",
+      cover: "./img/costos/desarrollo.png",
+      chips: [
+        { t: "Desarrollo", tip: "Tiempo y herramientas de desarrollo." },
+        { t: "Videojuego", tip: "Diseño, arte y contenido." },
+        { t: "Infraestructura", tip: "Servidores y servicios en la nube." },
+        { t: "Operación", tip: "Publicación y monitoreo." },
+        { t: "Recursos humanos", tip: "Equipo del Proyecto Integrador." },
+      ],
+      tags: ["Desarrollo", "Infraestructura", "Operación"],
+      gallery: [
+        "./img/costos/desarrollo.png",
+        "./img/costos/diseno.png",
+        "./img/costos/servidor.png",
+        "./img/costos/nube.png",
+        "./img/costos/mantenimiento.png",
+      ],
+      metrics: [
+        { v: "5", l: "categorías" },
+        { v: "Académico", l: "etapa actual" },
+        { v: "Open source", l: "prioridad" },
+      ],
+      sections: [
+        {
+          h: "Categorías de costo",
+          list: [
+            "Desarrollo: programación del videojuego y aplicaciones.",
+            "Videojuego: diseño, arte pixel art y contenido.",
+            "Infraestructura: servidores y servicios en la nube.",
+            "Operación: publicación, monitoreo y mantenimiento.",
+            "Recursos humanos: equipo y docentes del Proyecto Integrador.",
+          ],
+        },
+        {
+          h: "Etapa académica",
+          body: "Durante el desarrollo académico se prioriza el uso de herramientas gratuitas, open source o planes educativos.",
+        },
+      ],
+    },
+    {
+      id: "ingresos",
+      area: "ingresos",
+      index: "Componente 9 — Ingresos / Sostenibilidad",
+      title: "Ingresos / Sostenibilidad",
+      short: "Etapa actual académica; posibilidades futuras sin monetización inventada.",
+      icon: "./img/sostenibilidad/proyecto-academico.png",
+      cover: "./img/sostenibilidad/proyecto-academico.png",
+      chips: [
+        { t: "Etapa actual: proyecto académico", tip: "Sin monetización directa." },
+        { t: "Sostenimiento", tip: "Recursos educativos y de desarrollo." },
+        { t: "Futuro: licencias educativas", tip: "Posibilidad a futuro." },
+        { t: "Futuro: convenios", tip: "Acuerdos académicos futuros." },
+        { t: "Futuro: capacitación", tip: "Formación con el juego." },
+      ],
+      tags: ["Etapa académica", "Sin monetización", "Posibilidades futuras"],
+      gallery: [
+        "./img/sostenibilidad/proyecto-academico.png",
+        "./img/sostenibilidad/universidad.png",
+        "./img/sostenibilidad/licencia.png",
+        "./img/sostenibilidad/capacitacion.png",
+      ],
+      metrics: [
+        { v: "Actual", l: "proyecto académico" },
+        { v: "Futuro", l: "posibilidades" },
+        { v: "0", l: "monetización directa" },
+      ],
+      sections: [
+        {
+          h: "Etapa actual — Proyecto académico",
+          body: "El videojuego es un proyecto académico en desarrollo con fines educativos. No existe monetización directa ni modelo comercial activo.",
+        },
+        {
+          h: "Posibilidades futuras (no comprometidas)",
+          body: "Opciones que el proyecto podría explorar cuando deje de ser una práctica académica:",
+          list: [
+            "Licencias educativas para instituciones.",
+            "Implementación institucional del videojuego.",
+            "Capacitación basada en el juego.",
+            "Convenios académicos.",
+            "Módulos especializados y contenido adicional.",
+          ],
+        },
+        {
+          h: "Aclaración",
+          body: "No se contemplan ingresos inventados por venta única, contenido de pago, publicidad ni tienda digital en la etapa actual.",
+        },
+      ],
+    },
+  ];
+
+  var CONNECTIONS = [
+    ["socios", "actividades"],
+    ["socios", "recursos"],
+    ["actividades", "recursos"],
+    ["actividades", "propuesta-valor"],
+    ["recursos", "propuesta-valor"],
+    ["recursos", "costos"],
+    ["propuesta-valor", "segmentos"],
+    ["propuesta-valor", "canales"],
+    ["propuesta-valor", "relacion"],
+    ["relacion", "segmentos"],
+    ["canales", "segmentos"],
+    ["socios", "ingresos"],
+  ];
+
+  var TECH_FLOW = [
+    { label: "USUARIO", cls: "is-user" },
+    { arrow: true },
+    { label: "KEYCLOAK", cls: "is-auth" },
+    { arrow: true },
+    {
+      apps: [
+        { label: "UNITY", cls: "is-app" },
+        { label: "FLUTTER", cls: "is-app" },
+        { label: "REACT/PWA", cls: "is-app" },
+      ],
+    },
+    { arrow: true },
+    { label: "API", cls: "is-api" },
+    { arrow: true },
+    { label: "MONGODB", cls: "is-db" },
+  ];
+
+  var TECH_SIDE = [
+    { label: "DOCKER", desc: "Infraestructura" },
+    { label: "GRAFANA", desc: "Monitoreo" },
+    { label: "GIT/GITHUB", desc: "Versionado" },
+    { label: "GITHUB PAGES", desc: "Publicación" },
+  ];
+
+  var TECH_LIST = [
+    { name: "Unity", desc: "Videojuego principal (C#)" },
+    { name: "Flutter", desc: "App móvil complementaria (Dart)" },
+    { name: "React", desc: "Panel web de administración" },
+    { name: "PWA", desc: "Progressive Web App" },
+    { name: "API", desc: "Lógica y servicios compartidos" },
+    { name: "Keycloak", desc: "Autenticación" },
+    { name: "MongoDB", desc: "Base de datos" },
+    { name: "Docker", desc: "Infraestructura / despliegue" },
+    { name: "Grafana", desc: "Monitoreo" },
+    { name: "Git", desc: "Control de versiones" },
+    { name: "GitHub", desc: "Repositorios / colaboración" },
+    { name: "GitHub Pages", desc: "Publicación del Canvas y docs" },
+  ];
+
+  /* ============================================================
+     UTILIDADES
+     ============================================================ */
+
+  function $(sel, ctx) {
+    return (ctx || document).querySelector(sel);
   }
-];
 
-/* ------------------------------------------------------------------ *
- *  CONEXIONES VISUALES entre componentes (from, to, color)
- * ------------------------------------------------------------------ */
-const CONNECTIONS = [
-  ["propuesta-valor", "segmentos", "#06b6d4"],
-  ["propuesta-valor", "canales", "#2563eb"],
-  ["propuesta-valor", "relaciones", "#b91c1c"],
-  ["propuesta-valor", "ingresos", "#15803d"],
-  ["propuesta-valor", "recursos", "#22d3ee"],
-  ["recursos", "actividades", "#a855f7"],
-  ["actividades", "socios", "#38bdf8"],
-  ["recursos", "costos", "#fb923c"],
-  ["socios", "costos", "#fb923c"],
-  ["canales", "segmentos", "#2563eb"],
-  ["relaciones", "segmentos", "#b91c1c"],
-  ["actividades", "canales", "#a855f7"],
-  ["socios", "recursos", "#38bdf8"],
-  ["ingresos", "socios", "#15803d"]
-];
+  function byId(id) {
+    return document.getElementById(id);
+  }
 
-/* ------------------------------------------------------------------ *
- *  PERSONAJES
- * ------------------------------------------------------------------ */
-const CHARACTERS = [
-  { name: "Alex", role: "Protagonista · recién egresado", img: "./img/alex.png" },
-  { name: "Martín", role: "Jefe del Departamento de TI", img: "./img/martin.png" },
-  { name: "Richar", role: "Especialista en redes", img: "./img/richar.png" },
-  { name: "Sofía", role: "Contabilidad · primera misión", img: "./img/sofia.png" },
-  { name: "Marco", role: "Desarrollador de software", img: "./img/marco.png" },
-  { name: "Elena", role: "Docente / evaluadora", img: "./img/elena.png" },
-  { name: "Estudiante", role: "Jugador del videojuego", img: "./img/estudiante.png" },
-  { name: "Saboteador", role: "Antagonista principal", img: "./img/saboteador.png" }
-];
+  var componentById = {};
+  COMPONENTS.forEach(function (c) {
+    componentById[c.id] = c;
+  });
 
-/* ------------------------------------------------------------------ *
- *  TECNOLOGÍAS Y ARQUITECTURA
- * ------------------------------------------------------------------ */
-const TECH = [
-  "Unity", "Flutter", "React / PWA", "API REST", "Keycloak",
-  "MongoDB", "Docker", "Grafana", "Git", "GitHub", "GitHub Pages"
-];
+  var neighborMap = {};
+  CONNECTIONS.forEach(function (edge) {
+    (neighborMap[edge[0]] = neighborMap[edge[0]] || []).push(edge[1]);
+    (neighborMap[edge[1]] = neighborMap[edge[1]] || []).push(edge[0]);
+  });
 
-const TECH_ARCH = [
-  { title: "Videojuego (Unity · C#)", items: ["Escenas, diálogos y retos", "Movimiento de Alex y misiones", "Envía los resultados a la API"] },
-  { title: "App móvil (Flutter · Dart)", items: ["Inicio de sesión", "Misiones, guías y progreso", "Android como prioridad"] },
-  { title: "PWA (React)", items: ["Panel del jugador", "Administración de contenido", "Manifiesto y service worker"] },
-  { title: "Servicios y datos", items: ["API REST", "MongoDB", "Keycloak", "Docker", "Grafana"] }
-];
+  var board = {
+    tooltip: null,
+    modal: null,
+    lightbox: null,
+    currentFocus: null,
+    modalOpenFor: null,
+  };
 
-/* ================================================================== *
- *  UTILIDADES
- * ================================================================== */
-function el(tag, attrs, children) {
-  const node = document.createElement(tag);
-  if (attrs) {
-    Object.keys(attrs).forEach(function (key) {
-      if (key === "class") node.className = attrs[key];
-      else if (key === "html") node.innerHTML = attrs[key];
-      else if (key === "text") node.textContent = attrs[key];
-      else if (key.indexOf("on") === 0 && typeof attrs[key] === "function") {
-        node.addEventListener(key.slice(2).toLowerCase(), attrs[key]);
+  /* ============================================================
+     RENDER: HERO + FLUJO
+     ============================================================ */
+
+  function renderHeroBadges() {
+    var ul = byId("hero-badges");
+    HERO_BADGES.forEach(function (b) {
+      var li = document.createElement("li");
+      li.textContent = b;
+      ul.appendChild(li);
+    });
+  }
+
+  function renderFlow() {
+    var ol = byId("flow-track");
+    FLOW_STEPS.forEach(function (step, i) {
+      var li = document.createElement("li");
+      var div = document.createElement("div");
+      div.className = "flow-step" + (step.gain ? " is-gain" : "") + (step.win ? " is-win" : "");
+      div.tabIndex = 0;
+      div.setAttribute("role", "listitem");
+      div.title = step.tip;
+      var num = document.createElement("b");
+      num.textContent = i + 1;
+      var label = document.createElement("span");
+      label.textContent = step.label;
+      div.appendChild(num);
+      div.appendChild(label);
+      li.appendChild(div);
+      if (i < FLOW_STEPS.length - 1) {
+        var arrow = document.createElement("span");
+        arrow.className = "flow-arrow";
+        arrow.setAttribute("aria-hidden", "true");
+        arrow.textContent = "→";
+        li.appendChild(arrow);
+      }
+      attachTooltip(div, step.label, step.tip);
+      div.addEventListener("click", function () {
+        showTooltipNear(div, step.label, step.tip);
+      });
+      ol.appendChild(li);
+    });
+  }
+
+  /* ============================================================
+     RENDER: PERSONAJES Y GALERÍA
+     ============================================================ */
+
+  function renderCharacters() {
+    var ul = byId("characters-grid");
+    CHARACTERS.forEach(function (ch) {
+      var li = document.createElement("li");
+      var card = document.createElement("article");
+      card.className = "character-card" + (ch.antagonist ? " is-antagonist" : "");
+      card.tabIndex = 0;
+      var img = document.createElement("img");
+      img.src = ch.img;
+      img.alt = "Hoja de sprite de " + ch.name + ", personaje de TI: Soporte en Acción";
+      img.loading = "lazy";
+      var h3 = document.createElement("h3");
+      h3.innerHTML = "<b>" + ch.name + "</b>";
+      var role = document.createElement("p");
+      role.className = "role";
+      role.textContent = ch.role;
+      var desc = document.createElement("p");
+      desc.textContent = ch.desc;
+      card.appendChild(img);
+      card.appendChild(h3);
+      card.appendChild(role);
+      card.appendChild(desc);
+      li.appendChild(card);
+      ul.appendChild(li);
+    });
+  }
+
+  function renderGallery(grid) {
+    var root = grid || byId("gallery-grid");
+    GALLERY.forEach(function (scene) {
+      var li = document.createElement("li");
+      var fig = document.createElement("figure");
+      fig.className = "gallery-item";
+      fig.tabIndex = 0;
+      var img = document.createElement("img");
+      img.src = scene.src;
+      img.alt = scene.caption;
+      img.loading = "lazy";
+      var cap = document.createElement("figcaption");
+      cap.textContent = scene.caption;
+      fig.appendChild(img);
+      fig.appendChild(cap);
+      li.appendChild(fig);
+      var open = function () {
+        openLightbox(scene.src, scene.caption);
+      };
+      fig.addEventListener("click", open);
+      fig.addEventListener("keydown", function (ev) {
+        if (ev.key === "Enter" || ev.key === " ") {
+          ev.preventDefault();
+          open();
+        }
+      });
+      root.appendChild(li);
+    });
+  }
+
+  /* ============================================================
+     RENDER: TECNOLOGÍAS
+     ============================================================ */
+
+  function renderTech() {
+    var arch = byId("architecture");
+    var flow = document.createElement("div");
+    flow.className = "arch-flow";
+    TECH_FLOW.forEach(function (node) {
+      if (node.arrow) {
+        var a = document.createElement("span");
+        a.className = "arch-arrow";
+        a.setAttribute("aria-hidden", "true");
+        a.textContent = "→";
+        flow.appendChild(a);
+        return;
+      }
+      if (node.apps) {
+        var apps = document.createElement("div");
+        apps.className = "arch-apps";
+        node.apps.forEach(function (app) {
+          var n = document.createElement("span");
+          n.className = "arch-node " + app.cls;
+          n.textContent = app.label;
+          apps.appendChild(n);
+        });
+        flow.appendChild(apps);
+        return;
+      }
+      var n = document.createElement("span");
+      n.className = "arch-node " + node.cls;
+      n.textContent = node.label;
+      flow.appendChild(n);
+    });
+
+    var side = document.createElement("div");
+    side.className = "arch-side";
+    TECH_SIDE.forEach(function (t) {
+      var node = document.createElement("span");
+      node.className = "arch-node";
+      node.title = t.desc;
+      node.textContent = t.label;
+      side.appendChild(node);
+    });
+
+    arch.appendChild(flow);
+    arch.appendChild(side);
+
+    var list = byId("tech-list");
+    TECH_LIST.forEach(function (t) {
+      var li = document.createElement("li");
+      var b = document.createElement("b");
+      b.textContent = t.name;
+      var s = document.createElement("span");
+      s.textContent = t.desc;
+      li.appendChild(b);
+      li.appendChild(s);
+      list.appendChild(li);
+    });
+  }
+
+  /* ============================================================
+     RENDER: BLOQUES DEL CANVAS
+     ============================================================ */
+
+  function makeBlock(c) {
+    var isValue = c.id === "propuesta-valor";
+    var art = document.createElement("article");
+    art.className =
+      "bmc-block blk-" + c.id + (isValue ? " bmc-block--value" : "");
+    art.setAttribute("data-component", c.id);
+    art.setAttribute("aria-label", c.title + ". Hacer clic abre la ficha detallada.");
+    art.tabIndex = 0;
+
+    var cover = document.createElement("figure");
+    cover.className = "blk-cover";
+    var coverImg = document.createElement("img");
+    coverImg.src = c.cover;
+    coverImg.alt = "Ilustración de " + c.title;
+    coverImg.loading = "lazy";
+    cover.appendChild(coverImg);
+
+    var head = document.createElement("header");
+    head.className = "blk-head";
+    var icon = document.createElement("span");
+    icon.className = "blk-icon";
+    var iconImg = document.createElement("img");
+    iconImg.src = c.icon;
+    iconImg.alt = "";
+    icon.appendChild(iconImg);
+
+    var box = document.createElement("div");
+    box.className = "blk-title-box";
+    var idx = document.createElement("span");
+    idx.className = "blk-index";
+    idx.textContent = c.index;
+    var h3 = document.createElement("h3");
+    h3.className = "blk-title";
+    h3.textContent = c.title;
+    box.appendChild(idx);
+    box.appendChild(h3);
+
+    var expand = document.createElement("button");
+    expand.className = "blk-expand";
+    expand.type = "button";
+    expand.setAttribute("aria-label", "Abrir ficha de " + c.title);
+    expand.textContent = "+";
+
+    head.appendChild(icon);
+    head.appendChild(box);
+    head.appendChild(expand);
+
+    var short = document.createElement("p");
+    short.className = "blk-short";
+    if (isValue) {
+      short.className = "blk-value-quote";
+      short.innerHTML = highlightQuote(c.valueQuote);
+    } else {
+      short.textContent = c.short;
+    }
+
+    var chips = document.createElement("ul");
+    chips.className = "blk-chips";
+    var visibleChips = c.chips;
+    if (!isValue && visibleChips.length > 4) {
+      visibleChips = visibleChips.slice(0, 4);
+    }
+    visibleChips.forEach(function (chip) {
+      var li = document.createElement("li");
+      li.textContent = chip.t;
+      chips.appendChild(li);
+      attachTooltip(li, chip.t, chip.tip || c.title);
+    });
+
+    var tags = document.createElement("div");
+    tags.className = "blk-tags";
+    (c.tags || []).forEach(function (t) {
+      var i = document.createElement("i");
+      i.textContent = t;
+      tags.appendChild(i);
+    });
+
+    var cta = document.createElement("button");
+    cta.type = "button";
+    cta.className = "btn-detail" + (VARIANT_CLASS[c.id] ? " " + VARIANT_CLASS[c.id] : "");
+    cta.textContent = "Ver detalle";
+
+    art.appendChild(cover);
+    art.appendChild(head);
+    art.appendChild(short);
+    art.appendChild(chips);
+    art.appendChild(tags);
+    art.appendChild(cta);
+
+    var open = function (ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      openModal(c.id);
+    };
+
+    art.addEventListener("click", function () {
+      openModal(c.id);
+    });
+    art.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter" || ev.key === " ") {
+        ev.preventDefault();
+        openModal(c.id);
+      }
+    });
+    expand.addEventListener("click", open);
+    cta.addEventListener("click", open);
+
+    art.addEventListener("mouseenter", function () {
+      focusComponent(c.id, false);
+    });
+    art.addEventListener("mouseleave", function () {
+      if (board.modalOpenFor !== c.id) clearEmphasis();
+    });
+    art.addEventListener("focus", function () {
+      focusComponent(c.id, false);
+    });
+    art.addEventListener("blur", function () {
+      if (board.modalOpenFor !== c.id) clearEmphasis();
+    });
+
+    return art;
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function highlightQuote(text) {
+    var escaped = escapeHtml(text);
+    return escaped.replace(
+      /(Tecnolog[^\s]+ de la Informaci[^\s]+)/g,
+      "<strong>$1</strong>"
+    );
+  }
+
+  function renderCanvas() {
+    var grid = byId("bmc");
+    COMPONENTS.forEach(function (c) {
+      grid.appendChild(makeBlock(c));
+    });
+  }
+
+  /* ============================================================
+     CONEXIONES SVG
+     ============================================================ */
+
+  function renderLinks() {
+    var svg = byId("bmc-links");
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    CONNECTIONS.forEach(function (edge) {
+      var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("data-a", edge[0]);
+      path.setAttribute("data-b", edge[1]);
+      svg.appendChild(path);
+    });
+    positionLinks();
+    window.addEventListener("resize", debounce(positionLinks, 200));
+  }
+
+  function positionLinks() {
+    var svg = byId("bmc-links");
+    var grid = byId("bmc");
+    if (!grid) return;
+    var gr = grid.getBoundingClientRect();
+    svg.setAttribute("viewBox", "0 0 " + gr.width + " " + gr.height);
+    svg.querySelectorAll("path").forEach(function (path) {
+      var a = componentById[path.getAttribute("data-a")];
+      var b = componentById[path.getAttribute("data-b")];
+      var elA = grid.querySelector(".blk-" + a.id);
+      var elB = grid.querySelector(".blk-" + b.id);
+      if (!elA || !elB) return;
+      var rectA = elA.getBoundingClientRect();
+      var rectB = elB.getBoundingClientRect();
+      var x1 = rectA.left - gr.left + rectA.width / 2;
+      var y1 = rectA.top - gr.top + rectA.height / 2;
+      var x2 = rectB.left - gr.left + rectB.width / 2;
+      var y2 = rectB.top - gr.top + rectB.height / 2;
+      var dx = Math.max(28, Math.abs(x2 - x1) / 2);
+      var d =
+        "M " +
+        x1.toFixed(1) +
+        " " +
+        y1.toFixed(1) +
+        " C " +
+        (x1 + (x2 > x1 ? dx : -dx)).toFixed(1) +
+        " " +
+        y1.toFixed(1) +
+        ", " +
+        (x2 + (x2 > x1 ? -dx : dx)).toFixed(1) +
+        " " +
+        y2.toFixed(1) +
+        ", " +
+        x2.toFixed(1) +
+        " " +
+        y2.toFixed(1);
+      path.setAttribute("d", d);
+      if (rectA.top < gr.top - 6 || rectB.top < gr.top - 6) {
+        path.setAttribute("visibility", "hidden");
       } else {
-        node.setAttribute(key, attrs[key]);
+        path.setAttribute("visibility", "visible");
       }
     });
   }
-  if (children) {
-    (Array.isArray(children) ? children : [children]).forEach(function (child) {
-      if (child === null || child === undefined) return;
-      node.appendChild(typeof child === "string" ? document.createTextNode(child) : child);
+
+  function debounce(fn, wait) {
+    var t;
+    return function () {
+      clearTimeout(t);
+      t = setTimeout(fn, wait);
+    };
+  }
+
+  /* ============================================================
+     ENFOQUE: RESALTAR CONEXIONES / ATENUAR BLOQUES
+     ============================================================ */
+
+  function focusComponent(id, sustained) {
+    if (board.currentFocus === id && sustained) return;
+    board.currentFocus = id;
+    clearClass("is-focused", "related", "dim");
+    var block = $("#bmc .blk-" + id);
+    if (block) block.classList.add("is-focused");
+    var neighbors = neighborMap[id] || [];
+    COMPONENTS.forEach(function (c) {
+      var el = $("#bmc .blk-" + c.id);
+      if (!el) return;
+      if (c.id === id) return;
+      if (neighbors.indexOf(c.id) !== -1) {
+        el.classList.add("related");
+      } else {
+        el.classList.add("dim");
+      }
+    });
+    // Resalta las conexiones incidentes al bloque
+    var svg = byId("bmc-links");
+    svg.querySelectorAll("path").forEach(function (path) {
+      var a = path.getAttribute("data-a");
+      var b = path.getAttribute("data-b");
+      if (a === id || b === id) {
+        path.classList.add("hl");
+        path.style.opacity = "1";
+      } else {
+        path.classList.remove("hl");
+        path.style.opacity = "0.12";
+      }
     });
   }
-  return node;
-}
 
-function iconNode(icon) {
-  const span = el("span", { "aria-hidden": "true" });
-  if (icon.type === "svg") span.innerHTML = icon.markup;
-  else span.appendChild(el("img", { src: icon.src, alt: icon.alt || "", loading: "lazy" }));
-  return span;
-}
-
-/* ================================================================== *
- *  RENDER
- * ================================================================== */
-const bmc = document.getElementById("bmc");
-const bmcLinks = document.getElementById("bmc-links");
-const blockEls = {};
-const linkEls = [];
-
-function renderCanvas() {
-  CANVAS_DATA.forEach(function (comp, i) {
-    const cards = comp.chips.map(function (chip) {
-      return el("li", { class: "chip", "data-tip": chip.tip, tabindex: "0" }, chip.text);
+  function clearEmphasis() {
+    board.currentFocus = null;
+    clearClass("is-focused", "related", "dim");
+    var svg = byId("bmc-links");
+    svg.querySelectorAll("path").forEach(function (path) {
+      path.classList.remove("hl");
+      path.style.opacity = "";
     });
-
-    const person = comp.person
-      ? el("div", { class: "block-person" }, [
-          el("img", { src: comp.person.img, alt: "", loading: "lazy" }),
-          el("span", { text: comp.person.label })
-        ])
-      : null;
-
-    const expandBtn = el("button", {
-      class: "block-expand",
-      type: "button",
-      "aria-label": "Abrir ficha: " + comp.title,
-      onclick: function (e) { e.stopPropagation(); openModal(comp.id); },
-      onfocus: function () { highlightConnections(comp.id, true); },
-      onblur: function () { highlightConnections(comp.id, false); },
-      text: "+"
-    });
-
-    const block = el(
-      "article",
-      {
-        class: "bmc-block area-" + comp.area,
-        "data-component": comp.id,
-        onclick: function () { openModal(comp.id); },
-        onmouseenter: function () { highlightConnections(comp.id, true); },
-        onmouseleave: function () { highlightConnections(comp.id, false); }
-      },
-      [
-        el("header", { class: "block-head" }, [
-          el("span", { class: "block-icon" }, iconNode(comp.icon)),
-          el("div", { class: "block-title-wrap" }, [
-            el("span", { class: "block-index", text: comp.index }),
-            el("h3", { class: "block-title", text: comp.title })
-          ]),
-          expandBtn
-        ]),
-        el("ul", { class: "block-cards" }, cards),
-        person
-      ]
-    );
-
-    block.style.animationDelay = i * 60 + "ms";
-    bmc.appendChild(block);
-    blockEls[comp.id] = block;
-  });
-}
-
-/* ---------- Conexiones visuales (SVG) ---------- */
-function clearLinks() {
-  bmcLinks.innerHTML = "";
-  linkEls.length = 0;
-}
-
-function drawConnections() {
-  clearLinks();
-  if (window.innerWidth <= 1024) return;
-
-  const rect = bmc.getBoundingClientRect();
-  const w = Math.round(rect.width);
-  const h = Math.round(rect.height);
-  if (w === 0 || h === 0) return;
-  bmcLinks.setAttribute("viewBox", "0 0 " + w + " " + h);
-
-  CONNECTIONS.forEach(function (conn) {
-    const from = blockEls[conn[0]];
-    const to = blockEls[conn[1]];
-    if (!from || !to) return;
-
-    const a = center(from, rect);
-    const b = center(to, rect);
-    const dx = b.x - a.x;
-    const dy = b.y - a.y;
-    const len = Math.hypot(dx, dy) || 1;
-    const off = Math.min(46, len * 0.16);
-    const cx = (a.x + b.x) / 2 + (-dy / len) * off;
-    const cy = (a.y + b.y) / 2 + (dx / len) * off;
-
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("d", "M " + a.x + " " + a.y + " Q " + cx + " " + cy + " " + b.x + " " + b.y);
-    path.setAttribute("stroke", conn[2]);
-    path.setAttribute("data-from", conn[0]);
-    path.setAttribute("data-to", conn[1]);
-    bmcLinks.appendChild(path);
-    linkEls.push({ node: path, from: conn[0], to: conn[1] });
-  });
-}
-
-function center(node, containerRect) {
-  const r = node.getBoundingClientRect();
-  return {
-    x: r.left - containerRect.left + r.width / 2,
-    y: r.top - containerRect.top + r.height / 2
-  };
-}
-
-function highlightConnections(id, on) {
-  linkEls.forEach(function (link) {
-    if (link.from === id || link.to === id) {
-      link.node.classList.toggle("hl", on);
-    }
-  });
-}
-
-/* ---------- Animación de entrada ---------- */
-function observeBlocks() {
-  if (!("IntersectionObserver" in window)) {
-    Object.keys(blockEls).forEach(function (id) { blockEls[id].classList.add("is-visible"); });
-    return;
   }
-  const io = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target);
-        }
+
+  function clearClass() {
+    var classes = Array.prototype.slice.call(arguments);
+    var blocks = document.querySelectorAll(".bmc-block");
+    blocks.forEach(function (b) {
+      classes.forEach(function (c) {
+        b.classList.remove(c);
       });
-    },
-    { threshold: 0.12 }
-  );
-  Object.keys(blockEls).forEach(function (id) { io.observe(blockEls[id]); });
-}
-
-/* ================================================================== *
- *  MODAL
- * ================================================================== */
-const modal = document.getElementById("modal");
-const modalIcon = document.getElementById("modal-icon");
-const modalIndex = document.getElementById("modal-index");
-const modalTitle = document.getElementById("modal-title");
-const modalBody = document.getElementById("modal-body");
-let lastFocused = null;
-
-function openModal(id) {
-  const comp = CANVAS_DATA.find(function (c) { return c.id === id; });
-  if (!comp) return;
-
-  lastFocused = document.activeElement;
-  modalIcon.innerHTML = "";
-  modalIcon.appendChild(iconNode(comp.icon));
-  modalIndex.textContent = "COMPONENTE " + comp.index + " / 09";
-  modalTitle.textContent = comp.title;
-
-  const body = [];
-  body.push(el("p", { class: "modal-desc", text: comp.detail.desc }));
-
-  if (comp.detail.metrics) {
-    const grid = el("div", { class: "modal-metrics" });
-    comp.detail.metrics.forEach(function (m) {
-      grid.appendChild(el("div", { class: "metric" }, [
-        el("strong", { text: m.value }),
-        el("span", { text: m.label })
-      ]));
     });
-    body.push(grid);
   }
 
-  comp.detail.sections.forEach(function (section) {
-    body.push(el("h3", { text: section.heading }));
-    body.push(
-      el("ul", { class: "modal-list" }, section.list.map(function (item) {
-        return el("li", { text: item });
-      }))
-    );
-  });
+  /* ============================================================
+     MODAL DE DETALLE
+     ============================================================ */
 
-  if (comp.detail.gallery && comp.detail.gallery.length) {
-    body.push(el("h3", { text: "Imágenes relacionadas" }));
-    const gallery = el("div", { class: "modal-gallery" });
-    comp.detail.gallery.forEach(function (g) {
-      gallery.appendChild(el("figure", null, [
-        el("img", { src: g.img, alt: g.caption, loading: "lazy" }),
-        el("figcaption", { text: g.caption })
-      ]));
+  function buildModalBody(c, contextFlows) {
+    var frag = document.createDocumentFragment();
+
+    var cover = document.createElement("img");
+    cover.className = "modal-cover";
+    cover.src = c.cover;
+    cover.alt = "Ilustración de " + c.title;
+    frag.appendChild(cover);
+
+    if (c.metrics && c.metrics.length) {
+      var metricRow = document.createElement("div");
+      metricRow.className = "metric-row";
+      c.metrics.forEach(function (m) {
+        var box = document.createElement("div");
+        box.className = "metric";
+        var b = document.createElement("b");
+        b.textContent = m.v;
+        var s = document.createElement("span");
+        s.textContent = m.l;
+        box.appendChild(b);
+        box.appendChild(s);
+        metricRow.appendChild(box);
+      });
+      frag.appendChild(metricRow);
+    }
+
+    (c.sections || []).forEach(function (sec) {
+      var section = document.createElement("section");
+      section.className = "modal-section";
+      var h3 = document.createElement("h3");
+      h3.textContent = sec.h;
+      section.appendChild(h3);
+      if (sec.body) {
+        var p = document.createElement("p");
+        p.textContent = sec.body;
+        section.appendChild(p);
+      }
+      if (sec.flow) {
+        section.appendChild(buildFlowStrip());
+      }
+      if (sec.list) {
+        var ul = document.createElement("ul");
+        sec.list.forEach(function (item) {
+          var li = document.createElement("li");
+          li.textContent = item;
+          ul.appendChild(li);
+        });
+        section.appendChild(ul);
+      }
+      frag.appendChild(section);
     });
-    body.push(gallery);
+
+    if (c.note) {
+      var note = document.createElement("div");
+      note.className = "modal-note";
+      note.textContent = c.note;
+      frag.appendChild(note);
+    }
+
+    if (c.gallery && c.gallery.length) {
+      var gridTitle = document.createElement("section");
+      gridTitle.className = "modal-section";
+      var h3g = document.createElement("h3");
+      h3g.textContent = "Imagenes";
+      gridTitle.appendChild(h3g);
+      var gGrid = document.createElement("div");
+      gGrid.className = "modal-gallery";
+      c.gallery.forEach(function (src) {
+        var img = document.createElement("img");
+        img.src = src;
+        img.alt = "Imagen de " + c.title;
+        img.loading = "lazy";
+        img.addEventListener("click", function () {
+          openLightbox(src, c.title);
+        });
+        gGrid.appendChild(img);
+      });
+      gridTitle.appendChild(gGrid);
+      frag.appendChild(gridTitle);
+    }
+
+    if (c.tags && c.tags.length) {
+      var tags = document.createElement("div");
+      tags.className = "modal-tags";
+      c.tags.forEach(function (t) {
+        var span = document.createElement("span");
+        span.textContent = t;
+        tags.appendChild(span);
+      });
+      frag.appendChild(tags);
+    }
+
+    return frag;
   }
 
-  if (comp.detail.tags && comp.detail.tags.length) {
-    const tags = el("div", { class: "modal-tags" });
-    comp.detail.tags.forEach(function (t) { tags.appendChild(el("span", { text: t })); });
-    body.push(tags);
+  function buildFlowStrip() {
+    var ol = document.createElement("ol");
+    ol.className = "flow-track";
+    ol.style.justifyContent = "flex-start";
+    FLOW_STEPS.forEach(function (step, i) {
+      var li = document.createElement("li");
+      var div = document.createElement("div");
+      div.className = "flow-step" + (step.gain ? " is-gain" : "") + (step.win ? " is-win" : "");
+      div.title = step.tip;
+      var num = document.createElement("b");
+      num.textContent = i + 1;
+      var label = document.createElement("span");
+      label.textContent = step.label;
+      div.appendChild(num);
+      div.appendChild(label);
+      li.appendChild(div);
+      if (i < FLOW_STEPS.length - 1) {
+        var arrow = document.createElement("span");
+        arrow.className = "flow-arrow";
+        arrow.textContent = "→";
+        li.appendChild(arrow);
+      }
+      ol.appendChild(li);
+    });
+    return ol;
   }
 
-  modalBody.innerHTML = "";
-  body.forEach(function (n) { modalBody.appendChild(n); });
+  function openModal(id) {
+    var c = componentById[id];
+    if (!c) return;
+    board.modalOpenFor = id;
+    byId("modal-icon").innerHTML = "";
+    var img = document.createElement("img");
+    img.src = c.icon;
+    img.alt = "";
+    byId("modal-icon").appendChild(img);
+    byId("modal-index").textContent = c.index;
+    byId("modal-title").textContent = c.title;
+    var body = byId("modal-body");
+    body.innerHTML = "";
+    body.appendChild(buildModalBody(c));
+    var modal = byId("modal");
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scroll");
+    focusComponent(id, true);
+    setTimeout(function () {
+      var closeBtn = modal.querySelector(".modal-close");
+      if (closeBtn) closeBtn.focus();
+    }, 60);
+  }
 
-  modal.classList.add("is-open");
-  modal.setAttribute("aria-hidden", "false");
-  document.body.style.overflow = "hidden";
-  const closeBtn = modal.querySelector(".modal-close");
-  if (closeBtn) closeBtn.focus();
-}
+  function closeModal() {
+    var modal = byId("modal");
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("no-scroll");
+    board.modalOpenFor = null;
+    clearEmphasis();
+  }
 
-function closeModal() {
-  modal.classList.remove("is-open");
-  modal.setAttribute("aria-hidden", "true");
-  document.body.style.overflow = "";
-  if (lastFocused && typeof lastFocused.focus === "function") lastFocused.focus();
-}
+  /* ============================================================
+     LIGHTBOX
+     ============================================================ */
 
-modal.addEventListener("click", function (e) {
-  if (e.target.hasAttribute && e.target.hasAttribute("data-close-modal")) closeModal();
-});
+  function openLightbox(src, caption) {
+    var lb = byId("lightbox");
+    var img = byId("lightbox-img");
+    img.src = src;
+    img.alt = caption || "";
+    byId("lightbox-caption").textContent = caption || "";
+    lb.classList.add("is-open");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.classList.add("no-scroll");
+  }
 
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
-  if (e.key === "Tab" && modal.classList.contains("is-open")) {
-    const focusables = modal.querySelectorAll("button, [href], img, [tabindex]:not([tabindex='-1'])");
-    if (!focusables.length) return;
-    const first = focusables[0];
-    const last = focusables[focusables.length - 1];
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
-      last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
+  function closeLightbox() {
+    var lb = byId("lightbox");
+    lb.classList.remove("is-open");
+    lb.setAttribute("aria-hidden", "true");
+    if (!byId("modal").classList.contains("is-open")) {
+      document.body.classList.remove("no-scroll");
     }
   }
-});
 
-/* ================================================================== *
- *  TOOLTIP
- * ================================================================== */
-const tooltip = document.getElementById("tooltip");
+  /* ============================================================
+     TOOLTIP
+     ============================================================ */
 
-function showTooltip(target, text) {
-  tooltip.textContent = text;
-  tooltip.classList.add("is-visible");
-  tooltip.setAttribute("aria-hidden", "false");
-  positionTooltip(target);
-}
+  function attachTooltip(el, title, text) {
+    el.addEventListener("mouseenter", function () {
+      if (text) showTooltipNear(el, title, text);
+    });
+    el.addEventListener("mousemove", function (ev) {
+      if (board.tooltip && board.tooltip.classList.contains("is-visible")) {
+        positionTooltip(ev.clientX, ev.clientY);
+      }
+    });
+    el.addEventListener("mouseleave", hideTooltip);
+    el.addEventListener("focus", function () {
+      if (text) showTooltipNear(el, title, text);
+    });
+    el.addEventListener("blur", hideTooltip);
+  }
 
-function positionTooltip(target) {
-  const r = target.getBoundingClientRect();
-  const tw = tooltip.offsetWidth;
-  const th = tooltip.offsetHeight;
-  let left = r.left;
-  let top = r.bottom + 10;
-  if (left + tw > window.innerWidth - 10) left = window.innerWidth - tw - 10;
-  if (left < 10) left = 10;
-  if (top + th > window.innerHeight - 10) top = r.top - th - 10;
-  tooltip.style.left = left + "px";
-  tooltip.style.top = top + "px";
-}
+  function showTooltipNear(el, title, text) {
+    var tip = board.tooltip;
+    tip.innerHTML = "";
+    if (title) {
+      var b = document.createElement("b");
+      b.textContent = title;
+      tip.appendChild(b);
+    }
+    var span = document.createElement("span");
+    span.textContent = text;
+    tip.appendChild(span);
+    tip.classList.add("is-visible");
+    var r = el.getBoundingClientRect();
+    positionTooltip(r.left + r.width / 2, r.top + window.scrollY - 10, 0);
+  }
 
-function hideTooltip() {
-  tooltip.classList.remove("is-visible");
-  tooltip.setAttribute("aria-hidden", "true");
-}
+  function positionTooltip(x, y) {
+    var tip = board.tooltip;
+    var w = tip.offsetWidth;
+    var h = tip.offsetHeight;
+    var left = x - w / 2;
+    var top = y - h - 12;
+    if (left < 8) left = 8;
+    if (left + w > window.innerWidth - 8) left = window.innerWidth - w - 8;
+    if (top < 8) top = y + 18;
+    tip.style.left = left + "px";
+    tip.style.top = top + "px";
+  }
 
-document.addEventListener("mouseover", function (e) {
-  const t = e.target.closest && e.target.closest("[data-tip]");
-  if (t) showTooltip(t, t.getAttribute("data-tip"));
-});
-document.addEventListener("mouseout", function (e) {
-  const t = e.target.closest && e.target.closest("[data-tip]");
-  if (t) hideTooltip();
-});
-document.addEventListener("focusin", function (e) {
-  const t = e.target.closest && e.target.closest("[data-tip]");
-  if (t) showTooltip(t, t.getAttribute("data-tip"));
-});
-document.addEventListener("focusout", hideTooltip);
-window.addEventListener("scroll", hideTooltip, true);
+  function hideTooltip() {
+    if (board.tooltip) board.tooltip.classList.remove("is-visible");
+  }
 
-/* ================================================================== *
- *  SECCIONES AUXILIARES
- * ================================================================== */
-function renderBadges() {
-  const list = document.getElementById("tech-badges");
-  TECH.forEach(function (name) { list.appendChild(el("li", { text: name })); });
-}
+  /* ============================================================
+     ARRANQUE
+     ============================================================ */
 
-function renderCharacters() {
-  const grid = document.getElementById("characters-grid");
-  CHARACTERS.forEach(function (c) {
-    grid.appendChild(
-      el("li", { class: "character-card" }, [
-        el("div", { class: "char-img" }, el("img", { src: c.img, alt: c.name + ", " + c.role, loading: "lazy" })),
-        el("h3", { text: c.name }),
-        el("p", { text: c.role })
-      ])
-    );
-  });
-}
+  function bindGlobals() {
+    board.tooltip = byId("tooltip");
+    board.modal = byId("modal");
+    board.lightbox = byId("lightbox");
 
-function renderArchitecture() {
-  const wrap = document.getElementById("tech-architecture");
-  TECH_ARCH.forEach(function (node) {
-    wrap.appendChild(
-      el("article", { class: "tech-node" }, [
-        el("h3", { text: node.title }),
-        el("ul", null, node.items.map(function (it) { return el("li", { text: it }); }))
-      ])
-    );
-  });
-}
+    document.querySelectorAll("[data-close-modal]").forEach(function (el) {
+      el.addEventListener("click", closeModal);
+    });
+    document.querySelectorAll("[data-close-lightbox]").forEach(function (el) {
+      el.addEventListener("click", closeLightbox);
+    });
 
-/* ================================================================== *
- *  INICIALIZACIÓN
- * ================================================================== */
-function init() {
-  renderBadges();
-  renderCanvas();
-  renderCharacters();
-  renderArchitecture();
-  observeBlocks();
-  drawConnections();
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape") {
+        if (byId("modal").classList.contains("is-open")) {
+          closeModal();
+        } else if (byId("lightbox").classList.contains("is-open")) {
+          closeLightbox();
+        } else {
+          clearEmphasis();
+        }
+      }
+    });
+  }
 
-  window.addEventListener("load", drawConnections);
+  function init() {
+    bindGlobals();
+    renderHeroBadges();
+    renderFlow();
+    renderCharacters();
+    renderGallery();
+    renderTech();
+    renderCanvas();
+    renderLinks();
+    // Recalcular conexiones cuando todas las imágenes cargan
+    if (document.readyState === "complete") {
+      positionLinks();
+    } else {
+      window.addEventListener("load", positionLinks);
+    }
+  }
 
-  let resizeTimer = null;
-  window.addEventListener("resize", function () {
-    window.clearTimeout(resizeTimer);
-    resizeTimer = window.setTimeout(drawConnections, 150);
-  });
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init);
-} else {
-  init();
-}
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
