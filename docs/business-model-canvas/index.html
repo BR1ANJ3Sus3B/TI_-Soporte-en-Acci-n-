@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TI: Soporte en Acción — Business Model Canvas Interactivo</title>
+  <meta name="description" content="Business Model Canvas interactivo de TI: Soporte en Acción, videojuego educativo 2D pixel art para practicar Tecnologías de la Información." />
+  <meta name="author" content="Brian Jesús Mendoza Márquez — Práctica 04" />
+  <link rel="icon" type="image/png" href="./img/alex.png" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#canvas">Saltar al Canvas</a>
+
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-avatar">
+        <img src="./img/alex.png" alt="Hoja de sprite de Alex, personaje principal" />
+      </span>
+      <div class="brand-text">
+        <h1>TI: SOPORTE EN ACCIÓN</h1>
+        <p class="tagline">Business Model Canvas Interactivo · Práctica 04</p>
+      </div>
+    </div>
+    <nav class="header-nav" aria-label="Navegación principal">
+      <a href="#canvas">Canvas</a>
+      <a href="#personajes">Personajes</a>
+      <a href="#tecnologias">Tecnologías</a>
+      <a href="#evidencias">Evidencias</a>
+      <a href="./README.md">README</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="hero-kicker">Videojuego educativo 2D pixel art</p>
+      <h2 id="hero-title">Practica Tecnologías de la Información resolviendo misiones reales</h2>
+      <p class="hero-lead">
+        <strong>TI: Soporte en Acción</strong> es un videojuego de aventura y simulación donde
+        <strong>Alex</strong>, un recién egresado, resuelve incidentes de soporte técnico en
+        <strong>NovaTech Solutions</strong>. El proyecto integra un videojuego en Unity, una app móvil
+        en Flutter y una PWA en React sobre servicios compartidos.
+      </p>
+      <ul class="badges" id="tech-badges" aria-label="Tecnologías del proyecto"></ul>
+    </section>
+
+    <section id="canvas" class="canvas-section" aria-labelledby="canvas-title">
+      <div class="section-head">
+        <h2 id="canvas-title">Business Model Canvas · 9 componentes</h2>
+        <p class="section-hint">
+          Pasa el cursor sobre las tarjetas para ver descripciones y haz clic en cualquier bloque para
+          abrir su <strong>ficha completa</strong>. Las líneas indican las relaciones entre componentes.
+        </p>
+      </div>
+
+      <noscript>
+        <p class="noscript-warning">
+          Este Canvas interactivo requiere JavaScript para mostrar los nueve componentes, las
+          conexiones, los modales y los tooltips. Activa JavaScript para ver la versión completa.
+        </p>
+      </noscript>
+
+      <div class="bmc" id="bmc">
+        <svg class="bmc-links" id="bmc-links" aria-hidden="true" focusable="false"></svg>
+        <!-- Los nueve bloques del Canvas se generan dinámicamente desde ./js/canvas.js -->
+      </div>
+    </section>
+
+    <section id="personajes" class="characters-section" aria-labelledby="characters-title">
+      <div class="section-head">
+        <h2 id="characters-title">Personajes y usuarios de la historia</h2>
+        <p class="section-hint">Sprites conceptuales de NovaTech Solutions (material de diseño pixel art).</p>
+      </div>
+      <ul class="characters-grid" id="characters-grid"></ul>
+    </section>
+
+    <section id="tecnologias" class="tech-section" aria-labelledby="tech-title">
+      <div class="section-head">
+        <h2 id="tech-title">Tecnologías y arquitectura</h2>
+        <p class="section-hint">Un solo proyecto integrador: videojuego, móvil, web y servicios compartidos.</p>
+      </div>
+      <div class="tech-architecture" id="tech-architecture"></div>
+    </section>
+
+    <section id="evidencias" class="evidence-section" aria-labelledby="evidence-title">
+      <div class="section-head">
+        <h2 id="evidence-title">Evidencias</h2>
+        <p class="section-hint">Capturas del proceso de construcción del lienzo.</p>
+      </div>
+      <div class="evidence-grid">
+        <figure class="evidence-card">
+          <img src="./evidencias/canvas-v1.png" alt="Primera versión (boceto) del Business Model Canvas de TI: Soporte en Acción" />
+          <figcaption>Canvas v1 · boceto</figcaption>
+        </figure>
+        <figure class="evidence-card">
+          <img src="./evidencias/canvas-final.png" alt="Versión final del Business Model Canvas de TI: Soporte en Acción" />
+          <figcaption>Canvas final</figcaption>
+        </figure>
+      </div>
+      <p class="evidence-links">
+        <a class="btn-ghost" href="./evidencias/canvas-v1.png" target="_blank" rel="noopener">Ver canvas-v1.png</a>
+        <a class="btn-ghost" href="./evidencias/canvas-final.png" target="_blank" rel="noopener">Ver canvas-final.png</a>
+        <a class="btn-ghost" href="./index.html">Abrir en GitHub Pages</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>TI: Soporte en Acción</strong> · Business Model Canvas · Práctica 04</p>
+    <p>Rama de trabajo: <code>documentacion</code> · Publicado con GitHub Pages</p>
+    <p>Autor: Brian Jesús Mendoza Márquez · Matrícula 230308</p>
+  </footer>
+
+  <div class="tooltip" id="tooltip" role="tooltip" aria-hidden="true"></div>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header class="modal-head">
+        <span class="modal-icon" id="modal-icon"></span>
+        <div>
+          <span class="modal-index" id="modal-index"></span>
+          <h2 id="modal-title">Componente</h2>
+        </div>
+        <button class="modal-close" type="button" aria-label="Cerrar ficha" data-close-modal>&times;</button>
+      </header>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="./js/canvas.js" defer></script>
+</body>
+</html>
