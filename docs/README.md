@@ -9,6 +9,7 @@ El contenido completo del proyecto (objetivos, roles, arquitectura, requerimient
 - [Documento completo del proyecto](proyecto/README.md)
 - [Cobertura documental](proyecto/COBERTURA_DOCUMENTAL.md)
 - [Inventario de imágenes](inventario-imagenes.json)
+- [Documentación DevOps](devops/README.md)
 
 Las imágenes del proyecto están en [`docs/imagenes/`](imagenes/).
 
@@ -28,6 +29,8 @@ docs/
 │   └── personajes/         # Diseño de personajes
 ├── pruebas/                # Planes y resultados de pruebas
 ├── manuales/               # Manuales de usuario y de desarrollo
+├── devops/                 # Documentación DevOps (CI/CD, entornos, SLA, métricas y configuración)
+│   └── diagramas/          # Diagramas de arquitectura, pipeline y monitoreo
 └── imagenes/               # Imágenes referenciadas por el documento del proyecto
 ```
 
@@ -36,6 +39,7 @@ docs/
 | Sección | Estado | Contenido |
 | --- | --- | --- |
 | `proyecto/` | Completa | Documento íntegro del proyecto y cobertura documental. |
+| `devops/` | Completa | [Documentación DevOps](devops/README.md): justificación CI/CD, entornos, SLA, métricas y parámetros de configuración, con diagramas (`devops/diagramas/`). |
 | `requerimientos/` | Pendiente | RF-01 a RF-26 y RNF-01 a RNF-14 ya redactados en `proyecto/README.md`; se desglosarán aquí si se requiere. |
 | `historias-de-usuario/` | Pendiente | Historias de usuario. |
 | `arquitectura/` | Pendiente | Componentes, diagramas y decisiones técnicas. |
@@ -48,4 +52,4 @@ docs/
 
 ## Estado actual
 
-La organización inicial, el contenido completo del proyecto y las imágenes ya están integrados. Las secciones marcadas como "Pendiente" conservan su carpeta con un archivo `.gitkeep` a la espera de contenido; no se duplica información que ya está en `proyecto/README.md`.
+La organización inicial, el contenido completo del proyecto y las imágenes ya están integrados. La sección `devops/` reúne la documentación de DevOps; su contenido describe propuestas de CI/CD, Docker y monitoreo (Prometheus y Grafana), que aún no están implementados en el repositorio. Las secciones marcadas como "Pendiente" conservan su carpeta con un archivo `.gitkeep` a la espera de contenido; no se duplica información que ya está en `proyecto/README.md`.
