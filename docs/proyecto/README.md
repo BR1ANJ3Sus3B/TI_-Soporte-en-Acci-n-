@@ -18,6 +18,20 @@ Este documento conserva el contenido textual, las tablas y las 21 imágenes del 
 | **NovaTech Solutions** | **TI: Soporte en Acción** |
 | *Empresa ficticia del videojuego* | *Videojuego educativo / producto principal* |
 
+---
+
+<div align="center">
+
+  <img src="https://img.shields.io/badge/UNITY-000000?style=for-the-badge&logo=unity&logoColor=white" alt="Unity">
+  <img src="https://img.shields.io/badge/FLUTTER-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter">
+  <img src="https://img.shields.io/badge/REACT-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+  <img src="https://img.shields.io/badge/KEYCLOAK-4D4D4D?style=for-the-badge&logo=keycloak&logoColor=white" alt="Keycloak">
+  <img src="https://img.shields.io/badge/MONGODB-47A248?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB">
+  <img src="https://img.shields.io/badge/DOCKER-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+  <img src="https://img.shields.io/badge/GRAFANA-F46800?style=for-the-badge&logo=grafana&logoColor=white" alt="Grafana">
+
+</div>
+
 ## Índice
 
 - [Propuesta de integración académica](#propuesta-de-integración-académica)
