@@ -10,6 +10,14 @@ Proyecto integrador de videojuego educativo en Unity, aplicación móvil en Flut
 
 Este documento conserva el contenido textual, las tablas y las 21 imágenes del documento Word del proyecto, en su orden original. Las imágenes son referencias de diseño. Al final se incluye la paleta acordada en la conversación como complemento, ya que no está presente en esta copia del Word.
 
+## 🏢 Identidad del Proyecto
+
+| Logo del Producto | Logo de la empresa  |
+|:---:|:---:|
+| ![TI Soporte en Acción](<../imagenes/image-gen-2(6).png>) | ![](<../imagenes/image-gen-1(6).png>) |
+| **NovaTech Solutions** | **TI: Soporte en Acción** |
+| *Empresa ficticia del videojuego* | *Videojuego educativo / producto principal* |
+
 ## Índice
 
 - [Propuesta de integración académica](#propuesta-de-integración-académica)
