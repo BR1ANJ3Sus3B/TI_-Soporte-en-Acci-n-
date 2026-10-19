@@ -727,6 +727,14 @@ Propuesta visual para la aplicación móvil en Flutter de TI: Soporte en Acción
 
 ## Paleta de colores complementaria
 
+### Referencia visual del videojuego
+
+![Paleta neón de ciencia ficción para TI: Soporte en Acción, con colores principales, acentos, interfaz, estados y ejemplos de aplicación](<../imagenes/Paleta neón sci‑fi para videojuegos.png>)
+
+La referencia propone una identidad visual de fondos oscuros con acentos cian, turquesa y violeta para el videojuego. Incluye variantes de color, estados de interfaz y ejemplos de menús, logros y barras de progreso para orientar el diseño de sus pantallas.
+
+### Paleta para Flutter y React
+
 Propuesta acordada en la conversación para Flutter y React. Los bocetos permanecen a lápiz; esta tabla define el acabado a color.
 
 | Color | HEX | Uso |
