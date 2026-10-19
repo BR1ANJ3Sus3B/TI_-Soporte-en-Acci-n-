@@ -1,88 +1,46 @@
 fileFormatVersion: 2
-guid: d4b63ec80a67d1747bf1ca6d4cc1da4a
+guid: 6aae5ab765046924986e4c84947bf86d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5570605184422062401
-    second: Alex Pixel Character Sprite Sheet_0
+      213: 907153722146234015
+    second: saboteador_0
   - first:
-      213: 8496679470416268668
-    second: Alex Pixel Character Sprite Sheet_1
+      213: 8834635703682626747
+    second: saboteador_1
   - first:
-      213: 5451813629313777993
-    second: Alex Pixel Character Sprite Sheet_2
+      213: 6496415954901102676
+    second: saboteador_2
   - first:
-      213: 4695897276873546911
-    second: Alex Pixel Character Sprite Sheet_3
+      213: -5538335477196283449
+    second: saboteador_3
   - first:
-      213: -2318553284572784403
-    second: Alex Pixel Character Sprite Sheet_4
+      213: 8297956107316725166
+    second: saboteador_4
   - first:
-      213: 9003811285668949952
-    second: Alex Pixel Character Sprite Sheet_5
+      213: 7372598785262668713
+    second: saboteador_5
   - first:
-      213: -5116434760307738445
-    second: Alex Pixel Character Sprite Sheet_6
+      213: -5193997850289230723
+    second: saboteador_6
   - first:
-      213: -1199016429945250091
-    second: Alex Pixel Character Sprite Sheet_7
+      213: -1349929366821941296
+    second: saboteador_7
   - first:
-      213: 170498744598610370
-    second: Alex Pixel Character Sprite Sheet_8
+      213: 9060961944158727381
+    second: saboteador_8
   - first:
-      213: 5485919909584534733
-    second: Alex Pixel Character Sprite Sheet_9
+      213: 699123773072030355
+    second: saboteador_9
   - first:
-      213: -3163612139201221798
-    second: Alex Pixel Character Sprite Sheet_10
+      213: -59769440037207886
+    second: saboteador_10
   - first:
-      213: 5974293897265836925
-    second: Alex Pixel Character Sprite Sheet_11
+      213: -6044544352499505230
+    second: saboteador_11
   - first:
-      213: 5017349383849047968
-    second: Alex Pixel Character Sprite Sheet_12
-  - first:
-      213: -1223817823150771326
-    second: Alex Pixel Character Sprite Sheet_13
-  - first:
-      213: -3348315625158869011
-    second: Alex Pixel Character Sprite Sheet_14
-  - first:
-      213: 6701598872404715202
-    second: Alex Pixel Character Sprite Sheet_15
-  - first:
-      213: -4843477082566721867
-    second: Alex Pixel Character Sprite Sheet_16
-  - first:
-      213: 3364822325948306760
-    second: Alex Pixel Character Sprite Sheet_17
-  - first:
-      213: 4743863974662463884
-    second: Alex Pixel Character Sprite Sheet_18
-  - first:
-      213: -3278881187598294357
-    second: Alex Pixel Character Sprite Sheet_19
-  - first:
-      213: -373041394404460163
-    second: Alex Pixel Character Sprite Sheet_20
-  - first:
-      213: -4280666081166298921
-    second: Alex Pixel Character Sprite Sheet_21
-  - first:
-      213: -2513887970031669676
-    second: Alex Pixel Character Sprite Sheet_22
-  - first:
-      213: 756288388138314679
-    second: Alex Pixel Character Sprite Sheet_23
-  - first:
-      213: -5534901231053002835
-    second: Alex Pixel Character Sprite Sheet_24
-  - first:
-      213: -5023406360717864229
-    second: Alex Pixel Character Sprite Sheet_25
-  - first:
-      213: -8610278144117528909
-    second: Alex Pixel Character Sprite Sheet_26
+      213: 2713763987798495942
+    second: saboteador_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,7 +73,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -193,56 +151,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Alex-player
+      name: saboteador_0
       rect:
         serializedVersion: 2
-        x: 66
-        y: 1274
+        x: 0
+        y: 1395
         width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fb6d29e591c31b2b0800000000000000
-      internalID: -5570605184422062401
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 199
-        y: 1274
-        width: 103
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c7d048406f44ae570800000000000000
-      internalID: 8496679470416268668
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 310
-        y: 1276
-        width: 107
         height: 126
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -252,19 +166,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 94181e46c9bb8ab40800000000000000
-      internalID: 5451813629313777993
+      spriteID: f9e1335018bd69c00800000000000000
+      internalID: 907153722146234015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_3
+      name: saboteador_1
       rect:
         serializedVersion: 2
-        x: 428
-        y: 1276
-        width: 106
+        x: 128
+        y: 1395
+        width: 128
         height: 126
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -274,19 +188,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9c95c181bd2b2140800000000000000
-      internalID: 4695897276873546911
+      spriteID: bb47cf55d5eea9a70800000000000000
+      internalID: 8834635703682626747
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_4
+      name: saboteador_2
       rect:
         serializedVersion: 2
-        x: 542
-        y: 1276
-        width: 109
+        x: 256
+        y: 1395
+        width: 128
         height: 126
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -296,19 +210,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de859386218d2dfd0800000000000000
-      internalID: -2318553284572784403
+      spriteID: 4507f0934e7e72a50800000000000000
+      internalID: 6496415954901102676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_5
+      name: saboteador_3
       rect:
         serializedVersion: 2
-        x: 660
-        y: 1276
-        width: 105
+        x: 384
+        y: 1395
+        width: 128
         height: 126
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -318,701 +232,657 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0cf63faf8a6f3fc70800000000000000
-      internalID: 9003811285668949952
+      spriteID: 7c1a5c21a31e323b0800000000000000
+      internalID: -5538335477196283449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alex_Idle_Up_01
+      name: saboteador_4
       rect:
         serializedVersion: 2
-        x: 64
-        y: 1154
+        x: 512
+        y: 1395
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea5856a7d13482370800000000000000
+      internalID: 8297956107316725166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1395
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9abce03988bb05660800000000000000
+      internalID: 7372598785262668713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1269
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dfc5b2a466144de0800000000000000
+      internalID: -1349929366821941296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1269
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dce9e491e00fbd70800000000000000
+      internalID: 9060961944158727381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_9
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1269
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a3df31e59c3b900800000000000000
+      internalID: 699123773072030355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_10
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1269
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b0882ec208ab2ff0800000000000000
+      internalID: -59769440037207886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1269
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b76c20dfe67d1ca0800000000000000
+      internalID: -6044544352499505230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_12
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1269
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c21af008f939a520800000000000000
+      internalID: 2713763987798495942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1143
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bc39dc82096664428788867b5f59bcf
+      internalID: 421070451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1143
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0bd0f70cd12c904084edae01503a487
+      internalID: 1039625439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1143
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9209b4c7e93374888c4edec9185c2b
+      internalID: -6749995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1143
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7926e9ce6a6d0524bb7ed66e3e0f98b1
+      internalID: 1835643401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1143
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddf66f231fb5fba4b9460d4375b782dd
+      internalID: 1868874560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_20
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1143
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e70d0bb8d5cfeae45a85ca787315ef4a
+      internalID: -1379643099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1017
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e1324652700709489ec0dd60f5495a0
+      internalID: 333252607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1017
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 803f1a1c439f4474c9ea40a34af4c3da
+      internalID: 1164578772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_25
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1017
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f191f3cf300cd894ab261f764fc910db
+      internalID: -503328874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_26
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1017
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a792aa740cd506246acd129fbc0e6a38
+      internalID: 1999665975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_27
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1017
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b861c5088861534e9a6dd920262ec27
+      internalID: 557891994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_28
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1017
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68ee4a12aa6b5ee498f49b14150f053d
+      internalID: 666180648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 891
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b372f761c3037d349b2c3e6c347ef437
+      internalID: -1717822587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 891
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3e4b925b2355f64280bc2a9a01cbbf6
+      internalID: 622767620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_32
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 891
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568a0fb528d1220499ad3f77ff15c17f
+      internalID: -259361607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_33
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 891
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc048cc43efcc0842956ceaeb10318e7
+      internalID: 1391536977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_34
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 891
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3619dea092d01da4babda1b90b3a8e2c
+      internalID: 697356137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_35
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 891
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 290c7d3e43c2ad24aa6fdb25cd85a94d
+      internalID: -1772290912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_36
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 891
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86b89c224f579ff4f845c477996330a3
+      internalID: -1541766594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_37
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 891
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c24a0761a31d19b4c8cf14bc961960e5
+      internalID: -976644173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 774
         width: 129
-        height: 116
+        height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3b8756b81b5cef8b0800000000000000
-      internalID: -5116434760307738445
+      spriteID: f9e75bdf925d139489c6bd2e509f3b53
+      internalID: -950110489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alex_Idle_Up_02
+      name: saboteador_39
       rect:
         serializedVersion: 2
-        x: 201
-        y: 1157
-        width: 101
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5de914dd8ec3c5fe0800000000000000
-      internalID: -1199016429945250091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Up_03
-      rect:
-        serializedVersion: 2
-        x: 311
-        y: 1154
-        width: 113
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2c1437274bbbd5200800000000000000
-      internalID: 170498744598610370
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Up_05
-      rect:
-        serializedVersion: 2
-        x: 545
-        y: 1153
-        width: 114
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a5b2ccb55879814d0800000000000000
-      internalID: -3163612139201221798
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Up_06
-      rect:
-        serializedVersion: 2
-        x: 666
-        y: 1156
-        width: 109
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d73705a75a4f8e250800000000000000
-      internalID: 5974293897265836925
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Left
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 1024
-        width: 125
-        height: 130
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0a7f85a7ea431a540800000000000000
-      internalID: 5017349383849047968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 202
-        y: 1024
-        width: 94
-        height: 130
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2837e458c20240fe0800000000000000
-      internalID: -1223817823150771326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 308
-        y: 1023
-        width: 119
-        height: 129
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: deff386dda46881d0800000000000000
-      internalID: -3348315625158869011
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 434
-        y: 1025
-        width: 97
-        height: 127
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2c667d8faacd00d50800000000000000
-      internalID: 6701598872404715202
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_16
-      rect:
-        serializedVersion: 2
-        x: 551
-        y: 1029
-        width: 107
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5be7dd7514388ccb0800000000000000
-      internalID: -4843477082566721867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_17
-      rect:
-        serializedVersion: 2
-        x: 666
-        y: 1027
-        width: 104
-        height: 123
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 845d37ee31042be20800000000000000
-      internalID: 3364822325948306760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: right
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 902
-        width: 121
-        height: 124
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c816780a62795d140800000000000000
-      internalID: 4743863974662463884
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_19
-      rect:
-        serializedVersion: 2
-        x: 203
-        y: 896
-        width: 94
-        height: 124
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ba22e70aee21f72d0800000000000000
-      internalID: -3278881187598294357
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_20
-      rect:
-        serializedVersion: 2
-        x: 321
-        y: 897
-        width: 98
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d79710804d0b2daf0800000000000000
-      internalID: -373041394404460163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_21
-      rect:
-        serializedVersion: 2
-        x: 435
-        y: 895
-        width: 102
-        height: 127
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7d0f40e01e40894c0800000000000000
-      internalID: -4280666081166298921
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_22
-      rect:
-        serializedVersion: 2
-        x: 550
-        y: 896
-        width: 103
-        height: 127
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 45e622dd530ec1dd0800000000000000
-      internalID: -2513887970031669676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_23
-      rect:
-        serializedVersion: 2
-        x: 666
-        y: 899
-        width: 109
-        height: 125
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7bbacb23840ee7a00800000000000000
-      internalID: 756288388138314679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Down
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 772
-        width: 125
-        height: 124
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: da7a630d7a41033b0800000000000000
-      internalID: -5534901231053002835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Run_Up_01
-      rect:
-        serializedVersion: 2
-        x: 199
-        y: 774
-        width: 98
-        height: 123
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bd259f2b786494ab0800000000000000
-      internalID: -5023406360717864229
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Run_Up_02
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 774
-        width: 109
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3b6a09aa5a5228880800000000000000
-      internalID: -8610278144117528909
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Run_Up_03
-      rect:
-        serializedVersion: 2
-        x: 434
+        x: 128
         y: 773
-        width: 103
-        height: 117
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62259afd3d462cb4497adccb2dbcfe58
-      internalID: 429323003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Run_Up_04
-      rect:
-        serializedVersion: 2
-        x: 559
-        y: 776
-        width: 117
-        height: 115
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 895f7e23e11bbd04a858e0846ba037d3
-      internalID: 2056531490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Run_Up_05
-      rect:
-        serializedVersion: 2
-        x: 695
-        y: 774
-        width: 94
-        height: 122
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab773a0b1610afb409a97633f43fa1df
-      internalID: 1478112372
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Run_Up_06
-      rect:
-        serializedVersion: 2
-        x: 817
-        y: 781
-        width: 98
-        height: 132
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c084cb92a46f10a46944d1ffec92955a
-      internalID: -345710746
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Run_Up_07
-      rect:
-        serializedVersion: 2
-        x: 931
-        y: 772
-        width: 119
-        height: 132
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3d131c0d507bf064b9fe934570f78777
-      internalID: -794192294
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Up
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 650
-        width: 126
-        height: 122
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6afaa4fbbe2dcc641b06476f8b7798e2
-      internalID: -1049589880
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Up2
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 651
-        width: 103
-        height: 117
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 559549dec15f69542b129c49582aaa7a
-      internalID: 1106606746
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Up3
-      rect:
-        serializedVersion: 2
-        x: 321
-        y: 654
-        width: 101
-        height: 114
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed80604164dfa434cb0a9f957c289a49
-      internalID: 253364811
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Up4
-      rect:
-        serializedVersion: 2
-        x: 436
-        y: 657
-        width: 103
-        height: 116
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e35dd6bce107a6f449ba9854adcd8f54
-      internalID: 355008774
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Up5
-      rect:
-        serializedVersion: 2
-        x: 563
-        y: 655
-        width: 114
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40d52763d91617c458f6f5ab381a1158
-      internalID: 445777875
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Up6
-      rect:
-        serializedVersion: 2
-        x: 693
-        y: 654
-        width: 104
-        height: 114
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ccfc595de3c1ed6459c665f8f9692560
-      internalID: 702226620
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Up8
-      rect:
-        serializedVersion: 2
-        x: 825
-        y: 657
-        width: 109
+        width: 128
         height: 118
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1022,218 +892,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4de788895cd66a46a4830a5d345888a
-      internalID: 125420003
+      spriteID: 9ba2e4625877bd54680ec210eea3cf2d
+      internalID: 1609460672
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alex_Idle_Up9
+      name: saboteador_40
       rect:
         serializedVersion: 2
-        x: 949
-        y: 652
-        width: 96
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ae981089ed6e1f409548991a7dec37d
-      internalID: 2070691201
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_40
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 525
-        width: 121
-        height: 127
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 02d0bee2b73cd104789b0c9cc7007194
-      internalID: -1749003708
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_41
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 526
-        width: 109
-        height: 124
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4bdf315cb8f4e5449000b2a17e628e9
-      internalID: 1742829615
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_42
-      rect:
-        serializedVersion: 2
-        x: 321
-        y: 528
-        width: 97
-        height: 127
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40ff0ad53c2b6a946a58983317029877
-      internalID: -574686408
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_43
-      rect:
-        serializedVersion: 2
-        x: 436
-        y: 529
-        width: 106
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 958267d00ccf4ee44834de38cffb7be9
-      internalID: 2037711933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_44
-      rect:
-        serializedVersion: 2
-        x: 562
-        y: 526
-        width: 103
-        height: 127
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd9c8890efa29de498c352bc54e35e70
-      internalID: 1142326530
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_45
-      rect:
-        serializedVersion: 2
-        x: 687
-        y: 527
-        width: 110
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e12176ff5cd36bd49b16491b2b0bad75
-      internalID: -1857415564
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_46
-      rect:
-        serializedVersion: 2
-        x: 816
-        y: 529
-        width: 108
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d445782ab253664fa061395075327ef
-      internalID: -160186663
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Run_Left
-      rect:
-        serializedVersion: 2
-        x: 944
-        y: 524
-        width: 100
-        height: 130
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 576f4e9766ae310429e1027c11a083e1
-      internalID: -1941201804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Run_right
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 400
+        x: 256
+        y: 775
         width: 127
-        height: 122
+        height: 118
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1242,371 +914,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e79fd4b22d5391843991eb476e3dc1ca
-      internalID: 2018968365
+      spriteID: 8b6391eb17ab27e4abc6cffcdfb0e73f
+      internalID: 632357662
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_49
+      name: saboteador_41
       rect:
         serializedVersion: 2
-        x: 200
-        y: 399
-        width: 90
-        height: 127
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af47735f857c1b340bf9155ba9ccfdea
-      internalID: 675536048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_50
-      rect:
-        serializedVersion: 2
-        x: 312
-        y: 401
-        width: 122
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4899060f58a16234b9eb4404c7320604
-      internalID: 633016658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_51
-      rect:
-        serializedVersion: 2
-        x: 444
-        y: 402
-        width: 109
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40b130b035059e34b8bacade40810cf5
-      internalID: -1527803532
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_52
-      rect:
-        serializedVersion: 2
-        x: 566
-        y: 404
-        width: 111
-        height: 117
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cbfcf2f655c8a60418fe7657e609deab
-      internalID: -775590054
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_53
-      rect:
-        serializedVersion: 2
-        x: 685
-        y: 401
-        width: 118
-        height: 124
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0480bd9900f26c449a845bfe1d03a3ab
-      internalID: 96906372
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_54
-      rect:
-        serializedVersion: 2
-        x: 818
-        y: 400
-        width: 106
-        height: 126
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 029f681414ea5df45aa56631a81e5273
-      internalID: 1162322978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_55
-      rect:
-        serializedVersion: 2
-        x: 941
-        y: 405
-        width: 112
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29cc19afbc6a219438f34c0a584762d5
-      internalID: 1393166803
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_56
-      rect:
-        serializedVersion: 2
-        x: 62
-        y: 279
-        width: 113
-        height: 115
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 289d46448d80db6468a95ad9bdf99f8f
-      internalID: 1661039863
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_57
-      rect:
-        serializedVersion: 2
-        x: 199
-        y: 277
-        width: 92
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3014c8c50dd30334a8ac36838df59e21
-      internalID: -2051721131
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_58
-      rect:
-        serializedVersion: 2
-        x: 318
-        y: 280
-        width: 107
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ebf47a3947a51146a64ccb5f76fe0c0
-      internalID: 927184701
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_59
-      rect:
-        serializedVersion: 2
-        x: 438
-        y: 277
-        width: 112
-        height: 122
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f41137dac40a3b944bbe42c07d38f5d2
-      internalID: -1235806948
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_60
-      rect:
-        serializedVersion: 2
-        x: 564
-        y: 281
-        width: 101
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55b3548ea5a06da4bb7cc10aa516f235
-      internalID: -1490056706
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_61
-      rect:
-        serializedVersion: 2
-        x: 687
-        y: 277
-        width: 120
-        height: 122
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89fd4c3248406a24fa6f692ab5536c55
-      internalID: 242832540
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_62
-      rect:
-        serializedVersion: 2
-        x: 819
-        y: 279
-        width: 102
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 921f0639bf236534885aee52696d43bf
-      internalID: 804763920
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_63
-      rect:
-        serializedVersion: 2
-        x: 945
-        y: 279
-        width: 101
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d2221ac865245f4c8d386476bb6d5bd
-      internalID: 2082097128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_64
-      rect:
-        serializedVersion: 2
-        x: 942
-        y: 156
-        width: 112
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f3f43535b0b363646b0ac2b1fb9c5ea6
-      internalID: -1767421783
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_65
-      rect:
-        serializedVersion: 2
-        x: 686
-        y: 159
-        width: 118
+        x: 384
+        y: 775
+        width: 129
         height: 116
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1616,327 +936,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58ceb21478c0a874c83cf5d424578a36
-      internalID: 1466046168
+      spriteID: 4225623fe7e059c4aa89297a314a5b95
+      internalID: -137710981
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_66
+      name: saboteador_42
       rect:
         serializedVersion: 2
-        x: 817
-        y: 158
-        width: 118
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9412e204c43aff14683fb3a7f445f4a9
-      internalID: 1216242952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_68
-      rect:
-        serializedVersion: 2
-        x: 437
-        y: 154
-        width: 116
-        height: 123
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 954a626a370c139468bd99663907377f
-      internalID: -1211071093
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_67
-      rect:
-        serializedVersion: 2
-        x: 561
-        y: 156
-        width: 116
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c885beb8cbe28c84c80d80519c693270
-      internalID: 1859526517
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_70
-      rect:
-        serializedVersion: 2
-        x: 193
-        y: 153
-        width: 119
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 160a37d1e0e74c544b80589b01990a4d
-      internalID: 1020828935
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_69
-      rect:
-        serializedVersion: 2
-        x: 317
-        y: 155
-        width: 116
-        height: 123
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c2ea5b470b9cb843801e8f01fa7aabe
-      internalID: 709550710
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_71
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 155
-        width: 124
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66991c7ee941adc4fb3d185bab457a03
-      internalID: 218428985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_72
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 20
-        width: 119
-        height: 134
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 933c405586e6dbe49b35b649de3f1ff5
-      internalID: -1776997699
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_73
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 23
-        width: 102
-        height: 130
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 80dcb45787f1d2d4bbac41fcde1f3916
-      internalID: 1147266050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_74
-      rect:
-        serializedVersion: 2
-        x: 317
-        y: 21
-        width: 106
-        height: 132
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86d7576e27c07b9448411b6287201c81
-      internalID: 1522245510
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_75
-      rect:
-        serializedVersion: 2
-        x: 438
-        y: 21
-        width: 105
-        height: 133
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23db68da257c562488c6354b21b67166
-      internalID: -1582386270
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_76
-      rect:
-        serializedVersion: 2
-        x: 561
-        y: 22
-        width: 114
-        height: 133
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 137e73747d8ff044aad65e7a6a9be82a
-      internalID: -271012530
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_77
-      rect:
-        serializedVersion: 2
-        x: 682
-        y: 22
-        width: 117
-        height: 138
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9064736a6b9f284483fb774742dcd4f
-      internalID: -1615600662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_78
-      rect:
-        serializedVersion: 2
-        x: 822
-        y: 22
-        width: 106
-        height: 135
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 038b049c7327fab45a217f93be93fd8d
-      internalID: -940500147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex Pixel Character Sprite Sheet_79
-      rect:
-        serializedVersion: 2
-        x: 938
-        y: 23
-        width: 118
-        height: 133
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0655421a4b3ba8d429721f1035689f10
-      internalID: 263446669
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alex_Idle_Up_04
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 1157
-        width: 106
+        x: 512
+        y: 776
+        width: 127
         height: 115
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1946,8 +958,1130 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 203775a2997c50743b74ffd780ff4931
-      internalID: 1613263756
+      spriteID: aad0d8ab07d4b9b43a0d9ea6f4af3ebb
+      internalID: -1983153734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_43
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 779
+        width: 129
+        height: 112
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9317a5f0b4bf1ce4ba7a49412ead94c1
+      internalID: -80912197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_44
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 777
+        width: 126
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c9e995dbfe2474284df5f157635b9b
+      internalID: 332836233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_45
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 777
+        width: 127
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d025000a094d59499d47ca9ef6355e9
+      internalID: -593317199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_46
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 643
+        width: 124
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d43a0bd4903140b4eb8668a755b1bf48
+      internalID: 498129299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_47
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 641
+        width: 128
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c4bdb9c0e5825c4e9b06c1e5540847c
+      internalID: 1417055859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_48
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 639
+        width: 127
+        height: 135
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52bc11fd4600fe6458ef253d21530eed
+      internalID: -142445722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_49
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 639
+        width: 127
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 887dba1e82e0d1e47ba84955169a283b
+      internalID: 1359959018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_50
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 639
+        width: 125
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c733cd913dc92224cbaad86c831f7e58
+      internalID: -241558821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_51
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 639
+        width: 126
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ee30708bf05cc64a93aacfd496032ce
+      internalID: -1345430968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_52
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 639
+        width: 129
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a18b585322273004fa49cadcc221ff2c
+      internalID: 1526375743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_53
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 639
+        width: 128
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71d6363d73488c24e8dac3d71139118c
+      internalID: 1944570091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 513
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ff4659ac98e584aa37e20d419f184f
+      internalID: -359559334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_55
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 513
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb656048a1d395a439e1e8caf5e88d11
+      internalID: 568705100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_56
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 513
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4acefa229dbc65e4c91c49ddc3f94b96
+      internalID: -1366429939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_57
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 513
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8751b0b746221ff4a9750b1afd5bffaf
+      internalID: -1919840255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_58
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 513
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce46bc14b5a5f746954a208c30dc21e
+      internalID: 412696822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_59
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 513
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 365412907caf6c145991de0920bcf6e3
+      internalID: 463804243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_60
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 513
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30ffecbd675937743b5aa2765607478f
+      internalID: -1096442701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_61
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 513
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f424cb7c4d3924dbbda431cc2151d3
+      internalID: 679642629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_62
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 398
+        width: 126
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82a955fa355c4db47be57163d02e1ac7
+      internalID: 275605125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_63
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 397
+        width: 126
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693721917412b6448a4b8adfddc64f44
+      internalID: -1951575276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_64
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 394
+        width: 128
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d91f58bf7dfbbc245966c414b999c047
+      internalID: -2091860868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_65
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 392
+        width: 128
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e7de7b13cd052546901f2a923f8deb7
+      internalID: -6067622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_66
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 393
+        width: 126
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e165ff9959c4c44927b5e1a5f08cf6
+      internalID: 927233475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_67
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 397
+        width: 128
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eda2a8397677094fa6fe149ec4ec643
+      internalID: 984100261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_68
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 398
+        width: 123
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ed97b2153045cb45ac7b8c42435ee16
+      internalID: -1987831410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_69
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 393
+        width: 128
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49dff71f2c72f434b8136784b1625f3e
+      internalID: 1767711194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 273
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76bf1944fd953f145be289aae44d569e
+      internalID: -1436015133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_71
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 271
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe73f8aae7ff3c48b310c1699cb44c6
+      internalID: 1420931072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_72
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 268
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57682f0e453d6847a3c4b441d8576c6
+      internalID: -223690473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_73
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 272
+        width: 126
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299950a0ab35bb744b37480176985bc6
+      internalID: -72842829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_74
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 272
+        width: 128
+        height: 126
+      alignment: 9
+      pivot: {x: 0.48797846, y: 0.5061074}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7d498b4a6aab4a429ed39a26f6a75df
+      internalID: -1667410502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_75
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 272
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0744894e55a2f14eae8ec83a7485097
+      internalID: -1651252256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_76
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 269
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ca357925f1b134cbebcd450c68dd7c
+      internalID: 133822142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_77
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 273
+        width: 128
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1d0692a5ff9b18409af337c7919be83
+      internalID: -1465826036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_78
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 159
+        width: 129
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e36417f302ab09f4c9fc31ec2643d239
+      internalID: -1929122872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_79
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 158
+        width: 119
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 871e3a50f1835da49a42e31e18077054
+      internalID: -321919669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_80
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 155
+        width: 122
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0d66c43ce7895e429fa4c761b3c4119
+      internalID: 1501803397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_81
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 157
+        width: 119
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b2df45973ca4754b85360d1ebf94cbb
+      internalID: 20399414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_82
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 157
+        width: 122
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f9627a64d1ac7d43bf435df00917178
+      internalID: 324340913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_83
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 157
+        width: 121
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a37a6cb730f22cb4e998546fe61b2ddf
+      internalID: 402521641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_84
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 155
+        width: 126
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83becd09d1de34340bb3e017ccf05795
+      internalID: 1525049905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_85
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 155
+        width: 127
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a1368060a039ca4cb1fc657cd1001ee
+      internalID: 1843813365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 30
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cca2f9412c5727e4993c3d92045265e5
+      internalID: 2021627091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_87
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 29
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 599fa716512869245b4f2a403048adc3
+      internalID: 228160526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_88
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 27
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e8cefd678118dc43bb68e90f3bc3b4c
+      internalID: -599530456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_89
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 31
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfb237dc515f51943b172ca27633c6ca
+      internalID: -348168006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_90
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 32
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1832fcb710d38a4b9e0d701cfed0e4c
+      internalID: 1144105000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_91
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 31
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 800756b1cdb008848b7647d3cad045c7
+      internalID: -1775681728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_92
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 28
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48277eefad9e304c9f5d2449ea76cc5
+      internalID: -2063033096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: saboteador_93
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 28
+        width: 128
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7eb4c3f3429614fbe63196fe2f354b
+      internalID: -1283905150
       vertices: []
       indices: 
       edges: []
@@ -1956,7 +2090,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2b5306a0c7afd0e4f99ff5fe2822a4a2
+    spriteID: d42995ca2ccece44cb01a4f9f8b11eb3
     internalID: 0
     vertices: []
     indices: 
@@ -1964,89 +2098,104 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":8.0,"y":12.0},"gridSpriteSize":{"x":128.0,"y":126.0},"gridSpriteOffset":{"x":0.0,"y":15.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Alex Pixel Character Sprite Sheet_1: 8496679470416268668
-      Alex Pixel Character Sprite Sheet_13: -1223817823150771326
-      Alex Pixel Character Sprite Sheet_14: -3348315625158869011
-      Alex Pixel Character Sprite Sheet_15: 6701598872404715202
-      Alex Pixel Character Sprite Sheet_16: -4843477082566721867
-      Alex Pixel Character Sprite Sheet_17: 3364822325948306760
-      Alex Pixel Character Sprite Sheet_19: -3278881187598294357
-      Alex Pixel Character Sprite Sheet_2: 5451813629313777993
-      Alex Pixel Character Sprite Sheet_20: -373041394404460163
-      Alex Pixel Character Sprite Sheet_21: -4280666081166298921
-      Alex Pixel Character Sprite Sheet_22: -2513887970031669676
-      Alex Pixel Character Sprite Sheet_23: 756288388138314679
-      Alex Pixel Character Sprite Sheet_3: 4695897276873546911
-      Alex Pixel Character Sprite Sheet_4: -2318553284572784403
-      Alex Pixel Character Sprite Sheet_40: -1749003708
-      Alex Pixel Character Sprite Sheet_41: 1742829615
-      Alex Pixel Character Sprite Sheet_42: -574686408
-      Alex Pixel Character Sprite Sheet_43: 2037711933
-      Alex Pixel Character Sprite Sheet_44: 1142326530
-      Alex Pixel Character Sprite Sheet_45: -1857415564
-      Alex Pixel Character Sprite Sheet_46: -160186663
-      Alex Pixel Character Sprite Sheet_49: 675536048
-      Alex Pixel Character Sprite Sheet_5: 9003811285668949952
-      Alex Pixel Character Sprite Sheet_50: 633016658
-      Alex Pixel Character Sprite Sheet_51: -1527803532
-      Alex Pixel Character Sprite Sheet_52: -775590054
-      Alex Pixel Character Sprite Sheet_53: 96906372
-      Alex Pixel Character Sprite Sheet_54: 1162322978
-      Alex Pixel Character Sprite Sheet_55: 1393166803
-      Alex Pixel Character Sprite Sheet_56: 1661039863
-      Alex Pixel Character Sprite Sheet_57: -2051721131
-      Alex Pixel Character Sprite Sheet_58: 927184701
-      Alex Pixel Character Sprite Sheet_59: -1235806948
-      Alex Pixel Character Sprite Sheet_60: -1490056706
-      Alex Pixel Character Sprite Sheet_61: 242832540
-      Alex Pixel Character Sprite Sheet_62: 804763920
-      Alex Pixel Character Sprite Sheet_63: 2082097128
-      Alex Pixel Character Sprite Sheet_64: -1767421783
-      Alex Pixel Character Sprite Sheet_65: 1466046168
-      Alex Pixel Character Sprite Sheet_66: 1216242952
-      Alex Pixel Character Sprite Sheet_67: 1859526517
-      Alex Pixel Character Sprite Sheet_68: -1211071093
-      Alex Pixel Character Sprite Sheet_69: 709550710
-      Alex Pixel Character Sprite Sheet_70: 1020828935
-      Alex Pixel Character Sprite Sheet_71: 218428985
-      Alex Pixel Character Sprite Sheet_72: -1776997699
-      Alex Pixel Character Sprite Sheet_73: 1147266050
-      Alex Pixel Character Sprite Sheet_74: 1522245510
-      Alex Pixel Character Sprite Sheet_75: -1582386270
-      Alex Pixel Character Sprite Sheet_76: -271012530
-      Alex Pixel Character Sprite Sheet_77: -1615600662
-      Alex Pixel Character Sprite Sheet_78: -940500147
-      Alex Pixel Character Sprite Sheet_79: 263446669
-      Alex Pixel Character Sprite Sheet_9: 5485919909584534733
-      Alex-player: -5570605184422062401
-      Alex_Idle_Down: -5534901231053002835
-      Alex_Idle_Up: -1049589880
-      Alex_Idle_Up2: 1106606746
-      Alex_Idle_Up3: 253364811
-      Alex_Idle_Up4: 355008774
-      Alex_Idle_Up5: 445777875
-      Alex_Idle_Up6: 702226620
-      Alex_Idle_Up8: 125420003
-      Alex_Idle_Up9: 2070691201
-      Alex_Idle_Up_01: -5116434760307738445
-      Alex_Idle_Up_02: -1199016429945250091
-      Alex_Idle_Up_03: 170498744598610370
-      Alex_Idle_Up_04: 1613263756
-      Alex_Idle_Up_05: -3163612139201221798
-      Alex_Idle_Up_06: 5974293897265836925
-      Alex_Run_Left: -1941201804
-      Alex_Run_Up_01: -5023406360717864229
-      Alex_Run_Up_02: -8610278144117528909
-      Alex_Run_Up_03: 429323003
-      Alex_Run_Up_04: 2056531490
-      Alex_Run_Up_05: 1478112372
-      Alex_Run_Up_06: -345710746
-      Alex_Run_Up_07: -794192294
-      Alex_Run_right: 2018968365
-      Left: 5017349383849047968
-      right: 4743863974662463884
+      saboteador_0: 907153722146234015
+      saboteador_1: 8834635703682626747
+      saboteador_10: -59769440037207886
+      saboteador_11: -6044544352499505230
+      saboteador_12: 2713763987798495942
+      saboteador_13: 1617486054
+      saboteador_14: -1925692712
+      saboteador_15: 421070451
+      saboteador_16: 1039625439
+      saboteador_17: -6749995
+      saboteador_18: 1835643401
+      saboteador_19: 1868874560
+      saboteador_2: 6496415954901102676
+      saboteador_20: -1379643099
+      saboteador_21: -333663289
+      saboteador_22: -633108791
+      saboteador_23: 333252607
+      saboteador_24: 1164578772
+      saboteador_25: -503328874
+      saboteador_26: 1999665975
+      saboteador_27: 557891994
+      saboteador_28: 666180648
+      saboteador_29: 116113078
+      saboteador_3: -5538335477196283449
+      saboteador_30: -1717822587
+      saboteador_31: 622767620
+      saboteador_32: -259361607
+      saboteador_33: 1391536977
+      saboteador_34: 697356137
+      saboteador_35: -1772290912
+      saboteador_36: -1541766594
+      saboteador_37: -976644173
+      saboteador_38: -950110489
+      saboteador_39: 1609460672
+      saboteador_4: 8297956107316725166
+      saboteador_40: 632357662
+      saboteador_41: -137710981
+      saboteador_42: -1983153734
+      saboteador_43: -80912197
+      saboteador_44: 332836233
+      saboteador_45: -593317199
+      saboteador_46: 498129299
+      saboteador_47: 1417055859
+      saboteador_48: -142445722
+      saboteador_49: 1359959018
+      saboteador_5: 7372598785262668713
+      saboteador_50: -241558821
+      saboteador_51: -1345430968
+      saboteador_52: 1526375743
+      saboteador_53: 1944570091
+      saboteador_54: -359559334
+      saboteador_55: 568705100
+      saboteador_56: -1366429939
+      saboteador_57: -1919840255
+      saboteador_58: 412696822
+      saboteador_59: 463804243
+      saboteador_6: -5193997850289230723
+      saboteador_60: -1096442701
+      saboteador_61: 679642629
+      saboteador_62: 275605125
+      saboteador_63: -1951575276
+      saboteador_64: -2091860868
+      saboteador_65: -6067622
+      saboteador_66: 927233475
+      saboteador_67: 984100261
+      saboteador_68: -1987831410
+      saboteador_69: 1767711194
+      saboteador_7: -1349929366821941296
+      saboteador_70: -1436015133
+      saboteador_71: 1420931072
+      saboteador_72: -223690473
+      saboteador_73: -72842829
+      saboteador_74: -1667410502
+      saboteador_75: -1651252256
+      saboteador_76: 133822142
+      saboteador_77: -1465826036
+      saboteador_78: -1929122872
+      saboteador_79: -321919669
+      saboteador_8: 9060961944158727381
+      saboteador_80: 1501803397
+      saboteador_81: 20399414
+      saboteador_82: 324340913
+      saboteador_83: 402521641
+      saboteador_84: 1525049905
+      saboteador_85: 1843813365
+      saboteador_86: 2021627091
+      saboteador_87: 228160526
+      saboteador_88: -599530456
+      saboteador_89: -348168006
+      saboteador_9: 699123773072030355
+      saboteador_90: 1144105000
+      saboteador_91: -1775681728
+      saboteador_92: -2063033096
+      saboteador_93: -1283905150
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

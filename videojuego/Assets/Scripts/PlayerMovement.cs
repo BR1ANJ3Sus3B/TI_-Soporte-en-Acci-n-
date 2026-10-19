@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -12,15 +13,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 ultimaDireccion = Vector2.down;
 
     private bool corriendo;
-    private string animacionActual;
 
-    void Awake()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
-    void Update()
+    private void Update()
     {
         // Movimiento con WASD
         movimiento.x = Input.GetAxisRaw("Horizontal");
@@ -28,36 +28,30 @@ public class PlayerMovement : MonoBehaviour
 
         movimiento = movimiento.normalized;
 
-        // Shift para correr
+        // Detectar si Alex está corriendo
         corriendo =
             Input.GetKey(KeyCode.LeftShift) ||
             Input.GetKey(KeyCode.RightShift);
 
-        if (movimiento != Vector2.zero)
-        {
-            ultimaDireccion = movimiento;
+        // Indicar si está en movimiento
+        bool estaMoviendose = movimiento != Vector2.zero;
 
-            if (corriendo)
-            {
-                CambiarAnimacion(
-                    "Alex_Run_" + ObtenerDireccion(movimiento)
-                );
-            }
-            else
-            {
-                CambiarAnimacion(
-                    "Alex_Walk_" + ObtenerDireccion(movimiento)
-                );
-            }
-        }
-        else
+        animator.SetBool("IsMoving", estaMoviendose);
+
+        if (estaMoviendose)
         {
-            // Animación cuando Alex está quieto
-            CambiarAnimacion("Alex_Still");
+            // Actualizar dirección del Blend Tree
+            animator.SetFloat("MoveX", movimiento.x);
+            animator.SetFloat("MoveY", movimiento.y);
+
+            ultimaDireccion = movimiento;
         }
+
+        // Ajustar velocidad de las animaciones
+        animator.speed = corriendo && estaMoviendose ? 1.5f : 1f;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         float velocidad = corriendo
             ? velocidadCorrer
@@ -67,32 +61,5 @@ public class PlayerMovement : MonoBehaviour
             rb.position +
             movimiento * velocidad * Time.fixedDeltaTime
         );
-    }
-
-    string ObtenerDireccion(Vector2 direccion)
-    {
-        if (Mathf.Abs(direccion.x) > Mathf.Abs(direccion.y))
-        {
-            if (direccion.x > 0)
-                return "Right";
-            else
-                return "Left";
-        }
-        else
-        {
-            if (direccion.y > 0)
-                return "Up";
-            else
-                return "Down";
-        }
-    }
-
-    void CambiarAnimacion(string nombre)
-    {
-        if (animacionActual == nombre)
-            return;
-
-        animator.Play(nombre);
-        animacionActual = nombre;
     }
 }
