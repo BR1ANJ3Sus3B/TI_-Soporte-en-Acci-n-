@@ -4,7 +4,7 @@
   "nota": "Las ilustraciones de sprites, storyboards y bocetos son material conceptual; no son recursos jugables listos para importar sin revisión. Las hojas de sprite conservan rótulos de Godot de una versión anterior; el motor definido para el proyecto es Unity.",
   "total": 21,
   "total_moviles": 21,
-  "total_extra": 2,
+  "total_extra": 3,
   "imagenes": [
     {
       "archivo": "01-publico-objetivo.png",
@@ -157,6 +157,12 @@
     { "archivo": "movil21.png", "seccion": "Bocetos de la aplicación móvil - Pantalla 21", "tipo": "boceto", "descripcion": "Pantalla móvil 21 (título por orden)." }
   ],
   "imagenes_extra": [
+    {
+      "archivo": "Arquitectura TI educativa con Grafana.png",
+      "seccion": "Documentación DevOps - Arquitectura general",
+      "tipo": "ilustración",
+      "descripcion": "Arquitectura conceptual de la plataforma con Unity, React, Flutter, API, MongoDB, identidad, contenedores y monitoreo con Prometheus y Grafana."
+    },
     {
       "archivo": "Seis roles en acción para soporte TI.png",
       "seccion": "Roles de usuario y permisos",

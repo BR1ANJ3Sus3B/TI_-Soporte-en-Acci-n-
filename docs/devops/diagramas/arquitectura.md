@@ -6,6 +6,10 @@ Este documento presenta la arquitectura del sistema **TI: Soporte en Acción**. 
 
 ## 1. Arquitectura general
 
+![Arquitectura propuesta de la plataforma educativa: clientes Unity, React y Flutter, API, MongoDB, Keycloak, Docker, Prometheus y Grafana](<../../imagenes/Arquitectura TI educativa con Grafana.png>)
+
+La ilustración muestra una visión conceptual de la plataforma, desde los usuarios y clientes hasta los servicios compartidos y el monitoreo con Prometheus y Grafana. Incluye Keycloak, FastAPI y servicios externos como opciones de diseño; su presencia en la imagen no implica que estén implementados ni que sustituyan el backend Node.js + Express previsto en esta documentación.
+
 ```mermaid
 flowchart TB
     subgraph Clientes["Clientes"]

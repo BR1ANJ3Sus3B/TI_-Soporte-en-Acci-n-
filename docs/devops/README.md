@@ -42,6 +42,10 @@ Definir el marco de trabajo DevOps del proyecto para:
 
 ## Diagramas
 
+![Arquitectura propuesta de TI: Soporte en Acción con Unity, React, Flutter, MongoDB y monitoreo con Grafana](<../imagenes/Arquitectura TI educativa con Grafana.png>)
+
+Vista conceptual de la plataforma y sus servicios de identidad, datos y monitoreo. Consulta el [detalle de arquitectura y alcance de la ilustración](diagramas/arquitectura.md).
+
 - [Arquitectura Unity + Flutter + API REST](diagramas/arquitectura.md)
 - [Pipeline CI/CD y ambientes](diagramas/pipeline_cicd.md)
 - [Monitoreo con Prometheus y Grafana](diagramas/monitoreo.md)
