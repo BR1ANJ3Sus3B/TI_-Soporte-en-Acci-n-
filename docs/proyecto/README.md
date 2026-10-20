@@ -34,6 +34,7 @@ Este documento conserva el contenido textual, las tablas y las 21 imágenes del 
 
 ## Índice
 
+- [Sitio publicado y prácticas interactivas](#sitio-publicado-y-prácticas-interactivas)
 - [Propuesta de integración académica](#propuesta-de-integración-académica)
 - [Funciones de cada aplicación](#funciones-de-cada-aplicación)
 - [Roles de usuario y permisos](#roles-de-usuario-y-permisos)
@@ -62,6 +63,23 @@ Este documento conserva el contenido textual, las tablas y las 21 imágenes del 
 - [Bocetos de la aplicación móvil](#bocetos-de-la-aplicación-móvil)
 - [Paleta de colores complementaria](#paleta-de-colores-complementaria)
 - [Uso de este paquete](#uso-de-este-paquete)
+
+## Sitio publicado y prácticas interactivas
+
+La documentación HTML está publicada en **GitHub Pages**. Estos enlaces permiten abrir los entregables directamente en el navegador:
+
+| Entregable | Enlace público |
+| --- | --- |
+| Portada de documentación | [Abrir el sitio](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/) |
+| Práctica 04: Business Model Canvas | [Explorar el Canvas actualizado](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica04/business-model-canvas/) |
+| Análisis de ingresos del proyecto | [Consultar fuentes de ingresos, costos y punto de equilibrio](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica04/business-model-canvas/#analisis-ingresos) |
+| Práctica 07: galería de pantallas móviles | [Ver diseños a color y sketches](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/) |
+| Prototipo visual móvil | [Recorrer las pantallas](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/mockups-color/) |
+| Diagrama de navegación interactivo | [Explorar roles y recorridos](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/prototipo/) |
+| Galería de bocetos a lápiz | [Ver los sketches originales](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/galeria_sketches_lapiz.html) |
+| Canvas de la carpeta original | [Consultar la versión original](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/business-model-canvas/) |
+
+Los prototipos son entregables de diseño; no acreditan funciones de producción. El análisis de ingresos contiene propuestas y cifras hipotéticas por validar. El sitio se actualiza al subir cambios a `docs/` en la rama `docs/documentacion`.
 
 ## Propuesta de integración académica
 
@@ -544,9 +562,13 @@ La referencia visual de esta sección muestra el taller de hardware. Para el ter
 
 ## Canvas
 
+[Abrir el Canvas interactivo de la práctica 04 en GitHub Pages](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica04/business-model-canvas/).
+
 ![Canvas](../imagenes/12-canvas.png)
 
 ## Plan de monetización
+
+[Consultar el análisis de ingresos actualizado en el sitio](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica04/business-model-canvas/#analisis-ingresos), con licencias educativas, talleres, costos y punto de equilibrio como hipótesis de trabajo.
 
 Para TI: Soporte en Acción se propone un modelo Premium de compra única. El jugador compraría el videojuego una sola vez y tendría acceso a la historia principal, las misiones y los contenidos educativos sin publicidad ni pagos obligatorios durante la partida.
 
@@ -660,6 +682,8 @@ Muestra el avance de las misiones, la experiencia, la reputación y el historial
 Permite consultar y editar los datos de la cuenta, cambiar la contraseña y cerrar sesión.
 
 ## Bocetos de la aplicación móvil
+
+Entregables interactivos de la práctica 07: [galería general](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/), [prototipo visual](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/mockups-color/) y [diagrama de navegación](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/prototipo/).
 
 Propuesta visual para la aplicación móvil en Flutter de TI: Soporte en Acción. Las imágenes se presentan en el orden de los archivos proporcionados y con títulos genéricos por orden; los datos que muestran son ejemplos de la interfaz.
 
