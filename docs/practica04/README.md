@@ -2,6 +2,8 @@
 
 ## Business Model Canvas Interactivo — Práctica 04
 
+Consulta el [análisis de ingresos y viabilidad](ANALISIS_INGRESOS.md): licencias educativas, talleres, costos, escenario ilustrativo y pasos para validar clientes. El componente 9 del Canvas incluye esta propuesta.
+
 Este directorio contiene la documentación correspondiente a la **Práctica 04: Business Model Canvas Interactivo** del Proyecto Integrador **TI: Soporte en Acción**.
 
 El objetivo de esta práctica es analizar el contexto del proyecto y representar visualmente su problema, usuarios, propuesta de valor, solución, procesos, tecnologías, beneficios e impacto utilizando **Archify** como herramienta de apoyo basada en inteligencia artificial.

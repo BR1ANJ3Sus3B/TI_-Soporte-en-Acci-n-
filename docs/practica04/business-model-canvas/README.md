@@ -50,6 +50,8 @@ escenas y conexiones visuales entre los nueve bloques.
 
 ### Nota sobre ingresos
 
+El componente 9 desarrolla una propuesta de licencias por grupo y semestre, talleres, implementación y módulos especializados. Incluye un escenario económico hipotético y punto de equilibrio; no representa ventas reales ni precios validados. Consulta el [análisis completo](../ANALISIS_INGRESOS.md).
+
 El proyecto se encuentra en su **etapa académica**: es un proyecto educativo **en desarrollo y sin
 monetización directa**. Las líneas de sostenibilidad (licencias educativas, implementación
 institucional, capacitación, convenios académicos, módulos especializados y contenido adicional) se
