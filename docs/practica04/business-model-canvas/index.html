@@ -27,6 +27,7 @@
     </div>
     <nav class="header-nav" aria-label="Navegación principal">
       <a href="#canvas">Canvas</a>
+      <a href="#analisis-ingresos">Ingresos</a>
       <a href="#flujo">Flujo de misión</a>
       <a href="#personajes">Personajes</a>
       <a href="#galeria">Galería</a>
@@ -79,6 +80,57 @@
         <svg class="bmc-links" id="bmc-links" aria-hidden="true" focusable="false"></svg>
         <!-- Los nueve bloques se generan dinámicamente desde ./js/canvas.js -->
       </div>
+    </section>
+
+    <section id="analisis-ingresos" class="revenue-section" aria-labelledby="revenue-title">
+      <div class="section-head">
+        <h2 id="revenue-title">Ingresos · ¿Cómo ganaría dinero el proyecto?</h2>
+        <p class="section-hint">Propuesta comercial por validar. El proyecto está en desarrollo; no se presentan ventas reales.</p>
+      </div>
+      <p>La propuesta principal es vender <strong>licencias educativas por grupo y semestre</strong> a escuelas técnicas, universidades y centros de capacitación. El estudiante juega y aprende; la institución paga por prácticas de soporte TI, una guía docente y actividades evaluables.</p>
+      <div class="revenue-grid">
+        <article>
+          <h3>1. Licencias educativas</h3>
+          <p>Cobrar por el acceso de un grupo de hasta 30 estudiantes durante un semestre. Incluir contenido publicado, guía docente, actualizaciones y soporte con límites definidos. La renovación dependería de que el producto sea útil en clase.</p>
+        </article>
+        <article>
+          <h3>2. Talleres e implementación</h3>
+          <p>Cobrar por sesiones guiadas de diagnóstico y resolución de incidentes. Cotizar por separado instalación, configuración y formación docente cuando la escuela lo necesite, incluyendo las horas de preparación y atención.</p>
+        </article>
+        <article>
+          <h3>3. Módulos y capacitación empresarial</h3>
+          <p>Después de validar el primer nivel, ofrecer paquetes de misiones de redes, servidores, bases de datos o seguridad. Las empresas podrían pagar por escenarios de inducción adaptados a sus técnicos.</p>
+        </article>
+      </div>
+      <h3>Ejemplo económico por semestre</h3>
+      <p><strong>Cifras hipotéticas en pesos mexicanos (MXN).</strong> Son supuestos para evaluar el modelo, no precios de mercado ni ganancias garantizadas.</p>
+      <div class="revenue-table-wrap" tabindex="0" role="region" aria-label="Escenario económico semestral; desplazar horizontalmente en pantallas pequeñas">
+        <table class="revenue-table">
+          <caption>Escenario: cuatro grupos con licencia y dos talleres</caption>
+          <thead><tr><th scope="col">Concepto</th><th scope="col">Cálculo</th><th scope="col">Importe</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Licencias educativas</th><td>4 grupos × $3,000</td><td>$12,000</td></tr>
+            <tr><th scope="row">Talleres</th><td>2 sesiones × $1,500</td><td>$3,000</td></tr>
+            <tr><th scope="row">Ingreso bruto</th><td>Licencias + talleres</td><td>$15,000</td></tr>
+            <tr><th scope="row">Costos variables</th><td>4 licencias × $750 + 2 talleres × $500</td><td>−$4,000</td></tr>
+            <tr><th scope="row">Costos fijos supuestos</th><td>Mantenimiento, infraestructura base y administración</td><td>−$8,000</td></tr>
+          </tbody>
+          <tfoot><tr><th scope="row">Resultado operativo ilustrativo</th><td>Antes de impuestos y recuperación del desarrollo inicial</td><td>$3,000</td></tr></tfoot>
+        </table>
+      </div>
+      <p><strong>Punto de equilibrio sin talleres:</strong> cada licencia aportaría $2,250 después de su costo variable ($3,000 − $750). Para cubrir $8,000 de costos fijos se necesitarían <strong>4 grupos por semestre</strong>, redondeando hacia arriba.</p>
+      <p>El presupuesto debe incluir horas de trabajo del autor, soporte, mantenimiento, ventas y creación de contenido. Recuperar la inversión inicial exigiría ingresos adicionales; si el soporte cuesta más o baja el precio, aumentaría la cantidad de grupos necesaria.</p>
+      <h3>Cómo conseguir los primeros clientes</h3>
+      <ol>
+        <li>Entrevistar a docentes y responsables de compra para conocer presupuesto, equipos y requisitos.</li>
+        <li>Terminar y probar <strong>El Primer Día</strong> con un grupo, una guía docente y evaluación antes y después.</li>
+        <li>Medir aprendizaje, misiones completadas, fallos y horas de asistencia.</li>
+        <li>Ofrecer una licencia y un taller con alcance y precio separados; validar si una institución está dispuesta a pagar.</li>
+        <li>Buscar una renovación antes de invertir en más módulos y registrar el margen real por grupo.</li>
+      </ol>
+      <p>Antes de vender, se necesita una versión jugable estable y verificar los derechos comerciales de los recursos. Los reportes institucionales y paneles descritos en los prototipos aún requieren implementación.</p>
+      <p>Becas, concursos y patrocinios podrían financiar el desarrollo, pero no sustituyen ventas recurrentes. La publicidad no se prioriza porque exige audiencia y puede interrumpir el aprendizaje. No se propone vender XP, calificaciones ni ventajas para aprobar.</p>
+      <p class="section-hint">Referencia de la modalidad: <a href="https://education.minecraft.net/licensing">licencias de Minecraft Education</a>. Este antecedente no valida la demanda ni los precios de TI: Soporte en Acción.</p>
     </section>
 
     <!-- ============ FLUJO DE MISIÓN ============ -->

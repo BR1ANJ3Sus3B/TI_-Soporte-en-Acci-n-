@@ -53,6 +53,20 @@ body {
   line-height: 1.55;
 }
 
+.revenue-section { scroll-margin-top: 90px; }
+.revenue-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 18px; margin: 24px 0; }
+.revenue-grid article { background: var(--panel-2); border: 1px solid var(--line-strong); border-top: 3px solid var(--green); border-radius: var(--radius); padding: 20px; }
+.revenue-grid h3 { margin-top: 0; color: var(--green); }
+.revenue-section li { margin-bottom: 10px; }
+.revenue-table-wrap { overflow-x: auto; border: 1px solid var(--line-strong); border-radius: var(--radius); }
+.revenue-table { border-collapse: collapse; width: 100%; text-align: left; background: var(--panel); }
+.revenue-table caption { padding: 14px; text-align: left; color: var(--muted); }
+.revenue-table th, .revenue-table td { padding: 14px; border-bottom: 1px solid var(--line); }
+.revenue-table thead, .revenue-table tfoot { background: var(--panel-3); }
+.revenue-table td:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.revenue-table tfoot { color: var(--green); }
+.revenue-section a { color: var(--cyan); }
+
 /* Efecto CRT / scanlines elegante */
 .scanlines {
   position: fixed;
