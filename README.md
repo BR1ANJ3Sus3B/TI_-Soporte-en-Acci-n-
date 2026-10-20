@@ -29,6 +29,7 @@ Documentación de diseño y alcance. Las funciones descritas son requisitos prev
 | PWA | `web/` | React |
 | API | `api/` | Node.js, Express, Mongoose (propuesta) |
 | Base de datos | `database/` | MongoDB |
+| Contenedores | `Docker/` | Docker + Docker Compose (propuesta) |
 | Documentación | `docs/` | Markdown |
 
 ## Estructura de carpetas
@@ -42,6 +43,7 @@ TI_-Soporte-en-Acci-n-/
 ├── web/           # PWA con React
 ├── api/           # API Express + Mongoose
 ├── database/      # Documentación, diagramas y seeds de MongoDB
+├── Docker/        # Documentación y configuración prevista de contenedores
 └── docs/          # Documentación del proyecto
 ```
 
@@ -54,7 +56,6 @@ Cada componente conserva su README con el detalle de su propósito, organizació
 - [Práctica 07: navegación móvil Flutter](docs/practica07-navegacion-flutter/README.md)
 - [Publicación en GitHub Pages](docs/GITHUB_PAGES.md)
 
-
 - [Documento completo del proyecto](docs/proyecto/README.md)
 - [Índice de documentación](docs/README.md)
 - [Cobertura documental](docs/proyecto/COBERTURA_DOCUMENTAL.md)
@@ -64,6 +65,7 @@ Cada componente conserva su README con el detalle de su propósito, organizació
 - [Aplicación móvil](movil/README.md)
 - [Aplicación web](web/README.md)
 - [API](api/README.md)
+- [Docker](Docker/README.md)
 
 ## Ramas
 
@@ -87,6 +89,7 @@ Ramas de trabajo:
 | `feature/react-administracion` | Módulo de administración web |
 | `feature/api-autenticacion` | Autenticación y tokens en la API |
 | `feature/mongodb-modelos` | Modelos y esquemas de MongoDB |
+| `feature/docker` | Contenedores y configuración de Docker Compose |
 | `docs/documentacion` | Documentación del proyecto |
 
 Para correcciones futuras se usa la convención `fix/descripcion-del-error`.
