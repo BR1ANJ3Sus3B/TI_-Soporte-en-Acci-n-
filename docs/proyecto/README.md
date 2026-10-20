@@ -59,6 +59,7 @@ Este documento conserva el contenido textual, las tablas y las 21 imágenes del 
 - [Canvas](#canvas)
 - [Plan de monetización](#plan-de-monetización)
 - [Organización del trabajo individual](#organización-del-trabajo-individual)
+- [Diagrama de Gantt](#diagrama-de-gantt)
 - [Bocetos de la aplicación web progresiva](#bocetos-de-la-aplicación-web-progresiva)
 - [Bocetos de la aplicación móvil](#bocetos-de-la-aplicación-móvil)
 - [Paleta de colores complementaria](#paleta-de-colores-complementaria)
@@ -622,6 +623,18 @@ Responsable único del proyecto: Brian Jesús Mendoza Márquez, matrícula 23030
 | Pruebas y documentación | Verificar el funcionamiento y preparar evidencias y presentación. |
 
 El orden de trabajo corresponde al plan individual de etapas incluido al inicio. Las fechas de entrega se ajustarán a los calendarios de las asignaturas.
+
+## Diagrama de Gantt
+
+Cronograma **propuesto de 12 semanas** para el primer prototipo integrado, siguiendo las seis etapas del plan individual. Las semanas se cuentan desde el inicio que se acuerde; no representan fechas oficiales ni avance realizado. Las duraciones deberán ajustarse al calendario escolar y a la disponibilidad del responsable.
+
+![Diagrama de Gantt: diseño en semanas 1–2, servicios compartidos en 3–4, Unity en 5–6, Flutter en 7–8, React y PWA en 9–10 e integración y entrega en 11–12.](../imagenes/gantt-primer-prototipo.png)
+
+[Abrir la imagen en tamaño completo](../imagenes/gantt-primer-prototipo.png) · [Ver la imagen en GitHub Pages](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/imagenes/gantt-primer-prototipo.png).
+
+Cada etapa incluye sus pruebas y documentación. El rombo marca la verificación del resultado antes de pasar a la siguiente etapa; las semanas finales se reservan para pruebas entre las tres aplicaciones, correcciones, evidencias y presentación. El calendario es secuencial porque el proyecto tiene un único responsable.
+
+La imagen puede regenerarse con `python docs/scripts/generar_gantt.py` desde la raíz del repositorio; requiere Python y Matplotlib.
 
 ## Bocetos de la aplicación web progresiva
 
