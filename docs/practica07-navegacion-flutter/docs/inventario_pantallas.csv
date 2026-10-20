@@ -1,0 +1,21 @@
+﻿ID,Pantalla,Plataforma,Roles,Requerimientos,HU,Archivo PNG,Ruta propuesta
+P01,Splash Screen,Flutter (Android/iOS),Público,RNF-04,HU-01,P01_Splash_Screen.png,/splash
+P02,Loading Screen,Flutter (Android/iOS),Público,RNF-02; RF-02,HU-01,P02_Loading_Screen.png,/cargando
+P03,Iniciar sesión,Flutter (Android/iOS),Público,RF-02; RF-03; RNF-01,HU-02,P03_Iniciar_Sesion.png,/acceso
+P04,Recuperar cuenta,Flutter (Android/iOS),Público,RF-04; RNF-01,HU-03,P04_Recuperar_Cuenta.png,/recuperacion
+P05,Cuenta bloqueada,Flutter (Android/iOS),Público,RF-05; RNF-01,HU-04,P05_Cuenta_Bloqueada.png,/bloqueo
+P06,Código de desbloqueo,Flutter (Android/iOS),Público,RF-04; RF-05,HU-04,P06_Codigo_Desbloqueo.png,/verificar-codigo
+P07,Acerca del software,Flutter (Android/iOS),Público,RF-06,HU-05,P07_Acerca_Del_Software.png,/acerca
+P08,Acerca del equipo / empresa,Flutter (Android/iOS),Público,RF-06,HU-05,P08_Acerca_Del_Equipo.png,/equipo
+P09,Inicio (Home),Flutter (Android/iOS),Autenticado,RF-07; RF-16; RNF-01,HU-06,P09_Inicio_Home.png,/inicio
+P10,Registro de cuenta,Flutter (Android/iOS),Público,RF-01; RNF-01,HU-07,P10_Registro.png,/registro
+P11,Misiones,Flutter (Android/iOS),Estudiante/Jugador,RF-08; RF-10,HU-08,P11_Misiones.png,/misiones
+P12,Detalle de misión,Flutter (Android/iOS),Estudiante/Jugador,RF-08; RF-09,HU-08,P12_Detalle_Mision.png,/misiones/detalle
+P13,Guías de apoyo,Flutter (Android/iOS),Estudiante/Jugador,RF-11,HU-09,P13_Guias.png,/guias
+P14,Lectura de guía,Flutter (Android/iOS),Estudiante/Jugador,RF-11,HU-09,P14_Lectura_Guia.png,/guias/lectura
+P15,Mi progreso,Flutter (Android/iOS),Estudiante/Jugador,RF-10; RF-12,HU-10,P15_Progreso.png,/progreso
+P16,Mi perfil,Flutter (Android/iOS),Autenticado,RF-13; RF-02,HU-11,P16_Perfil.png,/perfil
+P17,Panel docente,Flutter (Android/iOS),Docente/Evaluador,RF-14; RF-16,HU-12,P17_Panel_Docente.png,/docente
+P18,Gestión de usuarios,Flutter (Android/iOS),Administrador,RF-15; RF-16,HU-13,P18_Gestion_Usuarios.png,/admin/usuarios
+P19,Editor de misiones,Flutter (Android/iOS),Editor de contenido,RF-17; RF-16,HU-14,P19_Editor_Misiones.png,/editor/misiones
+P20,Reportes institucionales,Flutter (Android/iOS),Institución educativa,RF-18; RF-16,HU-15,P20_Reportes_Institucion.png,/institucion/reportes

@@ -1,0 +1,52 @@
+﻿from_id,to_id,condition,role,kind
+P01,P02,Inicio de la aplicación,Todos,normal
+P02,P03,"Sin sesión, token inválido o cierre previo",Todos,normal
+P02,P09,Sesión válida: cargar inicio según rol,Todos,normal
+P03,P09,"Credenciales válidas, cuenta activa y permisos",Todos,normal
+P03,P03,Credenciales incorrectas bajo el umbral,Todos,error
+P03,P05,Exceso de intentos fallidos,Todos,error
+P03,P04,Selecciona recuperación,Todos,normal
+P03,P10,Selecciona crear cuenta,Todos,normal
+P03,P07,Selecciona información del software,Todos,normal
+P04,P06,Solicitud aceptada: verificar código,Todos,normal
+P04,P03,Cancelar y regresar,Todos,normal
+P05,P06,Solicitar desbloqueo,Todos,normal
+P05,P03,Regresar; el bloqueo se mantiene,Todos,normal
+P06,P03,Código correcto y desbloqueo o recuperación confirmados,Todos,normal
+P06,P06,Código incorrecto o caducado,Todos,error
+P06,P04,Reiniciar recuperación,Todos,normal
+P10,P03,Registro validado y sin duplicados,Todos,normal
+P10,P10,Campos inválidos o cuenta duplicada,Todos,error
+P07,P08,Ver equipo y empresa,Todos,normal
+P08,P07,Regresar,Todos,normal
+P07,P03,Volver sin autenticación,Todos,normal
+P07,P09,Volver con sesión válida,Todos,normal
+P09,P07,Ver información del software,Todos,normal
+P09,P11,Estudiante: consultar misiones,Estudiante/Jugador,normal
+P09,P13,Estudiante: abrir guías,Estudiante/Jugador,normal
+P09,P15,Estudiante: consultar progreso,Estudiante/Jugador,normal
+P09,P16,Abrir perfil,Todos,normal
+P11,P12,Misión disponible o consultar misión bloqueada,Estudiante/Jugador,normal
+P11,P09,Regresar al inicio,Estudiante/Jugador,normal
+P11,P15,Ir a progreso,Estudiante/Jugador,normal
+P12,P13,Consultar guía de apoyo,Estudiante/Jugador,normal
+P12,P11,Regresar a misiones,Estudiante/Jugador,normal
+P13,P14,Seleccionar guía,Estudiante/Jugador,normal
+P13,P12,Volver al detalle de la misión de origen,Estudiante/Jugador,normal
+P13,P09,Regresar al inicio,Estudiante/Jugador,normal
+P14,P13,Volver al catálogo de guías,Estudiante/Jugador,normal
+P14,P12,Volver al detalle si se conserva el contexto,Estudiante/Jugador,normal
+P15,P11,Ir a misiones,Estudiante/Jugador,normal
+P15,P09,Regresar al inicio,Estudiante/Jugador,normal
+P15,P16,Abrir perfil,Estudiante/Jugador,normal
+P16,P15,Solo estudiante: ver mi progreso,Estudiante/Jugador,normal
+P16,P09,Volver al inicio,Todos,normal
+P16,P03,"Cerrar sesión, invalidar sesión local y remota",Todos,normal
+P09,P17,Docente: seguimiento autorizado,Docente/Evaluador,normal
+P17,P09,Regresar a inicio,Docente/Evaluador,normal
+P09,P18,Administrador: módulo usuarios,Administrador,normal
+P18,P09,Regresar a inicio,Administrador,normal
+P09,P19,Editor: edición de misiones,Editor de contenido,normal
+P19,P09,Regresar a inicio,Editor de contenido,normal
+P09,P20,Institución: indicadores agregados,Institución educativa,normal
+P20,P09,Regresar a inicio,Institución educativa,normal

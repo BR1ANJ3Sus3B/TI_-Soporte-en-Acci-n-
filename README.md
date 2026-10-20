@@ -49,6 +49,12 @@ Cada componente conserva su README con el detalle de su propósito, organizació
 
 ## Documentación
 
+- [Portal HTML de las prácticas](docs/index.html)
+- [Práctica 04: Business Model Canvas](docs/practica04/README.md)
+- [Práctica 07: navegación móvil Flutter](docs/practica07-navegacion-flutter/README.md)
+- [Publicación en GitHub Pages](docs/GITHUB_PAGES.md)
+
+
 - [Documento completo del proyecto](docs/proyecto/README.md)
 - [Índice de documentación](docs/README.md)
 - [Cobertura documental](docs/proyecto/COBERTURA_DOCUMENTAL.md)

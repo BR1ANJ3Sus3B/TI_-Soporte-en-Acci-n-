@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TI: Soporte en Acción — Business Model Canvas Interactivo</title>
+  <meta
+    name="description"
+    content="Business Model Canvas interactivo de TI: Soporte en Acción, videojuego educativo 2D pixel art para practicar Tecnologías de la Información mediante misiones." />
+  <meta name="author" content="Brian Jesús Mendoza Márquez — Práctica 04" />
+  <link rel="icon" type="image/png" href="./img/personajes/alex.png" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#canvas">Saltar al Canvas</a>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-avatar">
+        <img src="./img/personajes/alex.png" alt="Hoja de sprite de Alex, personaje principal" />
+      </span>
+      <div class="brand-text">
+        <h1>TI: SOPORTE EN ACCIÓN</h1>
+        <p class="tagline">Business Model Canvas · Práctica 04</p>
+      </div>
+    </div>
+    <nav class="header-nav" aria-label="Navegación principal">
+      <a href="#canvas">Canvas</a>
+      <a href="#flujo">Flujo de misión</a>
+      <a href="#personajes">Personajes</a>
+      <a href="#galeria">Galería</a>
+      <a href="#tecnologias">Tecnologías</a>
+      <a href="#evidencias">Evidencias</a>
+      <a href="./README.md">README</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="hero-kicker">Videojuego educativo · 2D pixel art · RPG de soporte TI</p>
+      <h1 id="hero-title">TI: SOPORTE EN ACCIÓN</h1>
+      <p class="hero-lead">
+        El jugador interpreta a <strong>Alex</strong>, un técnico junior que resuelve incidentes reales
+        de soporte, redes, programación, servidores y ciberseguridad dentro de
+        <strong>NovaTech Solutions</strong>.
+      </p>
+      <ul class="badges" id="hero-badges" aria-label="Palabras clave del videojuego"></ul>
+
+      <div class="bridge" aria-label="Trayectoria educativa">
+        <span class="bridge-step">TEORÍA ACADÉMICA</span>
+        <span class="bridge-arrow" aria-hidden="true">▸</span>
+        <span class="bridge-step is-mid">EXPERIENCIA PRÁCTICA</span>
+        <span class="bridge-arrow" aria-hidden="true">▸</span>
+        <span class="bridge-step is-goal">PREPARACIÓN PROFESIONAL</span>
+      </div>
+    </section>
+
+    <!-- ============ CANVAS ============ -->
+    <section id="canvas" class="canvas-section" aria-labelledby="canvas-title">
+      <div class="section-head">
+        <h2 id="canvas-title">Business Model Canvas · 9 componentes</h2>
+        <p class="section-hint">
+          Pasa el cursor sobre un bloque para iluminar sus <strong>conexiones</strong> y atenuar lo no
+          relacionado. Haz clic en cualquier bloque — o en <em>Ver detalle</em> — para abrir su ficha
+          completa en un modal.
+        </p>
+      </div>
+
+      <noscript>
+        <p class="noscript-warning">
+          Este Canvas interactivo requiere JavaScript para mostrar los nueve componentes, las
+          conexiones, los modales y los tooltips. Activa JavaScript para ver la versión completa.
+        </p>
+      </noscript>
+
+      <div class="bmc" id="bmc">
+        <svg class="bmc-links" id="bmc-links" aria-hidden="true" focusable="false"></svg>
+        <!-- Los nueve bloques se generan dinámicamente desde ./js/canvas.js -->
+      </div>
+    </section>
+
+    <!-- ============ FLUJO DE MISIÓN ============ -->
+    <section id="flujo" class="flow-section" aria-labelledby="flow-title">
+      <div class="section-head">
+        <h2 id="flow-title">Flujo de una misión</h2>
+        <p class="section-hint">Así se aprende jugando: cada incidente es una misión completa.</p>
+      </div>
+      <ol class="flow-track" id="flow-track">
+        <!-- 9 pasos generados por JS -->
+      </ol>
+    </section>
+
+    <!-- ============ PERSONAJES ============ -->
+    <section id="personajes" class="characters-section" aria-labelledby="characters-title">
+      <div class="section-head">
+        <h2 id="characters-title">Personajes de NovaTech Solutions</h2>
+        <p class="section-hint">Sprites conceptuales pixel art del videojuego.</p>
+      </div>
+      <ul class="characters-grid" id="characters-grid"></ul>
+    </section>
+
+    <!-- ============ GALERÍA ============ -->
+    <section id="galeria" class="gallery-section" aria-labelledby="gallery-title">
+      <div class="section-head">
+        <h2 id="gallery-title">Dentro de NovaTech Solutions</h2>
+        <p class="section-hint">
+          Escenas conceptuales del juego. Haz clic en cualquier imagen para verla en pantalla completa.
+        </p>
+      </div>
+      <ul class="gallery-grid" id="gallery-grid"></ul>
+    </section>
+
+    <!-- ============ TECNOLOGÍAS ============ -->
+    <section id="tecnologias" class="tech-section" aria-labelledby="tech-title">
+      <div class="section-head">
+        <h2 id="tech-title">Tecnologías y arquitectura</h2>
+        <p class="section-hint">Un solo proyecto integrador con servicios compartidos.</p>
+      </div>
+      <div class="architecture" id="architecture"></div>
+      <ul class="tech-list" id="tech-list" aria-label="Tecnologías del proyecto"></ul>
+    </section>
+
+    <!-- ============ EVIDENCIAS ============ -->
+    <section id="evidencias" class="evidence-section" aria-labelledby="evidence-title">
+      <div class="section-head">
+        <h2 id="evidence-title">Evidencias</h2>
+        <p class="section-hint">Registro del proceso de construcción del lienzo.</p>
+      </div>
+      <div class="evidence-grid">
+        <figure class="evidence-card">
+          <a href="./evidencias/canvas-v1.png" target="_blank" rel="noopener">
+            <img src="./evidencias/canvas-v1.png" alt="Primera versión (boceto) del Business Model Canvas" />
+          </a>
+          <figcaption>Canvas v1 · boceto</figcaption>
+        </figure>
+        <figure class="evidence-card">
+          <a href="./evidencias/canvas-final.png" target="_blank" rel="noopener">
+            <img src="./evidencias/canvas-final.png" alt="Versión final del Business Model Canvas" />
+          </a>
+          <figcaption>Canvas final</figcaption>
+        </figure>
+      </div>
+      <p class="evidence-links">
+        <a class="btn-ghost" href="./evidencias/canvas-v1.png" target="_blank" rel="noopener">Ver canvas-v1.png</a>
+        <a class="btn-ghost" href="./evidencias/canvas-final.png" target="_blank" rel="noopener">Ver canvas-final.png</a>
+        <a class="btn-ghost" href="./index.html">Abrir en GitHub Pages</a>
+        <a class="btn-ghost" href="./prompt-final.md">Prompt final</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>TI: Soporte en Acción</strong> · Business Model Canvas Interactivo · Práctica 04</p>
+    <p>Rama de trabajo: <code>documentacion</code> · Publicado con GitHub Pages</p>
+    <p>Autor: Brian Jesús Mendoza Márquez · Matrícula 230308</p>
+  </footer>
+
+  <!-- Tooltip -->
+  <div class="tooltip" id="tooltip" role="tooltip" aria-hidden="true"></div>
+
+  <!-- Modal de detalle (fichas del Canvas) -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <header class="modal-head">
+        <span class="modal-icon" id="modal-icon"></span>
+        <div>
+          <span class="modal-index" id="modal-index"></span>
+          <h2 id="modal-title">Componente</h2>
+        </div>
+        <button class="modal-close" type="button" aria-label="Cerrar ficha" data-close-modal>&times;</button>
+      </header>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Lightbox de galería -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Imagen de la galería">
+    <div class="lightbox-backdrop" data-close-lightbox></div>
+    <figure class="lightbox-window">
+      <img id="lightbox-img" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+      <button class="lightbox-close" type="button" aria-label="Cerrar imagen" data-close-lightbox>&times;</button>
+    </figure>
+  </div>
+
+  <script src="./js/canvas.js" defer></script>
+</body>
+</html>
