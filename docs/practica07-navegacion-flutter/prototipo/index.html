@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>TI: Soporte en Acción | Navegación interactiva · diseño NovaTech</title>
+<style>
+:root{--ink:#1d2328;--ink2:#4f5559;--paper:#f3f3f1;--white:#fff;--line:#c7cbc9;--muted:#737779;--accent:#253b4b;--highlight:#eaf1f2;--danger:#892e2e}
+*{box-sizing:border-box}html{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper)}body{margin:0}button,select{font:inherit}button{cursor:pointer}a{color:#163f5d}
+.sitehead{background:#192630;color:#fff;padding:20px clamp(16px,3vw,44px);border-bottom:5px solid #73838c}
+.sitehead .topline{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}.sitehead h1{font-size:clamp(21px,3vw,32px);margin:0 0 3px}.sitehead p{margin:0;color:#c5d0d4;font-size:14px}.sitehead a{color:#e6f4ff;text-decoration:none;border:1px solid #b9ceda;padding:9px 12px;border-radius:7px;font-weight:650}
+.controls{max-width:1740px;margin:20px auto 12px;padding:0 18px;display:grid;grid-template-columns: minmax(210px,1fr) minmax(270px,1.2fr) auto;gap:12px;align-items:end}
+.field label{display:block;font-weight:700;font-size:13px;margin-bottom:6px;color:#37414a}.field select{width:100%;padding:10px 12px;border:1px solid #acb4b9;background:white;border-radius:8px;color:#1e2930}
+.btngroup{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.btn{border:1px solid #a9b4b7;border-radius:8px;background:white;color:#1f313d;padding:10px 14px;font-weight:650}.btn:hover,.btn:focus-visible{background:#e8eff1}.btn.primary{background:#273d4c;color:white;border-color:#273d4c}.btn.primary:hover{background:#3a5768}.btn:disabled{opacity:.38;cursor:not-allowed}
+.workspace{max-width:1740px;margin:auto;padding:0 18px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,360px);gap:16px;align-items:start}
+.card{background:white;border:1px solid #d5d9da;border-radius:12px;box-shadow:0 6px 20px #17222d0a;overflow:hidden}
+.sectionbar{display:flex;justify-content:space-between;align-items:center;gap:9px;background:#f9faf9;border-bottom:1px solid #d8dddf;padding:12px 16px}.sectionbar b{font-size:14px}.sectionbar small{font-size:12px;color:var(--ink2)}
+.mapscroller{height:min(72vh,790px);overflow:auto;background:repeating-linear-gradient(90deg,transparent 0, transparent 39px,#eff1f1 40px),repeating-linear-gradient(0deg,transparent 0,transparent 39px,#eff1f1 40px);position:relative}
+#graph{display:block;min-width:1080px;height:auto}#graph .node{cursor:pointer;transition:opacity .15s}#graph .node g{pointer-events:none}#graph .node rect{fill:#fff;stroke:#869399;stroke-width:2}#graph .node.general rect{fill:#f9f9f7}#graph .node.student rect{fill:#f5fafb}#graph .node.special rect{fill:#f3f0ed}#graph .node.active rect{stroke:#1a4058;stroke-width:4;fill:#e0eef3}#graph .node.on-route rect{stroke:#507486;stroke-width:3}#graph .node.unavailable{opacity:.22}#graph .node:hover:not(.unavailable) rect,#graph .node:focus-visible:not(.unavailable) rect{stroke:#264b60;stroke-width:3}#graph .node text{fill:#24282a;user-select:none}#graph .node .nid{font-size:15px;font-weight:800}#graph .node .ntitle{font-size:14px;font-weight:650}#graph .node .groupname{font-size:11px;fill:#6a7175}#graph .connection{fill:none;stroke:#93a1aa;stroke-width:1.4;opacity:.29;pointer-events:stroke}#graph .connection.on-route{stroke:#1e536e;stroke-width:3.5;opacity:1}#graph .connection.from-active{stroke:#53636a;stroke-width:2.5;opacity:.65}#graph .connection.not-allowed{opacity:.04}#graph .edge-label{font-size:11px;font-weight:750;fill:#28485c;stroke:#fff;stroke-width:3px;paint-order:stroke;pointer-events:none}#graph .lane-title{fill:#566065;font-size:17px;font-weight:800}
+.status{padding:11px 16px;border-top:1px solid #dce2e4;display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:#4d585d}.status strong{color:#254252}
+.asidebody{padding:16px}.asidebody h2{font-size:22px;line-height:1.22;margin:0 0 8px}.asidebody p{font-size:14px;line-height:1.5;color:#4d5457}.tagrow{display:flex;gap:5px;flex-wrap:wrap}.tag{font-size:11px;background:#ebeff0;border:1px solid #d4dadc;padding:4px 7px;border-radius:5px;font-weight:650}.imgframe{height:340px;margin:12px 0;display:flex;align-items:center;justify-content:center;background:#f7f7f5;border:1px solid #dedfdf;border-radius:9px}.imgframe img{max-width:100%;max-height:100%;object-fit:contain}.actionlist{display:grid;gap:7px;max-height:240px;overflow:auto}.actionlist button{text-align:left;background:#f8fafa;border:1px solid #cdd5d7;border-radius:7px;padding:8px 10px;color:#2c424c;font-size:12px}.actionlist button:hover{background:#e6f0f4}.actionlist button b{font-size:13px;display:block}.small-label{font-size:12px;font-weight:800;margin:15px 0 7px;display:block;letter-spacing:.02em;text-transform:uppercase;color:#394a54}.previewlinks{display:flex;gap:14px;font-size:13px;margin:9px 0}.warning{color:var(--danger);background:#ffeded;border:1px solid #e8c7c7;padding:10px;border-radius:7px;margin:10px 0;font-size:13px}.scenario{margin-top:16px;max-width:1740px;margin-left:auto;margin-right:auto;padding:0 18px 28px}.scenario-inner{padding:15px;display:flex;align-items:center;gap:18px;justify-content:space-between;flex-wrap:wrap}.scenario-inner h3{margin:0 0 5px;font-size:16px}.scenario-inner p{margin:0;color:#4b5155;font-size:13px;line-height:1.5}.crumbs{display:flex;flex-wrap:wrap;gap:4px;align-items:center}.crumbs button{font-size:12px;border:1px solid #c6d0d4;border-radius:5px;background:#fafafa;padding:6px 8px}.crumbs button.now{background:#213d50;color:#fff}.crumbs span{color:#889297}.note{max-width:1740px;margin:auto;padding:0 20px 26px;font-size:12px;color:#606c70}.note a{color:#31586e}
+@media(max-width:990px){.workspace{grid-template-columns:1fr}.card.aside{max-width:none}.asidebody{display:grid;grid-template-columns:minmax(160px,250px) minmax(0,1fr);gap:14px}.imgframe{height:290px;grid-row:span 3}.controls{grid-template-columns:1fr 1fr}.controls>.btngroup{grid-column:1/-1}.mapscroller{height:520px}}
+@media(max-width:540px){.controls{grid-template-columns:1fr}.controls>.btngroup{grid-column:auto}.asidebody{display:block}.imgframe{height:360px}.sitehead{padding:18px}.mapscroller{height:440px}}
+
+/* NovaTech Solutions · identidad oficial del proyecto, capa visual */
+:root{--ink:#edf9ff;--ink2:#b0c6db;--paper:#070d1b;--white:#0f213a;--line:#1c5476;--muted:#90abc2;--accent:#00d9f5;--highlight:#113951;--danger:#ff6a7a}
+html{color-scheme:dark!important;background:#070d1b!important;color:var(--ink)!important}
+body{background:radial-gradient(circle at 14% 0%,#0c3152,transparent 35%),#070d1b;color:#edf9ff}
+a,.note a{color:#00d9f5}
+.sitehead{background:linear-gradient(100deg,#0d1b36,#112b4c,#0e1730);border-bottom:3px solid #00d9f5;color:#fff}
+.sitehead h1{color:#f1fbff}.sitehead p{color:#a2c8df}.sitehead a{color:#30e0fa;border-color:#25748f;background:#071f37}
+.controls .field label{color:#bad3e6}.field select{background:#10223d;border-color:#316284;color:#effbff}
+.btn{background:#152c49;border-color:#35688a;color:#edf9ff}.btn:hover,.btn:focus-visible{background:#1c4163;color:#fff}.btn.primary{background:#00cce8;border-color:#00dbf5;color:#052034}.btn.primary:hover{background:#3aefd9;color:#051e28}
+.card{background:#0d1b32;border-color:#295173;box-shadow:0 10px 40px #0005}
+.sectionbar{background:#102440;border-color:#25466b}.sectionbar b{color:#e7faff}.sectionbar small{color:#96bdd4}
+.mapscroller{background-color:#08182d;background-image:linear-gradient(#15395a4d 1px,transparent 1px),linear-gradient(90deg,#15395a4d 1px,transparent 1px);background-size:38px 38px}
+#graph .node rect{fill:#102944;stroke:#3580a4}#graph .node.general rect{fill:#12324a}#graph .node.student rect{fill:#102b40}#graph .node.special rect{fill:#231d49;stroke:#7865c1}
+#graph .node.active rect{stroke:#00e1f5;stroke-width:4;fill:#123f50}#graph .node.on-route rect{stroke:#31debf}#graph .node:hover:not(.unavailable) rect,#graph .node:focus-visible:not(.unavailable) rect{stroke:#00d9f5}
+#graph .node text{fill:#ecfaff}#graph .node .nid{fill:#00e5f5}#graph .node .ntitle{fill:#f1fbff}#graph .node .groupname{fill:#a8c0d5}
+#graph .connection{stroke:#4384a4;opacity:.28}#graph .connection.on-route{stroke:#28e6cb;opacity:1}#graph .connection.from-active{stroke:#906dff;opacity:.85}
+#graph .edge-label{fill:#00e0ec;stroke:#0e233c;stroke-width:5px}#graph .lane-title{fill:#61dff6}
+.status{border-color:#204265;color:#abcbdf}.status strong{color:#32dfeb}
+.asidebody h2{color:#f1fbff}.asidebody p{color:#b0c6da}
+.tag{background:#133552;border-color:#315a80;color:#7ee7ef}.imgframe{background:#071427;border-color:#2c5878;height:374px}.imgframe img{max-height:355px;border-radius:10px}
+.actionlist button{background:#142944;border-color:#2f5f7d;color:#c2f5ff}.actionlist button:hover{background:#163f56}.small-label{color:#45dbe4}
+.previewlinks{gap:10px;flex-wrap:wrap}.previewlinks a{color:#25d9ef;border:1px solid #21627b;background:#10314c;padding:6px 9px;border-radius:7px;text-decoration:none}
+.warning{color:#ffb9bd;background:#422333;border-color:#9a3f55}.scenario-inner h3{color:#f2fbff}.scenario-inner p{color:#a7c5d7}
+.crumbs button{background:#142a47;border-color:#2e527b;color:#e3faff}.crumbs button.now{background:#00d9f5;color:#051725;border-color:#00d9f5}.crumbs span{color:#5296ae}
+.note{color:#93b1cb}
+
+/* Selector dual de presentación: misma navegación, dos versiones visuales. */
+.controls{grid-template-columns:minmax(170px,1fr) minmax(205px,1.2fr) auto auto}
+.visual-switch-field>label{display:block;font-size:13px;font-weight:750;margin-bottom:6px;color:#bad3e6}
+.mode-toggle{display:flex;align-items:center;gap:4px;border:1px solid #326380;background:#09192f;padding:4px;border-radius:11px;width:max-content}
+.mode-choice{border:1px solid transparent;background:transparent;color:#b9d9e8;padding:8px 12px;border-radius:7px;font-size:13px;font-weight:750;white-space:nowrap}
+.mode-choice[aria-pressed="true"]{background:#00d9f5;color:#06192b;border-color:#5eeefe;box-shadow:0 3px 13px #00d9f526}
+.mode-choice:hover:not([aria-pressed="true"]),.mode-choice:focus-visible{background:#19435a;color:#fff}
+@media(max-width:1250px){.controls{grid-template-columns:1fr 1fr}.controls>.btngroup{grid-column:auto}}
+@media(max-width:610px){.controls{grid-template-columns:1fr}.controls>.btngroup{grid-column:auto}}
+/* El modo lápiz transforma también el lienzo, nodos, controles y panel. */
+html[data-view-mode="lapiz"]{color-scheme:light!important;background:#f3f0e9!important;color:#282725!important}
+html[data-view-mode="lapiz"] body{background:linear-gradient(135deg,#f8f6f0,#eae6dd);color:#242424}
+html[data-view-mode="lapiz"] a,html[data-view-mode="lapiz"] .note a{color:#333b42}
+html[data-view-mode="lapiz"] .sitehead{background:linear-gradient(110deg,#faf9f4,#ece9e1);border-bottom:3px solid #5b5b58;color:#232320}
+html[data-view-mode="lapiz"] .sitehead h1{color:#252420}
+html[data-view-mode="lapiz"] .sitehead p{color:#5c5d59}
+html[data-view-mode="lapiz"] .sitehead a{background:#fffdf9;color:#222;border:1px solid #787a75}
+html[data-view-mode="lapiz"] .controls .field label,html[data-view-mode="lapiz"] .visual-switch-field>label{color:#353738}
+html[data-view-mode="lapiz"] .field select{color:#252525;background:#fffdf9;border-color:#898e8b}
+html[data-view-mode="lapiz"] .btn{background:#fdfbf6;color:#2b2b28;border-color:#777a77}
+html[data-view-mode="lapiz"] .btn:hover,html[data-view-mode="lapiz"] .btn:focus-visible{background:#e8e5de}
+html[data-view-mode="lapiz"] .btn.primary{background:#393936;color:#fff;border-color:#393936}
+html[data-view-mode="lapiz"] .mode-toggle{background:#e7e3d9;border-color:#888985}
+html[data-view-mode="lapiz"] .mode-choice{color:#3d3d3a}
+html[data-view-mode="lapiz"] .mode-choice[aria-pressed="true"]{background:#41413e;color:#fff;border-color:#41413e;box-shadow:none}
+html[data-view-mode="lapiz"] .mode-choice:hover:not([aria-pressed="true"]){background:#d4cfc4;color:#222}
+html[data-view-mode="lapiz"] .card{background:#fffdfa;border-color:#989893;box-shadow:0 3px 14px #0000000c}
+html[data-view-mode="lapiz"] .sectionbar{background:#ebe8e1;border-color:#b4b0a6}
+html[data-view-mode="lapiz"] .sectionbar b{color:#2e2e2c}
+html[data-view-mode="lapiz"] .sectionbar small{color:#545551}
+html[data-view-mode="lapiz"] .mapscroller{background-color:#faf8f3;background-image:linear-gradient(#d8d5cd66 1px,transparent 1px),linear-gradient(90deg,#d8d5cd66 1px,transparent 1px);background-size:38px 38px}
+html[data-view-mode="lapiz"] #graph .node rect,html[data-view-mode="lapiz"] #graph .node.general rect,html[data-view-mode="lapiz"] #graph .node.student rect,html[data-view-mode="lapiz"] #graph .node.special rect{fill:#fffdfa;stroke:#66635e}
+html[data-view-mode="lapiz"] #graph .node.active rect{stroke:#292927;stroke-width:4;fill:#e4dfd5}
+html[data-view-mode="lapiz"] #graph .node.on-route rect{stroke:#56534e}
+html[data-view-mode="lapiz"] #graph .node:hover:not(.unavailable) rect,html[data-view-mode="lapiz"] #graph .node:focus-visible:not(.unavailable) rect{stroke:#2d2b29}
+html[data-view-mode="lapiz"] #graph .node text,html[data-view-mode="lapiz"] #graph .node .nid,html[data-view-mode="lapiz"] #graph .node .ntitle{fill:#22211f}
+html[data-view-mode="lapiz"] #graph .node .groupname{fill:#5b5a57}
+html[data-view-mode="lapiz"] #graph .connection{stroke:#7c7870;opacity:.35}
+html[data-view-mode="lapiz"] #graph .connection.on-route{stroke:#35332f;opacity:1}
+html[data-view-mode="lapiz"] #graph .connection.from-active{stroke:#69665f;opacity:.8}
+html[data-view-mode="lapiz"] #graph .edge-label{fill:#393733;stroke:#faf8f3}
+html[data-view-mode="lapiz"] #graph .lane-title{fill:#33322e}
+html[data-view-mode="lapiz"] #graph marker#arr path,html[data-view-mode="lapiz"] #graph marker#arr-hi path{fill:#59554f}
+html[data-view-mode="lapiz"] .status{border-color:#c6c1b7;color:#4c4b46}
+html[data-view-mode="lapiz"] .status strong{color:#33332f}
+html[data-view-mode="lapiz"] .asidebody h2{color:#222}
+html[data-view-mode="lapiz"] .asidebody p{color:#494846}
+html[data-view-mode="lapiz"] .tag{background:#ece9e2;border-color:#b3aea4;color:#35342f}
+html[data-view-mode="lapiz"] .imgframe{background:#faf9f5;border-color:#c5c1b7}
+html[data-view-mode="lapiz"] .actionlist button{background:#f7f5ef;border-color:#bbb6a9;color:#343430}
+html[data-view-mode="lapiz"] .actionlist button:hover{background:#e7e1d6}
+html[data-view-mode="lapiz"] .small-label{color:#373530}
+html[data-view-mode="lapiz"] .previewlinks a{color:#333;background:#f4f1ea;border-color:#a3a097}
+html[data-view-mode="lapiz"] .scenario-inner h3{color:#333}
+html[data-view-mode="lapiz"] .scenario-inner p{color:#54524e}
+html[data-view-mode="lapiz"] .crumbs button{color:#393832;background:#f4f0e8;border-color:#aaa59a}
+html[data-view-mode="lapiz"] .crumbs button.now{background:#383733;border-color:#383733;color:#fff}
+html[data-view-mode="lapiz"] .crumbs span{color:#6d6961}
+html[data-view-mode="lapiz"] .note{color:#4b4a45}
+
+/* Mejora de legibilidad: la ficha de pantalla tiene prioridad visual sin ocultar el mapa. */
+@media (min-width: 1061px) {
+  .workspace {grid-template-columns: minmax(0, 1fr) clamp(460px, 35vw, 600px); gap:20px;}
+}
+.aside .sectionbar {padding:16px 20px; gap:12px;}
+.aside .sectionbar b {font-size:16px; white-space:nowrap;}
+.aside .sectionbar small {font-size:12px;}
+.asidebody {padding:22px 22px 26px;}
+.asidebody h2 {font-size:clamp(23px, 1.8vw, 28px); margin-bottom:12px;}
+.asidebody p {font-size:15px; line-height:1.65;}
+.asidebody .tag {font-size:12px; padding:6px 9px;}
+.asidebody .small-label {font-size:13px; margin-top:20px; margin-bottom:9px;}
+.imgframe {height:590px; padding:12px; margin:18px 0;}
+.imgframe img {max-height:100%; max-width:100%; width:auto; height:auto; object-fit:contain;}
+.previewlinks {gap:9px; margin:13px 0;}
+.previewlinks a {font-size:13px; padding:9px 11px; line-height:1.35;}
+.actionlist {gap:9px; max-height:360px;}
+.actionlist button {font-size:13px; padding:12px;}
+.actionlist button b {font-size:14px; margin-bottom:4px;}
+.aside .sectionbar .panel-head-actions {display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end;}
+.panel-expand-btn {padding:8px 10px; border:1px solid #24799c; border-radius:8px; background:#123654; color:#a8f5ff; font-size:12px; font-weight:750; cursor:pointer; white-space:nowrap;}
+.panel-expand-btn:hover, .panel-expand-btn:focus-visible {background:#145273; border-color:#00d9f5; color:#fff; outline-offset:2px;}
+html[data-view-mode="lapiz"] .panel-expand-btn {background:#fdfbf6; color:#34332f; border-color:#8c8980;}
+html[data-view-mode="lapiz"] .panel-expand-btn:hover {background:#e7e2d8;}
+/* Opcional: inspeccionar la ficha a un tamaño todavía mayor sin dejar el prototipo. */
+body.detail-expanded {overflow:hidden;}
+body.detail-expanded::before {content:""; position:fixed; inset:0; z-index:998; background:rgba(1,9,23,.78); backdrop-filter:blur(4px);}
+body.detail-expanded .workspace .aside {position:fixed; top:clamp(12px,2vh,30px); right:clamp(12px,2vw,38px); width:min(820px,calc(100vw - 24px)); height:calc(100dvh - 24px); max-height:calc(100dvh - 24px); overflow-y:auto; z-index:999; box-shadow:0 30px 90px #0009;}
+body.detail-expanded .aside .sectionbar {position:sticky;top:0;z-index:2;}
+body.detail-expanded .imgframe {height:min(78vh,820px);}
+body.detail-expanded .asidebody {padding:26px clamp(20px,4vw,44px) 36px;}
+body.detail-expanded .asidebody h2 {font-size:30px;}
+@media (min-width: 720px) and (max-width:1060px) {
+  .workspace {grid-template-columns:1fr;}
+  .asidebody {display:grid;grid-template-columns:minmax(260px,40%) minmax(0,1fr); column-gap:22px;}
+  .asidebody h2,.asidebody .tagrow,.asidebody>p:first-of-type {grid-column:1/-1;}
+  .imgframe {grid-column:1;grid-row:span 9;height:530px;}
+  .previewlinks {grid-column:2;}
+}
+@media (max-width: 719px) {
+  .workspace {grid-template-columns:1fr;}
+  .asidebody {display:block;padding:16px;}
+  .imgframe {height:min(66vh,570px);}
+  .aside .sectionbar {flex-wrap:wrap;}
+  .aside .sectionbar .panel-head-actions {justify-content:flex-start;}
+  .previewlinks a {font-size:12px;}
+  body.detail-expanded .imgframe {height:min(68vh,650px);}
+}
+</style>
+</head>
+<body>
+<header class="sitehead"><div class="topline"><div><h1>TI: Soporte en Acción</h1><p>Prototipo de navegación · 20 pantallas · Flutter móvil · Vista normal / lápiz</p></div><a href="../index.html">↗ Galería de 20 pantallas a color</a></div></header>
+<div class="controls" aria-label="Herramientas de navegación">
+ <div class="field"><label for="role">Ver rutas del rol</label><select id="role"><option value="Estudiante/Jugador">Estudiante / Jugador</option><option value="Docente/Evaluador">Docente / Evaluador</option><option value="Administrador">Administrador</option><option value="Editor de contenido">Editor de contenido</option><option value="Institución educativa">Institución educativa</option></select></div>
+ <div class="field"><label for="scenario">Recorrido de ejemplo</label><select id="scenario"></select></div>
+ <div class="visual-switch-field"><label id="modeLabel">Modo de visualización</label><div class="mode-toggle" role="group" aria-labelledby="modeLabel"><button type="button" class="mode-choice" data-mode-button="normal" aria-pressed="true">🎨 Normal</button><button type="button" class="mode-choice" data-mode-button="lapiz" aria-pressed="false">✏️ Lápiz</button></div></div>
+ <div class="btngroup"><button class="btn" id="back" type="button">← Anterior</button><button class="btn primary" id="next" type="button">Siguiente →</button><button class="btn" id="zoomOut" type="button">−</button><button class="btn" id="zoomIn" type="button">+</button></div>
+</div>
+<div class="workspace">
+ <section class="card" aria-label="Mapa navegable de pantallas"><div class="sectionbar"><b>Mapa de pantallas y transiciones</b><small>Selecciona los nodos · desplaza el diagrama</small></div><div class="mapscroller" id="mapscroll"><svg id="graph" width="1660" height="1000" viewBox="0 0 1660 1000" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa de las 20 pantallas móviles y sus relaciones"></svg></div><div class="status"><strong id="count">20 pantallas · 51 relaciones</strong><span id="feedback">Las líneas destacadas muestran la ruta elegida; toca una pantalla para inspeccionarla.</span></div></section>
+ <aside class="card aside" aria-label="Ficha visual de pantalla" id="detailPanel"><div class="sectionbar"><b>Ficha de pantalla</b><div class="panel-head-actions"><small id="previewLabel" aria-live="polite">Normal · diseño a color</small><button type="button" class="panel-expand-btn" id="expandDetail" aria-expanded="false" aria-controls="detail" title="Ampliar o restaurar el panel">⛶ Ampliar ficha</button></div></div><div class="asidebody" id="detail"><p>Selecciona una pantalla para ver sus datos.</p></div></aside>
+</div>
+<section class="scenario"><div class="card scenario-inner"><div><h3 id="scenarioTitle">Escenario</h3><p id="scenarioDesc"></p></div><nav class="crumbs" id="crumbs" aria-label="Secuencia del escenario"></nav></div></section>
+<footer class="note"><p><a href="../mockups-color/index.html">🎨 Ver los 20 diseños a color e interactuar con las pantallas</a> · <a href="../galeria_sketches_lapiz.html">✏️ Ver los 20 sketches originales a lápiz</a></p>Diagrama de referencia con identidad visual NovaTech creado en HTML local; <strong>no fue generado por Archify</strong>. Para cumplir la práctica, utiliza <a href="../docs/08_prompt_archify.md">el prompt Archify</a>, revisa las rutas y guarda capturas de evidencia. Los permisos aquí son simulados: el backend es quien debe verificarlos.</footer>
+<script src="datos_navegacion.js"></script>
+<script>
+(()=>{
+'use strict';
+const data=window.TI_DATA; if(!data){document.getElementById('feedback').textContent='No se encontró el archivo de datos.';return;}
+const byId=Object.fromEntries(data.nodes.map(n=>[n.id,n]));
+const el=id=>document.getElementById(id);
+const roleSel=el('role'), scenarioSel=el('scenario'), graph=el('graph'),detail=el('detail');
+let role=roleSel.value,scenarioIndex=0,step=0,selected='P01',zoom=1,visited=[],message='';
+let viewMode='normal';
+const NS='http://www.w3.org/2000/svg';
+const grid=[['P01','P02','P03','P04','P05','P06'],['P07','P08','P09','P10'],['P11','P12','P13','P14','P15','P16'],['P17','P18','P19','P20']];
+const pos={};grid.forEach((row,r)=>row.forEach((id,c)=>{const x=(r===1?114:60)+c*(r===1?370:r===3?340:259), y=100+r*210;pos[id]={x,y}}));
+// Put restricted role cards on fourth lane and keep all twenty unique nodes.
+['P17','P18','P19','P20'].forEach((id,i)=>{pos[id]={x:150+i*344,y:735};});
+const WIDTH=1660,HEIGHT=985, NW=197,NH=92;
+function permitted(n){return n.roles.includes('Público')||n.roles.includes('Autenticado')||n.roles.includes(role)}
+function edgeAllowed(e){return e.role==='Todos'||e.role===role}
+function svg(tag,attrs,parent){const v=document.createElementNS(NS,tag);Object.entries(attrs||{}).forEach(([k,val])=>v.setAttribute(k,String(val)));if(parent)parent.appendChild(v);return v}
+function tx(x,y,str,klass,parent){const t=svg('text',{x,y,class:klass},parent);t.textContent=str;return t}
+function route(){return data.scenarios[scenarioIndex].path}
+function roleName(n){return n.roles[0]==='Público'?'General':n.roles[0]==='Autenticado'?'Compartida':n.roles[0].replace('/Jugador','').replace('/Evaluador','')}
+function pathsOfRoute(){let pairs=new Set;const p=route();for(let i=0;i<p.length-1;i++)pairs.add(p[i]+'>'+p[i+1]);return pairs}
+function graphRender(){graph.replaceChildren();const defs=svg('defs',{},graph);
+ const arrow=svg('marker',{id:'arr',markerWidth:7,markerHeight:7,refX:6,refY:3,orient:'auto',markerUnits:'strokeWidth'},defs);svg('path',{d:'M0,0 L6,3 L0,6 Z',fill:'#237593'},arrow);
+ const bright=svg('marker',{id:'arr-hi',markerWidth:8,markerHeight:8,refX:7,refY:3,orient:'auto',markerUnits:'strokeWidth'},defs);svg('path',{d:'M0,0 L7,3 L0,6 Z',fill:'#00d9f5'},bright);
+ const labels=['01 · INICIO Y SEGURIDAD','02 · INFORMACIÓN, HOME Y REGISTRO','03 · ESTUDIANTE / JUGADOR','04 · OTROS ROLES MÓVILES'];[55,266,475,685].forEach((y,i)=>tx(48,y,labels[i],'lane-title',graph));
+ const routePairs=pathsOfRoute();const routeIds=new Set(route());
+ for(const e of data.edges){const a=pos[e.from_id],b=pos[e.to_id];if(!a||!b)continue;const yes=edgeAllowed(e),active=routePairs.has(e.from_id+'>'+e.to_id),from=selected===e.from_id;const startX=a.x+NW/2,startY=a.y+NH/2,endX=b.x+NW/2,endY=b.y+NH/2;
+ let x1,y1,x2,y2;if(Math.abs(endX-startX)>Math.abs(endY-startY)) {x1=startX+(endX>startX?NW/2:-(NW/2)); y1=startY; x2=endX+(endX>startX?-(NW/2+8):NW/2+8);y2=endY}
+ else {x1=startX;y1=startY+(endY>startY?NH/2:-NH/2);x2=endX;y2=endY+(endY>startY?-(NH/2+8):NH/2+8)}
+ if(e.from_id===e.to_id){const d=`M${a.x+NW-15},${a.y+28} C${a.x+NW+68},${a.y-43} ${a.x+NW+68},${a.y+118} ${a.x+NW-15},${a.y+72}`;svg('path',{d,class:'connection '+(active?'on-route ':from?'from-active ':'')+(!yes?'not-allowed':''),'marker-end':active?'url(#arr-hi)':'url(#arr)'},graph).appendChild(svg('title',{},null));continue}
+ const dx=x2-x1,dy=y2-y1;const d=`M ${x1} ${y1} C ${x1+dx*.40} ${y1+dy*.10}, ${x2-dx*.40} ${y2-dy*.10}, ${x2} ${y2}`;
+ const path=svg('path',{d,class:'connection '+(active?'on-route':from?'from-active':'')+(!yes?' not-allowed':''),'marker-end':active?'url(#arr-hi)':'url(#arr)'},graph);svg('title',{},path).textContent=`${e.from_id} → ${e.to_id}: ${e.condition}`;
+ if(active){const lab=e.condition.length>29?e.condition.slice(0,27)+'…':e.condition;tx(x1+dx*.52,y1+dy*.5-8,lab,'edge-label',graph)}
+ }
+ for(const n of data.nodes){const {x,y}=pos[n.id];const yes=permitted(n);const klass=n.roles.includes('Público')?'general':n.roles.includes('Estudiante/Jugador')?'student':n.roles.includes('Autenticado')?'general':'special';const g=svg('g',{class:`node ${klass} ${selected===n.id?'active':''} ${routeIds.has(n.id)?'on-route':''} ${!yes?'unavailable':''}`,tabindex:0,role:'button','aria-label':`${n.id}, ${n.title}${yes?'':', acceso restringido'}`,transform:`translate(${x},${y})`},graph);svg('rect',{width:NW,height:NH,rx:12},g);tx(13,22,n.id,'nid',g);tx(13,47,n.title.length>24?n.title.slice(0,23)+'…':n.title,'ntitle',g);tx(13,73,roleName(n),'groupname',g);g.addEventListener('click',()=>choose(n.id));g.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();choose(n.id)}});svg('title',{},g).textContent=n.description}
+ el('count').textContent=`20 pantallas · ${data.edges.filter(edgeAllowed).length} relaciones visibles según rol (51 totales)`;
+ graph.style.width=(WIDTH*zoom)+'px';graph.style.height=(HEIGHT*zoom)+'px';graph.setAttribute('viewBox',`0 0 ${WIDTH} ${HEIGHT}`);
+}
+function make(tag,attributes={},parent){const e=document.createElement(tag);for(const [k,v] of Object.entries(attributes)){if(k==='text')e.textContent=v;else e.setAttribute(k,v)}if(parent)parent.appendChild(e);return e}
+function listToText(items){return items.join(' · ')}
+function details(){const n=byId[selected];detail.replaceChildren();make('h2',{text:`${n.id} · ${n.title}`},detail);const row=make('div',{class:'tagrow'},detail);make('span',{class:'tag',text:'Flutter · móvil'},row);n.roles.forEach(r=>make('span',{class:'tag',text:r},row));make('p',{text:n.description},detail);
+ const colorImage=n.image.replace('../sketches/','../mockups-color/');const activeImage=viewMode==='lapiz'?n.image:colorImage;
+ const box=make('div',{class:'imgframe'},detail);make('img',{src:activeImage,alt:`${viewMode==='lapiz'?'Boceto a lápiz':'Diseño móvil a color'}: ${n.title}`},box);
+ const links=make('div',{class:'previewlinks'},detail);make('a',{href:activeImage,target:'_blank',rel:'noopener',text:viewMode==='lapiz'?'Abrir sketch a lápiz ↗':'Abrir PNG a color ↗'},links);make('a',{href:viewMode==='lapiz'?colorImage:n.image,target:'_blank',rel:'noopener',text:viewMode==='lapiz'?'Ver versión normal ↗':'Ver versión a lápiz ↗'},links);make('a',{href:`../mockups-color/index.html?screen=${selected}&mode=${viewMode}`,target:'_blank',rel:'noopener',text:'Navegar pantalla ↗'},links);
+ make('div',{class:'small-label',text:'Elementos principales'},detail);make('p',{text:listToText(n.elements)},detail);make('div',{class:'small-label',text:'Acciones permitidas'},detail);make('p',{text:listToText(n.actions)},detail);
+ make('div',{class:'small-label',text:'Requerimientos e historia'},detail);make('p',{text:n.requirements.join(', ')+' · '+n.story},detail);
+ make('div',{class:'small-label',text:'Transiciones desde esta pantalla'},detail);
+ const container=make('div',{class:'actionlist'},detail);data.edges.filter(e=>e.from_id===n.id&&edgeAllowed(e)).forEach(e=>{const b=make('button',{type:'button'},container);make('b',{text:`${e.to_id} · ${byId[e.to_id].title}`},b);make('span',{text:e.condition},b);b.onclick=()=>choose(e.to_id) });
+ if(!container.children.length) make('p',{text:'No hay salidas permitidas para el rol elegido.'},container);
+}
+function routeRender(){const s=data.scenarios[scenarioIndex];el('scenarioTitle').textContent=s.name;el('scenarioDesc').textContent=s.detail;el('back').disabled=step===0;el('next').disabled=step>=s.path.length-1;const crumbs=el('crumbs');crumbs.replaceChildren();s.path.forEach((id,i)=>{if(i)make('span',{text:'→'},crumbs);const b=make('button',{type:'button',class:i===step?'now':'',text:id},crumbs);b.title=byId[id].title;b.onclick=()=>{step=i;choose(id,false)}})}
+function choose(id,manual=true){const n=byId[id];if(!n)return;if(!permitted(n)){message=`Acceso denegado: ${role} no tiene permiso para abrir ${id} (${n.title}).`;el('feedback').textContent=message;return;}selected=id;if(manual){let i=route().indexOf(id);if(i!==-1)step=i}message='';el('feedback').textContent=`Pantalla seleccionada: ${id}. El rol activo es ${role}.`;graphRender();details();routeRender()}
+function setScenario(i){scenarioIndex=+i;step=0;role=data.scenarios[scenarioIndex].role;roleSel.value=role;choose(route()[0],false)}
+for(const [i,s] of data.scenarios.entries()){make('option',{value:i,text:s.name},scenarioSel)}scenarioSel.onchange=()=>setScenario(scenarioSel.value);
+roleSel.onchange=()=>{role=roleSel.value;const idx=data.scenarios.findIndex(s=>s.role===role);scenarioIndex=idx<0?0:idx;scenarioSel.value=scenarioIndex;step=0;choose(route()[0],false)};
+el('next').onclick=()=>{if(step<route().length-1){step++;choose(route()[step],false)}};
+el('back').onclick=()=>{if(step>0){step--;choose(route()[step],false)}};
+el('zoomIn').onclick=()=>{zoom=Math.min(1.65,+(zoom+.15).toFixed(2));graphRender()};el('zoomOut').onclick=()=>{zoom=Math.max(.7,+(zoom-.15).toFixed(2));graphRender()};
+function setViewMode(mode){
+ viewMode=mode==='lapiz'?'lapiz':'normal';
+ document.documentElement.dataset.viewMode=viewMode;
+ document.querySelectorAll('[data-mode-button]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.modeButton===viewMode)));
+ el('previewLabel').textContent=viewMode==='lapiz'?'Lápiz · sketch original':'Normal · diseño a color';
+ try{localStorage.setItem('ti-modo-visual',viewMode)}catch(_){/* Navegador sin almacenamiento */}
+ details(); // conserva rol, pantalla, ruta y zoom al alternar el modo
+}
+// Vista ampliada accesible: conserva el modo, el nodo, el rol y la ruta.
+const enlargeButton=el('expandDetail');
+function toggleLargeDetail(force){
+  const expanded=typeof force==='boolean'?force:!document.body.classList.contains('detail-expanded');
+  document.body.classList.toggle('detail-expanded',expanded);
+  enlargeButton.setAttribute('aria-expanded',String(expanded));
+  enlargeButton.textContent=expanded?'↙ Reducir ficha':'⛶ Ampliar ficha';
+  enlargeButton.title=expanded?'Regresar al tamaño de la ficha':'Mostrar la ficha en grande';
+}
+enlargeButton.addEventListener('click',()=>toggleLargeDetail());
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('detail-expanded')){toggleLargeDetail(false);enlargeButton.focus()}});
+document.querySelectorAll('[data-mode-button]').forEach(b=>b.addEventListener('click',()=>setViewMode(b.dataset.modeButton)));
+setScenario(0);
+let initialMode=new URLSearchParams(location.search).get('mode');
+if(!initialMode){try{initialMode=localStorage.getItem('ti-modo-visual')}catch(_){}}
+setViewMode(initialMode);
+})();
+</script>
+</body>
+</html>

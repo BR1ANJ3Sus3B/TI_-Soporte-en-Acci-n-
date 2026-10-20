@@ -2,7 +2,18 @@
 
 Documentación del proyecto "TI: Soporte en Acción".
 
-## Documento principal
+## Prácticas interactivas
+
+La [portada HTML](index.html) reúne los dos entregables:
+
+| Práctica | Documentación | HTML |
+| --- | --- | --- |
+| 04: Business Model Canvas | [Descripción](practica04/README.md) | [Canvas interactivo](practica04/index.html) |
+| 07: Navegación móvil Flutter | [Descripción](practica07-navegacion-flutter/README.md) | [Galería y prototipos](practica07-navegacion-flutter/index.html) |
+
+Consulta la [guía de publicación en GitHub Pages](GITHUB_PAGES.md) para activar el sitio.
+
+## Documentación general
 
 El contenido completo del proyecto (objetivos, roles, arquitectura, requerimientos RF-01 a RF-26 y RNF-01 a RNF-14, diseño del videojuego, personajes, niveles, storyboard, Canvas, monetización y bocetos de la PWA y de la aplicación móvil) se encuentra en:
 
