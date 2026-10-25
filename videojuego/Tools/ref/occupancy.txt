@@ -1,0 +1,19 @@
+﻿
+=== SPR 8  rect 144x134  (16x16 occupancy: '#'=opaque, ':'=see-through, 'O'=opaque+light)
+  ..
+  #.
+
+=== SPR 23  rect 131x122  (16x16 occupancy: '#'=opaque, ':'=see-through, 'O'=opaque+light)
+  ..
+
+=== SPR 24  rect 130x127  (16x16 occupancy: '#'=opaque, ':'=see-through, 'O'=opaque+light)
+  #.
+
+=== SPR 25  rect 148x118  (16x16 occupancy: '#'=opaque, ':'=see-through, 'O'=opaque+light)
+  ..
+
+=== SPR 26  rect 88x120  (16x16 occupancy: '#'=opaque, ':'=see-through, 'O'=opaque+light)
+  #.
+
+=== SPR 27  rect 93x120  (16x16 occupancy: '#'=opaque, ':'=see-through, 'O'=opaque+light)
+  #.
