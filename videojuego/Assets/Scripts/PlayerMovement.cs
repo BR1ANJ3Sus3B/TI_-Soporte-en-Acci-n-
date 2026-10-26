@@ -26,6 +26,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Mientras hay una ventana modal abierta el jugador no se mueve.
+        if (GameInput.Bloqueado)
+        {
+            movimiento = Vector2.zero;
+            corriendo = false;
+            CambiarAnimacion("Alex_Idle_" + ObtenerDireccion(ultimaDireccion));
+            return;
+        }
+
         // Movimiento con WASD
         movimiento.x = Input.GetAxisRaw("Horizontal");
         movimiento.y = Input.GetAxisRaw("Vertical");
