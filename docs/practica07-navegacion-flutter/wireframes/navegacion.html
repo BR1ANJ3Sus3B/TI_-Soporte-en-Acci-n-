@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Navegación de sketches · TI: Soporte en Acción</title>
+<link rel="stylesheet" href="../mockups-color/estilos.css">
+<style>
+body{background:#f3f2ef;color:#292929}header{max-width:1280px;margin:auto;padding:28px 24px}h1{font-size:30px;margin:8px 0;letter-spacing:-.04em}header p{color:#666;line-height:1.6}a{color:#444}button,select{font:inherit}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #555;outline-offset:3px}.layout{max-width:1280px;margin:auto;padding:0 24px 40px;display:grid;grid-template-columns:240px minmax(0,1fr) 260px;gap:28px;align-items:start}.panel{background:#fffdf8;border:1px solid #d1cec6;border-radius:16px;padding:18px}.panel h2{font-size:15px;margin:0 0 15px}.panel label{font-size:12px;display:block;margin:14px 0 8px}.panel select{width:100%;padding:10px;background:white;border:1px solid #aaa;border-radius:8px;color:#333}.screen-list{display:grid;gap:4px;margin-top:18px}.screen-list button,.controls button,.actions button{background:transparent;color:#444;border:1px solid #d6d3ca;border-radius:8px;padding:10px;text-align:left;font-size:12px}.screen-list button[aria-current=page]{background:#3c3c3c;color:#fff;border-color:#3c3c3c}.screen-list button span{margin-right:8px;opacity:.7}.stage{display:flex;flex-direction:column;align-items:center;gap:16px;min-width:0}.device{max-width:100%;box-shadow:0 15px 35px #0002;transform:none;margin:0}.controls{display:flex;gap:8px;flex-wrap:wrap;width:100%;justify-content:center}.controls button{text-align:center;background:#fffdf8}.actions{display:grid;gap:8px}.actions button{background:white;line-height:1.5}.actions small{display:block;color:#777}.counter{font-size:12px;color:#666}.description{font-size:13px;line-height:1.7;color:#666}.trail{display:flex;gap:6px;flex-wrap:wrap;font-size:12px;line-height:1.8}.notice{font-size:12px;color:#555;min-height:2em}.image-preview{width:100%;height:100%;object-fit:contain;background:#faf8f1;border-radius:36px}.panel a{font-size:12px}.device .appbar .app-name{font-size:14px}.actions button:hover,.controls button:hover{border-color:#555;background:#eeece6}@media(max-width:1000px){.layout{grid-template-columns:200px minmax(0,1fr)}.info{grid-column:1/-1}}@media(max-width:620px){header{padding:22px 16px}.layout{display:flex;flex-direction:column;padding:0 12px 30px;gap:18px}.panel,.stage{width:100%}.screen-list{display:flex;overflow-x:auto;max-height:130px}.screen-list button{flex:0 0 145px}.device{width:396px;height:846px}.panel{padding:14px}h1{font-size:26px}}
+</style>
+</head>
+<body>
+<header><small>TI: SOPORTE EN ACCIÓN / PROTOTIPO MÓVIL</small><h1>Navegación de sketches</h1><p>Recorre las 20 pantallas. Pulsa los botones del teléfono o elige una acción del recorrido.</p><a href="index.html">← Galería de los 20 wireframes</a></header>
+<main class="layout">
+<aside class="panel"><h2>Explora las pantallas</h2><label for="role">Rol de la vista</label><select id="role"></select><label for="mode">Presentación</label><select id="mode"><option value="interactive">Wireframe interactivo</option><option value="original">Sketch original a lápiz</option></select><nav id="screens" class="screen-list" aria-label="Pantallas disponibles"></nav></aside>
+<section class="stage" aria-label="Vista del teléfono"><div class="controls"><button id="back">← Volver</button><button id="home">Mi inicio</button><button id="restart">Reiniciar recorrido</button></div><div id="phone" class="device role-sketch wireframe"></div><div class="controls"><button id="previous">← Anterior</button><span id="counter" class="counter"></span><button id="next">Siguiente →</button></div><p id="notice" class="notice" role="status" aria-live="polite"></p></section>
+<aside class="panel info"><h2 id="title"></h2><p id="description" class="description"></p><h2>¿A dónde quieres ir?</h2><div id="actions" class="actions"></div><p><a id="download" target="_blank" rel="noopener">Abrir imagen de esta pantalla ↗</a></p><h2>Tu recorrido</h2><div id="trail" class="trail" aria-live="polite"></div><p class="description">Vista de demostración. El rol adapta el inicio, el perfil y los accesos; los formularios no envían datos.</p></aside>
+</main>
+<script src="../mockups-color/roles.js"></script><script src="../mockups-color/pantallas.js"></script><script src="../prototipo/datos_navegacion.js"></script>
+<script>
+const $=id=>document.getElementById(id), nodes=Object.fromEntries(TI_DATA.nodes.map(n=>[n.id,n]));
+const params=new URLSearchParams(location.search);let current='P01',trail=[];
+activeRole=Object.hasOwn(TI_ROLES,params.get('role'))?params.get('role'):(Object.keys(TI_ROLES).find(r=>TI_ROLES[r].module===params.get('screen'))||'Estudiante/Jugador');
+Object.keys(TI_ROLES).forEach(r=>$('role').add(new Option(r,r)));$('role').value=activeRole;
+if(params.get('mode')==='original')$('mode').value='original';
+function imagePath(){return current==='P09'?homeImage(activeRole,'lapiz'):$('mode').value==='original'?nodes[current].image:'pantallas/'+current+'.png'}
+function go(id,record=true){
+ if(!nodes[id]||!allowedScreen(id)){$('notice').textContent='Esta pantalla no está disponible para el rol seleccionado.';return}
+ if(record&&current!==id)trail.push(current);current=id;
+ const n=nodes[id];$('notice').textContent='';$('title').textContent=id+' · '+(id==='P09'?roleConfig().title:n.title);$('description').textContent=id==='P09'?roleConfig().description:n.description;
+ if($('mode').value==='original'){$('phone').replaceChildren();const img=document.createElement('img');img.className='image-preview';img.src=imagePath();img.alt='Sketch: '+$('title').textContent;$('phone').appendChild(img)}
+ else{
+  $('phone').innerHTML=build(id);
+  $('phone').querySelectorAll('[data-go]').forEach(b=>{b.disabled=!allowedScreen(b.dataset.go);if(b.disabled)b.title='No disponible para este rol';else b.onclick=()=>{if(current==='P16'&&b.dataset.go==='P03'){trail=[];go('P03',false)}else go(b.dataset.go)}});
+  $('phone').querySelectorAll('[data-toast]').forEach(b=>b.onclick=()=>{$('notice').textContent='Acción simulada: no se envían ni se guardan datos.'});
+ }
+ const available=PAN.filter(([screen])=>allowedScreen(screen));$('screens').replaceChildren();
+ available.forEach(([screen,title])=>{const b=document.createElement('button');b.textContent=screen+' · '+title;if(screen===id)b.setAttribute('aria-current','page');b.onclick=()=>go(screen);$('screens').appendChild(b)});
+ $('actions').replaceChildren();TI_DATA.edges.filter(e=>e.from_id===id&&e.to_id!==id&&(e.role==='Todos'||e.role===activeRole)&&allowedScreen(e.to_id)).forEach(e=>{const b=document.createElement('button');b.textContent=nodes[e.to_id].title;const small=document.createElement('small');small.textContent=e.condition;b.appendChild(small);b.onclick=()=>{if(id==='P16'&&e.to_id==='P03'){trail=[];go('P03',false)}else go(e.to_id)};$('actions').appendChild(b)});
+ $('back').disabled=!trail.length;$('counter').textContent=(available.findIndex(([s])=>s===id)+1)+' / '+available.length+' disponibles';$('download').href=imagePath();$('trail').textContent=[...trail.slice(-7),id].join(' → ');
+ history.replaceState(null,'','?screen='+id+'&role='+encodeURIComponent(activeRole)+'&mode='+$('mode').value);
+}
+$('role').onchange=()=>{activeRole=$('role').value;trail=[];go('P09',false)};
+$('mode').onchange=()=>go(current,false);
+$('back').onclick=()=>{if(trail.length)go(trail.pop(),false)};
+$('home').onclick=()=>go('P09');$('restart').onclick=()=>{trail=[];go('P01',false)};
+function adjacent(delta){const screens=PAN.filter(([id])=>allowedScreen(id));go(screens[(screens.findIndex(([id])=>id===current)+delta+screens.length)%screens.length][0])}
+$('previous').onclick=()=>adjacent(-1);$('next').onclick=()=>adjacent(1);
+go(nodes[params.get('screen')]&&allowedScreen(params.get('screen'))?params.get('screen'):'P01',false);
+</script>
+</body></html>

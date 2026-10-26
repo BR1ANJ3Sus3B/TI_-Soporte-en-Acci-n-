@@ -22,6 +22,15 @@ Estos enlaces estarán disponibles cuando GitHub Pages termine el despliegue:
 - [Práctica 07: galería](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/)
 - [Prototipo visual móvil](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/mockups-color/)
 - [Diagrama interactivo](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/prototipo/)
+- [Navegación de sketches por rol](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/wireframes/navegacion.html)
+- [20 wireframes](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/wireframes/)
+- [Descarga ZIP de los 20 wireframes](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/wireframes/wireframes-20.zip)
+
+## Comprobaciones antes de publicar
+
+Los enlaces del sitio son relativos para funcionar bajo el nombre del repositorio. Se incluyen los PNG, los scripts de navegación y el ZIP; no hay dependencias de un servidor de aplicaciones. Publica desde `docs/documentacion` y `/docs`, donde ya existe `.nojekyll`.
+
+Verificación de la entrega: `python docs/practica07-navegacion-flutter/scripts/verificar_entrega.py`. La comprobación de navegación en Edge se ejecuta con `node docs/practica07-navegacion-flutter/scripts/verificar_roles.cjs --navegacion`.
 
 ## Vista local
 
