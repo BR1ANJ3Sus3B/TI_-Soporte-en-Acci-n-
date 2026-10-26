@@ -13,6 +13,9 @@ Se conserva también el [resumen original de bocetos a lápiz](recursos/vista_ge
 
 ## Abrir los entregables
 
+- [**Navegación de sketches: 20 pantallas y cinco roles**](wireframes/navegacion.html). Pulsa los controles del teléfono en modo interactivo o usa las acciones laterales con los bocetos originales. Incluye historial, volver, reiniciar y navegación anterior/siguiente. Comprobación en navegador: `node scripts/verificar_roles.cjs --navegacion`.
+- [**20 wireframes P01–P20: galería y PNG individuales**](wireframes/index.html) · [Descargar ZIP](wireframes/wireframes-20.zip)
+- [**Wireframes de inicio por rol: jugador, docente, administrador, editor e institución**](wireframes/index.html)
 - [**Galería general (20 diseños a color + sus 20 sketches)**](index.html)
 - [**Prototipo visual móvil a color**](mockups-color/index.html)
 - [Galería de los 20 sketches a lápiz originales](galeria_sketches_lapiz.html)
@@ -34,6 +37,24 @@ Se conserva también el [resumen original de bocetos a lápiz](recursos/vista_ge
 - [Entrega en GitHub](docs/09_guia_github_entrega.md)
 
 ## Inventario (20 sketches PNG)
+
+### Variantes del inicio P09
+
+La entrega incluye también **20 wireframes monocromáticos**, uno por pantalla P01–P20, en `wireframes/pantallas/`. La [galería completa](wireframes/index.html) permite verlos, descargarlos y abrir su navegación. Los [cinco inicios por rol](wireframes/inicios-por-rol.html) siguen disponibles como variantes adicionales. Para regenerar y comprobar las veinte capturas: `node scripts/verificar_roles.cjs --wireframes`.
+
+La [galería de wireframes](wireframes/index.html) incluye cinco variantes de P09 en PNG descargables. El selector **Vista por rol** del prototipo abre el inicio correspondiente y adapta el perfil y la navegación inferior. En el diagrama, cambiar de rol muestra su imagen de inicio; el enlace «Navegar pantalla» conserva ese rol.
+
+| Rol | Prioridad del inicio | Navegación |
+|---|---|---|
+| Estudiante/Jugador | Próxima misión, experiencia y avance | Inicio, Misiones, Guías, Progreso, Perfil |
+| Docente/Evaluador | Grupo y evaluaciones pendientes | Inicio, Mi grupo, Perfil |
+| Administrador | Cuentas y solicitudes de acceso | Inicio, Usuarios, Perfil |
+| Editor de contenido | Misiones publicadas y borradores | Inicio, Editor, Perfil |
+| Institución educativa | Resultados agregados del periodo | Inicio, Reportes, Perfil |
+
+Los nuevos wireframes se encuentran en `sketches/roles/` y sus versiones a color en `mockups-color/roles/`. Son variantes complementarias de P09; los veinte bocetos originales se conservan. El modo Lápiz muestra estas variantes como wireframes monocromáticos generados desde el diseño HTML. La selección de rol y los permisos son una simulación visual, no autenticación real.
+
+Para regenerar las diez capturas y verificar los recorridos en Edge: `node scripts/verificar_roles.cjs` (desde esta carpeta; requiere Node con WebSocket global y Microsoft Edge en Windows).
 
 | ID | Pantalla | Rol autorizado | PNG |
 |---|---|---|---|

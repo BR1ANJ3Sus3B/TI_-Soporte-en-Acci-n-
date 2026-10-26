@@ -26,3 +26,34 @@ html[data-view-mode="lapiz"] .screen-pager button{background:#faf9f5;color:#3331
 html[data-view-mode="lapiz"] .tiny,html[data-view-mode="lapiz"] .details p{color:#5e5b55}
 html[data-view-mode="lapiz"] .detail-buttons a{color:#373531}
 @media(max-width:540px){.screen-pager{width:100%;justify-content:center}.gallery-mode-toggle{width:auto}.gallery-mode-toggle button{padding:8px}}
+
+/* Inicio diferenciado por rol. */
+.role-picker{display:flex;align-items:center;gap:12px;width:min(396px,100%);font-size:13px;color:var(--muted)}
+.role-picker select{flex:1;min-width:0;padding:11px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text)}
+.role-greeting{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px;font-size:9px;letter-spacing:.06em}
+.role-greeting .chip{font-size:8px;letter-spacing:0}.role-home .page-title{font-size:24px}
+.role-hero{position:relative;overflow:hidden;border:1px solid var(--role-accent);border-radius:18px;padding:18px;margin:12px 0 16px;background:radial-gradient(ellipse at 90% 15%,#33446a,transparent 70%),#10213b;min-height:174px}
+.role-hero h3{position:relative;font-size:25px;max-width:215px;margin:12px 0 0;line-height:1.15;letter-spacing:-.04em}
+.role-hero .label-upper,.role-home .label-upper,.role-home .stat b{color:var(--role-accent)}
+.role-orbit{position:absolute;right:-16px;top:22px;width:130px;height:130px;border:1px solid var(--role-accent);border-radius:50%;display:grid;place-items:center;transform:rotate(-12deg);background:#09132688}
+.role-orbit span{font-size:55px}.role-home .card h3{margin:10px 0}.role-home .btn{background:var(--role-accent);color:#071222}
+button:disabled{opacity:.4;cursor:not-allowed}.sidetab[hidden]{display:none}
+html[data-view-mode="lapiz"] .role-picker select{background:#fffdf7;color:#302e2b;border-color:#9c978b}
+/* Boceto de las variantes: el mismo contenido y orden, en baja fidelidad. */
+.device.role-sketch{background:#faf8f1;color:#343434;border-color:#555;font-family:Georgia,serif}
+.role-sketch .appbar,.role-sketch .bottomnav,.role-sketch .gesture{background:#f6f3ea;border-color:#888}
+.role-sketch .role-hero,.role-sketch .card,.role-sketch .stat{background:#fffdf7;border:1px dashed #777;box-shadow:none}
+.role-sketch .role-orbit{background:transparent;border:1px dashed #777;filter:grayscale(1)}
+.role-sketch .role-hero,.role-sketch .role-home{--role-accent:#555!important}
+.role-sketch .lead,.role-sketch .tiny,.role-sketch .label-upper,.role-sketch .navitem,.role-sketch .appbar button,.role-sketch .chip,.role-sketch .stat small{color:#555}
+.role-sketch .chip{background:#e9e6de;border-color:#999}.role-sketch .btn{background:#555;color:white}.role-sketch .listcard{background:#fffdf7;border:1px dashed #888;color:#333}.role-sketch .statusbar{color:#333}
+.device.role-sketch{filter:grayscale(1)}.role-sketch .btn{box-shadow:none;border-color:#666}.role-sketch .ico{background:#e9e6de;color:#555}
+/* Wireframes P01-P20: superficies neutras y controles legibles. */
+.wireframe{--text:#333;--muted:#666;--cyan:#444;--teal:#555;--purple:#555;--green:#555;--orange:#555;--red:#444;--line:#999;--panel:#f5f3ec;--panel2:#eee;--bg:#faf8f1;--bg2:#f5f3ec}
+.wireframe .hero-glow,.wireframe .pixel-scene,.wireframe .logo-gear,.wireframe .large-icon,.wireframe .avatar,.wireframe .member,.wireframe .face,.wireframe .mini-alert,.wireframe .codeboxes span,.wireframe .stepnum,.wireframe .tab,.wireframe .kpi{background:#eeece5!important;color:#444!important;box-shadow:none!important;border-color:#999!important}
+.wireframe .field input,.wireframe .field textarea,.wireframe .field select{background:#fffdf7;color:#333;border:1px solid #999}
+.wireframe .btn{background:#555!important;color:#fff!important;border-color:#777!important;box-shadow:none}
+.wireframe .btn.secondary{background:#fffdf7!important;color:#333!important}
+.wireframe .listcard,.wireframe .card,.wireframe .stat{background:#fffdf7!important;color:#333;box-shadow:none;border-color:#999!important}
+.wireframe .prog{background:#ddd}.wireframe .prog span,.wireframe .bar{background:#777!important}.wireframe .notch{background:#555}
+.wireframe .field{color:#444}.wireframe input::placeholder,.wireframe textarea::placeholder{color:#666;opacity:1}

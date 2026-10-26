@@ -173,7 +173,7 @@ body.detail-expanded .asidebody h2 {font-size:30px;}
 </div>
 <section class="scenario"><div class="card scenario-inner"><div><h3 id="scenarioTitle">Escenario</h3><p id="scenarioDesc"></p></div><nav class="crumbs" id="crumbs" aria-label="Secuencia del escenario"></nav></div></section>
 <footer class="note"><p><a href="../mockups-color/index.html">🎨 Ver los 20 diseños a color e interactuar con las pantallas</a> · <a href="../galeria_sketches_lapiz.html">✏️ Ver los 20 sketches originales a lápiz</a></p>Diagrama de referencia con identidad visual NovaTech creado en HTML local; <strong>no fue generado por Archify</strong>. Para cumplir la práctica, utiliza <a href="../docs/08_prompt_archify.md">el prompt Archify</a>, revisa las rutas y guarda capturas de evidencia. Los permisos aquí son simulados: el backend es quien debe verificarlos.</footer>
-<script src="datos_navegacion.js"></script>
+<script src="../mockups-color/roles.js"></script><script src="datos_navegacion.js"></script>
 <script>
 (()=>{
 'use strict';
@@ -216,9 +216,9 @@ function graphRender(){graph.replaceChildren();const defs=svg('defs',{},graph);
 function make(tag,attributes={},parent){const e=document.createElement(tag);for(const [k,v] of Object.entries(attributes)){if(k==='text')e.textContent=v;else e.setAttribute(k,v)}if(parent)parent.appendChild(e);return e}
 function listToText(items){return items.join(' · ')}
 function details(){const n=byId[selected];detail.replaceChildren();make('h2',{text:`${n.id} · ${n.title}`},detail);const row=make('div',{class:'tagrow'},detail);make('span',{class:'tag',text:'Flutter · móvil'},row);n.roles.forEach(r=>make('span',{class:'tag',text:r},row));make('p',{text:n.description},detail);
- const colorImage=n.image.replace('../sketches/','../mockups-color/');const activeImage=viewMode==='lapiz'?n.image:colorImage;
+ const sketchImage=selected==='P09'?homeImage(role,'lapiz'):n.image;const colorImage=selected==='P09'?homeImage(role,'normal'):n.image.replace('../sketches/','../mockups-color/');const activeImage=viewMode==='lapiz'?sketchImage:colorImage;
  const box=make('div',{class:'imgframe'},detail);make('img',{src:activeImage,alt:`${viewMode==='lapiz'?'Boceto a lápiz':'Diseño móvil a color'}: ${n.title}`},box);
- const links=make('div',{class:'previewlinks'},detail);make('a',{href:activeImage,target:'_blank',rel:'noopener',text:viewMode==='lapiz'?'Abrir sketch a lápiz ↗':'Abrir PNG a color ↗'},links);make('a',{href:viewMode==='lapiz'?colorImage:n.image,target:'_blank',rel:'noopener',text:viewMode==='lapiz'?'Ver versión normal ↗':'Ver versión a lápiz ↗'},links);make('a',{href:`../mockups-color/index.html?screen=${selected}&mode=${viewMode}`,target:'_blank',rel:'noopener',text:'Navegar pantalla ↗'},links);
+ const links=make('div',{class:'previewlinks'},detail);make('a',{href:activeImage,target:'_blank',rel:'noopener',text:viewMode==='lapiz'?'Abrir sketch a lápiz ↗':'Abrir PNG a color ↗'},links);make('a',{href:viewMode==='lapiz'?colorImage:sketchImage,target:'_blank',rel:'noopener',text:viewMode==='lapiz'?'Ver versión normal ↗':'Ver versión a lápiz ↗'},links);make('a',{href:`../mockups-color/index.html?screen=${selected}&mode=${viewMode}&role=${encodeURIComponent(role)}`,target:'_blank',rel:'noopener',text:'Navegar pantalla ↗'},links);
  make('div',{class:'small-label',text:'Elementos principales'},detail);make('p',{text:listToText(n.elements)},detail);make('div',{class:'small-label',text:'Acciones permitidas'},detail);make('p',{text:listToText(n.actions)},detail);
  make('div',{class:'small-label',text:'Requerimientos e historia'},detail);make('p',{text:n.requirements.join(', ')+' · '+n.story},detail);
  make('div',{class:'small-label',text:'Transiciones desde esta pantalla'},detail);
@@ -229,7 +229,7 @@ function routeRender(){const s=data.scenarios[scenarioIndex];el('scenarioTitle')
 function choose(id,manual=true){const n=byId[id];if(!n)return;if(!permitted(n)){message=`Acceso denegado: ${role} no tiene permiso para abrir ${id} (${n.title}).`;el('feedback').textContent=message;return;}selected=id;if(manual){let i=route().indexOf(id);if(i!==-1)step=i}message='';el('feedback').textContent=`Pantalla seleccionada: ${id}. El rol activo es ${role}.`;graphRender();details();routeRender()}
 function setScenario(i){scenarioIndex=+i;step=0;role=data.scenarios[scenarioIndex].role;roleSel.value=role;choose(route()[0],false)}
 for(const [i,s] of data.scenarios.entries()){make('option',{value:i,text:s.name},scenarioSel)}scenarioSel.onchange=()=>setScenario(scenarioSel.value);
-roleSel.onchange=()=>{role=roleSel.value;const idx=data.scenarios.findIndex(s=>s.role===role);scenarioIndex=idx<0?0:idx;scenarioSel.value=scenarioIndex;step=0;choose(route()[0],false)};
+roleSel.onchange=()=>{role=roleSel.value;const idx=data.scenarios.findIndex(s=>s.role===role);scenarioIndex=idx<0?0:idx;scenarioSel.value=scenarioIndex;step=0;choose('P09',false)};
 el('next').onclick=()=>{if(step<route().length-1){step++;choose(route()[step],false)}};
 el('back').onclick=()=>{if(step>0){step--;choose(route()[step],false)}};
 el('zoomIn').onclick=()=>{zoom=Math.min(1.65,+(zoom+.15).toFixed(2));graphRender()};el('zoomOut').onclick=()=>{zoom=Math.max(.7,+(zoom-.15).toFixed(2));graphRender()};

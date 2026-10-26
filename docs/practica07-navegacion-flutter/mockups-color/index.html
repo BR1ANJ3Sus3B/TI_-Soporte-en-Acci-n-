@@ -1,28 +1,31 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TI: Soporte en Acción · Diseño móvil</title><link rel="stylesheet" href="estilos.css"><meta name="theme-color" content="#070d1b"></head><body>
-<div class="viewer"><header class="global-header"><div class="brand"><div class="mark">TI</div><div><h1>TI: Soporte en Acción</h1><p>Identidad visual · 20 pantallas Flutter · NovaTech Solutions</p></div></div><div class="global-actions"><div class="gallery-mode-toggle" role="group" aria-label="Modo de visualización"><button type="button" data-view="normal" aria-pressed="true">🎨 Normal</button><button type="button" data-view="lapiz" aria-pressed="false">✏️ Lápiz</button></div><a href="../prototipo/index.html">↗ Diagrama interactivo</a><a href="../index.html">Sketches a lápiz</a><a href="../README.md">Documentación</a></div></header><div class="showcase"><aside class="sidebar"><h2>PANTALLAS MÓVILES (20)</h2><nav id="screenList"></nav></aside><div class="device-stage"><div class="device" id="phone"></div><div class="screen-pager"><button type="button" id="screenPrevious" aria-label="Pantalla anterior">← Anterior</button><span id="pageCounter">P01 / P20</span><button type="button" id="screenNext" aria-label="Pantalla siguiente">Siguiente →</button></div><span class="stage-label" id="stageLabel">Prototipo visual para Flutter · pulsa botones para recorrer otras pantallas</span></div><aside class="details"><div class="label-upper">DISEÑO DEL PROYECTO</div><h2 id="side-title" style="font-size:24px;margin-top:10px">Pantalla móvil</h2><div class="meta" id="side-meta"></div><p>Interfaz propuesta con la identidad tecnológica del videojuego. Los sketches de lápiz se conservan como evidencias de baja fidelidad.</p><div class="label-upper" style="margin-top:17px">PALETA PRINCIPAL</div><div class="swatches"><span title="Fondo #070D1B" style="background:#070d1b"></span><span title="Superficie #10213B" style="background:#10213b"></span><span title="Cian #00D9F5" style="background:#00d9f5"></span><span title="Turquesa #28E6CB" style="background:#28e6cb"></span><span title="Violeta #906DFF" style="background:#906dff"></span><span title="Verde #38D99A" style="background:#38d99a"></span><span title="Naranja #FF9E3B" style="background:#ff9e3b"></span></div><p><b>Estilo:</b> RPG de soporte tecnológico, tarjetas para misiones, progreso XP, indicadores de seguridad y navegación adaptada a cada rol.</p><div class="detail-buttons"><a id="img" target="_blank" href="P01_Splash_Screen.png">Abrir PNG</a><a id="sketch" target="_blank" href="../sketches/P01_Splash_Screen.png">Comparar sketch</a></div><p class="tiny" style="margin-top:23px">Diseño conceptual: las operaciones mostradas son simuladas; su implementación debe conectarse a servicios reales y validar permisos.</p></aside></div></div>
-<script src="pantallas.js"></script><script>
+<div class="viewer"><header class="global-header"><div class="brand"><div class="mark">TI</div><div><h1>TI: Soporte en Acción</h1><p>Identidad visual · 20 pantallas Flutter · NovaTech Solutions</p></div></div><div class="global-actions"><div class="gallery-mode-toggle" role="group" aria-label="Modo de visualización"><button type="button" data-view="normal" aria-pressed="true">🎨 Normal</button><button type="button" data-view="lapiz" aria-pressed="false">✏️ Lápiz</button></div><a href="../prototipo/index.html">↗ Diagrama interactivo</a><a href="../index.html">Sketches a lápiz</a><a href="../README.md">Documentación</a></div></header><div class="showcase"><aside class="sidebar"><h2>PANTALLAS MÓVILES (20)</h2><nav id="screenList"></nav></aside><div class="device-stage"><label class="role-picker" for="previewRole">Vista por rol <select id="previewRole" aria-label="Rol del prototipo"></select></label><div class="device" id="phone"></div><div class="screen-pager"><button type="button" id="screenPrevious" aria-label="Pantalla anterior">← Anterior</button><span id="pageCounter">P01 / P20</span><button type="button" id="screenNext" aria-label="Pantalla siguiente">Siguiente →</button></div><span class="stage-label" id="stageLabel">Prototipo visual para Flutter · pulsa botones para recorrer otras pantallas</span></div><aside class="details"><div class="label-upper">DISEÑO DEL PROYECTO</div><h2 id="side-title" style="font-size:24px;margin-top:10px">Pantalla móvil</h2><div class="meta" id="side-meta"></div><p>Interfaz propuesta con la identidad tecnológica del videojuego. Los sketches de lápiz se conservan como evidencias de baja fidelidad.</p><div class="label-upper" style="margin-top:17px">PALETA PRINCIPAL</div><div class="swatches"><span title="Fondo #070D1B" style="background:#070d1b"></span><span title="Superficie #10213B" style="background:#10213b"></span><span title="Cian #00D9F5" style="background:#00d9f5"></span><span title="Turquesa #28E6CB" style="background:#28e6cb"></span><span title="Violeta #906DFF" style="background:#906dff"></span><span title="Verde #38D99A" style="background:#38d99a"></span><span title="Naranja #FF9E3B" style="background:#ff9e3b"></span></div><p><b>Estilo:</b> RPG de soporte tecnológico, tarjetas para misiones, progreso XP, indicadores de seguridad y navegación adaptada a cada rol.</p><div class="detail-buttons"><a id="img" target="_blank" href="P01_Splash_Screen.png">Abrir PNG</a><a id="sketch" target="_blank" href="../sketches/P01_Splash_Screen.png">Comparar sketch</a></div><p class="tiny" style="margin-top:23px">Diseño conceptual: las operaciones mostradas son simuladas; su implementación debe conectarse a servicios reales y validar permisos.</p></aside></div></div>
+<script src="roles.js"></script><script src="pantallas.js"></script><script>
 const phone=document.getElementById('phone'),sidebar=document.getElementById('screenList');let current='P01',viewMode='normal';
 const filenames=['P01_Splash_Screen','P02_Loading_Screen','P03_Iniciar_Sesion','P04_Recuperar_Cuenta','P05_Cuenta_Bloqueada','P06_Codigo_Desbloqueo','P07_Acerca_Del_Software','P08_Acerca_Del_Equipo','P09_Inicio_Home','P10_Registro','P11_Misiones','P12_Detalle_Mision','P13_Guias','P14_Lectura_Guia','P15_Progreso','P16_Perfil','P17_Panel_Docente','P18_Gestion_Usuarios','P19_Editor_Misiones','P20_Reportes_Institucion'];
 PAN.forEach(([id,name])=>{const b=document.createElement('button');b.className='sidetab';b.id='sel-'+id;b.innerHTML=`<b>${id}</b>${name}`;b.onclick=()=>show(id);sidebar.appendChild(b)});
 function show(id){
  if(!PAN.find(x=>x[0]===id))id='P01';
+ if(!allowedScreen(id))id='P09';
  current=id;
  const path=filenames[parseInt(id.slice(1),10)-1]+'.png';
+ const sketchPath=id==='P09'?homeImage(activeRole,'lapiz'):'../sketches/'+path;
+ const colorPath=id==='P09'?homeImage(activeRole,'normal'):path;
  if(viewMode==='lapiz'){
-  phone.replaceChildren();const img=document.createElement('img');img.src='../sketches/'+path;img.alt='Sketch a lápiz: '+PAN.find(x=>x[0]===id)[1];img.className='sketch-preview';phone.appendChild(img);
+  phone.replaceChildren();const img=document.createElement('img');img.src=sketchPath;img.alt='Sketch a lápiz: '+PAN.find(x=>x[0]===id)[1];img.className='sketch-preview';phone.appendChild(img);
  }else{phone.innerHTML=build(id)}
- sidebar.querySelectorAll('button').forEach(b=>b.classList.toggle('active',b.id==='sel-'+id));
- document.getElementById('side-title').textContent=PAN.find(x=>x[0]===id)[1];
- document.getElementById('side-meta').textContent=screenInfo(id);
- document.getElementById('img').href=viewMode==='lapiz'?'../sketches/'+path:path;
+ sidebar.querySelectorAll('button').forEach(b=>{b.classList.toggle('active',b.id==='sel-'+id);b.hidden=!allowedScreen(b.id.replace('sel-',''));});
+ document.getElementById('side-title').textContent=id==='P09'?roleConfig().title:PAN.find(x=>x[0]===id)[1];
+ document.getElementById('side-meta').textContent=(id==='P09'?roleConfig().title:screenInfo(id))+' · Vista: '+activeRole;
+ document.getElementById('img').href=viewMode==='lapiz'?sketchPath:colorPath;
  document.getElementById('img').textContent=viewMode==='lapiz'?'Abrir sketch PNG':'Abrir PNG a color';
- document.getElementById('sketch').href=viewMode==='lapiz'?path:'../sketches/'+path;
+ document.getElementById('sketch').href=viewMode==='lapiz'?colorPath:sketchPath;
  document.getElementById('sketch').textContent=viewMode==='lapiz'?'Ver versión normal':'Comparar sketch';
  document.getElementById('stageLabel').textContent=viewMode==='lapiz'?'Sketch original a lápiz · usa la lista o flechas para navegar las 20 pantallas':'Diseño interactivo a color · pulsa los botones de la pantalla';
  document.getElementById('pageCounter').textContent=id+' / P20';
- try{history.replaceState(null,'','?screen='+id+'&mode='+viewMode)}catch(_){/* vista embebida */}
+ try{history.replaceState(null,'','?screen='+id+'&mode='+viewMode+'&role='+encodeURIComponent(activeRole))}catch(_){/* vista embebida */}
  if(viewMode==='normal'){
-  phone.querySelectorAll('[data-go]').forEach(e=>e.onclick=()=>show(e.dataset.go));
+  phone.querySelectorAll('[data-go]').forEach(e=>{if(!allowedScreen(e.dataset.go)){e.disabled=true;e.title='No disponible para este rol';}else e.onclick=()=>show(e.dataset.go)});
   phone.querySelectorAll('[data-toast]').forEach(e=>e.onclick=()=>{const old=phone.querySelector('.toast');if(old)old.remove();const t=document.createElement('div');t.className='toast';t.textContent=e.dataset.toast;phone.appendChild(t);setTimeout(()=>t.remove(),2500)});
   const c=phone.querySelector('.appcontent');if(c)c.scrollTop=0;
  }
@@ -35,11 +38,15 @@ function setViewMode(mode){
  show(current);
 }
 document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setViewMode(b.dataset.view)));
-function changeScreen(delta){const index=PAN.findIndex(item=>item[0]===current);show(PAN[(index+delta+PAN.length)%PAN.length][0])}
+function changeScreen(delta){const screens=PAN.filter(item=>allowedScreen(item[0]));const index=screens.findIndex(item=>item[0]===current);show(screens[(index+delta+screens.length)%screens.length][0])}
 document.getElementById('screenPrevious').onclick=()=>changeScreen(-1);
 document.getElementById('screenNext').onclick=()=>changeScreen(1);
 const params=new URLSearchParams(location.search);
-current=params.get('screen')||'P01';
+activeRole=Object.hasOwn(TI_ROLES,params.get('role'))?params.get('role'):(Object.keys(TI_ROLES).find(r=>TI_ROLES[r].module===params.get('screen'))||'Estudiante/Jugador');
+const picker=document.getElementById('previewRole');
+Object.keys(TI_ROLES).forEach(role=>picker.add(new Option(role,role)));
+picker.value=activeRole;picker.onchange=()=>{activeRole=picker.value;show('P09')};
+current=params.get('screen')||'P09';
 let firstMode=params.get('mode');if(!firstMode){try{firstMode=localStorage.getItem('ti-modo-visual')}catch(_){}}
 setViewMode(firstMode);
 </script></body></html>

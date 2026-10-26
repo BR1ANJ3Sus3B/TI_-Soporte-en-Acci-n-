@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wireframes por rol · TI: Soporte en Acción</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f2ef;color:#242424;font-family:system-ui,sans-serif}header{max-width:1500px;margin:auto;padding:44px 28px 24px}header small{letter-spacing:.15em}h1{font-size:clamp(28px,4vw,46px);letter-spacing:-.04em;margin:12px 0}header p{max-width:720px;line-height:1.7;color:#606060}a{color:inherit;text-underline-offset:4px}main{max-width:1500px;margin:auto;padding:16px 28px 48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}article{min-width:0}h2{font-size:17px;margin:10px 0}article p{font-size:13px;line-height:1.6;min-height:62px;color:#606060}img{width:100%;height:auto;display:block;border-radius:24px;background:white;border:1px solid #d6d2c8}nav{display:flex;gap:18px;flex-wrap:wrap;font-size:13px}article nav{padding:16px 0}.number{color:#777;font-size:12px;letter-spacing:.1em}footer{max-width:1500px;margin:auto;padding:0 28px 36px;color:#666;font-size:13px}
+</style>
+</head>
+<body>
+<header><small>TI: SOPORTE EN ACCIÓN / FLUTTER MÓVIL</small><h1>Un inicio para cada rol.</h1><p>Cinco wireframes de baja fidelidad. Cada inicio muestra la información prioritaria de su rol, una acción principal y su propia navegación inferior.</p><nav><a href="../mockups-color/index.html">Abrir prototipo interactivo</a><a href="../prototipo/index.html">Ver mapa de navegación</a><a href="../index.html">Galería de pantallas</a></nav></header>
+<main id="gallery"></main>
+<footer>P09 · Cinco variantes de la pantalla de inicio. Los datos son ejemplos para el diseño; no representan cuentas reales.</footer>
+<script src="../mockups-color/roles.js"></script>
+<script>
+const descriptions={jugador:'Misiones, guías y progreso personal. La prioridad es continuar aprendiendo.',docente:'Seguimiento del grupo y evaluaciones pendientes. Acceso directo al aula.',administrador:'Cuentas y solicitudes de acceso. La prioridad es gestionar usuarios y permisos.',editor:'Misiones publicadas y borradores. Acceso directo a la creación de contenido.',institucion:'Resultados agregados y avance académico. Acceso directo a reportes.'};
+Object.entries(TI_ROLES).forEach(([role,r],i)=>{const article=document.createElement('article');article.innerHTML=`<span class="number">0${i+1} / INICIO</span><h2>${role}</h2><p>${descriptions[r.key]}</p><a href="../sketches/roles/P09_${r.key}.png" target="_blank" rel="noopener"><img src="../sketches/roles/P09_${r.key}.png" alt="Wireframe de inicio: ${role}"></a><nav><a href="../sketches/roles/P09_${r.key}.png" download>Descargar PNG</a><a href="../mockups-color/index.html?screen=P09&mode=normal&role=${encodeURIComponent(role)}">Probar navegación</a></nav>`;document.getElementById('gallery').appendChild(article)});
+</script>
+</body></html>
