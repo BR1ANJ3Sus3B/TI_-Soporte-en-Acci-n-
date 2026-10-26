@@ -91,8 +91,23 @@ public static class ReferenceMapBuilder
     private const int ExtPlanterLong = 112;// long flower trough
     private const int ExtPlanterPink = 114;// long pink flower trough
 
+    // Street furniture and site kit from the same sheet.
+    private const int ExtCone         = 49;  // traffic cone
+    private const int ExtHandicapSign = 23;  // disabled bay sign
+    private const int ExtHazardPanel  = 24;  // black/yellow hazard board
+    private const int ExtMeter        = 44;  // ticket machine on a post
+    private const int ExtCamera       = 43;  // wall-mounted CCTV camera
+    private const int ExtTrashBags    = 53;  // heap of bin bags
+    private const int ExtCrate        = 54;  // wooden crate
+    private const int ExtMotorcycle   = 33;  // parked motorbike
+    private const int ExtBoxElec      = 56;  // twin service cabinet with warning label
+    private const int ExtAcUnit       = 38;  // outdoor condenser unit
+    private const int ExtRocks        = 95;  // pair of boulders
+    private const int ExtPlanterWhite = 108; // white planter box with flowers
+
     private static readonly int[] ExtBushes = { 89, 90, 91, 98, 99, 110, 113, 107, 111 };
-    private static readonly int[] ExtCars   = { 3, 5, 6, 7, 8 };
+    private static readonly int[] ExtCars   = { 3, 5, 6, 7, 8, 9, 10, 11, 15, 32 };
+    private static readonly int[] ExtFenceRuns = { 12, 13, 34, 35 };
 
     // Hard surfaces. Laid on the paving layer, above the lawn and below the floors.
     // The south elevation reads downward from the building: apron, steps, sidewalk,
@@ -148,10 +163,21 @@ public static class ReferenceMapBuilder
         ( 14,  21,   2,   3), // Sala este B
         ( -9,   9,   2,   6), // Nucleo tecnico central
         (-21, -14,  -7,  -3), // Hall inferior izquierdo
-        ( -9,  -3,  -7,  -3), // Oficina sur 1
-        (  3,   9,  -7,  -3), // Oficina sur 2
+        ( -9,  -3,  -7,  -3), // Oficina sur 1 (soporte tecnico)
+        (  3,   9,  -7,  -3), // Oficina sur 2 (programacion)
         ( 14,  21,  -7,  -3), // Hall inferior derecho
+        ( 23,  29,  11,  15), // Sala oculta del Saboteador (13): este del area de servidores
     };
+
+    // The hidden room is entered through one cell of the shell wall that runs along the
+    // east side of the server hall. No door art is painted there: SecretRoomDoor draws
+    // the same wall tile as its neighbours and blocks the opening until a later mission
+    // unlocks it, so the room reads as solid wall from the corridor.
+    private static readonly Vector2Int SecretRoomCell = new Vector2Int(22, 13);
+
+    // Celda que el jugador pisa al atravesar la pared falsa. Es la única entrada a la
+    // sala oculta, así que ningún prop puede volverla sólida.
+    private static readonly Vector2Int SecretRoomEntry = new Vector2Int(23, 13);
 
     // Corridors (inclusive). Corridor floor is drawn first and stays walkable.
     private static readonly (int x0, int x1, int y0, int y1)[] Corridors =
@@ -319,6 +345,15 @@ public static class ReferenceMapBuilder
             for (int x = serverHall.x0; x <= serverHall.x1; x++)
                 floor.SetTile(new Vector3Int(x, y, 0), coreFloorTile);
 
+        // The hidden room keeps the technical plating, tinted violet, so it reads as a
+        // different zone even without a 2D light rig.
+        var hiddenFloorTile = TintedCellTile("NovaTech_FloorHidden", SpriteFloorCore,
+            new Color(0.52f, 0.40f, 0.62f));
+        var hiddenRoom = Rooms[13];
+        for (int y = hiddenRoom.y0; y <= hiddenRoom.y1; y++)
+            for (int x = hiddenRoom.x0; x <= hiddenRoom.x1; x++)
+                floor.SetTile(new Vector3Int(x, y, 0), hiddenFloorTile);
+
         // Threshold plates under the two main entrances.
         floor.SetTile(new Vector3Int(0, 19, 0), hazardTile);
         floor.SetTile(new Vector3Int(0, -11, 0), hazardTile);
@@ -373,6 +408,10 @@ public static class ReferenceMapBuilder
         PlacePlayer(scene);
         ConfigureCamera(scene);
 
+        // Etapa final: personajes, equipo interactivo, pared falsa y el objeto que arranca
+        // los servicios de progreso, misiones, diálogos e interfaz.
+        GameplayBuilder.Build(scene);
+
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);
         AssetDatabase.SaveAssets();
@@ -423,6 +462,12 @@ public static class ReferenceMapBuilder
                     var cell = new Vector2Int(x, y);
                     if (Wall.Remove(cell) || Glass.Remove(cell)) Door.Add(cell);
                 }
+
+        // The hidden room's entrance stays a physical opening, but it is not a doorway:
+        // no door tile is painted, and SecretRoomDoor seals it with a false wall.
+        Wall.Remove(SecretRoomCell);
+        Glass.Remove(SecretRoomCell);
+        Door.Remove(SecretRoomCell);
     }
 
     /// <summary>Adds the rectangle outline (not the filled rect) to the wall set.</summary>
@@ -504,10 +549,13 @@ public static class ReferenceMapBuilder
         (FurnitureSheet,  2, -20, 12), (FurnitureSheet,  2, -15, 12),
         (FurnitureSheet, 22, -21, 11),
         (FurnitureSheet, 36, -21, 15), (FurnitureSheet, 36, -14, 15),
+        // Administration corner: the printer pair against the west wall.
+        (TechSheet,      32, -21, 13),
 
-        // Oficina N1: board room with a long table and a free standing whiteboard.
+        // Oficina N1: board room with a long table, a whiteboard and the metrics wall.
         (FurnitureSheet,  6,  -6, 13),
         (TechSheet,       8,  -8, 14),
+        (TechSheet,      11,  -6, 15),
         (FurnitureSheet, 36,  -3, 15), (FurnitureSheet, 36,  -9, 11),
 
         // Oficina N2: private office, L desk plus a wall map screen.
@@ -515,10 +563,11 @@ public static class ReferenceMapBuilder
         (TechSheet,       9,   8, 11),
         (FurnitureSheet, 22,   3, 15), (FurnitureSheet, 36,   9, 15),
 
-        // Hall NE: server hall, rack rows plus a router and a lone rack.
+        // Hall NE: server hall, rack rows plus switches stacked along the east wall.
         (FurnitureSheet, 26,  17, 14),
         (TechSheet,      17,  17, 12),
         (TechSheet,      23,  14, 15), (TechSheet,      19,  21, 15),
+        (TechSheet,      25,  20, 12), (TechSheet,      24,  20, 14),
         (FurnitureSheet, 36,  14, 11),
 
         // Sala Oeste A / Este A: storage on the north row, the south row stays clear
@@ -534,10 +583,9 @@ public static class ReferenceMapBuilder
         (FurnitureSheet, 16,  18,  2), (FurnitureSheet, 10,  15,  3),
         (FurnitureSheet, 36,  21,  3),
 
-        // Nucleo central: reception facing the south entrance, elevator bank on the
-        // north wall, bench seating and two glass meeting tables either side.
-        (FurnitureSheet, 44,   0,  6),
-        (TechSheet,       6,   0,  3),
+        // Nucleo central: the reception counter runs along the north wall under the
+        // elevator bank, with bench seating and two glass meeting tables either side.
+        (TechSheet,       6,   0,  6),
         (FurnitureSheet, 20,  -6,  5), (FurnitureSheet, 20,   6,  5),
         (TechSheet,      43,  -4,  3), (TechSheet,      43,   4,  3),
         (FurnitureSheet, 37,  -8,  6), (FurnitureSheet, 37,   8,  6),
@@ -549,16 +597,14 @@ public static class ReferenceMapBuilder
         (FurnitureSheet, 13, -15, -6),
         (FurnitureSheet, 22, -21, -3), (FurnitureSheet, 36, -14, -7),
 
-        // Oficina S1: open office, desks either side of the aisle that lines up with
-        // the doorway at x -6.
-        (FurnitureSheet,  2,  -8, -4), (FurnitureSheet,  2,  -4, -4),
-        (FurnitureSheet,  2,  -8, -6), (FurnitureSheet,  2,  -4, -6),
-        (FurnitureSheet, 36,  -9, -3), (FurnitureSheet, 36,  -3, -7),
+        // Oficina S1: support office. The north wall carries the diagnostic bench the
+        // player inspects, so the aisle in from the doorway at x -6 stays clear.
+        (TechSheet,      31,  -4, -4),
+        (FurnitureSheet,  2,  -8, -6),
 
-        // Oficina S2: open office, desks on the north row and L desks on the south.
-        (FurnitureSheet,  4,   4, -4), (FurnitureSheet,  4,   7, -4),
-        (TechSheet,       0,   4, -6), (TechSheet,       0,   7, -6),
-        (FurnitureSheet, 36,   3, -3), (FurnitureSheet, 36,   9, -7),
+        // Oficina S2: programming office, two curved multi monitor stations.
+        (TechSheet,       2,   4, -4),
+        (TechSheet,      16,   7, -4),
 
         // Hall SE: cafeteria, round tables leaving the row below them walkable, and
         // the service wall along the south edge.
@@ -566,6 +612,24 @@ public static class ReferenceMapBuilder
         (FurnitureSheet, 10,  15, -5), (FurnitureSheet, 10,  19, -5),
         (FurnitureSheet, 35,  17, -7), (FurnitureSheet, 34,  21, -7),
         (FurnitureSheet, 31,  14, -7),
+
+        // Sala oculta del Saboteador: el hardware se apila en el perímetro para que el
+        // pasillo frente a la pared falsa nunca quede tapado por una pieza.
+        (TechSheet,      13,  23, 15), (TechSheet,      15,  26, 15),
+        (TechSheet,      19,  29, 15), (TechSheet,      46,  29, 13),
+        (TechSheet,      35,  23, 11), (TechSheet,      30,  25, 11),
+        (TechSheet,      17,  28, 11),
+    };
+
+    /// <summary>
+    /// Props que se pintan con un tinte en vez de su color original. Dan a la sala oculta
+    /// su ambiente rojo y violeta sin necesidad de un equipo de luces 2D.
+    /// </summary>
+    private static readonly (int sheet, int sprite, int x, int y, Color tint)[] TintedProps =
+    {
+        (TechSheet, 24, 24, 11, new Color(1f, 0.44f, 0.44f)),
+        (TechSheet, 33, 27, 11, new Color(0.72f, 0.48f, 1f)),
+        (TechSheet, 34, 28, 14, new Color(1f, 0.52f, 0.48f)),
     };
 
     /// <summary>
@@ -624,6 +688,44 @@ public static class ReferenceMapBuilder
     {
         foreach (var prop in Props)
             deco.SetTile(new Vector3Int(prop.x, prop.y, 0), Prop(prop.sheet, prop.sprite));
+
+        foreach (var prop in TintedProps)
+            deco.SetTile(new Vector3Int(prop.x, prop.y, 0),
+                PropTint(prop.sheet, prop.sprite, prop.tint));
+    }
+
+    /// <summary>
+    /// La misma arte que <see cref="Prop"/> pero con un tinte horneado en el asset. El color
+    /// vive en el tile, así que teñir una pieza no altera el tile compartido del resto.
+    /// </summary>
+    private static TileBase PropTint(int sheet, int spriteIndex, Color tint)
+    {
+        string suffix = ColorUtility.ToHtmlStringRGB(tint);
+        string key = "F" + sheet + "_" + spriteIndex + "_" + suffix;
+        if (Tiles.TryGetValue(key, out var cached)) return cached;
+
+        var sprite = PropSprite(sheet, spriteIndex);
+
+        string path = $"{TileFolder}/NovaTech_Furn_{sheet}_{spriteIndex}_{suffix}.asset";
+        var tile = AssetDatabase.LoadAssetAtPath<Tile>(path);
+        bool created = false;
+        if (tile == null)
+        {
+            tile = ScriptableObject.CreateInstance<Tile>();
+            created = true;
+        }
+
+        tile.sprite = sprite;
+        tile.colliderType = Tile.ColliderType.None;
+        tile.color = tint;
+        tile.flags = TileFlags.LockColor;
+        tile.transform = PropTransform(sprite);
+
+        if (created) AssetDatabase.CreateAsset(tile, path);
+        else EditorUtility.SetDirty(tile);
+
+        Tiles[key] = tile;
+        return tile;
     }
 
     // ---------------------------------------------------------------- exterior
@@ -738,11 +840,58 @@ public static class ReferenceMapBuilder
         PlaceExt(props, ExtBench, 28, 3);
         solids.Add(new Vector2Int(28, 3));
         PlaceExt(props, ExtPlanterLong, 27, 4);
+        PlaceExt(props, ExtPlanterWhite, 28, -3);
+        int fenceRun = 0;
         for (int y = -7; y <= 8; y += 2)
         {
-            PlaceExt(props, ExtFence, 30, y);
+            PlaceExt(props, ExtFenceRuns[fenceRun++ % ExtFenceRuns.Length], 30, y);
             solids.Add(new Vector2Int(30, y));
         }
+
+        // --- street furniture and site kit from the rest of the exterior sheet ---
+
+        // Cameras watching the entrance, one either side of the portico.
+        PlaceExt(props, ExtCamera, -9, -10);
+        PlaceExt(props, ExtCamera, 9, -10);
+
+        // Disabled bay signs on the line at each end of the parking row.
+        PlaceExt(props, ExtHandicapSign, -20, -21);
+        PlaceExt(props, ExtHandicapSign, 20, -21);
+
+        // Hazard boards and a ticket machine framing the guard lane.
+        PlaceExt(props, ExtHazardPanel, -24, -19);
+        PlaceExt(props, ExtHazardPanel, -24, -24);
+        PlaceExt(props, ExtMeter, -28, -19);
+        solids.Add(new Vector2Int(-28, -19));
+
+        // Cones beside the barrier arm.
+        PlaceExt(props, ExtCone, -23, -20);
+        PlaceExt(props, ExtCone, -23, -22);
+
+        // A motorbike in the empty bay at the east end of the row.
+        PlaceExt(props, ExtMotorcycle, 18, -21);
+        solids.Add(new Vector2Int(18, -21));
+
+        // Service cabinets at the plaza edges.
+        PlaceExt(props, ExtBoxElec, -14, -10);
+        PlaceExt(props, ExtBoxElec, 14, -10);
+
+        // Rear yard: bin bags beside the skips, a crate at the path edge.
+        PlaceExt(props, ExtTrashBags, -7, 19);
+        PlaceExt(props, ExtTrashBags, 9, 19);
+        PlaceExt(props, ExtCrate, 7, 19);
+        solids.Add(new Vector2Int(7, 19));
+
+        // Condenser units dropped on the north lawn.
+        PlaceExt(props, ExtAcUnit, -6, 18);
+        PlaceExt(props, ExtAcUnit, 6, 18);
+        solids.Add(new Vector2Int(-6, 18));
+        solids.Add(new Vector2Int(6, 18));
+
+        // Boulders softening the empty corners of the border lawn.
+        PlaceExt(props, ExtRocks, -26, -6);
+        PlaceExt(props, ExtRocks, 26, 10);
+        PlaceExt(props, ExtRocks, -25, 14);
 
         ScatterGreenery(props, solids, random);
 
@@ -789,7 +938,10 @@ public static class ReferenceMapBuilder
     private static bool IsBuildingCell(Vector2Int cell)
     {
         if (cell.x >= -23 && cell.x <= 23 && cell.y >= -9 && cell.y <= 17) return true;
-        return cell.x >= -3 && cell.x <= 3 && cell.y >= -12 && cell.y <= 20;
+        if (cell.x >= -3 && cell.x <= 3 && cell.y >= -12 && cell.y <= 20) return true;
+        // Footprint of the hidden room, so neither the lawn nor its shrubs grow inside it.
+        if (cell.x >= 23 && cell.x <= 30 && cell.y >= 10 && cell.y <= 16) return true;
+        return false;
     }
 
     /// <summary>Cells already carrying a hard surface, so nothing is planted on them.</summary>
@@ -974,30 +1126,42 @@ public static class ReferenceMapBuilder
         var solidTile = GetTile("NovaTech_Solido", SpriteSolid, 0, Tile.ColliderType.Grid);
 
         foreach (var prop in Props)
-        {
-            var sprite = PropSprite(prop.sheet, prop.sprite);
-            float width = Mathf.Max(sprite.rect.width, 1f) / PropCellPixels;
-            float height = Mathf.Max(sprite.rect.height, 1f) / PropCellPixels;
-            float left = prop.x + 0.5f - width * 0.5f;
-            float right = left + width;
-            float bottom = prop.y + 0.5f - height * 0.5f;
-            float top = bottom + height;
+            MarkPropSolids(solids, solidTile, prop.sheet, prop.sprite, prop.x, prop.y);
 
-            int x0 = Mathf.FloorToInt(left);
-            int x1 = Mathf.FloorToInt(right);
-            int y0 = Mathf.FloorToInt(bottom);
-            int y1 = Mathf.FloorToInt(top);
+        foreach (var prop in TintedProps)
+            MarkPropSolids(solids, solidTile, prop.sheet, prop.sprite, prop.x, prop.y);
+    }
 
-            for (int y = y0; y <= y1; y++)
-                for (int x = x0; x <= x1; x++)
-                {
-                    float overlapX = Mathf.Min(right, x + 1f) - Mathf.Max(left, x);
-                    float overlapY = Mathf.Min(top, y + 1f) - Mathf.Max(bottom, y);
-                    if (overlapX < MinSolidCoverage || overlapY < MinSolidCoverage) continue;
-                    if (!Floor.Contains(new Vector2Int(x, y))) continue;
-                    solids.SetTile(new Vector3Int(x, y, 0), solidTile);
-                }
-        }
+    private static void MarkPropSolids(Tilemap solids, TileBase solidTile, int sheet,
+        int spriteIndex, int cellX, int cellY)
+    {
+        var sprite = PropSprite(sheet, spriteIndex);
+        float width = Mathf.Max(sprite.rect.width, 1f) / PropCellPixels;
+        float height = Mathf.Max(sprite.rect.height, 1f) / PropCellPixels;
+        float left = cellX + 0.5f - width * 0.5f;
+        float right = left + width;
+        float bottom = cellY + 0.5f - height * 0.5f;
+        float top = bottom + height;
+
+        int x0 = Mathf.FloorToInt(left);
+        int x1 = Mathf.FloorToInt(right);
+        int y0 = Mathf.FloorToInt(bottom);
+        int y1 = Mathf.FloorToInt(top);
+
+        for (int y = y0; y <= y1; y++)
+            for (int x = x0; x <= x1; x++)
+            {
+                // La entrada de la sala oculta queda siempre libre: es el único paso
+                // entre la pared falsa y el interior de la sala.
+                var cell = new Vector2Int(x, y);
+                if (cell == SecretRoomEntry) continue;
+
+                float overlapX = Mathf.Min(right, x + 1f) - Mathf.Max(left, x);
+                float overlapY = Mathf.Min(top, y + 1f) - Mathf.Max(bottom, y);
+                if (overlapX < MinSolidCoverage || overlapY < MinSolidCoverage) continue;
+                if (!Floor.Contains(cell)) continue;
+                solids.SetTile(new Vector3Int(x, y, 0), solidTile);
+            }
     }
 
     // ------------------------------------------------------------- tile assets
@@ -1061,6 +1225,40 @@ public static class ReferenceMapBuilder
         else EditorUtility.SetDirty(tile);
 
         Tiles[key] = tile;
+        return tile;
+    }
+
+    /// <summary>
+    /// A one cell art tile baked with a colour tint. Used by the hidden room floor, whose
+    /// plating is the core deck recoloured instead of a separate asset.
+    /// </summary>
+    private static TileBase TintedCellTile(string assetName, int spriteIndex, Color tint)
+    {
+        if (Tiles.TryGetValue(assetName, out var cached)) return cached;
+
+        if (!sprites.TryGetValue(spriteIndex, out var sprite))
+            throw new InvalidOperationException(
+                $"El tileset no tiene el sprite {spriteIndex} ({assetName}).");
+
+        string path = $"{TileFolder}/{assetName}.asset";
+        var tile = AssetDatabase.LoadAssetAtPath<Tile>(path);
+        bool created = false;
+        if (tile == null)
+        {
+            tile = ScriptableObject.CreateInstance<Tile>();
+            created = true;
+        }
+
+        tile.sprite = sprite;
+        tile.colliderType = Tile.ColliderType.None;
+        tile.color = tint;
+        tile.flags = TileFlags.LockColor;
+        tile.transform = FitToCell(sprite, 0, ContentOf(spriteIndex));
+
+        if (created) AssetDatabase.CreateAsset(tile, path);
+        else EditorUtility.SetDirty(tile);
+
+        Tiles[assetName] = tile;
         return tile;
     }
 
@@ -1218,7 +1416,9 @@ public static class ReferenceMapBuilder
 
     private static void PlacePlayer(Scene scene)
     {
-        var spawn = new Vector3(0f, -9f, 0f);
+        // En recepción, delante del mostrador de NovaTech: el punto donde Martín da la
+        // bienvenida y desde el que se ve la salida sur del núcleo.
+        var spawn = new Vector3(0.5f, 3.0f, 0f);
         foreach (var root in scene.GetRootGameObjects())
             if (root.name == "Player")
             {
