@@ -1416,9 +1416,10 @@ public static class ReferenceMapBuilder
 
     private static void PlacePlayer(Scene scene)
     {
-        // En recepción, delante del mostrador de NovaTech: el punto donde Martín da la
-        // bienvenida y desde el que se ve la salida sur del núcleo.
-        var spawn = new Vector3(0.5f, 3.0f, 0f);
+        // En el vestíbulo de la entrada sur del edificio (celdas (0,-9) y (0,-10), entre
+        // la puerta de la calle en y=-11 y la interior en y=-8): Alex aparece llegando
+        // al edificio y desde ahí sube a recepción.
+        var spawn = new Vector3(0.5f, -9.0f, 0f);
         foreach (var root in scene.GetRootGameObjects())
             if (root.name == "Player")
             {

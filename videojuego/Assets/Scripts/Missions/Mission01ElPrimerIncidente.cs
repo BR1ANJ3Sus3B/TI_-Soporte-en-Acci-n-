@@ -105,7 +105,12 @@ public class Mission01ElPrimerIncidente : MonoBehaviour
 
         if (computadora != null) computadora.Reiniciar();
         ActualizarHud();
-        ReproducirBienvenida();
+
+        // La bienvenida NO se reproduce sola: la da Martín cuando el jugador interactúa
+        // con él. Hasta entonces la misión se queda en Bienvenida y el HUD solo indica
+        // el siguiente paso.
+        MostrarObjetivo("Ve a recepción y habla con Martín: acércate y pulsa E.\n" +
+                        "Él te asignará el primer reporte de soporte.");
     }
 
     // ------------------------------------------------------------------ desarrollo
