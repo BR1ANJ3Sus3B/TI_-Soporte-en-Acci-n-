@@ -2,17 +2,24 @@
 
 Documentación del proyecto "TI: Soporte en Acción".
 
-## Prácticas interactivas
 
-La [portada HTML](index.html) reúne los dos entregables:
 
-| Práctica | Documentación | HTML |
-| --- | --- | --- |
-| 04: Business Model Canvas | [Descripción](practica04/README.md) | [Canvas interactivo](practica04/index.html) |
-| 07: Navegación móvil Flutter | [Descripción](practica07-navegacion-flutter/README.md) | [Galería y prototipos](practica07-navegacion-flutter/index.html) |
+## Sitio publicado y prácticas interactivas
 
-Consulta la [guía de publicación en GitHub Pages](GITHUB_PAGES.md) para activar el sitio.
+La documentación HTML está publicada en **GitHub Pages**. Estos enlaces permiten abrir los entregables directamente en el navegador:
 
+| Entregable | Enlace público |
+| --- | --- |
+| Portada de documentación | [Abrir el sitio](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/) |
+| Práctica 04: Business Model Canvas | [Explorar el Canvas actualizado](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica04/business-model-canvas/) |
+| Análisis de ingresos del proyecto | [Consultar fuentes de ingresos, costos y punto de equilibrio](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica04/business-model-canvas/#analisis-ingresos) |
+| Práctica 07: galería de pantallas móviles | [Ver diseños a color y sketches](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/) |
+| Prototipo visual móvil | [Recorrer las pantallas](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/mockups-color/) |
+| Diagrama de navegación interactivo | [Explorar roles y recorridos](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/prototipo/) |
+| Galería de bocetos a lápiz | [Ver los sketches originales](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/galeria_sketches_lapiz.html) |
+| Canvas de la carpeta original | [Consultar la versión original](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/business-model-canvas/) |
+
+Los prototipos son entregables de diseño; no acreditan funciones de producción. El análisis de ingresos contiene propuestas y cifras hipotéticas por validar. El sitio se actualiza al subir cambios a `docs/` en la rama `docs/documentacion`.
 ## Documentación general
 
 El contenido completo del proyecto (objetivos, roles, arquitectura, requerimientos RF-01 a RF-26 y RNF-01 a RNF-14, diseño del videojuego, personajes, niveles, storyboard, Canvas, monetización y bocetos de la PWA y de la aplicación móvil) se encuentra en:
