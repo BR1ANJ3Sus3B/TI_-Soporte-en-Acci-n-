@@ -1,0 +1,704 @@
+fileFormatVersion: 2
+guid: e5815fd4e92c8c84fa20ff1248b3fded
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7760797277898103377
+    second: orb_misiones_0
+  - first:
+      213: 8932780781671243197
+    second: orb_misiones_1
+  - first:
+      213: 4087853026057250680
+    second: orb_misiones_2
+  - first:
+      213: -215317249940081503
+    second: orb_misiones_3
+  - first:
+      213: -2850106644479683070
+    second: orb_misiones_4
+  - first:
+      213: 1359521525320322673
+    second: orb_misiones_5
+  - first:
+      213: -4206798422805830866
+    second: orb_misiones_6
+  - first:
+      213: 4129496098331738587
+    second: orb_misiones_7
+  - first:
+      213: 7840353241380227718
+    second: orb_misiones_8
+  - first:
+      213: 3692632773246930571
+    second: orb_misiones_9
+  - first:
+      213: -4762580183884141149
+    second: orb_misiones_10
+  - first:
+      213: 5350939120327087751
+    second: orb_misiones_11
+  - first:
+      213: -1155967955680216220
+    second: orb_misiones_12
+  - first:
+      213: -7292703650759342707
+    second: orb_misiones_13
+  - first:
+      213: -9130056460956684638
+    second: orb_misiones_14
+  - first:
+      213: -2625227680561484983
+    second: orb_misiones_15
+  - first:
+      213: 5339512264747785821
+    second: orb_misiones_16
+  - first:
+      213: -6372508500414963694
+    second: orb_misiones_17
+  - first:
+      213: 7737977030691622696
+    second: orb_misiones_18
+  - first:
+      213: 9147328287947392696
+    second: orb_misiones_19
+  - first:
+      213: -6860972806200887331
+    second: orb_misiones_20
+  - first:
+      213: 3808354455743395795
+    second: orb_misiones_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: orb_misiones_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1014
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15a5fea7104e3bb60800000000000000
+      internalID: 7760797277898103377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_1
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 977
+        width: 71
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbd53f30bcc97fb70800000000000000
+      internalID: 8932780781671243197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_2
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 861
+        height: 990
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 877e5283ba8fab830800000000000000
+      internalID: 4087853026057250680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_3
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 977
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a4be4b1a1a030df0800000000000000
+      internalID: -215317249940081503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_4
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 916
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 206decb7b136278d0800000000000000
+      internalID: -2850106644479683070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 703
+        width: 35
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17e073dcf9dfdd210800000000000000
+      internalID: 1359521525320322673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 863
+        width: 5
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e232cfe7f137e95c0800000000000000
+      internalID: -4206798422805830866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_7
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 866
+        width: 37
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd1cc6a82daee4930800000000000000
+      internalID: 4129496098331738587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_8
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 839
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68a0d0aabb78ecc60800000000000000
+      internalID: 7840353241380227718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 153
+        width: 8
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8e495f51fdde3330800000000000000
+      internalID: 3692632773246930571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_10
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 162
+        width: 33
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ad65455e8ae7edb0800000000000000
+      internalID: -4762580183884141149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_11
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 183
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78656d987ca524a40800000000000000
+      internalID: 5350939120327087751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_12
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 170
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46b32f5d44d25ffe0800000000000000
+      internalID: -1155967955680216220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_13
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 167
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d858b440bac1bca90800000000000000
+      internalID: -7292703650759342707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_14
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 145
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aeaa6995068b4180800000000000000
+      internalID: -9130056460956684638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_15
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 143
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94b2c956551519bd0800000000000000
+      internalID: -2625227680561484983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_16
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 127
+        width: 23
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5e12266d12c91a40800000000000000
+      internalID: 5339512264747785821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_17
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 47
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 210eb98284d4097a0800000000000000
+      internalID: -6372508500414963694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_18
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 67
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82f8182ac11d26b60800000000000000
+      internalID: 7737977030691622696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_19
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 65
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b68cfefc96d1fe70800000000000000
+      internalID: 9147328287947392696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_20
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 45
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd7f7c0759de8c0a0800000000000000
+      internalID: -6860972806200887331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orb_misiones_21
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 11
+        width: 45
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d77c51333ef9d430800000000000000
+      internalID: 3808354455743395795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      orb_misiones_0: 7760797277898103377
+      orb_misiones_1: 8932780781671243197
+      orb_misiones_10: -4762580183884141149
+      orb_misiones_11: 5350939120327087751
+      orb_misiones_12: -1155967955680216220
+      orb_misiones_13: -7292703650759342707
+      orb_misiones_14: -9130056460956684638
+      orb_misiones_15: -2625227680561484983
+      orb_misiones_16: 5339512264747785821
+      orb_misiones_17: -6372508500414963694
+      orb_misiones_18: 7737977030691622696
+      orb_misiones_19: 9147328287947392696
+      orb_misiones_2: 4087853026057250680
+      orb_misiones_20: -6860972806200887331
+      orb_misiones_21: 3808354455743395795
+      orb_misiones_3: -215317249940081503
+      orb_misiones_4: -2850106644479683070
+      orb_misiones_5: 1359521525320322673
+      orb_misiones_6: -4206798422805830866
+      orb_misiones_7: 4129496098331738587
+      orb_misiones_8: 7840353241380227718
+      orb_misiones_9: 3692632773246930571
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

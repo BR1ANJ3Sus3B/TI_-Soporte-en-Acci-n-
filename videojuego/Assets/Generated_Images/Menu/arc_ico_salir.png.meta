@@ -1,0 +1,626 @@
+fileFormatVersion: 2
+guid: 16952ec31dde2614abeeb7f041a5fbb8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5338403807865028409
+    second: arc_ico_salir_0
+  - first:
+      213: 7418086909332134859
+    second: arc_ico_salir_1
+  - first:
+      213: 4232034270208580363
+    second: arc_ico_salir_2
+  - first:
+      213: 4995309200192747763
+    second: arc_ico_salir_3
+  - first:
+      213: -1670410110396102822
+    second: arc_ico_salir_4
+  - first:
+      213: 3042110174450684892
+    second: arc_ico_salir_5
+  - first:
+      213: -3830376835796999163
+    second: arc_ico_salir_6
+  - first:
+      213: -5053585516350105886
+    second: arc_ico_salir_7
+  - first:
+      213: -2730935421548140362
+    second: arc_ico_salir_8
+  - first:
+      213: 8491271387453590033
+    second: arc_ico_salir_9
+  - first:
+      213: -3135315846849927335
+    second: arc_ico_salir_10
+  - first:
+      213: 9062408163904009785
+    second: arc_ico_salir_11
+  - first:
+      213: -7854013071273069323
+    second: arc_ico_salir_12
+  - first:
+      213: -8569247108532958305
+    second: arc_ico_salir_13
+  - first:
+      213: 6423752186183974473
+    second: arc_ico_salir_14
+  - first:
+      213: 6864801943086599593
+    second: arc_ico_salir_15
+  - first:
+      213: -197892955384551616
+    second: arc_ico_salir_16
+  - first:
+      213: 4610374192510596832
+    second: arc_ico_salir_17
+  - first:
+      213: 7873207282767044223
+    second: arc_ico_salir_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: arc_ico_salir_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37
+        width: 979
+        height: 969
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93f336baaf1d51a40800000000000000
+      internalID: 5338403807865028409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_1
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 962
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcb97b7cdb652f660800000000000000
+      internalID: 7418086909332134859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_2
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 790
+        width: 71
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0bdf091fb43bba30800000000000000
+      internalID: 4232034270208580363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_3
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 639
+        width: 13
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f8bab45047e25540800000000000000
+      internalID: 4995309200192747763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_4
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 614
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a578e94dad281d8e0800000000000000
+      internalID: -1670410110396102822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 247
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd31cbbf51fb73a20800000000000000
+      internalID: 3042110174450684892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_6
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 243
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5046f62ef84c7dac0800000000000000
+      internalID: -3830376835796999163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_7
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 241
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e694e77fbe0ed9b0800000000000000
+      internalID: -5053585516350105886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_8
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 241
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b8671604b4c91ad0800000000000000
+      internalID: -2730935421548140362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_9
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 195
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a0c94965e07d570800000000000000
+      internalID: 8491271387453590033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_10
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 87
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9576bd159de1d74d0800000000000000
+      internalID: -3135315846849927335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_11
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 87
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 936391bd53424cd70800000000000000
+      internalID: 9062408163904009785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_12
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 51
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f47e7959b0f00390800000000000000
+      internalID: -7854013071273069323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_13
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 47
+        width: 22
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9b8957182be31980800000000000000
+      internalID: -8569247108532958305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_14
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 64
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94e72ae2490c52950800000000000000
+      internalID: 6423752186183974473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_15
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 49
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ad8617fefca44f50800000000000000
+      internalID: 6864801943086599593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_16
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 31
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04760c2d761f04df0800000000000000
+      internalID: -197892955384551616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_17
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 17
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6f83ab6e65bff30800000000000000
+      internalID: 4610374192510596832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_salir_18
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 24
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7e19544f40434d60800000000000000
+      internalID: 7873207282767044223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      arc_ico_salir_0: 5338403807865028409
+      arc_ico_salir_1: 7418086909332134859
+      arc_ico_salir_10: -3135315846849927335
+      arc_ico_salir_11: 9062408163904009785
+      arc_ico_salir_12: -7854013071273069323
+      arc_ico_salir_13: -8569247108532958305
+      arc_ico_salir_14: 6423752186183974473
+      arc_ico_salir_15: 6864801943086599593
+      arc_ico_salir_16: -197892955384551616
+      arc_ico_salir_17: 4610374192510596832
+      arc_ico_salir_18: 7873207282767044223
+      arc_ico_salir_2: 4232034270208580363
+      arc_ico_salir_3: 4995309200192747763
+      arc_ico_salir_4: -1670410110396102822
+      arc_ico_salir_5: 3042110174450684892
+      arc_ico_salir_6: -3830376835796999163
+      arc_ico_salir_7: -5053585516350105886
+      arc_ico_salir_8: -2730935421548140362
+      arc_ico_salir_9: 8491271387453590033
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

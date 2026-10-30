@@ -1,0 +1,496 @@
+fileFormatVersion: 2
+guid: b6eab6daded212f459b8de69a58dd24d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9215565733096708940
+    second: arc_orbe_jugar_0
+  - first:
+      213: 1502351342704143625
+    second: arc_orbe_jugar_1
+  - first:
+      213: 7504056575911536291
+    second: arc_orbe_jugar_2
+  - first:
+      213: -750588548958754563
+    second: arc_orbe_jugar_3
+  - first:
+      213: 3659317505013775449
+    second: arc_orbe_jugar_4
+  - first:
+      213: 4780074937690710089
+    second: arc_orbe_jugar_5
+  - first:
+      213: 1974547157471861532
+    second: arc_orbe_jugar_6
+  - first:
+      213: -846053768589345268
+    second: arc_orbe_jugar_7
+  - first:
+      213: 8413154585683805470
+    second: arc_orbe_jugar_8
+  - first:
+      213: -9129520090502841642
+    second: arc_orbe_jugar_9
+  - first:
+      213: -4187805064713704567
+    second: arc_orbe_jugar_10
+  - first:
+      213: -9035161854761491148
+    second: arc_orbe_jugar_11
+  - first:
+      213: -915664057865254010
+    second: arc_orbe_jugar_12
+  - first:
+      213: -6842683556890452889
+    second: arc_orbe_jugar_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: arc_orbe_jugar_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 37
+        width: 979
+        height: 965
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4bdd75453444ef70800000000000000
+      internalID: 9215565733096708940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_1
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 970
+        width: 45
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d26bd169c69d410800000000000000
+      internalID: 1502351342704143625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_2
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 999
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a624a592b3c32860800000000000000
+      internalID: 7504056575911536291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_3
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 739
+        width: 37
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df866d601bf5595f0800000000000000
+      internalID: -750588548958754563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_4
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 717
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95cf6b602e188c230800000000000000
+      internalID: 3659317505013775449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_5
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 631
+        width: 43
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9406dc474dc365240800000000000000
+      internalID: 4780074937690710089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_6
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 407
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1b1e599d20076b10800000000000000
+      internalID: 1974547157471861532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_7
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 361
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0ef95e74963244f0800000000000000
+      internalID: -846053768589345268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_8
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 347
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e15c128558781c470800000000000000
+      internalID: 8413154585683805470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_9
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 15
+        width: 235
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6da39c319dd6d4180800000000000000
+      internalID: -9129520090502841642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_10
+      rect:
+        serializedVersion: 2
+        x: 932
+        y: 262
+        width: 61
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b68294b7de1e5c0800000000000000
+      internalID: -4187805064713704567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_11
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 31
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43528c6d928ac9280800000000000000
+      internalID: -9035161854761491148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_12
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 0
+        width: 77
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68b49590468ea43f0800000000000000
+      internalID: -915664057865254010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_orbe_jugar_13
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 0
+        width: 51
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76c53212f87e901a0800000000000000
+      internalID: -6842683556890452889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      arc_orbe_jugar_0: 9215565733096708940
+      arc_orbe_jugar_1: 1502351342704143625
+      arc_orbe_jugar_10: -4187805064713704567
+      arc_orbe_jugar_11: -9035161854761491148
+      arc_orbe_jugar_12: -915664057865254010
+      arc_orbe_jugar_13: -6842683556890452889
+      arc_orbe_jugar_2: 7504056575911536291
+      arc_orbe_jugar_3: -750588548958754563
+      arc_orbe_jugar_4: 3659317505013775449
+      arc_orbe_jugar_5: 4780074937690710089
+      arc_orbe_jugar_6: 1974547157471861532
+      arc_orbe_jugar_7: -846053768589345268
+      arc_orbe_jugar_8: 8413154585683805470
+      arc_orbe_jugar_9: -9129520090502841642
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
