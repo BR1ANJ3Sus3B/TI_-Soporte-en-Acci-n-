@@ -65,22 +65,49 @@ Este documento conserva el contenido textual, las tablas y las 21 imágenes del 
 - [Paleta de colores complementaria](#paleta-de-colores-complementaria)
 - [Uso de este paquete](#uso-de-este-paquete)
 
-## Sitio publicado y prácticas interactivas
+# Resumen Ejecutivo
 
-La documentación HTML está publicada en **GitHub Pages**. Estos enlaces permiten abrir los entregables directamente en el navegador:
+## ¿Qué es TI: Soporte en Acción?
 
-| Entregable | Enlace público |
-| --- | --- |
-| Portada de documentación | [Abrir el sitio](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/) |
-| Práctica 04: Business Model Canvas | [Explorar el Canvas actualizado](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica04/business-model-canvas/) |
-| Análisis de ingresos del proyecto | [Consultar fuentes de ingresos, costos y punto de equilibrio](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica04/business-model-canvas/#analisis-ingresos) |
-| Práctica 07: galería de pantallas móviles | [Ver diseños a color y sketches](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/) |
-| Prototipo visual móvil | [Recorrer las pantallas](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/mockups-color/) |
-| Diagrama de navegación interactivo | [Explorar roles y recorridos](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/prototipo/) |
-| Galería de bocetos a lápiz | [Ver los sketches originales](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/galeria_sketches_lapiz.html) |
-| Canvas de la carpeta original | [Consultar la versión original](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/business-model-canvas/) |
+**TI: Soporte en Acción** es un videojuego educativo que busca ayudar a los estudiantes a aprender y mejorar sus conocimientos en el área de Tecnologías de la Información de una manera divertida, práctica e interactiva.
 
-Los prototipos son entregables de diseño; no acreditan funciones de producción. El análisis de ingresos contiene propuestas y cifras hipotéticas por validar. El sitio se actualiza al subir cambios a `docs/` en la rama `docs/documentacion`.
+El juego se desarrolla dentro de una empresa ficticia llamada **NovaTech Solutions**, donde el jugador toma el papel de **Alex**, un joven que acaba de terminar sus estudios y comienza su primer trabajo como técnico en sistemas.
+
+Durante su aventura, Alex deberá resolver diferentes problemas relacionados con computadoras, redes, programación y seguridad informática. Para lograrlo, contará con la ayuda de sus compañeros de trabajo y de su jefe, el Ing. Martín.
+
+Además, el proyecto contará con una página web y una aplicación móvil para que los usuarios puedan consultar sus avances, misiones y logros.
+
+## ¿Para quién es?
+
+El proyecto está dirigido principalmente a dos grupos:
+
+- **Estudiantes:** especialmente aquellos que estudian carreras relacionadas con informática, sistemas y tecnología, y que desean poner en práctica sus conocimientos mediante situaciones parecidas a las que pueden encontrar en un trabajo real.
+
+- **Docentes:** profesores que buscan nuevas formas de enseñar y evaluar a sus estudiantes, permitiéndoles conocer su progreso, los retos que han completado y las áreas en las que necesitan mejorar.
+
+También puede ser utilizado por instituciones educativas que quieran incorporar nuevas formas de aprendizaje.
+
+## Objetivo general
+
+Desarrollar un videojuego educativo que ayude a los estudiantes a aprender y fortalecer sus conocimientos en Tecnologías de la Información mediante misiones, retos y problemas inspirados en situaciones reales de una empresa, promoviendo el aprendizaje práctico de una forma divertida e interactiva.
+
+## Objetivos específicos
+
+- Permitir que los estudiantes creen una cuenta e ingresen al videojuego para guardar sus avances.
+
+- Crear diferentes escenarios dentro de una empresa donde el jugador pueda explorar, interactuar con personajes y resolver problemas tecnológicos.
+
+- Diseñar misiones relacionadas con la reparación de computadoras, redes, programación y seguridad informática.
+
+- Implementar un sistema de puntos de experiencia, niveles, recompensas y logros para motivar a los estudiantes a seguir aprendiendo.
+
+- Permitir que los jugadores consulten sus misiones completadas, resultados y avances desde una página web o aplicación móvil.
+
+- Ofrecer a los docentes una herramienta para revisar el progreso de los estudiantes y conocer su desempeño.
+
+- Desarrollar una historia en la que el jugador deba investigar diferentes problemas dentro de la empresa y descubrir quién está detrás de ellos.
+
+- Fomentar el pensamiento lógico, la toma de decisiones y la solución de problemas mediante actividades que representen situaciones del mundo laboral.
 
 ## Propuesta de integración académica
 
@@ -105,6 +132,7 @@ Desarrollar un videojuego educativo y dos aplicaciones complementarias que permi
 - Construir en React una PWA con funciones de jugador y administración.
 - Compartir usuarios, catálogo de misiones y resultados sin mantener bases de datos independientes por aplicación.
 - Definir permisos y verificar que cada usuario acceda únicamente a las funciones y datos autorizados.
+
 
 ## Funciones de cada aplicación
 
@@ -153,17 +181,21 @@ Los roles de usuario son permisos de las personas que utilizan el sistema. Alex,
 
 Una persona puede tener permisos de jugador y administrador. Para las pruebas conviene utilizar cuentas separadas, de modo que se comprueben los límites de cada rol. El registro público creará únicamente jugadores; los permisos de administrador se asignarán mediante un procedimiento controlado.
 
-### Reglas de autorización
-
-La API comprobará la identidad, el rol y la propiedad del recurso en cada solicitud. Ocultar un botón en Flutter o React no será suficiente. Un jugador no podrá obtener los resultados de otra cuenta cambiando su identificador. Las contraseñas se almacenarán mediante un hash adecuado y las credenciales se excluirán del repositorio.
-
-![Seis roles en acción para soporte TI](<../imagenes/Seis roles en acción para soporte TI.png>)
 
 ## Arquitectura y datos compartidos
 
 Propongo una API REST con Node.js y Express y una base de datos MongoDB, como una alternativa de implementación para los servicios compartidos. Unity, Flutter y React se comunicarán con la API mediante HTTPS; la base de datos será accesible únicamente desde el servidor. La elección del alojamiento quedará para la etapa de despliegue.
 
-![TI: Soporte en acción con MongoDB](<../imagenes/TI_ Soporte en acción con MongoDB.png>)
+
+![TI: Soporte en acción con MongoDB](<../imagenes/AdobeExpressPhotos_5a3760c4e5fd498fbe1b7f3e7867e539_CopyEdited.png>)
+
+### Reglas de autorización
+
+La API comprobará la identidad, el rol y la propiedad del recurso en cada solicitud. Ocultar un botón en Flutter o React no será suficiente. Un jugador no podrá obtener los resultados de otra cuenta cambiando su identificador. Las contraseñas se almacenarán mediante un hash adecuado y las credenciales se excluirán del repositorio.
+
+![Seis roles en acción para soporte TI](<../imagenes/Diagrama de roles en oficina tecnológica retro.png>)
+
+
 
 | Componente | Responsabilidad |
 | --- | --- |
