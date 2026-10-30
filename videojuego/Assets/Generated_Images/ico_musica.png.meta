@@ -1,0 +1,730 @@
+fileFormatVersion: 2
+guid: 41ac052ba6ba17843b5d048fd1964755
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1508551218797951830
+    second: ico_musica_0
+  - first:
+      213: 8015333004264986054
+    second: ico_musica_1
+  - first:
+      213: -3437494585056355298
+    second: ico_musica_2
+  - first:
+      213: 6803123856319117517
+    second: ico_musica_3
+  - first:
+      213: -2267379466782198618
+    second: ico_musica_4
+  - first:
+      213: 935547066989645347
+    second: ico_musica_5
+  - first:
+      213: -2101848569017233999
+    second: ico_musica_6
+  - first:
+      213: -2775543954319433279
+    second: ico_musica_7
+  - first:
+      213: 3501055851735907834
+    second: ico_musica_8
+  - first:
+      213: -2907409439403440528
+    second: ico_musica_9
+  - first:
+      213: 1104618578470091768
+    second: ico_musica_10
+  - first:
+      213: 7321112323266571415
+    second: ico_musica_11
+  - first:
+      213: 803714654273924205
+    second: ico_musica_12
+  - first:
+      213: 3773069268024189446
+    second: ico_musica_13
+  - first:
+      213: 6235486308813851819
+    second: ico_musica_14
+  - first:
+      213: 2753036091161808042
+    second: ico_musica_15
+  - first:
+      213: -9102728351452150998
+    second: ico_musica_16
+  - first:
+      213: 5579177330078788260
+    second: ico_musica_17
+  - first:
+      213: 5624222583221361270
+    second: ico_musica_18
+  - first:
+      213: -5175921925446818950
+    second: ico_musica_19
+  - first:
+      213: -2221892932448811154
+    second: ico_musica_20
+  - first:
+      213: 1609366177315539195
+    second: ico_musica_21
+  - first:
+      213: 8889157752874604571
+    second: ico_musica_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ico_musica_0
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 23
+        width: 909
+        height: 933
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa4c01eb8ac801be0800000000000000
+      internalID: -1508551218797951830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_1
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 903
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c5ddab76ee2c3f60800000000000000
+      internalID: 8015333004264986054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_2
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 899
+        width: 61
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1c136433e09b40d0800000000000000
+      internalID: -3437494585056355298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_3
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 891
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc8f2e25a1d896e50800000000000000
+      internalID: 6803123856319117517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_4
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 909
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a4be675366a880e0800000000000000
+      internalID: -2267379466782198618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_5
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 839
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32e8396c91bbbfc00800000000000000
+      internalID: 935547066989645347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_6
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 703
+        width: 45
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bd8010dcdbb4d2e0800000000000000
+      internalID: -2101848569017233999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_7
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 787
+        width: 67
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c1ae40aa794b79d0800000000000000
+      internalID: -2775543954319433279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_8
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 807
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd758d6fbf369030800000000000000
+      internalID: 3501055851735907834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_9
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 817
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0768dbbd48ec6a7d0800000000000000
+      internalID: -2907409439403440528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_10
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 799
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fbb10e9eb4645f00800000000000000
+      internalID: 1104618578470091768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_11
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 791
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ce90d7ed0d99560800000000000000
+      internalID: 7321112323266571415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_12
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 765
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6ce5c4483e572b00800000000000000
+      internalID: 803714654273924205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_13
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 751
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60266893282ac5430800000000000000
+      internalID: 3773069268024189446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_14
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 663
+        width: 119
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac49a6c2c5e88650800000000000000
+      internalID: 6235486308813851819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_15
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 255
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aac878b1dbfb43620800000000000000
+      internalID: 2753036091161808042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_16
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 229
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2341dceacc9ca180800000000000000
+      internalID: -9102728351452150998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_17
+      rect:
+        serializedVersion: 2
+        x: 867
+        y: 197
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa2242d8383d6d40800000000000000
+      internalID: 5579177330078788260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_18
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 143
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a93aa14a04d0e40800000000000000
+      internalID: 5624222583221361270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_19
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 147
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7326989e6e6b28b0800000000000000
+      internalID: -5175921925446818950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_20
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 111
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e67007866204a21e0800000000000000
+      internalID: -2221892932448811154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_21
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 105
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf8cb60f20e955610800000000000000
+      internalID: 1609366177315539195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ico_musica_22
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 95
+        width: 11
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b18108421e1ac5b70800000000000000
+      internalID: 8889157752874604571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ico_musica_0: -1508551218797951830
+      ico_musica_1: 8015333004264986054
+      ico_musica_10: 1104618578470091768
+      ico_musica_11: 7321112323266571415
+      ico_musica_12: 803714654273924205
+      ico_musica_13: 3773069268024189446
+      ico_musica_14: 6235486308813851819
+      ico_musica_15: 2753036091161808042
+      ico_musica_16: -9102728351452150998
+      ico_musica_17: 5579177330078788260
+      ico_musica_18: 5624222583221361270
+      ico_musica_19: -5175921925446818950
+      ico_musica_2: -3437494585056355298
+      ico_musica_20: -2221892932448811154
+      ico_musica_21: 1609366177315539195
+      ico_musica_22: 8889157752874604571
+      ico_musica_3: 6803123856319117517
+      ico_musica_4: -2267379466782198618
+      ico_musica_5: 935547066989645347
+      ico_musica_6: -2101848569017233999
+      ico_musica_7: -2775543954319433279
+      ico_musica_8: 3501055851735907834
+      ico_musica_9: -2907409439403440528
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,990 @@
+fileFormatVersion: 2
+guid: b4de5351fce9d904cb7edc3fa799eccb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 963245293745769599
+    second: arc_ico_config_0
+  - first:
+      213: 8185491926266313878
+    second: arc_ico_config_1
+  - first:
+      213: 7047957562307173963
+    second: arc_ico_config_2
+  - first:
+      213: -4172517583869928434
+    second: arc_ico_config_3
+  - first:
+      213: 8583304503136427401
+    second: arc_ico_config_4
+  - first:
+      213: -4950939388098275697
+    second: arc_ico_config_5
+  - first:
+      213: 4967509793855043461
+    second: arc_ico_config_6
+  - first:
+      213: -2036954415696251559
+    second: arc_ico_config_7
+  - first:
+      213: -6626423540683035993
+    second: arc_ico_config_8
+  - first:
+      213: 6985185680247648556
+    second: arc_ico_config_9
+  - first:
+      213: 3058614456971663140
+    second: arc_ico_config_10
+  - first:
+      213: 3789454233667862830
+    second: arc_ico_config_11
+  - first:
+      213: 5202771329362851815
+    second: arc_ico_config_12
+  - first:
+      213: 4521443314800704078
+    second: arc_ico_config_13
+  - first:
+      213: 446851484770559819
+    second: arc_ico_config_14
+  - first:
+      213: 8572558556224064091
+    second: arc_ico_config_15
+  - first:
+      213: -2446483625665734538
+    second: arc_ico_config_16
+  - first:
+      213: 6871991906159379907
+    second: arc_ico_config_17
+  - first:
+      213: -972465218965227205
+    second: arc_ico_config_18
+  - first:
+      213: -844836215870855411
+    second: arc_ico_config_19
+  - first:
+      213: 9086390614150084453
+    second: arc_ico_config_20
+  - first:
+      213: 1198390426683468278
+    second: arc_ico_config_21
+  - first:
+      213: 2382931346812580575
+    second: arc_ico_config_22
+  - first:
+      213: -913926954699461690
+    second: arc_ico_config_23
+  - first:
+      213: -7095793087456712196
+    second: arc_ico_config_24
+  - first:
+      213: -2950635050895259889
+    second: arc_ico_config_25
+  - first:
+      213: -3613545721263807223
+    second: arc_ico_config_26
+  - first:
+      213: 5500391431185164061
+    second: arc_ico_config_27
+  - first:
+      213: 7206583775738947659
+    second: arc_ico_config_28
+  - first:
+      213: 6018417364825224823
+    second: arc_ico_config_29
+  - first:
+      213: -4710829664974991903
+    second: arc_ico_config_30
+  - first:
+      213: 8591911739923815565
+    second: arc_ico_config_31
+  - first:
+      213: 4548328815747401504
+    second: arc_ico_config_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: arc_ico_config_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 19
+        width: 1015
+        height: 981
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7c884dbd722e5d00800000000000000
+      internalID: 963245293745769599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 999
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69c7ee0d985b89170800000000000000
+      internalID: 8185491926266313878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_2
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 992
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4ed85daf006fc160800000000000000
+      internalID: 7047957562307173963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_3
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 997
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0c9c5a4d5d3816c0800000000000000
+      internalID: -4172517583869928434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_4
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 970
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d157428f50e1770800000000000000
+      internalID: 8583304503136427401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 977
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8699e39bdaba4bb0800000000000000
+      internalID: -4950939388098275697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_6
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 973
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 587f009a6d320f440800000000000000
+      internalID: 4967509793855043461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_7
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 983
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 955f2cc40c84bb3e0800000000000000
+      internalID: -2036954415696251559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_8
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 981
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aa2d46e5e63a04a0800000000000000
+      internalID: -6626423540683035993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 846
+        width: 35
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c217e49fd5d50f060800000000000000
+      internalID: 6985185680247648556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 843
+        width: 6
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4279ba4b4a1627a20800000000000000
+      internalID: 3058614456971663140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_11
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 887
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e218f525c88d69430800000000000000
+      internalID: 3789454233667862830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_12
+      rect:
+        serializedVersion: 2
+        x: 942
+        y: 869
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e7724665f4f33840800000000000000
+      internalID: 5202771329362851815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_13
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 873
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4ab2ca3db46fbe30800000000000000
+      internalID: 4521443314800704078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_14
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 856
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b47ea11de09833600800000000000000
+      internalID: 446851484770559819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_15
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 821
+        width: 23
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5a88f76698d7f670800000000000000
+      internalID: 8572558556224064091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_16
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 805
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 678526fba185c0ed0800000000000000
+      internalID: -2446483625665734538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_17
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 805
+        width: 23
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c54df1ba383e5f50800000000000000
+      internalID: 6871991906159379907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_18
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 833
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b39b723290c1182f0800000000000000
+      internalID: -972465218965227205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_19
+      rect:
+        serializedVersion: 2
+        x: 966
+        y: 767
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d07e1a310f98644f0800000000000000
+      internalID: -844836215870855411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_20
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 725
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 567fbde2f18591e70800000000000000
+      internalID: 9086390614150084453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_21
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 495
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f962b46eb981a010800000000000000
+      internalID: 1198390426683468278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_22
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 449
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd238e24f6fd11120800000000000000
+      internalID: 2382931346812580575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_23
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 416
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cbeb72e6441153f0800000000000000
+      internalID: -913926954699461690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_24
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 388
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf9687638cda68d90800000000000000
+      internalID: -7095793087456712196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 333
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f074299ed0d3d07d0800000000000000
+      internalID: -2950635050895259889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_26
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 293
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9052078df4b1addc0800000000000000
+      internalID: -3613545721263807223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_27
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 197
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d17e4654dd0555c40800000000000000
+      internalID: 5500391431185164061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_28
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 134
+        width: 73
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b48630d03cde20460800000000000000
+      internalID: 7206583775738947659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_29
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 23
+        width: 39
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7763374d4b6b58350800000000000000
+      internalID: 6018417364825224823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_30
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 25
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ed0bc5f065cf9eb0800000000000000
+      internalID: -4710829664974991903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_31
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 27
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8cdaaf943a9c3770800000000000000
+      internalID: 8591911739923815565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arc_ico_config_32
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 0
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0270c48b5f8ee1f30800000000000000
+      internalID: 4548328815747401504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      arc_ico_config_0: 963245293745769599
+      arc_ico_config_1: 8185491926266313878
+      arc_ico_config_10: 3058614456971663140
+      arc_ico_config_11: 3789454233667862830
+      arc_ico_config_12: 5202771329362851815
+      arc_ico_config_13: 4521443314800704078
+      arc_ico_config_14: 446851484770559819
+      arc_ico_config_15: 8572558556224064091
+      arc_ico_config_16: -2446483625665734538
+      arc_ico_config_17: 6871991906159379907
+      arc_ico_config_18: -972465218965227205
+      arc_ico_config_19: -844836215870855411
+      arc_ico_config_2: 7047957562307173963
+      arc_ico_config_20: 9086390614150084453
+      arc_ico_config_21: 1198390426683468278
+      arc_ico_config_22: 2382931346812580575
+      arc_ico_config_23: -913926954699461690
+      arc_ico_config_24: -7095793087456712196
+      arc_ico_config_25: -2950635050895259889
+      arc_ico_config_26: -3613545721263807223
+      arc_ico_config_27: 5500391431185164061
+      arc_ico_config_28: 7206583775738947659
+      arc_ico_config_29: 6018417364825224823
+      arc_ico_config_3: -4172517583869928434
+      arc_ico_config_30: -4710829664974991903
+      arc_ico_config_31: 8591911739923815565
+      arc_ico_config_32: 4548328815747401504
+      arc_ico_config_4: 8583304503136427401
+      arc_ico_config_5: -4950939388098275697
+      arc_ico_config_6: 4967509793855043461
+      arc_ico_config_7: -2036954415696251559
+      arc_ico_config_8: -6626423540683035993
+      arc_ico_config_9: 6985185680247648556
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
