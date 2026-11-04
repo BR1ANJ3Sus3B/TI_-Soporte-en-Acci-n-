@@ -1,0 +1,61 @@
+TI: SOPORTE EN ACCIÓN — COMPARACIÓN DE SKETCHES Y WIREFRAMES
+
+18 comparaciones por rol. A la izquierda: sketch original. A la derecha: wireframe original.
+Se mantuvieron las imágenes sin deformar ni eliminar elementos.
+
+Jugador 01: Inicio del jugador
+  Sketch: Jugador/01_Inicio_jugador.png
+  Wireframe: Jugador/01_inicio_del_jugador.png
+Jugador 02: Mapa / Misiones
+  Sketch: Jugador/02_Mapa_misiones.png
+  Wireframe: Jugador/02_misiones_disponibles.png
+Jugador 03: Progreso y logros
+  Sketch: Jugador/03_Progreso_logros.png
+  Wireframe: Jugador/03_progreso_y_logros.png
+Administrador 01: Panel de administración
+  Sketch: Administrador/01_Panel_administracion.png
+  Wireframe: Administrador/01_panel_administrativo.png
+Administrador 02: Gestión de usuarios
+  Sketch: Administrador/02_Gestion_usuarios.png
+  Wireframe: Administrador/02_gestión_de_usuarios.png
+Administrador 03: Configuración general
+  Sketch: Administrador/03_Configuracion_general.png
+  Wireframe: Administrador/03_configuración_general.png
+Docente 01: Panel docente
+  Sketch: Docente/01_Panel_docente.png
+  Wireframe: Docente/01_panel_docente.png
+Docente 02: Asignar misión
+  Sketch: Docente/02_Asignar_mision.png
+  Wireframe: Docente/02_asignar_misión.png
+Docente 03: Avance del grupo
+  Sketch: Docente/03_Avance_grupo.png
+  Wireframe: Docente/03_avance_del_grupo.png
+Evaluador 01: Panel de evaluación
+  Sketch: Evaluador/01_Panel_evaluacion.png
+  Wireframe: Evaluador/01_panel_de_evaluación.png
+Evaluador 02: Evaluar misión
+  Sketch: Evaluador/02_Evaluar_mision.png
+  Wireframe: Evaluador/02_evaluar_misión.png
+Evaluador 03: Resultados
+  Sketch: Evaluador/03_Resultados.png
+  Wireframe: Evaluador/03_resultados.png
+Editor_contenido 01: Contenido educativo
+  Sketch: Editor_contenido/01_Contenido_educativo.png
+  Wireframe: Editor_contenido/01_contenido_educativo.png
+Editor_contenido 02: Editar misión
+  Sketch: Editor_contenido/02_Editar_mision.png
+  Wireframe: Editor_contenido/02_editar_misión.png
+Editor_contenido 03: Gestión de recursos
+  Sketch: Editor_contenido/03_Gestion_recursos.png
+  Wireframe: Editor_contenido/03_gestión_de_recursos.png
+Soporte_tecnico 01: Centro de soporte
+  Sketch: Soporte_tecnico/01_Centro_soporte.png
+  Wireframe: Soporte_tecnico/01_centro_de_soporte.png
+Soporte_tecnico 02: Detalle de ticket
+  Sketch: Soporte_tecnico/02_Detalle_ticket.png
+  Wireframe: Soporte_tecnico/02_detalle_de_ticket.png
+Soporte_tecnico 03: Base de conocimiento
+  Sketch: Soporte_tecnico/03_Base_conocimiento.png
+  Wireframe: Soporte_tecnico/03_base_de_conocimiento.png
+
+OBSERVACIÓN: Jugador/02 no es una equivalencia exacta: sketch Mapa/Misiones; wireframe Misiones disponibles. Se recomienda alinear el contenido en la siguiente revisión.
