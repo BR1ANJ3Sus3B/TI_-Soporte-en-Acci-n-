@@ -1,0 +1,7 @@
+flowchart TD
+ P03[P03 Login] --> EDI01[EDI01 Contenido educativo]
+ EDI01 --> EDI02[EDI02 Editar mision]
+ EDI01 --> EDI03[EDI03 Gestion de recursos]
+ EDI02 --> EDI01
+ EDI03 --> EDI01
+ EDI01 --> P03[Cerrar sesion]

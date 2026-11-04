@@ -1,0 +1,7 @@
+flowchart TD
+ P03[P03 Login] --> ADM01[ADM01 Panel de administracion]
+ ADM01 --> ADM02[ADM02 Gestion de usuarios]
+ ADM01 --> ADM03[ADM03 Configuracion general]
+ ADM02 --> ADM01
+ ADM03 --> ADM01
+ ADM01 --> P03[Cerrar sesion]

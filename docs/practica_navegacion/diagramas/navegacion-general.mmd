@@ -1,0 +1,15 @@
+flowchart TD
+  P01[P01 Splash] --> P02[P02 Loading] --> P03[P03 Login]
+  P03 --> P04[P04 Registro] & P05[P05 Recuperación] & P06[P06 Bloqueo] & P10[P10 Home]
+  P06 --> P07[P07 Código] --> P03
+  P04 --> P03 & P05 --> P03
+  P10 --> P11[P11 Dashboard] & P12[P12 Mapa] & P16[P16 Inventario] & P17[P17 Progreso] & P20[P20 Perfil] & P08[P08 Software] & P09[P09 Equipo]
+  P12 --> P13[P13 Detalle] --> P14[P14 Juego Unity] --> P15[P15 Diálogo Unity] --> P17
+  P17 --> P18[P18 Logros]
+  P20 --> P19[P19 Configuración]
+  P11 --> P12 & P16 & P17
+  P08 --> P10
+  P09 --> P10
+  P16 --> P10
+  P18 --> P10
+  P19 --> P10

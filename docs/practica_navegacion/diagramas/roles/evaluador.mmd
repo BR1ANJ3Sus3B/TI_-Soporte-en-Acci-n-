@@ -1,0 +1,7 @@
+flowchart TD
+ P03[P03 Login] --> EVA01[EVA01 Panel de evaluacion]
+ EVA01 --> EVA02[EVA02 Evaluar mision]
+ EVA01 --> EVA03[EVA03 Resultados]
+ EVA02 --> EVA01
+ EVA03 --> EVA01
+ EVA01 --> P03[Cerrar sesion]

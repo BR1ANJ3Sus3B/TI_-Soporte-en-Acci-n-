@@ -1,0 +1,7 @@
+flowchart TD
+ P03[P03 Login] --> SOP01[SOP01 Centro de soporte]
+ SOP01 --> SOP02[SOP02 Detalle de ticket]
+ SOP01 --> SOP03[SOP03 Base de conocimiento]
+ SOP02 --> SOP01
+ SOP03 --> SOP01
+ SOP01 --> P03[Cerrar sesion]
