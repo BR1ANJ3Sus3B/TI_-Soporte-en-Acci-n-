@@ -1,14 +1,16 @@
-# Validacion
+# Validación registrada
 
-| Verificacion | Resultado real |
+| Comprobación | Resultado |
 |---|---|
-| Carpetas generales localizadas | Correcto: `skeches` y `wirefremes` |
-| Carpetas por rol localizadas | Correcto: Administrador, Docente, Editor_contenido, Evaluador y Soporte_tecnico |
-| Inventario | 21 sketches generales (20 usados + variante P03), 20 wireframes y 15 sketches de rol |
-| Identificadores | Correcto: 35 IDs unicos |
-| Rutas | Correcto: 35 sketches accesibles y 20 wireframes generales |
-| Wireframes por rol | Pendientes; se informa sin sustituciones |
-| JSON y JavaScript | Correcto: sintaxis y JSON validados por Node |
-| Recorte/deformacion | CSS usa `object-fit: contain`; no usa `cover` ni `overflow: hidden` |
-| Navegador/GitHub Pages | Pendiente de prueba manual y publicacion |
-| Archify | Pendiente; los insumos estan preparados |
+| Carpetas nuevas localizadas | Correcto: `docs/imagenes/20_Pantallas_generales/` y `docs/imagenes/18_Pantallas_por_rol/` |
+| Conteo de comparaciones | Correcto: 20 generales + 18 por rol = 38 |
+| Subcarpetas por rol | Correcto: seis, con tres PNG cada una |
+| IDs del manifiesto | Correcto: P01–P20, JUG01–JUG03, ADM01–ADM03, DOC01–DOC03, EVA01–EVA03, EDI01–EDI03 y SOP01–SOP03 |
+| Archivos repetidos | No se detectaron hashes repetidos entre las imágenes inspeccionadas |
+| Rutas para GitHub Pages | Rutas relativas desde `docs/practica_navegacion/`; sin rutas de Windows |
+| Recorte de comparaciones | El visor aplica `object-fit: contain`; no divide ni usa `cover` |
+| Visor | Implementado: ampliar, reducir, ajustar, pantalla completa, descargar, anterior, siguiente y cerrar |
+| Filtros, diagramas y simulador | Implementados en JavaScript local; requieren prueba manual final en navegador |
+| Restricciones | Implementadas como simulación local; la autorización real queda en API según RF-05/RNF-03 |
+
+Pendiente: prueba manual en navegadores y dispositivos objetivo, y publicación en GitHub Pages. Archify no se ejecutó; se conservan los insumos y el procedimiento manual en `diagramas/archify/`.

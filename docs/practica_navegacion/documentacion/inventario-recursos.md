@@ -1,8 +1,16 @@
-# Inventario de recursos
+# Inventario de recursos visuales
 
-| Tipo | Cantidad localizada | Uso |
+Fecha de inspección: 2026-11-04. Se localizaron las carpetas recursivamente en `docs/imagenes/`.
+
+| Origen | Cantidad | Correspondencia |
 |---|---:|---|
-| `docs/imagenes/skeches/` | 21 PNG | 20 seleccionados para P01–P20; 1 variante adicional de P03 |
-| `docs/imagenes/wirefremes/` | 20 PNG | 20 seleccionados, uno por P01–P20 |
+| `20_Pantallas_generales/` | 20 PNG | `P01_comparacion.png` a `P20_comparacion.png` → P01–P20 |
+| `18_Pantallas_por_rol/Jugador/` | 3 PNG | JUG01–JUG03 |
+| `18_Pantallas_por_rol/Administrador/` | 3 PNG | ADM01–ADM03 |
+| `18_Pantallas_por_rol/Docente/` | 3 PNG | DOC01–DOC03 |
+| `18_Pantallas_por_rol/Evaluador/` | 3 PNG | EVA01–EVA03 |
+| `18_Pantallas_por_rol/Editor_contenido/` | 3 PNG | EDI01–EDI03 |
+| `18_Pantallas_por_rol/Soporte_tecnico/` | 3 PNG | SOP01–SOP03 |
+| **Total** | **38 PNG** | **38 comparaciones** |
 
-La relación completa, con rutas relativas utilizables desde GitHub Pages, se mantiene como dato ejecutable en `../js/navigation-data.js` e `../js/image-manifest.js`. Los wireframes se relacionaron por su secuencia temporal: bloque 08:02 para P01–P10 y 08:14 para P11–P20. Los sketches P11–P20 contienen numeración explícita; P01–P10 se verificaron por la etiqueta visible de cada imagen. La ambigüedad P03 se resolvió seleccionando `6.png` como Login principal y conservando la variante sin alteraciones.
+No se detectaron hashes SHA-256 repetidos dentro de estas 38 imágenes. Los dos archivos `LEEME.txt` no forman parte del conteo de imágenes. `js/image-manifest.js` conserva las rutas originales y relativas; no se crearon copias porque ambas carpetas ya están bajo `docs/`, raíz publicable de GitHub Pages.
