@@ -1,0 +1,8 @@
+[
+ {"rol":"Jugador / Estudiante","inicio":"P10","pantallas":["P10","P11","P12","P13","P14","P15","P16","P17","P18","P19","P20"],"restriccion":"No administra cuentas ni roles."},
+ {"rol":"Administrador","inicio":"ADM01","pantallas":["ADM01","ADM02","ADM03"],"restriccion":"No modifica resultados historicos."},
+ {"rol":"Docente","inicio":"DOC01","pantallas":["DOC01","DOC02","DOC03"],"restriccion":"No modifica configuracion general ni roles."},
+ {"rol":"Evaluador","inicio":"EVA01","pantallas":["EVA01","EVA02","EVA03"],"restriccion":"Consulta academica autorizada."},
+ {"rol":"Editor de contenido","inicio":"EDI01","pantallas":["EDI01","EDI02","EDI03"],"restriccion":"No administra cuentas ni roles."},
+ {"rol":"Soporte tecnico","inicio":"SOP01","pantallas":["SOP01","SOP02","SOP03"],"restriccion":"No modifica XP, resultados ni privilegios."}
+]
