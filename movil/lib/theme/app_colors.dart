@@ -40,6 +40,14 @@ class AppColors {
   /// Bordes y separadores sutiles.
   static const Color border = Color(0xFF273449);
 
+  /// Superficie secundaria para aportar profundidad sin introducir colores
+  /// fuera de la paleta NovaTech.
+  static const Color cardHighlight = Color(0xFF182235);
+
+  static const double radiusSmall = 12;
+  static const double radiusMedium = 16;
+  static const double radiusLarge = 20;
+
   /// Degradado de fondo usado en toda la app.
   static const LinearGradient backgroundGradient = LinearGradient(
     begin: Alignment.topCenter,
@@ -49,6 +57,15 @@ class AppColors {
 
   /// Gradiente usado en barras de experiencia y botones principales.
   static const LinearGradient primaryGradient = LinearGradient(
+    begin: Alignment.centerLeft,
+    end: Alignment.centerRight,
     colors: <Color>[primary, cyan],
+  );
+
+  /// Fondo uniforme de paneles y tarjetas reutilizables.
+  static const LinearGradient cardGradient = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: <Color>[card, cardHighlight],
   );
 }

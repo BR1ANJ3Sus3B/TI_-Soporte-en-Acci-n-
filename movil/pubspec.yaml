@@ -45,6 +45,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.14.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -56,6 +57,16 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+# Icono de lanzamiento de TI: Soporte en Acción. La copia adaptive conserva un
+# margen oscuro de seguridad para las máscaras circulares de Android.
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/Soporte en Acción Pixelado.png"
+  adaptive_icon_background: "#0B1120"
+  adaptive_icon_foreground: "assets/icons/ti_soporte_accion_adaptive.png"
+  remove_alpha_ios: true
 
   # To add assets to your application, add an assets section, like this:
   # assets:

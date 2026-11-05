@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/models/mission.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
 import 'package:ti_soporte_accion/widgets/chips.dart';
+import 'package:ti_soporte_accion/widgets/nova_panel.dart';
 
 /// Tarjeta reutilizable para mostrar una misión en la lista de misiones.
 class MissionCard extends StatelessWidget {
@@ -23,32 +24,17 @@ class MissionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: Colors.transparent,
-      child: InkWell(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: NovaPanel(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(16),
-        child: Container(
-          margin: const EdgeInsets.only(bottom: 16),
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: <Color>[AppColors.card, Color(0xFF182235)],
-            ),
-            borderRadius: BorderRadius.circular(16),
-            border: Border.all(color: AppColors.border),
-            boxShadow: <BoxShadow>[
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.3),
-                blurRadius: 12,
-                offset: const Offset(0, 8),
-              ),
-            ],
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        accent: mission.status == MissionStatus.completed
+            ? AppColors.success
+            : mission.status == MissionStatus.inProgress
+                ? AppColors.warning
+                : AppColors.cyan,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -130,7 +116,6 @@ class MissionCard extends StatelessWidget {
                 ],
               ),
             ],
-          ),
         ),
       ),
     );
