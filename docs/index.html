@@ -3,68 +3,69 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Documentación interactiva de TI: Soporte en Acción: Business Model Canvas y navegación móvil Flutter.">
-  <title>TI: Soporte en Acción · Documentación</title>
+  <meta name="description" content="Hub de prácticas y documentación de TI: Soporte en Acción">
+  <title>TI: Soporte en Acción · Prácticas y documentación</title>
   <style>
-    :root { color-scheme: dark; font-family: system-ui, sans-serif; background: #0b1220; color: #e7edf8; }
-    body { max-width: 1080px; margin: auto; padding: 64px 24px; line-height: 1.65; }
-    h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.15; }
-    h2 { line-height: 1.3; }
-    .intro, footer { color: #b7c5da; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; margin: 36px 0; }
-    article { background: #142035; border: 1px solid #33445d; border-radius: 18px; padding: 28px; }
-    .label { color: #8cdbdc; font-weight: 700; }
-    a { color: #99d5ff; text-underline-offset: 4px; }
-    a:hover { color: white; }
-    a:focus-visible { outline: 3px solid #8cdbdc; outline-offset: 5px; }
-    .button { display: inline-block; background: #99d5ff; color: #0b1220; padding: 10px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; }
-    .button:hover { background: #c8e8ff; color: #0b1220; }
-    li { margin: 10px 0; }
-    footer { margin-top: 48px; border-top: 1px solid #33445d; padding-top: 20px; }
+    :root{color-scheme:dark;--bg:#0b1120;--panel:#172033;--border:#334155;--text:#f8fafc;--muted:#94a3b8;--cyan:#22d3ee;--blue:#2563eb}*{box-sizing:border-box}body{max-width:1180px;margin:auto;padding:56px 24px;background:radial-gradient(circle at 75% 0,#17335d,transparent 35rem),var(--bg);color:var(--text);font:16px/1.55 system-ui,sans-serif}h1{font-size:clamp(2.2rem,6vw,4rem);line-height:1.05;margin:.35rem 0 1rem}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.12em;color:var(--cyan)}.intro{max-width:740px;color:var(--muted);font-size:1.08rem}.notice{margin:2rem 0;padding:1rem 1.2rem;border:1px solid #17677d;border-radius:12px;background:#0c2635}.notice a,.docs a{color:var(--cyan);font-weight:700}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin:2rem 0}.card{display:flex;min-height:220px;flex-direction:column;padding:24px;border:1px solid var(--border);border-radius:16px;background:var(--panel)}.card h2{margin:.35rem 0;font-size:1.25rem}.card p{color:var(--muted);flex:1}.button{display:inline-block;align-self:flex-start;padding:.62rem .85rem;border-radius:8px;background:var(--blue);color:white;font-weight:700;text-decoration:none}.button:hover{background:#1d4ed8}.docs{margin-top:2rem;padding:24px;border-top:1px solid var(--border);color:var(--muted)}.docs ul{padding-left:1.2rem}footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);color:var(--muted);font-size:.86rem}
   </style>
 </head>
 <body>
   <header>
-    <p class="label">PROYECTO INTEGRADOR · DOCUMENTACIÓN</p>
+    <p class="eyebrow">NOVA TECH SOLUTIONS · PROYECTO INTEGRADOR</p>
     <h1>TI: Soporte en Acción</h1>
-    <p class="intro">Explora el modelo de negocio y el diseño de navegación de la aplicación móvil del videojuego educativo de soporte técnico.</p>
+    <p class="intro">Hub principal de prácticas, prototipos y documentación del videojuego educativo de soporte técnico.</p>
   </header>
+  <aside class="notice">
+    Enlace principal del sitio: <a href="https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/">GitHub Pages · TI: Soporte en Acción</a>
+  </aside>
   <main>
-    <div class="grid">
-      <article>
-        <p class="label">PRÁCTICA 04</p>
-        <h2>Business Model Canvas</h2>
-        <p>Modelo interactivo con el problema, usuarios, propuesta de valor, solución, procesos, tecnologías e impacto del proyecto.</p>
-        <a class="button" href="practica04/">Explorar el Canvas</a>
-      </article>
-      <article>
-        <p class="label">PRÁCTICA 07</p>
-        <h2>Navegación móvil Flutter</h2>
-        <p>Veinte pantallas con bocetos a lápiz, diseños a color y prototipos para explorar roles y recorridos.</p>
-        <a class="button" href="practica07-navegacion-flutter/">Abrir la galería</a>
-        <ul>
-          <li><a href="practica07-navegacion-flutter/wireframes/navegacion.html">Navegar sketches por rol</a></li>
-          <li><a href="practica07-navegacion-flutter/wireframes/">Galería de 20 wireframes</a></li>
-          <li><a href="practica07-navegacion-flutter/wireframes/wireframes-20.zip">Descargar los 20 wireframes (ZIP)</a></li>
-          <li><a href="practica07-navegacion-flutter/mockups-color/">Prototipo visual móvil</a></li>
-          <li><a href="practica07-navegacion-flutter/prototipo/">Diagrama de navegación interactivo</a></li>
-          <li><a href="practica07-navegacion-flutter/galeria_sketches_lapiz.html">Bocetos a lápiz</a></li>
-        </ul>
-      </article>
-    </div>
-    <p>Estos entregables son material de diseño y documentación; los prototipos simulan la navegación de la aplicación.</p>
-    <nav aria-label="Documentación del repositorio">
-      <a href="https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/tree/docs/documentacion/docs">Consultar documentación en GitHub</a>
-    </nav>
-    <section aria-labelledby="visor-interactivo">
-      <article>
-        <p class="label">VISOR UX/UI</p>
-        <h2 id="visor-interactivo">TI: Soporte en Acción · 38 pantallas</h2>
-        <p>Consulta sketches, wireframes, comparaciones, diagramas de navegación y simulador de roles.</p>
-        <a class="button" href="practica_navegacion/">Abrir visor interactivo</a>
-      </article>
+    <section aria-labelledby="practicas">
+      <p class="eyebrow">ENTREGABLES INTERACTIVOS</p>
+      <h2 id="practicas">Prácticas</h2>
+      <div class="grid">
+        <article class="card">
+          <p class="eyebrow">PRÁCTICA 04</p>
+          <h2>Business Model Canvas</h2>
+          <p>Modelo de negocio interactivo: usuarios, propuesta de valor, solución, tecnología, costos e impacto.</p>
+          <a class="button" href="practica04/">Abrir práctica 04</a>
+        </article>
+        <article class="card">
+          <p class="eyebrow">PRÁCTICA 04 · CANVAS</p>
+          <h2>Canvas actualizado</h2>
+          <p>Versión de Business Model Canvas integrada en el directorio de la práctica.</p>
+          <a class="button" href="practica04/business-model-canvas/">Explorar Canvas</a>
+        </article>
+        <article class="card">
+          <p class="eyebrow">CANVAS ORIGINAL</p>
+          <h2>Business Model Canvas</h2>
+          <p>Consulta la versión original de la documentación del modelo de negocio.</p>
+          <a class="button" href="business-model-canvas/">Abrir Canvas original</a>
+        </article>
+        <article class="card">
+          <p class="eyebrow">PRÁCTICA DE NAVEGACIÓN</p>
+          <h2>Visor UX/UI · 38 pantallas</h2>
+          <p>Sketches, wireframes, comparaciones, diagramas y simulador de recorridos por rol.</p>
+          <a class="button" href="practica_navegacion/">Abrir visor UX/UI</a>
+        </article>
+        <article class="card">
+          <p class="eyebrow">PRÁCTICA 07</p>
+          <h2>Navegación móvil Flutter</h2>
+          <p>Galería de pantallas móviles, diseños a color, bocetos y prototipos de navegación.</p>
+          <a class="button" href="practica07-navegacion-flutter/">Abrir práctica 07</a>
+        </article>
+      </div>
+    </section>
+    <section class="docs" aria-labelledby="documentacion">
+      <p class="eyebrow">DOCUMENTACIÓN COMPLETA</p>
+      <h2 id="documentacion">Documentación del proyecto</h2>
+      <p>La documentación completa está disponible en el repositorio y reúne alcance, requerimientos, roles, arquitectura, DevOps y evidencias.</p>
+      <ul>
+        <li><a href="https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/tree/docs/practica-navegacion-comparaciones/docs">Abrir documentación completa en GitHub</a></li>
+        <li><a href="https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/blob/docs/practica-navegacion-comparaciones/docs/proyecto/README.md">Documento general del proyecto</a></li>
+        <li><a href="https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/tree/docs/practica-navegacion-comparaciones/docs/devops">Documentación DevOps</a></li>
+      </ul>
     </section>
   </main>
-  <footer>Brian Jesús Mendoza Márquez · Matrícula 230308 · NovaTech Solutions</footer>
+  <footer>TI: Soporte en Acción · NovaTech Solutions</footer>
 </body>
 </html>
