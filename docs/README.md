@@ -13,7 +13,7 @@ La documentación HTML está publicada en **GitHub Pages**. Estos enlaces permit
 | Portada de documentación | [Abrir el sitio](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/) |
 | Práctica 04: Business Model Canvas | [Explorar el Canvas actualizado](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica04/business-model-canvas/) |
 | Análisis de ingresos del proyecto | [Consultar fuentes de ingresos, costos y punto de equilibrio](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica04/business-model-canvas/#analisis-ingresos) |
-| Práctica 07: galería de pantallas móviles | [Ver diseños a color y sketches](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/) |
+| Práctica 07: galería de pantallas móviles | [Ver diseños a color y sketches](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica_navegacion/) |
 | Prototipo visual móvil | [Recorrer las pantallas](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/mockups-color/) |
 | Diagrama de navegación interactivo | [Explorar roles y recorridos](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/prototipo/) |
 | Galería de bocetos a lápiz | [Ver los sketches originales](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica07-navegacion-flutter/galeria_sketches_lapiz.html) |
