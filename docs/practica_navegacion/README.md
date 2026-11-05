@@ -1,19 +1,31 @@
-# TI: Soporte en Acción — navegación de interfaces
+# TI: Soporte en Acción — visor interactivo UX/UI
 
-Prototipo HTML estático para explorar la navegación y las **38 comparaciones visuales reales** del proyecto. No modifica Unity, Flutter, React/Vite ni servicios.
+Visor estático de documentación para las 38 pantallas del proyecto. Es compatible con GitHub Pages y no modifica Unity, Flutter, React/Vite ni servicios de la aplicación.
 
-## Recursos integrados
+## Recursos verificados
 
-- `../imagenes/20_Pantallas_generales/`: 20 PNG, `P01_comparacion.png` a `P20_comparacion.png`.
-- `../imagenes/18_Pantallas_por_rol/`: 18 PNG distribuidos en `Jugador`, `Administrador`, `Docente`, `Evaluador`, `Editor_contenido` y `Soporte_tecnico`.
-- No se generaron, movieron, recortaron ni duplicaron imágenes. Cada PNG ya contiene la comparación completa de sketch y wireframe.
+El manifest `js/image-manifest.js` centraliza las rutas relativas a los recursos originales:
 
-## Uso y publicación
+- `../imagenes/Sketches/`: 38 sketches (`{ID}_sketch.png`).
+- `../imagenes/Wireframes/`: 38 wireframes (`{ID}_wireframe.png`).
+- `../imagenes/Comparaciones/`: 38 comparaciones (`{ID}_comparacion.png`).
 
-Abra `index.html` desde un servidor estático o publique el directorio `docs/` con GitHub Pages y visite `/practica_navegacion/`. Las rutas son relativas y no contienen rutas absolutas de Windows.
+Los 114 archivos se consultan sin recortarse ni transformarse. Si un recurso falta al publicar, el visor indica su ruta y no utiliza sustitutos.
 
-## Alcance documentado
+## Funciones
 
-La aplicación incluye galería por módulo y por rol, visor completo, diagrama general y seis vistas por rol, simulador local de recorrido, matriz de permisos y enlaces a fichas de cada pantalla. Los controles de permisos son demostrativos: la autorización definitiva corresponde a la API (RF-05 y RNF-03).
+- Navegador lateral con búsqueda, filtro por módulo, secciones plegables y las 38 pantallas.
+- Visor central para Sketch, Wireframe, Comparación y lado a lado; zoom, arrastre, ajuste, tamaño original, descarga, pantalla completa y navegación anterior/siguiente.
+- Ficha conectada por pantalla con roles, plataforma, acciones, requisitos, reglas y conexiones navegables.
+- Diagrama general y filtrado por rol; sus nodos abren la pantalla seleccionada.
+- Simulador local de recorrido autorizado por rol, con regreso, reinicio y demostración de acceso denegado.
 
-Las funciones de Docente (RF-24/RF-25) pertenecen a segunda etapa. Las vistas de Evaluador y Soporte técnico se señalan con requisito específico pendiente donde el repositorio no define uno; no se inventaron identificadores.
+## Publicación
+
+Sirve el directorio `docs/` y visita `practica_navegacion/`. Todas las rutas son relativas, por lo que funcionan bajo el prefijo del repositorio de GitHub Pages. Para probarlo localmente: `python -m http.server 8000 --directory docs`.
+
+La autorización del simulador es demostrativa; la validación real continúa siendo responsabilidad de la API.
+
+### Enlace de GitHub Pages
+
+Cuando GitHub Pages esté habilitado para la rama de publicación y la carpeta `/docs`, el visor estará disponible en [GitHub Pages](https://br1anj3sus3b.github.io/TI_-Soporte-en-Acci-n-/practica_navegacion/).
