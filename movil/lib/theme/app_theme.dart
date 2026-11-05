@@ -36,6 +36,30 @@ class AppTheme {
         ),
       ),
       dividerColor: AppColors.border,
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: AppColors.background.withValues(alpha: .45),
+        labelStyle: const TextStyle(color: AppColors.textSecondary),
+        prefixIconColor: AppColors.cyan,
+        suffixIconColor: AppColors.textSecondary,
+        errorStyle: const TextStyle(color: AppColors.warning),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppColors.radiusSmall),
+          borderSide: const BorderSide(color: AppColors.border),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppColors.radiusSmall),
+          borderSide: const BorderSide(color: AppColors.cyan, width: 1.5),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppColors.radiusSmall),
+          borderSide: const BorderSide(color: AppColors.danger),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(AppColors.radiusSmall),
+          borderSide: const BorderSide(color: AppColors.danger, width: 1.5),
+        ),
+      ),
       textTheme: base.textTheme.apply(
         bodyColor: AppColors.textPrimary,
         displayColor: AppColors.textPrimary,

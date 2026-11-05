@@ -48,21 +48,28 @@ class XpBar extends StatelessWidget {
             ],
           ),
         const SizedBox(height: 8),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(999),
-          child: Container(
-            height: 10,
-            color: AppColors.card,
-            child: FractionallySizedBox(
-              alignment: Alignment.centerLeft,
-              widthFactor: progress,
+        TweenAnimationBuilder<double>(
+          tween: Tween<double>(begin: 0, end: progress),
+          duration: const Duration(milliseconds: 650),
+          curve: Curves.easeOutCubic,
+          builder: (BuildContext context, double value, Widget? child) {
+            return ClipRRect(
+              borderRadius: BorderRadius.circular(999),
               child: Container(
-                decoration: const BoxDecoration(
-                  gradient: AppColors.primaryGradient,
+                height: 10,
+                color: AppColors.card,
+                child: FractionallySizedBox(
+                  alignment: Alignment.centerLeft,
+                  widthFactor: value,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      gradient: AppColors.primaryGradient,
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ],
     );

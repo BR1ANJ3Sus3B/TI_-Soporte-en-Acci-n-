@@ -30,6 +30,17 @@ class CustomBottomNav extends StatelessWidget {
         onDestinationSelected: onTap,
         elevation: 0,
         indicatorColor: AppColors.cyan.withValues(alpha: 0.2),
+        labelTextStyle: WidgetStateProperty.resolveWith<TextStyle?>(
+          (Set<WidgetState> states) => TextStyle(
+            color: states.contains(WidgetState.selected)
+                ? AppColors.cyan
+                : AppColors.textSecondary,
+            fontWeight: states.contains(WidgetState.selected)
+                ? FontWeight.w700
+                : FontWeight.w500,
+            fontSize: 12,
+          ),
+        ),
         destinations: const <NavigationDestination>[
           NavigationDestination(
             icon: Icon(Icons.home_outlined),
