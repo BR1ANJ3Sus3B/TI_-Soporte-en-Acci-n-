@@ -1,0 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&family=Space+Grotesk:wght@500;600;700&display=swap');
+:root { --font-display: 'Space Grotesk', Inter, sans-serif; --font-body: Inter, system-ui, sans-serif; --font-pixel: 'Press Start 2P', monospace; }
+h1,h2,h3,.brand strong,.eyebrow { font-family: var(--font-display); }
+.pixel-badge { font-family: var(--font-pixel); font-size: 10px; }
