@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Matriz RACI — TI: Soporte en Acción</title>
+  <style>
+    :root{--navy:#0b1f3a;--blue:#123a6d;--cyan:#0db8cf;--turq:#24d3bf;--violet:#7565df;--ink:#182536;--muted:#5e6d80;--line:#dbe4ee;--soft:#f4f8fc;--white:#fff}*{box-sizing:border-box}body{margin:0;background:#eaf0f6;color:var(--ink);font-family:"Aptos",Arial,sans-serif;line-height:1.55}.page{width:min(210mm,100%);min-height:297mm;margin:18px auto;background:var(--white);padding:22mm 19mm;box-shadow:0 5px 26px #10213a22;position:relative}.cover{min-height:297mm;padding:0;overflow:hidden;background:linear-gradient(145deg,#07182e 0%,#0d315d 56%,#153f78 100%);color:white}.cover:before,.cover:after{content:"";position:absolute;border-radius:50%;filter:blur(1px)}.cover:before{width:420px;height:420px;right:-155px;top:-140px;background:#16c9d255}.cover:after{width:330px;height:330px;left:-170px;bottom:-105px;background:#8365eb66}.cover-inner{position:relative;z-index:1;height:100%;padding:27mm 24mm;display:flex;flex-direction:column}.institution{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#80e9f4;font-weight:700}.mark{margin-top:16mm;border:1px solid #64dce966;width:62px;height:62px;display:grid;place-items:center;font-size:25px;font-weight:800;color:#57e6d4}.cover h1{font-size:35px;line-height:1.1;margin:23mm 0 10px;max-width:510px;letter-spacing:-.7px}.cover h1 span{color:#54e2ee}.cover .project{font-size:20px;color:#dceaff;margin:0}.cover-rule{width:88px;height:4px;background:var(--turq);margin:24px 0}.cover dl{margin-top:auto;display:grid;grid-template-columns:145px 1fr;gap:7px 14px;font-size:12px}.cover dt{color:#8fe9f1;font-weight:700}.cover dd{margin:0;color:#eef7ff}.section-label{color:#087c9c;text-transform:uppercase;letter-spacing:1.3px;font-weight:800;font-size:10px;margin:0 0 4px}.page h2{color:var(--navy);font-size:22px;line-height:1.2;margin:0 0 12px;border-bottom:2px solid #bfeaf1;padding-bottom:8px}.page h3{font-size:15px;color:var(--blue);margin:19px 0 6px}.page p{font-size:11.5px;margin:0 0 10px;text-align:justify}.callout{background:linear-gradient(90deg,#e8f9fb,#f3f0ff);border-left:4px solid var(--cyan);padding:12px 14px;margin:15px 0;font-size:11px}.roles{display:grid;grid-template-columns:1fr 1fr;gap:11px}.role{border:1px solid var(--line);border-top:4px solid var(--cyan);padding:11px;border-radius:4px;background:#fff}.role:nth-child(2n){border-top-color:var(--violet)}.role h3{margin:0 0 4px;font-size:13px}.role p{font-size:10.5px;margin:0}.raci-key{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}.key{padding:10px;border-radius:5px;color:#fff;font-size:10px}.key b{display:block;font-size:17px}.key-r{background:#078aa6}.key-a{background:#273c89}.key-c{background:#735ed6}.key-i{background:#64748b}.table-wrap{overflow:visible;margin:12px -6mm}.matrix{border-collapse:collapse;width:100%;font-size:8.1px;table-layout:fixed}.matrix th{background:var(--navy);color:#fff;padding:8px 3px;line-height:1.1}.matrix th:nth-child(1){width:4%}.matrix th:nth-child(2){width:38%;text-align:left}.matrix th:not(:nth-child(2)){width:9.66%;font-size:7.7px}.matrix td{border:1px solid #cdd9e5;padding:5px 3px;text-align:center;vertical-align:middle}.matrix td:nth-child(2){text-align:left;font-weight:600}.matrix tbody tr:nth-child(even){background:#f5f8fc}.r{color:#007e9a;font-weight:900}.a{color:#173a8b;font-weight:900}.c{color:#6752c9;font-weight:900}.i{color:#64748b;font-weight:900}.note{font-size:9.5px;color:var(--muted);margin-top:8px}.analysis{display:grid;grid-template-columns:1fr 1fr;gap:14px}.analysis article{padding:12px;background:var(--soft);border-radius:5px;border:1px solid var(--line)}.analysis h3{margin:0 0 5px}.analysis p{font-size:10.5px;margin:0}.flow{border:1px solid var(--line);background:#f9fcff;padding:14px;margin:14px 0}.flow-row{display:flex;align-items:stretch;gap:5px}.flow-step{flex:1;padding:10px 6px;background:#e2f7fa;border-top:3px solid var(--cyan);font-size:9px;text-align:center}.arrow{align-self:center;color:var(--violet);font-size:18px;font-weight:900}.footer{position:absolute;bottom:10mm;left:19mm;right:19mm;border-top:1px solid var(--line);padding-top:4px;color:#718096;font-size:8.5px;display:flex;justify-content:space-between}@media print{body{background:white}.page{box-shadow:none;margin:0;page-break-after:always}.page:last-child{page-break-after:auto}}@media(max-width:700px){.page{padding:13mm 10mm}.cover-inner{padding:18mm}.roles,.analysis{grid-template-columns:1fr}.matrix{font-size:7px}.table-wrap{overflow-x:auto}.cover h1{font-size:28px}}
+    .interactive-panel{margin:12px -6mm 16px;padding:14px;background:linear-gradient(135deg,#f0f9fc,#f5f3ff);border:1px solid #cae4ed;border-radius:7px}.interactive-panel h3{margin:0 0 4px}.interactive-panel p{font-size:10px;margin:0 0 9px}.control-group{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:7px 0}.control-label{font-size:9px;font-weight:800;color:var(--blue);width:72px;text-transform:uppercase;letter-spacing:.5px}.filter-btn{border:1px solid #b8c9d9;background:white;color:var(--blue);padding:5px 8px;border-radius:14px;font-size:9px;font-weight:700;cursor:pointer}.filter-btn:hover,.filter-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}.filter-btn.code-r.active{background:#078aa6;border-color:#078aa6}.filter-btn.code-a.active{background:#273c89;border-color:#273c89}.filter-btn.code-c.active{background:#735ed6;border-color:#735ed6}.filter-btn.code-i.active{background:#64748b;border-color:#64748b}.matrix td[tabindex]{cursor:pointer}.matrix td.is-selected{outline:2px solid var(--turq);outline-offset:-2px;background:#d9fbf5!important}.matrix td.is-match{background:#e5f8fb}.matrix tr.is-hidden{display:none}.selection-detail{font-size:10px;margin-top:9px;padding:8px 10px;background:#fff;border-left:3px solid var(--turq);min-height:32px}
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <div class="cover-inner">
+      <div class="institution">Universidad Tecnológica de Xicotepec de Juárez</div>
+      <div class="mark">NT</div>
+      <h1>MATRIZ <span>RACI</span><br>DE ASIGNACIÓN DE ROLES Y RESPONSABILIDADES</h1>
+      <p class="project">Proyecto integrador: <strong>TI: Soporte en Acción</strong><br>NovaTech Solutions</p>
+      <div class="cover-rule"></div>
+      <dl><dt>Estudiante</dt><dd>Brian Jesús Mendoza Márquez</dd><dt>Carrera</dt><dd>Ingeniería en Desarrollo y Gestión de Software</dd><dt>Asignatura</dt><dd>________________________________</dd><dt>Docente</dt><dd>________________________________</dd><dt>Fecha de elaboración</dt><dd>9 de noviembre de 2026</dd></dl>
+    </div>
+  </section>
+
+  <section class="page">
+    <p class="section-label">I. Introducción</p><h2>Responsabilidades claras para una plataforma educativa integral</h2>
+    <p>TI: Soporte en Acción es un proyecto integrador de NovaTech Solutions orientado al aprendizaje práctico de Tecnologías de la Información. Por su carácter multidisciplinario —videojuego educativo, aplicación móvil, PWA, servicios backend, autenticación, monitoreo e infraestructura— requiere una definición explícita de quién participa, ejecuta, valida y autoriza cada actividad.</p>
+    <p>La matriz RACI evita duplicidades, reduce vacíos de responsabilidad y establece canales de comunicación verificables. Su aplicación permite que las decisiones y entregables tengan un responsable operativo, una autoridad final y las consultas e informaciones necesarias para sostener los objetivos académicos, funcionales y técnicos.</p>
+    <p class="section-label">II. Objetivo</p><h2>Objetivo de la matriz</h2>
+    <p>Asignar de forma coherente las responsabilidades funcionales de Jugador, Administrador, Docente, Evaluador, Editor de contenido y Soporte técnico en las actividades del proyecto, asegurando una única autoridad final por actividad, ejecución identificable, participación consultiva pertinente y comunicación oportuna.</p>
+    <p class="section-label">III. Descripción del proyecto</p><h2>TI: Soporte en Acción</h2>
+    <p>La plataforma enseña soporte técnico, redes, programación, servidores, bases de datos y seguridad informática mediante misiones, incidentes, diagnósticos y resolución de problemas. El jugador aprende en un entorno interactivo y consulta sus avances y recompensas; los roles institucionales administran la operación, calidad y contenido.</p>
+    <div class="callout"><strong>Componentes tecnológicos:</strong> videojuego educativo 2D; aplicación móvil con Flutter y Dart; PWA con React y Vite; backend con Node.js y Express; MongoDB; Keycloak; Docker; Grafana; Git y GitHub; y Trello para la organización de actividades.</div>
+    <p>El alcance incluye la administración de usuarios y permisos, creación de contenido educativo, entrega de misiones, registro de progreso, evaluación de resultados, atención de incidencias y mantenimiento evolutivo de los componentes integrados.</p>
+    <div class="footer"><span>NovaTech Solutions · TI: Soporte en Acción</span><span>1</span></div>
+  </section>
+
+  <section class="page">
+    <p class="section-label">IV. Descripción de los roles</p><h2>Roles funcionales contemplados</h2>
+    <div class="roles">
+      <article class="role"><h3>Jugador</h3><p>Participa en misiones y actividades educativas, consulta su progreso, recibe recompensas y reporta dificultades de uso o incidencias percibidas.</p></article>
+      <article class="role"><h3>Administrador</h3><p>Gestiona usuarios, permisos, configuraciones y operación general. Es la autoridad funcional de gobierno, despliegue y decisiones administrativas.</p></article>
+      <article class="role"><h3>Docente</h3><p>Supervisa el aprendizaje, asigna actividades y valida que los contenidos y resultados mantengan pertinencia pedagógica.</p></article>
+      <article class="role"><h3>Evaluador</h3><p>Comprueba requisitos, resultados, calidad, pruebas y evidencia de cumplimiento antes de aceptar los entregables funcionales.</p></article>
+      <article class="role"><h3>Editor de contenido</h3><p>Crea, modifica y actualiza misiones, escenarios, preguntas y materiales; trabaja con el docente para preservar objetivos educativos.</p></article>
+      <article class="role"><h3>Soporte técnico</h3><p>Atiende incidencias, diagnostica fallas, aplica mantenimiento y ejecuta tareas técnicas de configuración, integración y operación.</p></article>
+    </div>
+    <p class="section-label" style="margin-top:22px">V. Metodología RACI</p><h2>Criterios de asignación</h2>
+    <p>RACI clasifica la participación sin confundir los roles funcionales del sistema con integrantes del equipo desarrollador. En cada actividad se designa una sola persona o rol con responsabilidad final (<strong>A</strong>) y, como mínimo, un ejecutor (<strong>R</strong>).</p>
+    <div class="raci-key"><div class="key key-r"><b>R</b>Responsible<br>Ejecuta la actividad.</div><div class="key key-a"><b>A</b>Accountable<br>Autoriza y responde por el resultado.</div><div class="key key-c"><b>C</b>Consulted<br>Aporta asesoramiento o información.</div><div class="key key-i"><b>I</b>Informed<br>Recibe información del resultado.</div></div>
+    <div class="callout"><strong>Reglas aplicadas:</strong> cada fila tiene exactamente una A y al menos una R. Las C se limitan a quienes aportan información útil y las I a quienes necesitan conocer el avance o cierre.</div>
+    <div class="footer"><span>NovaTech Solutions · Matriz RACI</span><span>2</span></div>
+  </section>
+
+  <section class="page">
+    <p class="section-label">VI. Matriz RACI</p><h2>Asignación de roles y responsabilidades</h2>
+    <div class="interactive-panel" aria-label="Controles de matriz interactiva"><h3>Explora la matriz</h3><p>Selecciona un rol o una categoría RACI para destacar sus participaciones. Haz clic en una celda para consultar su significado dentro de la actividad.</p><div class="control-group"><span class="control-label">Por rol</span><button class="filter-btn role-filter active" data-role="all">Todos</button><button class="filter-btn role-filter" data-role="2">Jugador</button><button class="filter-btn role-filter" data-role="3">Administrador</button><button class="filter-btn role-filter" data-role="4">Docente</button><button class="filter-btn role-filter" data-role="5">Evaluador</button><button class="filter-btn role-filter" data-role="6">Editor</button><button class="filter-btn role-filter" data-role="7">Soporte</button></div><div class="control-group"><span class="control-label">Por RACI</span><button class="filter-btn code-filter active" data-code="all">Todas</button><button class="filter-btn code-filter code-r" data-code="R">R</button><button class="filter-btn code-filter code-a" data-code="A">A</button><button class="filter-btn code-filter code-c" data-code="C">C</button><button class="filter-btn code-filter code-i" data-code="I">I</button></div><div class="selection-detail" id="selection-detail" aria-live="polite"><b>Consulta rápida:</b> elige una celda de la matriz para ver su rol y participación.</div></div>
+    <div class="table-wrap"><table class="matrix"><thead><tr><th>ID</th><th>Actividad</th><th>Jugador</th><th>Administrador</th><th>Docente</th><th>Evaluador</th><th>Editor de contenido</th><th>Soporte técnico</th></tr></thead><tbody>
+      <tr><td>1</td><td>Planeación y definición del alcance</td><td class="c">C</td><td class="a">A/R</td><td class="c">C</td><td class="i">I</td><td class="c">C</td><td class="c">C</td></tr>
+      <tr><td>2</td><td>Levantamiento de requisitos</td><td class="c">C</td><td class="r">R</td><td class="a">A</td><td class="c">C</td><td class="c">C</td><td class="c">C</td></tr>
+      <tr><td>3</td><td>Análisis de requisitos funcionales y no funcionales</td><td class="i">I</td><td class="a">A/R</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="c">C</td></tr>
+      <tr><td>4</td><td>Diseño de arquitectura del sistema</td><td class="i">I</td><td class="a">A/R</td><td class="i">I</td><td class="c">C</td><td class="i">I</td><td class="c">C</td></tr>
+      <tr><td>5</td><td>Diseño de interfaces y experiencia de usuario</td><td class="c">C</td><td class="a">A</td><td class="c">C</td><td class="c">C</td><td class="r">R</td><td class="i">I</td></tr>
+      <tr><td>6</td><td>Diseño de personajes y escenarios educativos</td><td class="c">C</td><td class="i">I</td><td class="a">A</td><td class="c">C</td><td class="r">R</td><td class="i">I</td></tr>
+      <tr><td>7</td><td>Desarrollo del videojuego educativo</td><td class="i">I</td><td class="a">A</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="r">R</td></tr>
+      <tr><td>8</td><td>Desarrollo de la aplicación móvil Flutter</td><td class="i">I</td><td class="a">A</td><td class="i">I</td><td class="c">C</td><td class="i">I</td><td class="r">R</td></tr>
+      <tr><td>9</td><td>Desarrollo de la aplicación web React + Vite</td><td class="i">I</td><td class="a">A</td><td class="i">I</td><td class="c">C</td><td class="c">C</td><td class="r">R</td></tr>
+      <tr><td>10</td><td>Desarrollo del backend Node.js + Express</td><td class="i">I</td><td class="a">A</td><td class="i">I</td><td class="c">C</td><td class="i">I</td><td class="r">R</td></tr>
+      <tr><td>11</td><td>Diseño y administración de MongoDB</td><td class="i">I</td><td class="a">A</td><td class="i">I</td><td class="c">C</td><td class="i">I</td><td class="r">R</td></tr>
+      <tr><td>12</td><td>Configuración de autenticación mediante Keycloak</td><td class="i">I</td><td class="a">A</td><td class="i">I</td><td class="c">C</td><td class="i">I</td><td class="r">R</td></tr>
+      <tr><td>13</td><td>Implementación de permisos y roles</td><td class="i">I</td><td class="a">A/R</td><td class="c">C</td><td class="c">C</td><td class="i">I</td><td class="c">C</td></tr>
+      <tr><td>14</td><td>Integración de los componentes del sistema</td><td class="i">I</td><td class="a">A</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="r">R</td></tr>
+      <tr><td>15</td><td>Configuración de Docker</td><td class="i">I</td><td class="a">A</td><td class="i">I</td><td class="c">C</td><td class="i">I</td><td class="r">R</td></tr>
+      <tr><td>16</td><td>Implementación de monitoreo con Grafana</td><td class="i">I</td><td class="a">A</td><td class="i">I</td><td class="c">C</td><td class="i">I</td><td class="r">R</td></tr>
+      <tr><td>17</td><td>Pruebas unitarias</td><td class="i">I</td><td class="i">I</td><td class="i">I</td><td class="a">A/R</td><td class="i">I</td><td class="c">C</td></tr>
+      <tr><td>18</td><td>Pruebas de integración</td><td class="i">I</td><td class="i">I</td><td class="i">I</td><td class="a">A/R</td><td class="i">I</td><td class="c">C</td></tr>
+      <tr><td>19</td><td>Pruebas funcionales</td><td class="r">R</td><td class="i">I</td><td class="c">C</td><td class="a">A/R</td><td class="c">C</td><td class="c">C</td></tr>
+      <tr><td>20</td><td>Validación de seguridad</td><td class="i">I</td><td class="c">C</td><td class="i">I</td><td class="a">A</td><td class="i">I</td><td class="r">R</td></tr>
+      <tr><td>21</td><td>Validación del contenido educativo</td><td class="c">C</td><td class="i">I</td><td class="a">A/R</td><td class="c">C</td><td class="r">R</td><td class="i">I</td></tr>
+      <tr><td>22</td><td>Elaboración de documentación técnica</td><td class="i">I</td><td class="a">A</td><td class="c">C</td><td class="c">C</td><td class="i">I</td><td class="r">R</td></tr>
+      <tr><td>23</td><td>Elaboración del manual de usuario</td><td class="c">C</td><td class="i">I</td><td class="a">A</td><td class="c">C</td><td class="r">R</td><td class="c">C</td></tr>
+      <tr><td>24</td><td>Gestión de incidencias</td><td class="r">R</td><td class="c">C</td><td class="i">I</td><td class="i">I</td><td class="i">I</td><td class="a">A/R</td></tr>
+      <tr><td>25</td><td>Despliegue del sistema</td><td class="i">I</td><td class="a">A</td><td class="i">I</td><td class="c">C</td><td class="i">I</td><td class="r">R</td></tr>
+      <tr><td>26</td><td>Evaluación de resultados</td><td class="c">C</td><td class="c">C</td><td class="a">A</td><td class="r">R</td><td class="c">C</td><td class="i">I</td></tr>
+      <tr><td>27</td><td>Mantenimiento y mejoras</td><td class="i">I</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="a">A/R</td></tr>
+    </tbody></table></div>
+    <p class="note">Lectura: A/R significa que el mismo rol ejecuta la actividad y asume la responsabilidad final. En cada actividad existe exactamente una A y al menos una R.</p>
+    <div class="footer"><span>NovaTech Solutions · Matriz RACI</span><span>3</span></div>
+  </section>
+
+  <section class="page">
+    <p class="section-label">VII. Análisis de responsabilidades</p><h2>Distribución y colaboración</h2>
+    <div class="analysis"><article><h3>Gobierno y operación</h3><p>El Administrador concentra la autoridad sobre alcance, arquitectura, permisos, despliegue y decisiones de operación. Su participación como A no sustituye la ejecución técnica de Soporte técnico.</p></article><article><h3>Valor educativo</h3><p>El Docente asume la responsabilidad final del contenido educativo y de la evaluación de resultados. El Editor de contenido materializa misiones y materiales bajo esa guía.</p></article><article><h3>Calidad verificable</h3><p>El Evaluador lidera pruebas y validaciones; consulta a Soporte técnico cuando se requiere evidencia técnica y al Docente cuando se evalúa la pertinencia pedagógica.</p></article><article><h3>Experiencia real</h3><p>El Jugador aporta información de uso, participa en pruebas funcionales y reporta incidencias. Así, el diseño y la evaluación incorporan la perspectiva del usuario final.</p></article></div>
+    <p>Las actividades con mayor colaboración son el levantamiento y análisis de requisitos, diseño de interfaces, integración, pruebas funcionales, validación educativa y evaluación de resultados. En ellas, la consulta no diluye la decisión: el rol A conserva la autoridad final y el rol R conserva una obligación concreta de ejecución.</p>
+    <p class="section-label">VIII. Comunicación y coordinación</p><h2>Flujo de reporte, seguimiento y validación</h2>
+    <div class="flow"><div class="flow-row"><div class="flow-step"><strong>1. Reporte</strong><br>Jugador documenta impacto.</div><div class="arrow">→</div><div class="flow-step"><strong>2. Registro</strong><br>Soporte clasifica y prioriza.</div><div class="arrow">→</div><div class="flow-step"><strong>3. Resolución</strong><br>Administrador autoriza el cambio.</div><div class="arrow">→</div><div class="flow-step"><strong>4. Validación</strong><br>Evaluador o Docente comprueba evidencia.</div><div class="arrow">→</div><div class="flow-step"><strong>5. Cierre</strong><br>Se informa el resultado.</div></div></div>
+    <p>Las actividades se coordinan mediante Trello, con tarjetas que consignan el responsable R, la autoridad A, criterios de aceptación, evidencia y fecha de revisión. Git y GitHub concentran la trazabilidad de versiones; el resultado de pruebas, revisiones o incidencias se comunica a los roles I. Las incidencias se registran con prioridad, contexto, impacto y evidencia; Soporte técnico mantiene su seguimiento hasta que el Evaluador o el responsable de validación confirme el cierre.</p>
+    <p>El anexo interactivo <strong>coordinacion-raci.html</strong> representa este flujo de incidencias y puede abrirse localmente en un navegador.</p>
+    <div class="footer"><span>NovaTech Solutions · Matriz RACI</span><span>4</span></div>
+  </section>
+
+  <section class="page">
+    <p class="section-label">IX. Conclusión</p><h2>Una responsabilidad visible, un resultado verificable</h2>
+    <p>La matriz RACI establece una base de gobierno clara para TI: Soporte en Acción. Al asignar una autoridad final única y, al mismo tiempo, identificar a quien ejecuta cada actividad, reduce ambigüedades y fortalece la trazabilidad de las decisiones. Los roles consultados aportan conocimiento sin duplicar aprobaciones, mientras que los roles informados reciben visibilidad suficiente para participar oportunamente.</p>
+    <p>Su uso favorece la coordinación entre la operación técnica y el propósito educativo de la plataforma. De este modo, las tareas de desarrollo, contenido, evaluación, seguridad, despliegue, soporte y mejora continua pueden gestionarse con criterios consistentes y evidencia verificable, manteniendo el enfoque académico y profesional del proyecto.</p>
+    <div class="callout"><strong>Validación final:</strong> se incluyen los seis roles funcionales y las 27 actividades solicitadas; cada actividad contiene exactamente una A y al menos una R. La matriz conserva MongoDB como base de datos y no inventa integrantes del equipo.</div>
+    <h3>Archivos de entrega</h3><p><strong>matriz-raci-ti-soporte-en-accion.html</strong> contiene el documento completo; <strong>coordinacion-raci.html</strong> contiene el diagrama interactivo de coordinación; y <strong>coordinacion-raci.workflow.json</strong> conserva su especificación validada.</p>
+    <div class="footer"><span>Universidad Tecnológica de Xicotepec de Juárez · 2026</span><span>5</span></div>
+  </section>
+<script>
+(() => {
+  const table = document.querySelector('.matrix');
+  if (!table) return;
+  const roles = ['Jugador','Administrador','Docente','Evaluador','Editor de contenido','Soporte técnico'];
+  const meanings = {R:'ejecuta la actividad',A:'asume la responsabilidad final y autoriza el resultado',C:'aporta asesoramiento o información',I:'recibe información sobre el desarrollo o resultado'};
+  let role = 'all', code = 'all';
+  const cells = [...table.tBodies[0].rows].flatMap(row => [...row.cells].slice(2));
+  cells.forEach(cell => {
+    cell.tabIndex = 0;
+    cell.setAttribute('role','button');
+    cell.setAttribute('aria-label','Consultar asignación RACI');
+    cell.addEventListener('click', () => selectCell(cell));
+    cell.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectCell(cell); } });
+  });
+  function cellCode(cell){ return cell.textContent.trim().includes('A') ? 'A' : cell.textContent.trim(); }
+  function selectCell(cell){
+    cells.forEach(c => c.classList.remove('is-selected'));
+    cell.classList.add('is-selected');
+    const row = cell.parentElement, activity = row.cells[1].textContent.trim(), roleName = roles[cell.cellIndex - 2], value = cell.textContent.trim(), primary = cellCode(cell);
+    document.querySelector('#selection-detail').innerHTML = `<b>${roleName} · ${value}</b> en “${activity}”: ${value === 'A/R' ? 'ejecuta la actividad y asume la responsabilidad final.' : meanings[primary] + '.'}`;
+  }
+  function render(){
+    document.querySelectorAll('.role-filter').forEach(b => b.classList.toggle('active', b.dataset.role === role));
+    document.querySelectorAll('.code-filter').forEach(b => b.classList.toggle('active', b.dataset.code === code));
+    cells.forEach(cell => cell.classList.remove('is-match'));
+    [...table.tBodies[0].rows].forEach(row => {
+      const targetCells = role === 'all' ? [...row.cells].slice(2) : [row.cells[Number(role)]];
+      const matches = code === 'all' ? targetCells : targetCells.filter(cell => cell.textContent.includes(code));
+      row.classList.toggle('is-hidden', code !== 'all' && matches.length === 0);
+      matches.forEach(cell => cell.classList.add('is-match'));
+    });
+  }
+  document.querySelectorAll('.role-filter').forEach(button => button.addEventListener('click', () => { role = button.dataset.role; render(); }));
+  document.querySelectorAll('.code-filter').forEach(button => button.addEventListener('click', () => { code = button.dataset.code; render(); }));
+  render();
+})();
+</script>
+</body></html>

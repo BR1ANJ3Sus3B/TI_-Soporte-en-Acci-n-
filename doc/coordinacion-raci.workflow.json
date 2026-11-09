@@ -1,0 +1,44 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "Coordinación RACI para gestión de incidencias",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "jugador", "label": "Jugador" },
+    { "id": "soporte", "label": "Soporte técnico" },
+    { "id": "administracion", "label": "Administrador" },
+    { "id": "validacion", "label": "Evaluador y docente" }
+  ],
+  "phases": [
+    { "id": "reporte", "label": "Reporte", "fromCol": 0, "toCol": 1 },
+    { "id": "resolucion", "label": "Diagnóstico y resolución", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "cierre", "label": "Validación y cierre", "fromCol": 4, "toCol": 5 }
+  ],
+  "mainPath": ["reportar", "registrar", "diagnosticar", "corregir", "validar", "notificar"],
+  "nodes": [
+    { "id": "reportar", "lane": "jugador", "col": 0, "type": "frontend", "label": "Reportar", "sublabel": "describir impacto" },
+    { "id": "registrar", "lane": "soporte", "col": 1, "type": "backend", "label": "Registrar", "sublabel": "prioridad y evidencia" },
+    { "id": "diagnosticar", "lane": "soporte", "col": 2, "type": "security", "label": "Diagnosticar", "sublabel": "aislar causa" },
+    { "id": "corregir", "lane": "administracion", "col": 3, "type": "backend", "label": "Autorizar", "sublabel": "cambio controlado" },
+    { "id": "validar", "lane": "validacion", "col": 4, "type": "database", "label": "Validar", "sublabel": "prueba y evidencia" },
+    { "id": "notificar", "lane": "jugador", "col": 5, "type": "external", "label": "Notificar", "sublabel": "resultado y seguimiento" }
+  ],
+  "edges": [
+    { "from": "reportar", "to": "registrar", "label": "ticket", "role": "main" },
+    { "from": "registrar", "to": "diagnosticar", "label": "asignación", "role": "main" },
+    { "from": "diagnosticar", "to": "corregir", "label": "propuesta de cambio", "role": "main" },
+    { "from": "corregir", "to": "validar", "label": "corrección aplicada", "role": "main" },
+    { "from": "validar", "to": "notificar", "label": "cierre validado", "role": "main" }
+  ],
+  "semanticChecks": {
+    "allowedRoots": ["reportar"],
+    "allowedTerminals": ["notificar"],
+    "requiredPaths": [{ "from": "reportar", "to": "notificar" }]
+  },
+  "cards": [
+    { "dot": "cyan", "title": "Regla RACI", "items": ["Una A por actividad", "Al menos una R por actividad"] },
+    { "dot": "violet", "title": "Trazabilidad", "items": ["Cada incidencia conserva evidencia", "La validación precede al cierre"] }
+  ]
+}
