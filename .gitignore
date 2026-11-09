@@ -1,0 +1,16 @@
+# Secretos locales de infraestructura
+infra/keycloak/.env
+pwa/.env
+
+# Dependencias y compilados de la PWA
+pwa/node_modules/
+pwa/dist/
+
+# Archivos generados localmente por Unity
+videojuego/Library/
+videojuego/Logs/
+videojuego/Temp/
+videojuego/obj/
+videojuego/*.csproj
+videojuego/*.slnx
+videojuego/UserSettings/

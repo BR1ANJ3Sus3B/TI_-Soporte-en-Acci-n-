@@ -1,0 +1,24 @@
+:root {
+  --color-background: #101C34;
+  --color-surface: #0B1324;
+  --color-surface-elevated: #1F2937;
+  --color-primary-action: #4AE4EC;
+  --color-accent: #9A7CFF;
+  --color-success: #41DEA7;
+  --color-warning: #FFB45B;
+  --color-error: #EF4444;
+  --color-text-primary: #F3F7FF;
+  --color-text-secondary: #A9B7CC;
+  --color-border: #34445F;
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px;
+  --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px;
+  /* Alias de compatibilidad para los componentes existentes. */
+  --background: var(--color-background); --surface: var(--color-surface);
+  --surface-elevated: var(--color-surface-elevated);
+  --primary: var(--color-primary-action); --primary-hover: #2EC4CC;
+  --accent: var(--color-accent); --success: var(--color-success);
+  --warning: var(--color-warning); --error: var(--color-error);
+  --text-primary: var(--color-text-primary); --text-secondary: var(--color-text-secondary);
+  --border: var(--color-border);
+}
