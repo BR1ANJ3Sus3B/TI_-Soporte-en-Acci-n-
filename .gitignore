@@ -1,0 +1,33 @@
+# Local configuration and JavaScript build artifacts
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+
+# Unity-generated files
+[Ll]ibrary/
+[Ll]ogs/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Uu]ser[Ss]ettings/
+GeneratedAssets/
+UIElementsSchema/
+**/AuraLogs/
+*.csproj
+*.sln
+*.slnx
+.vs/
+.vscode/
+
+# Flutter-generated files
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+ios/Flutter/ephemeral/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+android/local.properties
