@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
 import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
+import 'package:ti_soporte_accion/services/auth_service.dart';
 
 /// Pantalla de ajustes de la aplicación.
 class SettingsScreen extends StatelessWidget {
@@ -54,10 +55,29 @@ class SettingsScreen extends StatelessWidget {
               const SizedBox(height: 20),
               const _SettingsSectionTitle(title: 'Cuenta'),
               _SettingsTile(
+                icon: Icons.account_circle,
+                title: AuthService.instance.displayName,
+                subtitle: AuthService.instance.email,
+              ),
+              _SettingsTile(
                 icon: Icons.logout_rounded,
                 title: 'Cerrar sesión',
-                onTap: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
+                onTap: () async {
+                  final navigator = Navigator.of(context);
+                  final messenger = ScaffoldMessenger.of(context);
+                  try {
+                    await AuthService.instance.logout();
+                  } catch (_) {
+                    messenger.showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                          'Sesión local cerrada. No se pudo cerrar la sesión del navegador en Keycloak.',
+                        ),
+                      ),
+                    );
+                  }
+                  if (!navigator.mounted) return;
+                  navigator.pushNamedAndRemoveUntil(
                     '/login',
                     (Route<dynamic> route) => false,
                   );

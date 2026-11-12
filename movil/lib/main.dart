@@ -11,6 +11,7 @@ import 'package:ti_soporte_accion/screens/settings_screen.dart';
 import 'package:ti_soporte_accion/screens/splash_screen.dart';
 import 'package:ti_soporte_accion/theme/app_theme.dart';
 import 'package:ti_soporte_accion/widgets/achievement_unlock_popup.dart';
+import 'package:ti_soporte_accion/widgets/session_gate.dart';
 
 /// Clave global del navegador raíz.
 ///
@@ -24,8 +25,7 @@ void main() {
 
 /// Aplicación principal "TI: Soporte en Acción".
 ///
-/// Punto de entrada de la app móvil. En esta etapa se enfoca únicamente en la
-/// navegación y en la representación visual de las pantallas.
+/// Acceso con Keycloak; el contenido educativo aún usa datos demostrativos.
 class TiSoporteApp extends StatelessWidget {
   const TiSoporteApp({super.key});
 
@@ -46,15 +46,20 @@ class TiSoporteApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         SplashScreen.routeName: (_) => const SplashScreen(),
         LoginScreen.routeName: (_) => const LoginScreen(),
-        HomeScreen.routeName: (_) => const HomeScreen(),
-        MissionsScreen.routeName: (_) => const MissionsScreen(),
-        MissionDetailScreen.routeName: (_) => const MissionDetailScreen(),
-        MapScreen.routeName: (_) => const MapScreen(),
-        ProfileScreen.routeName: (_) => const ProfileScreen(),
-        ProgressScreen.routeName: (_) => const ProgressScreen(),
-        SettingsScreen.routeName: (_) => const SettingsScreen(),
+        HomeScreen.routeName: (_) => const SessionGate(child: HomeScreen()),
+        MissionsScreen.routeName: (_) =>
+            const SessionGate(child: MissionsScreen()),
+        MissionDetailScreen.routeName: (_) =>
+            const SessionGate(child: MissionDetailScreen()),
+        MapScreen.routeName: (_) => const SessionGate(child: MapScreen()),
+        ProfileScreen.routeName: (_) =>
+            const SessionGate(child: ProfileScreen()),
+        ProgressScreen.routeName: (_) =>
+            const SessionGate(child: ProgressScreen()),
+        SettingsScreen.routeName: (_) =>
+            const SessionGate(child: SettingsScreen()),
         AchievementDetailScreen.routeName: (_) =>
-            const AchievementDetailScreen(),
+            const SessionGate(child: AchievementDetailScreen()),
       },
     );
   }
