@@ -50,4 +50,4 @@ El texto principal, controles y estados se usan sobre superficies oscuras con co
 
 ## Integraciones
 
-Los datos están aislados en `src/data/demoData.ts`; los servicios tipados (`src/services`) leen `VITE_API_BASE_URL` y `VITE_DEMO_MODE`. La API REST debe validar JWT y roles en servidor cuando se conecte Keycloak. La PWA usa `vite-plugin-pwa`, manifiesto, iconos SVG, actualización automática y caché de recursos estáticos; no guarda tokens privados en caché.
+Los datos están aislados en `src/data/demoData.ts`; los servicios tipados (`src/services`) leen `VITE_API_BASE_URL` y `VITE_DEMO_MODE`. La API REST deberá validar identidad y permisos en servidor. La autenticación Keycloak corresponde a Flutter; el acceso privado web está pendiente. La PWA usa `vite-plugin-pwa`, manifiesto, iconos SVG, actualización automática y caché de recursos estáticos.
