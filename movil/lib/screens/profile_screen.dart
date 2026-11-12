@@ -4,6 +4,7 @@ import 'package:ti_soporte_accion/theme/app_colors.dart';
 import 'package:ti_soporte_accion/widgets/character_card.dart';
 import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
 import 'package:ti_soporte_accion/widgets/stat_card.dart';
+import 'package:ti_soporte_accion/services/auth_service.dart';
 
 /// Pantalla de perfil del jugador.
 ///
@@ -53,13 +54,10 @@ class ProfileScreen extends StatelessWidget {
                       CircleAvatar(
                         radius: 32,
                         backgroundColor: AppColors.cyan.withValues(alpha: 0.25),
-                        child: const Text(
-                          'AL',
-                          style: TextStyle(
-                            color: AppColors.cyan,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w800,
-                          ),
+                        child: const Icon(
+                          Icons.person,
+                          color: AppColors.cyan,
+                          size: 32,
                         ),
                       ),
                       const SizedBox(width: 16),
@@ -68,7 +66,7 @@ class ProfileScreen extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              profile.name,
+                              AuthService.instance.displayName,
                               style: const TextStyle(
                                 color: AppColors.textPrimary,
                                 fontSize: 18,
@@ -77,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              '${profile.rank} • Nivel ${profile.level}',
+                              'Demostración: ${profile.rank} • Nivel ${profile.level}',
                               style: const TextStyle(
                                 color: AppColors.textSecondary,
                                 fontSize: 13,

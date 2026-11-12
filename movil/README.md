@@ -10,12 +10,14 @@ Aplicación Flutter del proyecto educativo ambientado en NovaTech Solutions. Pre
 
 ## Pantallas implementadas
 
-- Splash y acceso visual (inicio de sesión o invitado).
+- Splash e inicio de sesión móvil con Keycloak (Android/iOS).
 - Dashboard, listado y detalle de misiones.
 - Mapa de áreas de NovaTech.
 - Perfil, progreso, detalle de logros y configuración.
 
-La navegación usa rutas nombradas desde `lib/main.dart`. El acceso es demostrativo y no representa autenticación real.
+La navegación usa rutas nombradas desde `lib/main.dart`. Las rutas privadas están
+protegidas por `SessionGate`. El acceso usa AppAuth y Keycloak; el contenido educativo
+sigue siendo demostrativo. Ver [configuración de Keycloak](KEYCLOAK.md).
 
 ## Estructura relevante
 
@@ -24,7 +26,7 @@ lib/
 ├── data/mock_data.dart          # jugador, misiones, zonas, personajes y logros
 ├── models/                      # modelos de dominio
 ├── screens/                     # pantallas del jugador
-├── services/                    # cola de notificaciones de logros
+├── services/                    # sesión Keycloak y cola de notificaciones de logros
 ├── theme/                       # AppColors y AppTheme
 └── widgets/                     # navegación, tarjetas, XP, paneles y popup
 test/
@@ -55,11 +57,15 @@ flutter analyze
 flutter test
 ```
 
-Las pruebas actuales cubren el arranque de la app y la cola de notificaciones: no duplica logros durante la sesión y entrega la cola en orden.
+Sin variables de Keycloak la app muestra la configuración pendiente. Para iniciar
+sesión real, usar el comando de [KEYCLOAK.md](KEYCLOAK.md) en Android/iOS.
+
+Las pruebas cubren el arranque, las notificaciones y el ciclo de sesión con un
+proveedor simulado. El inicio/cierre real debe comprobarse en un dispositivo.
 
 ## Pendiente de integración
 
-- Keycloak y autenticación real.
+- Configurar el cliente móvil en el servidor Keycloak y validar el recorrido real.
 - API REST, MongoDB y persistencia remota.
 - Roles y permisos reales (Administrador, Docente, Evaluador, Editor y Soporte).
 - Sincronización de progreso y contenido remoto.
