@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583ccf4aff86c224ba8a56ce2a064d64, type: 3}
+  m_Name: Mision04
+  m_EditorClassIdentifier: Assembly-CSharp::MissionDefinition
+  id: M04
+  numero: 04
+  titulo: "C\xD3DIGO ROJO"
+  objetivo: "Atiende el incidente cr\xEDtico y documenta la respuesta del equipo."
+  recompensaXp: 125
+  insigniaId: mision_04
+  insigniaNombre: "C\xD3DIGO ROJO"
+  registro: "Misi\xF3n 04 completada."
