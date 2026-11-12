@@ -1,7 +1,12 @@
-import { LogOut } from 'lucide-react';
-import { beginLogout, isAuthConfigured } from '../services/authService';
 import { useAuth } from './AuthContext';
-import { AlertMessage, Button, Card, ProgressBar, StatusBadge } from '../components/ui';
-import { profile } from '../data/demoData';
+import { AlertMessage, Card, StatusBadge } from '../components/ui';
 
-export function AuthProfilePage() { const { user } = useAuth(); const identity = user?.name ?? profile.name; const role = user?.role ?? 'Sin rol asignado'; const email = user?.email ?? 'Identidad de demostración'; const progress = Math.round(profile.xp / profile.nextLevelXp * 100); return <><div className="page-title"><div><span className="eyebrow">Perfil</span><h1>{identity}</h1></div><p>Identidad y avance educativo se administran por separado.</p></div><div className="profile-layout"><Card className="profile-hero"><div className="profile-avatar pixel-art">{identity.slice(0, 2).toUpperCase()}</div><div><StatusBadge label={role} tone="info" /><h2>{identity}</h2><p>{user?.username ? `Usuario: ${user.username}` : email}</p><p>{user?.username && email}</p>{isAuthConfigured ? <Button onClick={() => void beginLogout()}><LogOut size={16} /> Cerrar sesión</Button> : <AlertMessage title="Modo demostración" tone="info">El cierre de sesión estará disponible con Keycloak.</AlertMessage>}</div></Card><Card><h2>Progreso académico</h2><p className="profile-copy">Estos indicadores proceden de la API educativa cuando esté disponible, no del perfil de Keycloak.</p><div className="profile-metrics"><span><small>Nivel</small><strong>{profile.level}</strong></span><span><small>XP</small><strong>{profile.xp.toLocaleString()}</strong></span><span><small>Progreso</small><strong>{progress}%</strong></span></div><ProgressBar value={progress} /></Card></div></>; }
+export function AuthProfilePage() {
+  const { user } = useAuth();
+  return <Card><h1>Perfil</h1><StatusBadge label="Integración web pendiente" tone="pending" />
+    {user && <><h2>{user.name}</h2><p>{user.email}</p></>}
+    <AlertMessage title="Sin datos de servidor" tone="info">
+      El perfil web y el progreso estarán disponibles al integrar la API educativa.
+    </AlertMessage>
+  </Card>;
+}
