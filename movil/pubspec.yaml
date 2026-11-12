@@ -1,0 +1,14 @@
+name: ti_soporte_accion
+description: "Cliente Flutter con telemetria para TI: Soporte en Accion."
+publish_to: none
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
