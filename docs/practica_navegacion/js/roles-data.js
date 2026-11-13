@@ -6,7 +6,14 @@ const visualRoles = [
  {name:'Editor de contenido',description:'Administra materiales educativos autorizados.',modules:['Contenido'],restrictions:'No administra cuentas ni roles.',screens:['EDI01','EDI02','EDI03']},
  {name:'Soporte tecnico',description:'Atiende incidencias y consulta soluciones.',modules:['Soporte'],restrictions:'No modifica XP, resultados ni privilegios.',screens:['SOP01','SOP02','SOP03']}
 ];
-const rs=(id,nombre,rol,modulo,file,descripcion,acciones,conexiones,req)=>({id,nombre,modulo,descripcion,plataforma:['PWA'],roles:[rol],acciones,conexiones,requerimientos:req,sketch:'../imagenes/skeches/'+rol.replaceAll(' ','_')+'/'+file,wireframe:null,elementos:['Encabezado','Resumen o formulario','Acciones autorizadas'],anterior:[]});
+const roleWireframes={
+ ADM01:'../imagenes/Especificación técnica del panel administrador.png',
+ ADM03:'../imagenes/Especificación UX de Configuración General.png',
+ DOC02:'../imagenes/Wireframe de pantalla Asignar misión.png',
+ DOC03:'../imagenes/Wireframe de avance grupal.png',
+ SOP01:'../imagenes/Wireframe técnico del centro de soporte.png'
+};
+const rs=(id,nombre,rol,modulo,file,descripcion,acciones,conexiones,req)=>({id,nombre,modulo,descripcion,plataforma:['PWA'],roles:[rol],acciones,conexiones,requerimientos:req,sketch:'../imagenes/skeches/'+rol.replaceAll(' ','_')+'/'+file,wireframe:roleWireframes[id]||null,elementos:['Encabezado','Resumen o formulario','Acciones autorizadas'],anterior:[]});
 const roleScreens=[
  rs('ADM01','Panel de administracion','Administrador','Administracion','01_Panel_administracion.png','Resumen de usuarios, roles, misiones y estadisticas.',['Consultar usuarios','Consultar roles','Consultar misiones'],['ADM02','ADM03','P03'],'RF-05, RF-20'),rs('ADM02','Gestion de usuarios','Administrador','Administracion','02_Gestion_usuarios.png','Consulta y administracion controlada de cuentas.',['Buscar usuarios','Editar usuario autorizado'],['ADM01','ADM03'],'RF-20'),rs('ADM03','Configuracion general','Administrador','Administracion','03_Configuracion_general.png','Parametros, permisos y seguridad del sistema.',['Consultar parametros','Gestionar permisos autorizados'],['ADM01'],'RF-05'),
  rs('DOC01','Panel docente','Docente','Docencia','01_Panel_docente.png','Consulta grupos, estudiantes, misiones y reportes.',['Consultar grupos','Consultar estudiantes'],['DOC02','DOC03','P03'],'RF-14'),rs('DOC02','Asignar mision','Docente','Docencia','02_Asignar_mision.png','Asigna actividades a grupos autorizados.',['Seleccionar grupo','Asignar mision'],['DOC01','DOC03'],'RF-06'),rs('DOC03','Avance del grupo','Docente','Docencia','03_Avance_grupo.png','Consulta el progreso de estudiantes autorizados.',['Consultar avance'],['DOC01','DOC02'],'RF-14'),
