@@ -2,9 +2,9 @@
 const IMG = '../imagenes/';
 const sketch = {
   P01:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_08 p.m-1.png', P02:'skeches/01-publico-objetivo.png',
-  P03:'skeches/6.png', P04:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_16 p.m-6.png',
-  P05:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_13 p.m-4.png', P06:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_14 p.m-5.png',
-  P07:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_23 p.m-10.png', P08:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_18 p.m-7.png', P09:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_19 p.m-8.png', P10:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_22 p.m-9.png',
+  P03:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_11 p.m-3.png', P04:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_13 p.m-4.png',
+  P05:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_14 p.m-5.png', P06:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_16 p.m-6.png',
+  P07:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_18 p.m-7.png', P08:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_19 p.m-8.png', P09:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_22 p.m-9.png', P10:'skeches/Imagen de ChatGPT 3 nov 2026, 07_47_23 p.m-10.png',
   P11:'skeches/11_dashboard_inicio.png',P12:'skeches/12_mapa_novatech.png',P13:'skeches/13_detalle_mision.png',P14:'skeches/14_juego_mision.png',P15:'skeches/15_dialogo_historia.png',P16:'skeches/16_inventario.png',P17:'skeches/17_progreso.png',P18:'skeches/18_logros_insignias.png',P19:'skeches/19_configuracion.png',P20:'skeches/20_perfil_usuario.png'
 };
 const wireNames = ['Imagen de ChatGPT 4 nov 2026, 08_02_45 a.m-1.png','Imagen de ChatGPT 4 nov 2026, 08_02_46 a.m-2.png','Imagen de ChatGPT 4 nov 2026, 08_02_46 a.m-3.png','Imagen de ChatGPT 4 nov 2026, 08_02_47 a.m-4.png','Imagen de ChatGPT 4 nov 2026, 08_02_48 a.m-5.png','Imagen de ChatGPT 4 nov 2026, 08_02_48 a.m-6.png','Imagen de ChatGPT 4 nov 2026, 08_02_49 a.m-7.png','Imagen de ChatGPT 4 nov 2026, 08_02_50 a.m-8.png','Imagen de ChatGPT 4 nov 2026, 08_02_51 a.m-9.png','Imagen de ChatGPT 4 nov 2026, 08_02_51 a.m-10.png','Imagen de ChatGPT 4 nov 2026, 08_14_16 a.m-1.png','Imagen de ChatGPT 4 nov 2026, 08_14_17 a.m-2.png','Imagen de ChatGPT 4 nov 2026, 08_14_19 a.m-3.png','Imagen de ChatGPT 4 nov 2026, 08_14_20 a.m-4.png','Imagen de ChatGPT 4 nov 2026, 08_14_21 a.m-5.png','Imagen de ChatGPT 4 nov 2026, 08_14_23 a.m-6.png','Imagen de ChatGPT 4 nov 2026, 08_14_24 a.m-7.png','Imagen de ChatGPT 4 nov 2026, 08_14_25 a.m-8.png','Imagen de ChatGPT 4 nov 2026, 08_14_27 a.m-9.png','Imagen de ChatGPT 4 nov 2026, 08_14_28 a.m-10.png'];

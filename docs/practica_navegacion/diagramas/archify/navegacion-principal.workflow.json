@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "TI: Soporte en Acción · Navegación principal",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "publico", "label": "Acceso público" },
+    { "id": "seguridad", "label": "Seguridad", "variant": "exception" },
+    { "id": "jugador", "label": "Jugador / Estudiante" },
+    { "id": "mision", "label": "Misión Unity" },
+    { "id": "progreso", "label": "Progreso" }
+  ],
+  "phases": [
+    { "id": "entrada", "label": "Entrada", "fromCol": 0, "toCol": 1 },
+    { "id": "acceso", "label": "Acceso", "fromCol": 2, "toCol": 2, "variant": "security" },
+    { "id": "aprendizaje", "label": "Aprendizaje", "fromCol": 3, "toCol": 5, "variant": "emphasis" }
+  ],
+  "mainPath": ["p01", "p02", "p03", "p10", "p12", "p13", "p14", "p17"],
+  "semanticChecks": {
+    "allowedRoots": ["p01"],
+    "allowedTerminals": ["p04", "p05", "p07", "p17"],
+    "requiredPaths": [
+      { "from": "p01", "to": "p17" },
+      { "from": "p03", "to": "p07" }
+    ]
+  },
+  "nodes": [
+    { "id": "p01", "lane": "publico", "col": 0, "type": "frontend", "label": "P01 · Splash", "sublabel": "inicio" },
+    { "id": "p02", "lane": "publico", "col": 1, "type": "frontend", "label": "P02 · Loading", "sublabel": "comprueba sesión" },
+    { "id": "p03", "lane": "publico", "col": 2, "type": "security", "label": "P03 · Login", "sublabel": "autenticación" },
+    { "id": "p04", "lane": "publico", "col": 3, "type": "frontend", "label": "P04 · Registro", "sublabel": "crear cuenta" },
+    { "id": "p05", "lane": "seguridad", "col": 3, "width": 108, "type": "security", "label": "P05 · Recuperar", "sublabel": "enlace de acceso" },
+    { "id": "p06", "lane": "seguridad", "col": 2, "type": "security", "label": "P06 · Bloqueo", "sublabel": "intentos fallidos" },
+    { "id": "p07", "lane": "seguridad", "col": 4, "type": "security", "label": "P07 · Código", "sublabel": "código válido" },
+    { "id": "p10", "lane": "jugador", "col": 3, "type": "frontend", "label": "P10 · Home", "sublabel": "sesión de jugador" },
+    { "id": "p12", "lane": "jugador", "col": 4, "type": "frontend", "label": "P12 · Mapa", "sublabel": "elegir misión" },
+    { "id": "p13", "lane": "jugador", "col": 5, "type": "frontend", "label": "P13 · Detalle", "sublabel": "objetivos" },
+    { "id": "p14", "lane": "mision", "col": 5, "type": "cloud", "label": "P14 · Juego", "sublabel": "Unity" },
+    { "id": "p17", "lane": "progreso", "col": 5, "type": "database", "label": "P17 · Progreso", "sublabel": "experiencia y nivel" }
+  ],
+  "edges": [
+    { "from": "p01", "to": "p02", "role": "main" },
+    { "from": "p02", "to": "p03", "label": "sin sesión", "role": "main" },
+    { "from": "p03", "to": "p10", "label": "credenciales válidas", "variant": "emphasis", "role": "main" },
+    { "from": "p10", "to": "p12", "label": "selecciona misión", "role": "main" },
+    { "from": "p12", "to": "p13", "label": "consulta detalle", "role": "main" },
+    { "from": "p13", "to": "p14", "label": "inicia misión", "variant": "emphasis", "role": "main" },
+    { "from": "p14", "to": "p17", "label": "actualiza progreso", "role": "main" },
+    { "from": "p03", "to": "p04", "label": "registro", "role": "branch" },
+    { "from": "p03", "to": "p05", "label": "recuperación", "variant": "security", "role": "branch" },
+    { "from": "p03", "to": "p06", "label": "intentos fallidos", "variant": "security", "role": "error" },
+    { "from": "p06", "to": "p07", "label": "solicita desbloqueo", "variant": "security", "role": "error" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Ruta principal", "items": ["De inicio a misión y progreso", "P14 representa la experiencia Unity"] },
+    { "dot": "amber", "title": "Rutas de acceso", "items": ["Registro, recuperación y desbloqueo parten de Login", "La autorización real corresponde al backend"] }
+  ]
+}
