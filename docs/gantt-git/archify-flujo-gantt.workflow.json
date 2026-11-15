@@ -1,0 +1,38 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "TI: Soporte en Acción · Flujo de evidencia Git",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "fuente", "label": "Repositorio Git" },
+    { "id": "proceso", "label": "Análisis reproducible" },
+    { "id": "consulta", "label": "Dashboard histórico" }
+  ],
+  "phases": [
+    { "id": "captura", "label": "Captura", "fromCol": 0, "toCol": 1 },
+    { "id": "clasificacion", "label": "Clasificación", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "consulta", "label": "Consulta", "fromCol": 4, "toCol": 5 }
+  ],
+  "mainPath": ["git", "commits", "dataset", "actividades", "gantt", "detalle"],
+  "nodes": [
+    { "id": "git", "lane": "fuente", "col": 0, "type": "database", "label": "Git" },
+    { "id": "commits", "lane": "fuente", "col": 1, "type": "database", "label": "Historial" },
+    { "id": "dataset", "lane": "proceso", "col": 2, "type": "backend", "label": "Extractor" },
+    { "id": "actividades", "lane": "proceso", "col": 3, "type": "database", "label": "Datos" },
+    { "id": "gantt", "lane": "consulta", "col": 4, "type": "frontend", "label": "Gantt" },
+    { "id": "detalle", "lane": "consulta", "col": 5, "type": "frontend", "label": "Detalle" }
+  ],
+  "edges": [
+    { "from": "git", "to": "commits", "label": "refs y objetos", "role": "main" },
+    { "from": "commits", "to": "dataset", "label": "lectura sin modificar", "role": "main" },
+    { "from": "dataset", "to": "actividades", "label": "agrupa por evidencia", "variant": "emphasis", "role": "main" },
+    { "from": "actividades", "to": "gantt", "label": "carga JSON", "role": "main" },
+    { "from": "gantt", "to": "detalle", "label": "selecciona actividad", "role": "main" }
+  ],
+  "cards": [
+    { "dot": "cyan", "title": "Datos reales", "items": ["Hashes, fechas, autores, ramas y archivos salen de Git", "El dashboard no infiere avance porcentual"] },
+    { "dot": "amber", "title": "Actualización", "items": ["El extractor regenera únicamente datos y metadatos", "La interfaz permanece separada del análisis"] }
+  ]
+}

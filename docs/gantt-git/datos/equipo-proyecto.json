@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "officialMembers": [
+    {
+      "id": "brian-mendoza",
+      "fullName": "Brian Jesus Mendoza Marquez",
+      "role": "Autor principal",
+      "accent": "blue",
+      "techIcon": "⌘",
+      "verifiedGitIdentities": [
+        {
+          "name": "Brian Jesus Mendoza Marquez",
+          "email": "230308@utxicotepec.edu.mx"
+        }
+      ]
+    },
+    {
+      "id": "idai-vargas",
+      "fullName": "Idai Vargas Galindo",
+      "role": "Colaboradora",
+      "accent": "violet",
+      "techIcon": "◇",
+      "verifiedGitIdentities": []
+    }
+  ],
+  "activityAssignments": {},
+  "assignmentValues": ["brian-mendoza", "idai-vargas", "both", "unassigned"],
+  "notes": {
+    "identityLinking": "Las identidades se vinculan solo con pares exactos de nombre y correo incluidos en verifiedGitIdentities.",
+    "responsibility": "La autoría Git no asigna responsables. activityAssignments requiere una asignación explícita por identificador de actividad."
+  }
+}
