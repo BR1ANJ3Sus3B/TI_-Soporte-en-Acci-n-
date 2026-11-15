@@ -1,17 +1,17 @@
 ﻿window.GANTT_GIT_DATA = {
     "schemaVersion":  1,
-    "generatedAt":  "2026-11-15T03:08:35.3865437Z",
+    "generatedAt":  "2026-11-15T05:30:50.2305250Z",
     "source":  {
                    "repository":  "C:/Users/jesus/Documents/Video_Juego/TI_-Soporte-en-Acci-n-",
-                   "head":  "65b27ef4313a3f39774f12f29c6131b5f60df81b",
+                   "head":  "2b609207011989ce724f7a7a9b75e703a38174ef",
                    "remote":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-.git",
                    "scope":  "git log --all (commits alcanzables desde ramas locales y remotas; excluye stashes)",
                    "realDataOnly":  true
                },
     "commits":  [
                     {
-                        "hash":  "bdb8382a79c73d578130cdaaa0c2e084e4b1c475",
-                        "shortHash":  "bdb8382a79c7",
+                        "hash":  "062b41afbc72c791e363e05fab0cf78e70ed78af",
+                        "shortHash":  "062b41afbc72",
                         "parents":  [
 
                                     ],
@@ -23,7 +23,22 @@
                         "committedAt":  "2026-10-03T17:04:50-06:00",
                         "subject":  "Initial commit",
                         "branches":  [
-
+                                         "develop",
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/api-autenticacion",
+                                         "feature/docker",
+                                         "feature/estructura-inicial",
+                                         "feature/flutter-autenticacion",
+                                         "feature/flutter-pantallas",
+                                         "feature/mobile-flutter",
+                                         "feature/mongodb-modelos",
+                                         "feature/monitoreo-grafana",
+                                         "feature/react-administracion",
+                                         "feature/react-pwa",
+                                         "feature/unity-misiones",
+                                         "feature/unity-movimiento",
+                                         "main"
                                      ],
                         "files":  [
                                       {
@@ -36,13 +51,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "configuracion",
                         "activityLabel":  "Configuracion del proyecto",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/bdb8382a79c73d578130cdaaa0c2e084e4b1c475"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/062b41afbc72c791e363e05fab0cf78e70ed78af"
                     },
                     {
-                        "hash":  "a6a834a57eac85339035c2b0321f50cf75f82c22",
-                        "shortHash":  "a6a834a57eac",
+                        "hash":  "58a10923bdd2a14f40fef46bf3c90a80ee262613",
+                        "shortHash":  "58a10923bdd2",
                         "parents":  [
-                                        "bdb8382a79c73d578130cdaaa0c2e084e4b1c475"
+                                        "062b41afbc72c791e363e05fab0cf78e70ed78af"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -52,7 +67,22 @@
                         "committedAt":  "2026-10-05T17:23:00-06:00",
                         "subject":  "Main",
                         "branches":  [
-
+                                         "develop",
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/api-autenticacion",
+                                         "feature/docker",
+                                         "feature/estructura-inicial",
+                                         "feature/flutter-autenticacion",
+                                         "feature/flutter-pantallas",
+                                         "feature/mobile-flutter",
+                                         "feature/mongodb-modelos",
+                                         "feature/monitoreo-grafana",
+                                         "feature/react-administracion",
+                                         "feature/react-pwa",
+                                         "feature/unity-misiones",
+                                         "feature/unity-movimiento",
+                                         "main"
                                      ],
                         "files":  [
                                       {
@@ -65,13 +95,13 @@
                         "phase":  "Cambio registrado",
                         "activityKey":  "configuracion",
                         "activityLabel":  "Configuracion del proyecto",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/a6a834a57eac85339035c2b0321f50cf75f82c22"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/58a10923bdd2a14f40fef46bf3c90a80ee262613"
                     },
                     {
-                        "hash":  "cf2cbf255e520da3c3ad7e3d8ffa0916dfe5fbed",
-                        "shortHash":  "cf2cbf255e52",
+                        "hash":  "97842069f5503f1268fd369c89546917606ea9a5",
+                        "shortHash":  "97842069f550",
                         "parents":  [
-                                        "a6a834a57eac85339035c2b0321f50cf75f82c22"
+                                        "58a10923bdd2a14f40fef46bf3c90a80ee262613"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -81,7 +111,12 @@
                         "committedAt":  "2026-10-09T21:46:58-06:00",
                         "subject":  "feat: organizar estructura del monorepositorio",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n  feature/estructura-inicial\n+ feature/mobile-flutter\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones\n  remotes/origin/feature/estructura-inicial\n  remotes/origin/feature/mobile-flutter"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/estructura-inicial",
+                                         "feature/mobile-flutter",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -1489,13 +1524,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "unity-animaciones",
                         "activityLabel":  "Animaciones y recursos Unity",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/cf2cbf255e520da3c3ad7e3d8ffa0916dfe5fbed"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/97842069f5503f1268fd369c89546917606ea9a5"
                     },
                     {
-                        "hash":  "ae775f5deae782e4838c4943cbc0a0295cd9a883",
-                        "shortHash":  "ae775f5deae7",
+                        "hash":  "50e1e644b2bb51dc445dbae52d38909991121d0d",
+                        "shortHash":  "50e1e644b2bb",
                         "parents":  [
-                                        "cf2cbf255e520da3c3ad7e3d8ffa0916dfe5fbed"
+                                        "97842069f5503f1268fd369c89546917606ea9a5"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -1505,7 +1540,11 @@
                         "committedAt":  "2026-10-09T22:38:52-06:00",
                         "subject":  "docs: incorporar documentacion completa del proyecto, inventario y bocetos (PWA y movil)",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/mobile-flutter\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones\n  remotes/origin/feature/mobile-flutter"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/mobile-flutter",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -1748,13 +1787,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/ae775f5deae782e4838c4943cbc0a0295cd9a883"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/50e1e644b2bb51dc445dbae52d38909991121d0d"
                     },
                     {
-                        "hash":  "3f6b89943da3fc3df4dfbdc1c48352ee54d56c0c",
-                        "shortHash":  "3f6b89943da3",
+                        "hash":  "214b55530de591c497276d1944637ea5383ca74b",
+                        "shortHash":  "214b55530de5",
                         "parents":  [
-                                        "a6a834a57eac85339035c2b0321f50cf75f82c22"
+                                        "58a10923bdd2a14f40fef46bf3c90a80ee262613"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -1764,7 +1803,8 @@
                         "committedAt":  "2026-10-09T22:47:32-06:00",
                         "subject":  "chore(videojuego): iniciar rama de movimiento del jugador",
                         "branches":  [
-                                         "feature/mongodb-modelos\n  feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento"
+                                         "feature/mongodb-modelos",
+                                         "feature/unity-movimiento"
                                      ],
                         "files":  [
 
@@ -1773,13 +1813,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "configuracion",
                         "activityLabel":  "Configuracion del proyecto",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/3f6b89943da3fc3df4dfbdc1c48352ee54d56c0c"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/214b55530de591c497276d1944637ea5383ca74b"
                     },
                     {
-                        "hash":  "741378eeda64b0255fcd5c9f8ebef022eed9a184",
-                        "shortHash":  "741378eeda64",
+                        "hash":  "6ae1d17e44861e31c8d85ea558faa79625919c07",
+                        "shortHash":  "6ae1d17e4486",
                         "parents":  [
-                                        "a6a834a57eac85339035c2b0321f50cf75f82c22"
+                                        "58a10923bdd2a14f40fef46bf3c90a80ee262613"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -1789,7 +1829,7 @@
                         "committedAt":  "2026-10-09T22:47:38-06:00",
                         "subject":  "chore(videojuego): iniciar rama de misiones y NPC",
                         "branches":  [
-                                         "feature/unity-misiones\n  remotes/origin/feature/unity-misiones"
+                                         "feature/unity-misiones"
                                      ],
                         "files":  [
 
@@ -1798,13 +1838,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/741378eeda64b0255fcd5c9f8ebef022eed9a184"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/6ae1d17e44861e31c8d85ea558faa79625919c07"
                     },
                     {
-                        "hash":  "85d0a49c0ab5d6bd306045cdbd6e795b6b40011f",
-                        "shortHash":  "85d0a49c0ab5",
+                        "hash":  "b3f34b472c728e11f89d044b4f7cba6cf27af775",
+                        "shortHash":  "b3f34b472c72",
                         "parents":  [
-                                        "a6a834a57eac85339035c2b0321f50cf75f82c22"
+                                        "58a10923bdd2a14f40fef46bf3c90a80ee262613"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -1814,7 +1854,7 @@
                         "committedAt":  "2026-10-09T22:47:43-06:00",
                         "subject":  "chore(movil): iniciar rama de autenticacion",
                         "branches":  [
-                                         "feature/flutter-autenticacion\n  remotes/origin/feature/flutter-autenticacion"
+                                         "feature/flutter-autenticacion"
                                      ],
                         "files":  [
 
@@ -1823,13 +1863,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "movil",
                         "activityLabel":  "Aplicacion movil",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/85d0a49c0ab5d6bd306045cdbd6e795b6b40011f"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/b3f34b472c728e11f89d044b4f7cba6cf27af775"
                     },
                     {
-                        "hash":  "002c5f8349be0208db306ff5ec7ff43da317f506",
-                        "shortHash":  "002c5f8349be",
+                        "hash":  "da2e08034c6bae05fe2e43d87e75dc4d091457e0",
+                        "shortHash":  "da2e08034c6b",
                         "parents":  [
-                                        "a6a834a57eac85339035c2b0321f50cf75f82c22"
+                                        "58a10923bdd2a14f40fef46bf3c90a80ee262613"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -1839,7 +1879,7 @@
                         "committedAt":  "2026-10-09T22:47:48-06:00",
                         "subject":  "chore(movil): iniciar rama de pantallas",
                         "branches":  [
-                                         "feature/flutter-pantallas\n  remotes/origin/feature/flutter-pantallas"
+                                         "feature/flutter-pantallas"
                                      ],
                         "files":  [
 
@@ -1848,13 +1888,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "movil",
                         "activityLabel":  "Aplicacion movil",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/002c5f8349be0208db306ff5ec7ff43da317f506"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/da2e08034c6bae05fe2e43d87e75dc4d091457e0"
                     },
                     {
-                        "hash":  "150a175702b69edfdfa64ae9b2503b2a4fb1618b",
-                        "shortHash":  "150a175702b6",
+                        "hash":  "7ccd49d4263ce300fee37b1bcf3208055aff2340",
+                        "shortHash":  "7ccd49d4263c",
                         "parents":  [
-                                        "a6a834a57eac85339035c2b0321f50cf75f82c22"
+                                        "58a10923bdd2a14f40fef46bf3c90a80ee262613"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -1864,7 +1904,7 @@
                         "committedAt":  "2026-10-09T22:47:55-06:00",
                         "subject":  "chore(web): iniciar rama de PWA",
                         "branches":  [
-                                         "+ feature/react-pwa\n  remotes/origin/feature/react-pwa"
+                                         "feature/react-pwa"
                                      ],
                         "files":  [
 
@@ -1873,13 +1913,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "configuracion",
                         "activityLabel":  "Configuracion del proyecto",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/150a175702b69edfdfa64ae9b2503b2a4fb1618b"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/7ccd49d4263ce300fee37b1bcf3208055aff2340"
                     },
                     {
-                        "hash":  "f6cf69f5de6903b1ca27b731895d5cf50a30377a",
-                        "shortHash":  "f6cf69f5de69",
+                        "hash":  "d8959ec18ae931402062135fafbe2f6a5b7a435f",
+                        "shortHash":  "d8959ec18ae9",
                         "parents":  [
-                                        "a6a834a57eac85339035c2b0321f50cf75f82c22"
+                                        "58a10923bdd2a14f40fef46bf3c90a80ee262613"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -1889,7 +1929,7 @@
                         "committedAt":  "2026-10-09T22:48:00-06:00",
                         "subject":  "chore(web): iniciar rama de administracion",
                         "branches":  [
-                                         "feature/react-administracion\n  remotes/origin/feature/react-administracion"
+                                         "feature/react-administracion"
                                      ],
                         "files":  [
 
@@ -1898,13 +1938,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "configuracion",
                         "activityLabel":  "Configuracion del proyecto",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/f6cf69f5de6903b1ca27b731895d5cf50a30377a"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/d8959ec18ae931402062135fafbe2f6a5b7a435f"
                     },
                     {
-                        "hash":  "b2336220c1b850bb53888f63f4fb1673310b3ce6",
-                        "shortHash":  "b2336220c1b8",
+                        "hash":  "f10c73ff7053cb0b1ef429c9c352f79721d931f5",
+                        "shortHash":  "f10c73ff7053",
                         "parents":  [
-                                        "a6a834a57eac85339035c2b0321f50cf75f82c22"
+                                        "58a10923bdd2a14f40fef46bf3c90a80ee262613"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -1914,7 +1954,7 @@
                         "committedAt":  "2026-10-09T22:48:06-06:00",
                         "subject":  "chore(api): iniciar rama de autenticacion",
                         "branches":  [
-                                         "feature/api-autenticacion\n  remotes/origin/feature/api-autenticacion"
+                                         "feature/api-autenticacion"
                                      ],
                         "files":  [
 
@@ -1923,13 +1963,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "configuracion",
                         "activityLabel":  "Configuracion del proyecto",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/b2336220c1b850bb53888f63f4fb1673310b3ce6"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/f10c73ff7053cb0b1ef429c9c352f79721d931f5"
                     },
                     {
-                        "hash":  "d1c0f84d3e5358c48ee48bd384891beadd59b9ce",
-                        "shortHash":  "d1c0f84d3e53",
+                        "hash":  "a40ebbff94ee9d19f0aff62682bc192002891e70",
+                        "shortHash":  "a40ebbff94ee",
                         "parents":  [
-                                        "a6a834a57eac85339035c2b0321f50cf75f82c22"
+                                        "58a10923bdd2a14f40fef46bf3c90a80ee262613"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -1939,7 +1979,7 @@
                         "committedAt":  "2026-10-09T22:48:11-06:00",
                         "subject":  "chore(database): iniciar rama de modelos",
                         "branches":  [
-                                         "feature/mongodb-modelos\n  remotes/origin/feature/mongodb-modelos"
+                                         "feature/mongodb-modelos"
                                      ],
                         "files":  [
 
@@ -1948,13 +1988,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "configuracion",
                         "activityLabel":  "Configuracion del proyecto",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/d1c0f84d3e5358c48ee48bd384891beadd59b9ce"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/a40ebbff94ee9d19f0aff62682bc192002891e70"
                     },
                     {
-                        "hash":  "0ff521f7baf08902235c2316601181ba5d7294b1",
-                        "shortHash":  "0ff521f7baf0",
+                        "hash":  "63876738de8480ae9d2c9f7d2fff5e881ca2123e",
+                        "shortHash":  "63876738de84",
                         "parents":  [
-                                        "ae775f5deae782e4838c4943cbc0a0295cd9a883"
+                                        "50e1e644b2bb51dc445dbae52d38909991121d0d"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -1964,7 +2004,11 @@
                         "committedAt":  "2026-10-10T16:33:22-06:00",
                         "subject":  "docs: agregar imagenes de roles y de arquitectura con MongoDB",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/mobile-flutter\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones\n  remotes/origin/feature/mobile-flutter"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/mobile-flutter",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -2002,13 +2046,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/0ff521f7baf08902235c2316601181ba5d7294b1"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/63876738de8480ae9d2c9f7d2fff5e881ca2123e"
                     },
                     {
-                        "hash":  "0bf33f67c28de95e3516c1a0eff4bb031bbdf51d",
-                        "shortHash":  "0bf33f67c28d",
+                        "hash":  "6479aff597c703226adc802c64f0fcca1f9d9650",
+                        "shortHash":  "6479aff597c7",
                         "parents":  [
-                                        "0ff521f7baf08902235c2316601181ba5d7294b1"
+                                        "63876738de8480ae9d2c9f7d2fff5e881ca2123e"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -2018,7 +2062,7 @@
                         "committedAt":  "2026-10-10T17:19:39-06:00",
                         "subject":  "feat(movil): crear proyecto Flutter con pantallas, widgets y datos simulados",
                         "branches":  [
-                                         "+ feature/mobile-flutter\n  remotes/origin/feature/mobile-flutter"
+                                         "feature/mobile-flutter"
                                      ],
                         "files":  [
                                       {
@@ -2561,13 +2605,13 @@
                         "phase":  "Implementación",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/0bf33f67c28de95e3516c1a0eff4bb031bbdf51d"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/6479aff597c703226adc802c64f0fcca1f9d9650"
                     },
                     {
-                        "hash":  "ec87280658afa9c6e2dcf4bbcafa98e1c8baaa5b",
-                        "shortHash":  "ec87280658af",
+                        "hash":  "5fb357dbb004b7201edaebe2336c3c3ee5089be2",
+                        "shortHash":  "5fb357dbb004",
                         "parents":  [
-                                        "0bf33f67c28de95e3516c1a0eff4bb031bbdf51d"
+                                        "6479aff597c703226adc802c64f0fcca1f9d9650"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -2577,7 +2621,7 @@
                         "committedAt":  "2026-10-10T17:43:24-06:00",
                         "subject":  "style(movil): quitar nivel 4 de estadisticas en perfil",
                         "branches":  [
-                                         "+ feature/mobile-flutter\n  remotes/origin/feature/mobile-flutter"
+                                         "feature/mobile-flutter"
                                      ],
                         "files":  [
                                       {
@@ -2590,13 +2634,13 @@
                         "phase":  "Cambio registrado",
                         "activityKey":  "unity-escenarios",
                         "activityLabel":  "Escenarios y niveles",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/ec87280658afa9c6e2dcf4bbcafa98e1c8baaa5b"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/5fb357dbb004b7201edaebe2336c3c3ee5089be2"
                     },
                     {
-                        "hash":  "727b78611de8cd79bbf7ee454a0b65615f8860c8",
-                        "shortHash":  "727b78611de8",
+                        "hash":  "ce6619b4fcac16a9d5e6d44e73a856211bab5536",
+                        "shortHash":  "ce6619b4fcac",
                         "parents":  [
-                                        "ec87280658afa9c6e2dcf4bbcafa98e1c8baaa5b"
+                                        "5fb357dbb004b7201edaebe2336c3c3ee5089be2"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -2606,7 +2650,7 @@
                         "committedAt":  "2026-10-10T18:39:55-06:00",
                         "subject":  "style(movil): quitar ciberseguridad de habilidades y mock data",
                         "branches":  [
-                                         "+ feature/mobile-flutter\n  remotes/origin/feature/mobile-flutter"
+                                         "feature/mobile-flutter"
                                      ],
                         "files":  [
                                       {
@@ -2619,13 +2663,13 @@
                         "phase":  "Cambio registrado",
                         "activityKey":  "movil",
                         "activityLabel":  "Aplicacion movil",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/727b78611de8cd79bbf7ee454a0b65615f8860c8"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/ce6619b4fcac16a9d5e6d44e73a856211bab5536"
                     },
                     {
-                        "hash":  "5a5e406dcd0a649ac13fa9472efacea88d27ff99",
-                        "shortHash":  "5a5e406dcd0a",
+                        "hash":  "8d3dfd5f6b89332ff6e55ded70047e449bdda4d0",
+                        "shortHash":  "8d3dfd5f6b89",
                         "parents":  [
-                                        "727b78611de8cd79bbf7ee454a0b65615f8860c8"
+                                        "ce6619b4fcac16a9d5e6d44e73a856211bab5536"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -2635,7 +2679,7 @@
                         "committedAt":  "2026-10-10T18:44:33-06:00",
                         "subject":  "fix(movil): quitar personaje Elena de datos simulados",
                         "branches":  [
-                                         "+ feature/mobile-flutter\n  remotes/origin/feature/mobile-flutter"
+                                         "feature/mobile-flutter"
                                      ],
                         "files":  [
                                       {
@@ -2648,13 +2692,13 @@
                         "phase":  "Corrección",
                         "activityKey":  "unity-personajes",
                         "activityLabel":  "Personajes y movimiento",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/5a5e406dcd0a649ac13fa9472efacea88d27ff99"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/8d3dfd5f6b89332ff6e55ded70047e449bdda4d0"
                     },
                     {
-                        "hash":  "5cd5983c191f0864bb8ace092780208d5d28324a",
-                        "shortHash":  "5cd5983c191f",
+                        "hash":  "0963f2338ae1b2a69a6a130ac0f05264f7b57c03",
+                        "shortHash":  "0963f2338ae1",
                         "parents":  [
-                                        "5a5e406dcd0a649ac13fa9472efacea88d27ff99"
+                                        "8d3dfd5f6b89332ff6e55ded70047e449bdda4d0"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -2664,7 +2708,7 @@
                         "committedAt":  "2026-10-10T19:17:42-06:00",
                         "subject":  "feat(movil): notificaciones de logros desbloqueados tipo steam",
                         "branches":  [
-                                         "+ feature/mobile-flutter\n  remotes/origin/feature/mobile-flutter"
+                                         "feature/mobile-flutter"
                                      ],
                         "files":  [
                                       {
@@ -2792,13 +2836,13 @@
                         "phase":  "Implementación",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/5cd5983c191f0864bb8ace092780208d5d28324a"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/0963f2338ae1b2a69a6a130ac0f05264f7b57c03"
                     },
                     {
-                        "hash":  "75eb1deec5152ac18db9766494fc26c3069c8ec2",
-                        "shortHash":  "75eb1deec515",
+                        "hash":  "d61e40234815dc49212f94298cf3ae7b0c389db1",
+                        "shortHash":  "d61e40234815",
                         "parents":  [
-                                        "0ff521f7baf08902235c2316601181ba5d7294b1"
+                                        "63876738de8480ae9d2c9f7d2fff5e881ca2123e"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -2808,7 +2852,10 @@
                         "committedAt":  "2026-10-13T17:32:50-06:00",
                         "subject":  "Business Model Canvas Interactivo",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -2926,13 +2973,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/75eb1deec5152ac18db9766494fc26c3069c8ec2"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/d61e40234815dc49212f94298cf3ae7b0c389db1"
                     },
                     {
-                        "hash":  "99cc893a3fef123179957420d648a7b03a974dcf",
-                        "shortHash":  "99cc893a3fef",
+                        "hash":  "5c254c8df790c2d65f09a9a787fbf2d738f261e1",
+                        "shortHash":  "5c254c8df790",
                         "parents":  [
-                                        "75eb1deec5152ac18db9766494fc26c3069c8ec2"
+                                        "d61e40234815dc49212f94298cf3ae7b0c389db1"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -2942,7 +2989,10 @@
                         "committedAt":  "2026-10-13T17:32:55-06:00",
                         "subject":  "mejora Business Model Canvas visual",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -3320,13 +3370,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/99cc893a3fef123179957420d648a7b03a974dcf"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/5c254c8df790c2d65f09a9a787fbf2d738f261e1"
                     },
                     {
-                        "hash":  "b622895bd3495d757462c3d52f39099090c60948",
-                        "shortHash":  "b622895bd349",
+                        "hash":  "f6b5557239bbfcec9bf99483e5b211e443a33072",
+                        "shortHash":  "f6b5557239bb",
                         "parents":  [
-                                        "99cc893a3fef123179957420d648a7b03a974dcf"
+                                        "5c254c8df790c2d65f09a9a787fbf2d738f261e1"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -3336,7 +3386,10 @@
                         "committedAt":  "2026-10-13T17:33:01-06:00",
                         "subject":  "chore: sincronizar archivos generados del proyecto movil",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -4949,13 +5002,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "unity-escenarios",
                         "activityLabel":  "Escenarios y niveles",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/b622895bd3495d757462c3d52f39099090c60948"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/f6b5557239bbfcec9bf99483e5b211e443a33072"
                     },
                     {
-                        "hash":  "519adc50e52d9f455683cc9c040442867f233d2b",
-                        "shortHash":  "519adc50e52d",
+                        "hash":  "a6a1a662c5cf60d44ec118fd92567a3821cfdc03",
+                        "shortHash":  "a6a1a662c5cf",
                         "parents":  [
-                                        "b622895bd3495d757462c3d52f39099090c60948"
+                                        "f6b5557239bbfcec9bf99483e5b211e443a33072"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -4965,7 +5018,10 @@
                         "committedAt":  "2026-10-19T16:19:23-06:00",
                         "subject":  "feat: integrar animaciones de personajes, camara y documentacion DevOps",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -5348,13 +5404,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "unity-animaciones",
                         "activityLabel":  "Animaciones y recursos Unity",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/519adc50e52d9f455683cc9c040442867f233d2b"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/a6a1a662c5cf60d44ec118fd92567a3821cfdc03"
                     },
                     {
-                        "hash":  "59ec65da187f7c43f412260d3164ec5128babc49",
-                        "shortHash":  "59ec65da187f",
+                        "hash":  "5c639b6475bef8502e1378b67a946de571c49f77",
+                        "shortHash":  "5c639b6475be",
                         "parents":  [
-                                        "519adc50e52d9f455683cc9c040442867f233d2b"
+                                        "a6a1a662c5cf60d44ec118fd92567a3821cfdc03"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -5364,7 +5420,10 @@
                         "committedAt":  "2026-10-19T16:53:01-06:00",
                         "subject":  "docs: integrar imagen de arquitectura con Grafana",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -5392,13 +5451,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "monitoreo",
                         "activityLabel":  "Monitoreo y telemetria",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/59ec65da187f7c43f412260d3164ec5128babc49"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/5c639b6475bef8502e1378b67a946de571c49f77"
                     },
                     {
-                        "hash":  "f367372b02e2b9b3c4fe8d1576054192aa4f64c7",
-                        "shortHash":  "f367372b02e2",
+                        "hash":  "bc424bfc0a1d695790b2a3d78885a200d75dd63c",
+                        "shortHash":  "bc424bfc0a1d",
                         "parents":  [
-                                        "59ec65da187f7c43f412260d3164ec5128babc49"
+                                        "5c639b6475bef8502e1378b67a946de571c49f77"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -5408,7 +5467,10 @@
                         "committedAt":  "2026-10-19T17:03:27-06:00",
                         "subject":  "docs: integrar paleta de colores del videojuego",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -5431,13 +5493,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/f367372b02e2b9b3c4fe8d1576054192aa4f64c7"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/bc424bfc0a1d695790b2a3d78885a200d75dd63c"
                     },
                     {
-                        "hash":  "6820485c5466ab1415ead7e913341b574932f83b",
-                        "shortHash":  "6820485c5466",
+                        "hash":  "61169c0e81a1ac8a8d67f33fa7f0648120cf205c",
+                        "shortHash":  "61169c0e81a1",
                         "parents":  [
-                                        "f367372b02e2b9b3c4fe8d1576054192aa4f64c7"
+                                        "bc424bfc0a1d695790b2a3d78885a200d75dd63c"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -5447,7 +5509,10 @@
                         "committedAt":  "2026-10-19T17:24:24-06:00",
                         "subject":  "docs: actualizar paleta cyberpunk del videojuego",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -5475,13 +5540,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/6820485c5466ab1415ead7e913341b574932f83b"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/61169c0e81a1ac8a8d67f33fa7f0648120cf205c"
                     },
                     {
-                        "hash":  "3195285d466823fc10c4abd8020c019dd2f21573",
-                        "shortHash":  "3195285d4668",
+                        "hash":  "d2c21c712e48826b4a6c7b13aab2a4bf6f76f971",
+                        "shortHash":  "d2c21c712e48",
                         "parents":  [
-                                        "6820485c5466ab1415ead7e913341b574932f83b"
+                                        "61169c0e81a1ac8a8d67f33fa7f0648120cf205c"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -5491,7 +5556,10 @@
                         "committedAt":  "2026-10-19T17:33:24-06:00",
                         "subject":  "docs: agregar logos de empresa y producto",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -5514,13 +5582,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/3195285d466823fc10c4abd8020c019dd2f21573"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/d2c21c712e48826b4a6c7b13aab2a4bf6f76f971"
                     },
                     {
-                        "hash":  "f67938400f60ef0ae7aed89698a65bcfdbcbcdb7",
-                        "shortHash":  "f67938400f60",
+                        "hash":  "1bed689ea9942e3371b83a445ab62b6c8ff6c7a3",
+                        "shortHash":  "1bed689ea994",
                         "parents":  [
-                                        "3195285d466823fc10c4abd8020c019dd2f21573"
+                                        "d2c21c712e48826b4a6c7b13aab2a4bf6f76f971"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -5530,7 +5598,10 @@
                         "committedAt":  "2026-10-19T17:49:15-06:00",
                         "subject":  "docs: agregar insignias de tecnologias del proyecto",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones",
+                                         "feature/docker",
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -5543,13 +5614,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/f67938400f60ef0ae7aed89698a65bcfdbcbcdb7"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/1bed689ea9942e3371b83a445ab62b6c8ff6c7a3"
                     },
                     {
-                        "hash":  "c9f3a69fd8273640c2817de23464c96ea79ea513",
-                        "shortHash":  "c9f3a69fd827",
+                        "hash":  "ce5f344684a83a45232cd1b5ee07803538d08456",
+                        "shortHash":  "ce5f344684a8",
                         "parents":  [
-                                        "f67938400f60ef0ae7aed89698a65bcfdbcbcdb7"
+                                        "1bed689ea9942e3371b83a445ab62b6c8ff6c7a3"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -5559,7 +5630,8 @@
                         "committedAt":  "2026-10-20T11:11:44-06:00",
                         "subject":  "docs: integra practicas HTML y portal para GitHub Pages",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -6317,13 +6389,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/c9f3a69fd8273640c2817de23464c96ea79ea513"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/ce5f344684a83a45232cd1b5ee07803538d08456"
                     },
                     {
-                        "hash":  "9e21e0b4172b6bdfa77797682e9cc389a47b03d0",
-                        "shortHash":  "9e21e0b4172b",
+                        "hash":  "8a100bc77f50a23d710852e80121af54e55b3818",
+                        "shortHash":  "8a100bc77f50",
                         "parents":  [
-                                        "c9f3a69fd8273640c2817de23464c96ea79ea513"
+                                        "ce5f344684a83a45232cd1b5ee07803538d08456"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -6333,7 +6405,8 @@
                         "committedAt":  "2026-10-20T12:19:03-06:00",
                         "subject":  "docs: agregar analisis de ingresos al canvas de practica04",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -6371,13 +6444,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/9e21e0b4172b6bdfa77797682e9cc389a47b03d0"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/8a100bc77f50a23d710852e80121af54e55b3818"
                     },
                     {
-                        "hash":  "fa66534627b3f80734fa70a1e6346b2195d6eab7",
-                        "shortHash":  "fa66534627b3",
+                        "hash":  "9afef3a3c48a69e5da068061423bc7291a4516a8",
+                        "shortHash":  "9afef3a3c48a",
                         "parents":  [
-                                        "9e21e0b4172b6bdfa77797682e9cc389a47b03d0"
+                                        "8a100bc77f50a23d710852e80121af54e55b3818"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -6387,7 +6460,8 @@
                         "committedAt":  "2026-10-20T13:29:54-06:00",
                         "subject":  "docs: agregar enlaces de GitHub Pages al documento completo",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -6400,13 +6474,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/fa66534627b3f80734fa70a1e6346b2195d6eab7"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/9afef3a3c48a69e5da068061423bc7291a4516a8"
                     },
                     {
-                        "hash":  "c2fa011d5a6ce62475923cbb4c51f76226761f9c",
-                        "shortHash":  "c2fa011d5a6c",
+                        "hash":  "d7061d51423b2450b1cb8201ff1891fd284126bd",
+                        "shortHash":  "d7061d51423b",
                         "parents":  [
-                                        "fa66534627b3f80734fa70a1e6346b2195d6eab7"
+                                        "9afef3a3c48a69e5da068061423bc7291a4516a8"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -6416,7 +6490,8 @@
                         "committedAt":  "2026-10-20T17:27:11-06:00",
                         "subject":  "docs: agregar diagrama de Gantt al documento completo",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -6439,13 +6514,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/c2fa011d5a6ce62475923cbb4c51f76226761f9c"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/d7061d51423b2450b1cb8201ff1891fd284126bd"
                     },
                     {
-                        "hash":  "c0292c82a562c86f8f8fd9cd338fdb0fc4d5ead5",
-                        "shortHash":  "c0292c82a562",
+                        "hash":  "7f435cd9cd91c3f90dd27ed7d720912b6d439cf0",
+                        "shortHash":  "7f435cd9cd91",
                         "parents":  [
-                                        "c2fa011d5a6ce62475923cbb4c51f76226761f9c"
+                                        "d7061d51423b2450b1cb8201ff1891fd284126bd"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -6455,7 +6530,8 @@
                         "committedAt":  "2026-10-20T17:30:18-06:00",
                         "subject":  "docs: agregar documentacion inicial de Docker",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -6473,13 +6549,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "plataforma",
                         "activityLabel":  "Infraestructura y servicios",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/c0292c82a562c86f8f8fd9cd338fdb0fc4d5ead5"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/7f435cd9cd91c3f90dd27ed7d720912b6d439cf0"
                     },
                     {
-                        "hash":  "91bbf10f1e1108d5854670af166e781f01149a25",
-                        "shortHash":  "91bbf10f1e11",
+                        "hash":  "00e42a29f02b8cf40e7ca2e8690c843044ef7874",
+                        "shortHash":  "00e42a29f02b",
                         "parents":  [
-                                        "3f6b89943da3fc3df4dfbdc1c48352ee54d56c0c"
+                                        "214b55530de591c497276d1944637ea5383ca74b"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -6489,7 +6565,8 @@
                         "committedAt":  "2026-10-24T21:00:51-06:00",
                         "subject":  "feat(unity): shrink map and add NovaTech office decoration",
                         "branches":  [
-                                         "feature/mongodb-modelos\n  feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento"
+                                         "feature/mongodb-modelos",
+                                         "feature/unity-movimiento"
                                      ],
                         "files":  [
                                       {
@@ -8317,13 +8394,13 @@
                         "phase":  "Implementación",
                         "activityKey":  "unity-animaciones",
                         "activityLabel":  "Animaciones y recursos Unity",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/91bbf10f1e1108d5854670af166e781f01149a25"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/00e42a29f02b8cf40e7ca2e8690c843044ef7874"
                     },
                     {
-                        "hash":  "01ea712905f798472910e922f2bbe26b6fbebeca",
-                        "shortHash":  "01ea712905f7",
+                        "hash":  "f4d4eadcdc8f057734f39e57f59192fdbfcf7130",
+                        "shortHash":  "f4d4eadcdc8f",
                         "parents":  [
-                                        "91bbf10f1e1108d5854670af166e781f01149a25"
+                                        "00e42a29f02b8cf40e7ca2e8690c843044ef7874"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -8333,7 +8410,8 @@
                         "committedAt":  "2026-10-25T17:31:10-06:00",
                         "subject":  "feat(unity): rebuild NovaTech level and add player-follow camera",
                         "branches":  [
-                                         "feature/mongodb-modelos\n  feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento"
+                                         "feature/mongodb-modelos",
+                                         "feature/unity-movimiento"
                                      ],
                         "files":  [
                                       {
@@ -9801,13 +9879,13 @@
                         "phase":  "Implementación",
                         "activityKey":  "unity-animaciones",
                         "activityLabel":  "Animaciones y recursos Unity",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/01ea712905f798472910e922f2bbe26b6fbebeca"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/f4d4eadcdc8f057734f39e57f59192fdbfcf7130"
                     },
                     {
-                        "hash":  "3441c32230cef73e64e6dd73bdc6e2e1a0bf1ad8",
-                        "shortHash":  "3441c32230ce",
+                        "hash":  "06480367c036311c4e96b481390c3a1521e4bbae",
+                        "shortHash":  "06480367c036",
                         "parents":  [
-                                        "01ea712905f798472910e922f2bbe26b6fbebeca"
+                                        "f4d4eadcdc8f057734f39e57f59192fdbfcf7130"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -9817,7 +9895,8 @@
                         "committedAt":  "2026-10-25T20:45:07-06:00",
                         "subject":  "feat(unity): add first mission gameplay and update NovaTech level",
                         "branches":  [
-                                         "feature/mongodb-modelos\n  feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento"
+                                         "feature/mongodb-modelos",
+                                         "feature/unity-movimiento"
                                      ],
                         "files":  [
                                       {
@@ -10540,14 +10619,14 @@
                         "phase":  "Implementación",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/3441c32230cef73e64e6dd73bdc6e2e1a0bf1ad8"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/06480367c036311c4e96b481390c3a1521e4bbae"
                     },
                     {
-                        "hash":  "57ccbb865ca74f524144d5b67c9fd72ef0945baa",
-                        "shortHash":  "57ccbb865ca7",
+                        "hash":  "2e80c1f7dfacac4a25903fca8a0024fdb8c730e2",
+                        "shortHash":  "2e80c1f7dfac",
                         "parents":  [
-                                        "d1c0f84d3e5358c48ee48bd384891beadd59b9ce",
-                                        "3441c32230cef73e64e6dd73bdc6e2e1a0bf1ad8"
+                                        "a40ebbff94ee9d19f0aff62682bc192002891e70",
+                                        "06480367c036311c4e96b481390c3a1521e4bbae"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -10566,13 +10645,13 @@
                         "phase":  "Implementación",
                         "activityKey":  "modulo-repositorio",
                         "activityLabel":  "Repositorio",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/57ccbb865ca74f524144d5b67c9fd72ef0945baa"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/2e80c1f7dfacac4a25903fca8a0024fdb8c730e2"
                     },
                     {
-                        "hash":  "07dab9a5cac45e127300f88340229f3ee181df9e",
-                        "shortHash":  "07dab9a5cac4",
+                        "hash":  "9742e4393238ae7d1c16d0d7540609af7ca052a1",
+                        "shortHash":  "9742e4393238",
                         "parents":  [
-                                        "c0292c82a562c86f8f8fd9cd338fdb0fc4d5ead5"
+                                        "7f435cd9cd91c3f90dd27ed7d720912b6d439cf0"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -10582,7 +10661,8 @@
                         "committedAt":  "2026-10-26T17:18:24-06:00",
                         "subject":  "docs: agrega wireframes y navegacion por roles para GitHub Pages",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -10810,13 +10890,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "movil",
                         "activityLabel":  "Aplicacion movil",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/07dab9a5cac45e127300f88340229f3ee181df9e"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/9742e4393238ae7d1c16d0d7540609af7ca052a1"
                     },
                     {
-                        "hash":  "7e4a75ad7a8f4e60e4ff6c3dbb98321ccceefc69",
-                        "shortHash":  "7e4a75ad7a8f",
+                        "hash":  "e6bf4392f81acfd6dc542217b57c6ae39e5320a1",
+                        "shortHash":  "e6bf4392f81a",
                         "parents":  [
-                                        "3441c32230cef73e64e6dd73bdc6e2e1a0bf1ad8"
+                                        "06480367c036311c4e96b481390c3a1521e4bbae"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -10826,7 +10906,7 @@
                         "committedAt":  "2026-10-30T12:02:19-06:00",
                         "subject":  "feat(unity): add main menu scene",
                         "branches":  [
-                                         "feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento"
+                                         "feature/unity-movimiento"
                                      ],
                         "files":  [
                                       {
@@ -11234,13 +11314,13 @@
                         "phase":  "Implementación",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/7e4a75ad7a8f4e60e4ff6c3dbb98321ccceefc69"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/e6bf4392f81acfd6dc542217b57c6ae39e5320a1"
                     },
                     {
-                        "hash":  "74923b8a1c14dff444eebd6ad590a0d95c6f3d45",
-                        "shortHash":  "74923b8a1c14",
+                        "hash":  "c90e764e91bb0c440b9ec44d08383d8887ed68ba",
+                        "shortHash":  "c90e764e91bb",
                         "parents":  [
-                                        "7e4a75ad7a8f4e60e4ff6c3dbb98321ccceefc69"
+                                        "e6bf4392f81acfd6dc542217b57c6ae39e5320a1"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -11250,7 +11330,7 @@
                         "committedAt":  "2026-10-30T12:02:35-06:00",
                         "subject":  "chore(unity): add main menu editor tools",
                         "branches":  [
-                                         "feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento"
+                                         "feature/unity-movimiento"
                                      ],
                         "files":  [
                                       {
@@ -11288,13 +11368,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "unity-interfaces",
                         "activityLabel":  "Interfaces del videojuego",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/74923b8a1c14dff444eebd6ad590a0d95c6f3d45"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/c90e764e91bb0c440b9ec44d08383d8887ed68ba"
                     },
                     {
-                        "hash":  "e96ee800ec83958ba9eb9a8b3eab0938f66c3662",
-                        "shortHash":  "e96ee800ec83",
+                        "hash":  "e1827eb81750eb86884e9aa0a7a4b440cc27735c",
+                        "shortHash":  "e1827eb81750",
                         "parents":  [
-                                        "74923b8a1c14dff444eebd6ad590a0d95c6f3d45"
+                                        "c90e764e91bb0c440b9ec44d08383d8887ed68ba"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -11304,7 +11384,7 @@
                         "committedAt":  "2026-10-30T12:02:35-06:00",
                         "subject":  "feat(unity): start first mission at south entrance",
                         "branches":  [
-                                         "feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento"
+                                         "feature/unity-movimiento"
                                      ],
                         "files":  [
                                       {
@@ -11342,13 +11422,13 @@
                         "phase":  "Implementación",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/e96ee800ec83958ba9eb9a8b3eab0938f66c3662"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/e1827eb81750eb86884e9aa0a7a4b440cc27735c"
                     },
                     {
-                        "hash":  "f0f3a04839ee749b9735ca50555a0d2146abe861",
-                        "shortHash":  "f0f3a04839ee",
+                        "hash":  "d061759fd950e4a6f3f464d81e5812a227194f0c",
+                        "shortHash":  "d061759fd950",
                         "parents":  [
-                                        "07dab9a5cac45e127300f88340229f3ee181df9e"
+                                        "9742e4393238ae7d1c16d0d7540609af7ca052a1"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -11358,7 +11438,8 @@
                         "committedAt":  "2026-10-30T12:47:16-06:00",
                         "subject":  "docs: refresh project overview and visual assets",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -11396,13 +11477,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/f0f3a04839ee749b9735ca50555a0d2146abe861"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/d061759fd950e4a6f3f464d81e5812a227194f0c"
                     },
                     {
-                        "hash":  "1481271fa554f6fdae5825a1cc020e183fca5e3e",
-                        "shortHash":  "1481271fa554",
+                        "hash":  "a4b954018f30e487da8a77b6dfcd5aaf24a29174",
+                        "shortHash":  "a4b954018f30",
                         "parents":  [
-                                        "f0f3a04839ee749b9735ca50555a0d2146abe861"
+                                        "d061759fd950e4a6f3f464d81e5812a227194f0c"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -11412,7 +11493,8 @@
                         "committedAt":  "2026-11-04T09:21:15-06:00",
                         "subject":  "docs: agrega practica de navegacion por roles",
                         "branches":  [
-                                         "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/documentacion",
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -11845,13 +11927,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/1481271fa554f6fdae5825a1cc020e183fca5e3e"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/a4b954018f30e487da8a77b6dfcd5aaf24a29174"
                     },
                     {
-                        "hash":  "4e1cd3f07cd17ad6c8def5678e84760f7e7e3a3a",
-                        "shortHash":  "4e1cd3f07cd1",
+                        "hash":  "d5185e8fe5d978ea0395a55358136809efe74df2",
+                        "shortHash":  "d5185e8fe5d9",
                         "parents":  [
-                                        "1481271fa554f6fdae5825a1cc020e183fca5e3e"
+                                        "a4b954018f30e487da8a77b6dfcd5aaf24a29174"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -11861,7 +11943,7 @@
                         "committedAt":  "2026-11-04T16:29:38-06:00",
                         "subject":  "docs: integra comparaciones reales de navegacion",
                         "branches":  [
-                                         "docs/practica-navegacion-comparaciones\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -11919,13 +12001,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/4e1cd3f07cd17ad6c8def5678e84760f7e7e3a3a"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/d5185e8fe5d978ea0395a55358136809efe74df2"
                     },
                     {
-                        "hash":  "3a2afa50a89e7c57b68ed8d716605bc42eeee259",
-                        "shortHash":  "3a2afa50a89e",
+                        "hash":  "e10ce17251b9533dd469b69bb4f216102c2a896e",
+                        "shortHash":  "e10ce17251b9",
                         "parents":  [
-                                        "4e1cd3f07cd17ad6c8def5678e84760f7e7e3a3a"
+                                        "d5185e8fe5d978ea0395a55358136809efe74df2"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -11935,7 +12017,7 @@
                         "committedAt":  "2026-11-04T16:57:55-06:00",
                         "subject":  "docs: agrega comparaciones visuales de pantallas",
                         "branches":  [
-                                         "docs/practica-navegacion-comparaciones\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -12143,13 +12225,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/3a2afa50a89e7c57b68ed8d716605bc42eeee259"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/e10ce17251b9533dd469b69bb4f216102c2a896e"
                     },
                     {
-                        "hash":  "c38e880d31175a7442d9597c5c8e49ef053b2956",
-                        "shortHash":  "c38e880d3117",
+                        "hash":  "29cf675863b5b1c1a8ca325dfaf934d11d1bba24",
+                        "shortHash":  "29cf675863b5",
                         "parents":  [
-                                        "3a2afa50a89e7c57b68ed8d716605bc42eeee259"
+                                        "e10ce17251b9533dd469b69bb4f216102c2a896e"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -12159,7 +12241,7 @@
                         "committedAt":  "2026-11-04T17:45:38-06:00",
                         "subject":  "docs: publica visor interactivo de navegacion",
                         "branches":  [
-                                         "docs/practica-navegacion-comparaciones\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -12742,13 +12824,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/c38e880d31175a7442d9597c5c8e49ef053b2956"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/29cf675863b5b1c1a8ca325dfaf934d11d1bba24"
                     },
                     {
-                        "hash":  "948fd07e947d62d89ba278f83e3a27b6acb9fe05",
-                        "shortHash":  "948fd07e947d",
+                        "hash":  "96fdb299732883e19dbe0fb8fe3198ac069d9b25",
+                        "shortHash":  "96fdb2997328",
                         "parents":  [
-                                        "c38e880d31175a7442d9597c5c8e49ef053b2956"
+                                        "29cf675863b5b1c1a8ca325dfaf934d11d1bba24"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -12758,7 +12840,7 @@
                         "committedAt":  "2026-11-04T18:11:39-06:00",
                         "subject":  "docs: agrega enlace del visor en GitHub Pages",
                         "branches":  [
-                                         "docs/practica-navegacion-comparaciones\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -12771,13 +12853,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/948fd07e947d62d89ba278f83e3a27b6acb9fe05"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/96fdb299732883e19dbe0fb8fe3198ac069d9b25"
                     },
                     {
-                        "hash":  "636a69b64893c151958a1a26ddb6a8bf57c95d02",
-                        "shortHash":  "636a69b64893",
+                        "hash":  "b5f3764135977292d5afee57fbaf68dd2cbd81c7",
+                        "shortHash":  "b5f376413597",
                         "parents":  [
-                                        "948fd07e947d62d89ba278f83e3a27b6acb9fe05"
+                                        "96fdb299732883e19dbe0fb8fe3198ac069d9b25"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -12787,7 +12869,7 @@
                         "committedAt":  "2026-11-04T18:21:58-06:00",
                         "subject":  "docs: enlaza visor interactivo desde la portada",
                         "branches":  [
-                                         "docs/practica-navegacion-comparaciones\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -12800,13 +12882,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/636a69b64893c151958a1a26ddb6a8bf57c95d02"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/b5f3764135977292d5afee57fbaf68dd2cbd81c7"
                     },
                     {
-                        "hash":  "16ff1c532397badd2666a5bfd98bbc1ccf00f15c",
-                        "shortHash":  "16ff1c532397",
+                        "hash":  "8b850593196b2aa8191e8ce1cec0a1a5e76578db",
+                        "shortHash":  "8b850593196b",
                         "parents":  [
-                                        "636a69b64893c151958a1a26ddb6a8bf57c95d02"
+                                        "b5f3764135977292d5afee57fbaf68dd2cbd81c7"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -12816,7 +12898,7 @@
                         "committedAt":  "2026-11-04T18:29:24-06:00",
                         "subject":  "docs: crea portal principal de practicas",
                         "branches":  [
-                                         "docs/practica-navegacion-comparaciones\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -12829,13 +12911,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/16ff1c532397badd2666a5bfd98bbc1ccf00f15c"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/8b850593196b2aa8191e8ce1cec0a1a5e76578db"
                     },
                     {
-                        "hash":  "842e0893557193cca4123579ce65f8b2730aee57",
-                        "shortHash":  "842e08935571",
+                        "hash":  "380d2e05a81f9a5f5307608435c739c46371f414",
+                        "shortHash":  "380d2e05a81f",
                         "parents":  [
-                                        "16ff1c532397badd2666a5bfd98bbc1ccf00f15c"
+                                        "8b850593196b2aa8191e8ce1cec0a1a5e76578db"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -12845,7 +12927,7 @@
                         "committedAt":  "2026-11-04T18:42:50-06:00",
                         "subject":  "docs: agrega indice de recursos visuales",
                         "branches":  [
-                                         "docs/practica-navegacion-comparaciones\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -12863,13 +12945,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/842e0893557193cca4123579ce65f8b2730aee57"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/380d2e05a81f9a5f5307608435c739c46371f414"
                     },
                     {
-                        "hash":  "b57b658878c1ca9618c3e8384b32dcf26187285b",
-                        "shortHash":  "b57b658878c1",
+                        "hash":  "2fb616133009d5e6f41e946755607a7afe347e24",
+                        "shortHash":  "2fb616133009",
                         "parents":  [
-                                        "842e0893557193cca4123579ce65f8b2730aee57"
+                                        "380d2e05a81f9a5f5307608435c739c46371f414"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez \"3B",
@@ -12879,7 +12961,7 @@
                         "committedAt":  "2026-11-04T19:01:07-06:00",
                         "subject":  "Update README.md",
                         "branches":  [
-                                         "remotes/origin/docs/practica-navegacion-comparaciones"
+                                         "docs/practica-navegacion-comparaciones"
                                      ],
                         "files":  [
                                       {
@@ -12892,13 +12974,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/b57b658878c1ca9618c3e8384b32dcf26187285b"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/2fb616133009d5e6f41e946755607a7afe347e24"
                     },
                     {
-                        "hash":  "9115f13fe5e51c0f4b94f068dec41833abe95532",
-                        "shortHash":  "9115f13fe5e5",
+                        "hash":  "4b69cd99c6df05fabe797a7d372b606799729265",
+                        "shortHash":  "4b69cd99c6df",
                         "parents":  [
-                                        "5cd5983c191f0864bb8ace092780208d5d28324a"
+                                        "0963f2338ae1b2a69a6a130ac0f05264f7b57c03"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -12908,7 +12990,7 @@
                         "committedAt":  "2026-11-05T16:43:29-06:00",
                         "subject":  "feat(movil): renueva interfaz NovaTech e iconos",
                         "branches":  [
-                                         "+ feature/mobile-flutter\n  remotes/origin/feature/mobile-flutter"
+                                         "feature/mobile-flutter"
                                      ],
                         "files":  [
                                       {
@@ -12981,13 +13063,13 @@
                         "phase":  "Implementación",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/9115f13fe5e51c0f4b94f068dec41833abe95532"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/4b69cd99c6df05fabe797a7d372b606799729265"
                     },
                     {
-                        "hash":  "f05fe9fdf15e1a8c7fa44b844a16fb3bca457af5",
-                        "shortHash":  "f05fe9fdf15e",
+                        "hash":  "2d793d500d9fa69e072799419b80ff3a7c038dc8",
+                        "shortHash":  "2d793d500d9f",
                         "parents":  [
-                                        "150a175702b69edfdfa64ae9b2503b2a4fb1618b"
+                                        "7ccd49d4263ce300fee37b1bcf3208055aff2340"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -12997,7 +13079,7 @@
                         "committedAt":  "2026-11-09T14:36:50-06:00",
                         "subject":  "feat(platform): incorporar PWA e infraestructura Keycloak",
                         "branches":  [
-                                         "+ feature/react-pwa\n  remotes/origin/feature/react-pwa"
+                                         "feature/react-pwa"
                                      ],
                         "files":  [
                                       {
@@ -13250,13 +13332,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "unity-misiones",
                         "activityLabel":  "Sistemas de misiones",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/f05fe9fdf15e1a8c7fa44b844a16fb3bca457af5"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/2d793d500d9fa69e072799419b80ff3a7c038dc8"
                     },
                     {
-                        "hash":  "741a10d9eba7fb5c9a8ae82518649d5fb047450e",
-                        "shortHash":  "741a10d9eba7",
+                        "hash":  "7302dee8b3eefe79151168d9b09596cd1073ee70",
+                        "shortHash":  "7302dee8b3ee",
                         "parents":  [
-                                        "1481271fa554f6fdae5825a1cc020e183fca5e3e"
+                                        "a4b954018f30e487da8a77b6dfcd5aaf24a29174"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -13266,7 +13348,7 @@
                         "committedAt":  "2026-11-09T15:23:10-06:00",
                         "subject":  "docs(raci): agrega matriz interactiva de operaciones",
                         "branches":  [
-                                         "docs/documentacion\n  remotes/origin/docs/documentacion"
+                                         "docs/documentacion"
                                      ],
                         "files":  [
                                       {
@@ -13299,13 +13381,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/741a10d9eba7fb5c9a8ae82518649d5fb047450e"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/7302dee8b3eefe79151168d9b09596cd1073ee70"
                     },
                     {
-                        "hash":  "3e21b6f5edbb09ccfc10f9bb8af1dcc4a736a2c4",
-                        "shortHash":  "3e21b6f5edbb",
+                        "hash":  "461423e40a400c91413b8752050dba83d39129df",
+                        "shortHash":  "461423e40a40",
                         "parents":  [
-                                        "741378eeda64b0255fcd5c9f8ebef022eed9a184"
+                                        "6ae1d17e44861e31c8d85ea558faa79625919c07"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -13315,7 +13397,7 @@
                         "committedAt":  "2026-11-10T15:04:01-06:00",
                         "subject":  "chore(videojuego): guardar estado actual del proyecto Unity",
                         "branches":  [
-                                         "feature/unity-misiones\n  remotes/origin/feature/unity-misiones"
+                                         "feature/unity-misiones"
                                      ],
                         "files":  [
                                       {
@@ -13508,13 +13590,13 @@
                         "phase":  "Configuración",
                         "activityKey":  "unity-escenarios",
                         "activityLabel":  "Escenarios y niveles",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/3e21b6f5edbb09ccfc10f9bb8af1dcc4a736a2c4"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/461423e40a400c91413b8752050dba83d39129df"
                     },
                     {
-                        "hash":  "924e7bd0064a9defc4d9845146a6b4db6749c902",
-                        "shortHash":  "924e7bd0064a",
+                        "hash":  "ed1e05e6b29c8f31298d67de2bb88e1feb47e402",
+                        "shortHash":  "ed1e05e6b29c",
                         "parents":  [
-                                        "a6a834a57eac85339035c2b0321f50cf75f82c22"
+                                        "58a10923bdd2a14f40fef46bf3c90a80ee262613"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez \"3B",
@@ -13524,7 +13606,7 @@
                         "committedAt":  "2026-11-10T16:08:29-06:00",
                         "subject":  "Update README.md",
                         "branches":  [
-
+                                         "main"
                                      ],
                         "files":  [
                                       {
@@ -13537,13 +13619,13 @@
                         "phase":  "Cambio registrado",
                         "activityKey":  "modulo-ra-z-readme-md",
                         "activityLabel":  "Raíz: README.md",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/924e7bd0064a9defc4d9845146a6b4db6749c902"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/ed1e05e6b29c8f31298d67de2bb88e1feb47e402"
                     },
                     {
-                        "hash":  "10e4c6f94ebe9d45f36635067cf9699b3971d39b",
-                        "shortHash":  "10e4c6f94ebe",
+                        "hash":  "07f2dd759a2a6dbc8805b96c425a323774f7985e",
+                        "shortHash":  "07f2dd759a2a",
                         "parents":  [
-                                        "f05fe9fdf15e1a8c7fa44b844a16fb3bca457af5"
+                                        "2d793d500d9fa69e072799419b80ff3a7c038dc8"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -13553,7 +13635,7 @@
                         "committedAt":  "2026-11-11T23:38:52-06:00",
                         "subject":  "refactor(pwa): trasladar autenticacion Keycloak a Flutter",
                         "branches":  [
-                                         "+ feature/react-pwa\n  remotes/origin/feature/react-pwa"
+                                         "feature/react-pwa"
                                      ],
                         "files":  [
                                       {
@@ -13611,13 +13693,13 @@
                         "phase":  "Cambio registrado",
                         "activityKey":  "movil",
                         "activityLabel":  "Aplicacion movil",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/10e4c6f94ebe9d45f36635067cf9699b3971d39b"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/07f2dd759a2a6dbc8805b96c425a323774f7985e"
                     },
                     {
-                        "hash":  "a0eb95024c0508dd02fa0e3ffd614d61072ba5e5",
-                        "shortHash":  "a0eb95024c05",
+                        "hash":  "104952029e70bb800f9bf2975f1860ef48ea8557",
+                        "shortHash":  "104952029e70",
                         "parents":  [
-                                        "9115f13fe5e51c0f4b94f068dec41833abe95532"
+                                        "4b69cd99c6df05fabe797a7d372b606799729265"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -13627,7 +13709,7 @@
                         "committedAt":  "2026-11-11T23:38:52-06:00",
                         "subject":  "feat(movil): integrar autenticacion con Keycloak y PKCE",
                         "branches":  [
-                                         "+ feature/mobile-flutter\n  remotes/origin/feature/mobile-flutter"
+                                         "feature/mobile-flutter"
                                      ],
                         "files":  [
                                       {
@@ -13725,13 +13807,13 @@
                         "phase":  "Implementación",
                         "activityKey":  "movil",
                         "activityLabel":  "Aplicacion movil",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/a0eb95024c0508dd02fa0e3ffd614d61072ba5e5"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/104952029e70bb800f9bf2975f1860ef48ea8557"
                     },
                     {
-                        "hash":  "2e4a3ddd5e4f407da9c5dc4b42c50d993d6e2b21",
-                        "shortHash":  "2e4a3ddd5e4f",
+                        "hash":  "6bdd1104cedbc347188da8ee54c10c0d8a486623",
+                        "shortHash":  "6bdd1104cedb",
                         "parents":  [
-                                        "e96ee800ec83958ba9eb9a8b3eab0938f66c3662"
+                                        "e1827eb81750eb86884e9aa0a7a4b440cc27735c"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -17619,13 +17701,13 @@
                         "phase":  "Implementación",
                         "activityKey":  "unity-animaciones",
                         "activityLabel":  "Animaciones y recursos Unity",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/2e4a3ddd5e4f407da9c5dc4b42c50d993d6e2b21"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/6bdd1104cedbc347188da8ee54c10c0d8a486623"
                     },
                     {
-                        "hash":  "78564ece9145a08f33de1e468451c072c441fbe9",
-                        "shortHash":  "78564ece9145",
+                        "hash":  "2d71ea459c37fd2ed7cb139ede1c3889c8ed72ea",
+                        "shortHash":  "2d71ea459c37",
                         "parents":  [
-                                        "f67938400f60ef0ae7aed89698a65bcfdbcbcdb7"
+                                        "1bed689ea9942e3371b83a445ab62b6c8ff6c7a3"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -17635,7 +17717,7 @@
                         "committedAt":  "2026-11-12T16:25:29-06:00",
                         "subject":  "feat(monitoreo): integrar telemetria Flutter con Grafana",
                         "branches":  [
-                                         "+ feature/monitoreo-grafana"
+                                         "feature/monitoreo-grafana"
                                      ],
                         "files":  [
                                       {
@@ -17708,13 +17790,13 @@
                         "phase":  "Implementación",
                         "activityKey":  "movil",
                         "activityLabel":  "Aplicacion movil",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/78564ece9145a08f33de1e468451c072c441fbe9"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/2d71ea459c37fd2ed7cb139ede1c3889c8ed72ea"
                     },
                     {
-                        "hash":  "26193f4b3425d7c5b8ea6d63362f129ae4d39e00",
-                        "shortHash":  "26193f4b3425",
+                        "hash":  "83e85309a775b06d3d3a56acb2cb78b98b161327",
+                        "shortHash":  "83e85309a775",
                         "parents":  [
-                                        "741a10d9eba7fb5c9a8ae82518649d5fb047450e"
+                                        "7302dee8b3eefe79151168d9b09596cd1073ee70"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -17724,7 +17806,7 @@
                         "committedAt":  "2026-11-13T10:31:43-06:00",
                         "subject":  "docs: agrega diagrama Archify de navegacion",
                         "branches":  [
-                                         "docs/documentacion\n  remotes/origin/docs/documentacion"
+                                         "docs/documentacion"
                                      ],
                         "files":  [
                                       {
@@ -17762,13 +17844,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/26193f4b3425d7c5b8ea6d63362f129ae4d39e00"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/83e85309a775b06d3d3a56acb2cb78b98b161327"
                     },
                     {
-                        "hash":  "1e4210b2b5305111fd926dc08aa61b42a5871e08",
-                        "shortHash":  "1e4210b2b530",
+                        "hash":  "fb337d20e29342cf4870bc3a6da9fb6c57c843bd",
+                        "shortHash":  "fb337d20e293",
                         "parents":  [
-                                        "26193f4b3425d7c5b8ea6d63362f129ae4d39e00"
+                                        "83e85309a775b06d3d3a56acb2cb78b98b161327"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -17778,7 +17860,7 @@
                         "committedAt":  "2026-11-13T10:36:56-06:00",
                         "subject":  "docs: establece practica de navegacion como inicio",
                         "branches":  [
-                                         "docs/documentacion\n  remotes/origin/docs/documentacion"
+                                         "docs/documentacion"
                                      ],
                         "files":  [
                                       {
@@ -17791,13 +17873,13 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/1e4210b2b5305111fd926dc08aa61b42a5871e08"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/fb337d20e29342cf4870bc3a6da9fb6c57c843bd"
                     },
                     {
-                        "hash":  "6f74c6c58235114a799f3120ad8b4b21e76bf09f",
-                        "shortHash":  "6f74c6c58235",
+                        "hash":  "78ccd110dc2ca2f4f27a809781913a2990bee321",
+                        "shortHash":  "78ccd110dc2c",
                         "parents":  [
-                                        "1e4210b2b5305111fd926dc08aa61b42a5871e08"
+                                        "fb337d20e29342cf4870bc3a6da9fb6c57c843bd"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -17807,7 +17889,7 @@
                         "committedAt":  "2026-11-13T10:40:37-06:00",
                         "subject":  "docs: integra visor Archify en diagrama",
                         "branches":  [
-                                         "docs/documentacion\n  remotes/origin/docs/documentacion"
+                                         "docs/documentacion"
                                      ],
                         "files":  [
                                       {
@@ -17820,13 +17902,42 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/6f74c6c58235114a799f3120ad8b4b21e76bf09f"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/78ccd110dc2ca2f4f27a809781913a2990bee321"
                     },
                     {
-                        "hash":  "5c4ee4cc86c2411a04a6bc3cfe2eee25a743411b",
-                        "shortHash":  "5c4ee4cc86c2",
+                        "hash":  "481bc78f60fe26379e078abdef7da666ced42a74",
+                        "shortHash":  "481bc78f60fe",
                         "parents":  [
-                                        "6f74c6c58235114a799f3120ad8b4b21e76bf09f"
+                                        "2fb616133009d5e6f41e946755607a7afe347e24"
+                                    ],
+                        "author":  {
+                                       "name":  "Brian Jesus Mendoza Marquez \"3B",
+                                       "email":  "230308@utxicotepec.edu.mx"
+                                   },
+                        "authoredAt":  "2026-11-13T10:43:35-06:00",
+                        "committedAt":  "2026-11-13T10:43:35-06:00",
+                        "subject":  "Update README.md",
+                        "branches":  [
+                                         "docs/practica-navegacion-comparaciones"
+                                     ],
+                        "files":  [
+                                      {
+                                          "status":  "M",
+                                          "path":  "docs/README.md",
+                                          "oldPath":  null
+                                      }
+                                  ],
+                        "module":  "Documentacion",
+                        "phase":  "Documentación",
+                        "activityKey":  "documentacion",
+                        "activityLabel":  "Documentacion y diseno",
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/481bc78f60fe26379e078abdef7da666ced42a74"
+                    },
+                    {
+                        "hash":  "a49c970e74841d25b9497e631721c8aa2cd71548",
+                        "shortHash":  "a49c970e7484",
+                        "parents":  [
+                                        "78ccd110dc2ca2f4f27a809781913a2990bee321"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -17836,7 +17947,7 @@
                         "committedAt":  "2026-11-13T10:46:16-06:00",
                         "subject":  "docs: muestra ficha de pantalla al inicio",
                         "branches":  [
-                                         "docs/documentacion\n  remotes/origin/docs/documentacion"
+                                         "docs/documentacion"
                                      ],
                         "files":  [
                                       {
@@ -17849,13 +17960,42 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/5c4ee4cc86c2411a04a6bc3cfe2eee25a743411b"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/a49c970e74841d25b9497e631721c8aa2cd71548"
                     },
                     {
-                        "hash":  "65b27ef4313a3f39774f12f29c6131b5f60df81b",
-                        "shortHash":  "65b27ef4313a",
+                        "hash":  "f7117dcbebd8e2038cf8325f1ad8de7e3ad3ac8a",
+                        "shortHash":  "f7117dcbebd8",
                         "parents":  [
-                                        "5c4ee4cc86c2411a04a6bc3cfe2eee25a743411b"
+                                        "481bc78f60fe26379e078abdef7da666ced42a74"
+                                    ],
+                        "author":  {
+                                       "name":  "Brian Jesus Mendoza Marquez \"3B",
+                                       "email":  "230308@utxicotepec.edu.mx"
+                                   },
+                        "authoredAt":  "2026-11-13T10:49:55-06:00",
+                        "committedAt":  "2026-11-13T10:49:55-06:00",
+                        "subject":  "Update README.md",
+                        "branches":  [
+                                         "docs/practica-navegacion-comparaciones"
+                                     ],
+                        "files":  [
+                                      {
+                                          "status":  "M",
+                                          "path":  "docs/README.md",
+                                          "oldPath":  null
+                                      }
+                                  ],
+                        "module":  "Documentacion",
+                        "phase":  "Documentación",
+                        "activityKey":  "documentacion",
+                        "activityLabel":  "Documentacion y diseno",
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/f7117dcbebd8e2038cf8325f1ad8de7e3ad3ac8a"
+                    },
+                    {
+                        "hash":  "619c80f33078b56ae5b6c0c42c5a0906bef83671",
+                        "shortHash":  "619c80f33078",
+                        "parents":  [
+                                        "a49c970e74841d25b9497e631721c8aa2cd71548"
                                     ],
                         "author":  {
                                        "name":  "Brian Jesus Mendoza Marquez",
@@ -17865,7 +18005,7 @@
                         "committedAt":  "2026-11-13T11:15:48-06:00",
                         "subject":  "docs: agrega wireframes tecnicos de roles",
                         "branches":  [
-                                         "docs/documentacion\n  remotes/origin/docs/documentacion"
+                                         "docs/documentacion"
                                      ],
                         "files":  [
                                       {
@@ -17903,7 +18043,91 @@
                         "phase":  "Documentación",
                         "activityKey":  "documentacion",
                         "activityLabel":  "Documentacion y diseno",
-                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/65b27ef4313a3f39774f12f29c6131b5f60df81b"
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/619c80f33078b56ae5b6c0c42c5a0906bef83671"
+                    },
+                    {
+                        "hash":  "2b609207011989ce724f7a7a9b75e703a38174ef",
+                        "shortHash":  "2b6092070119",
+                        "parents":  [
+                                        "619c80f33078b56ae5b6c0c42c5a0906bef83671"
+                                    ],
+                        "author":  {
+                                       "name":  "Brian Jesus Mendoza Marquez",
+                                       "email":  "230308@utxicotepec.edu.mx"
+                                   },
+                        "authoredAt":  "2026-11-14T21:13:28-06:00",
+                        "committedAt":  "2026-11-14T21:13:28-06:00",
+                        "subject":  "docs: agrega dashboard Gantt basado en Git",
+                        "branches":  [
+                                         "docs/documentacion"
+                                     ],
+                        "files":  [
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/README.md",
+                                          "oldPath":  null
+                                      },
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/archify-flujo-gantt.html",
+                                          "oldPath":  null
+                                      },
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/archify-flujo-gantt.visual-check.json",
+                                          "oldPath":  null
+                                      },
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/archify-flujo-gantt.workflow.json",
+                                          "oldPath":  null
+                                      },
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/datos/equipo-proyecto.js",
+                                          "oldPath":  null
+                                      },
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/datos/equipo-proyecto.json",
+                                          "oldPath":  null
+                                      },
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/datos/gantt-git.js",
+                                          "oldPath":  null
+                                      },
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/datos/gantt-git.json",
+                                          "oldPath":  null
+                                      },
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/index.html",
+                                          "oldPath":  null
+                                      },
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/scripts/actualizar-gantt.ps1",
+                                          "oldPath":  null
+                                      },
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/scripts/gantt.js",
+                                          "oldPath":  null
+                                      },
+                                      {
+                                          "status":  "A",
+                                          "path":  "docs/gantt-git/styles/gantt.css",
+                                          "oldPath":  null
+                                      }
+                                  ],
+                        "module":  "Documentacion",
+                        "phase":  "Documentación",
+                        "activityKey":  "documentacion",
+                        "activityLabel":  "Documentacion y diseno",
+                        "commitUrl":  "https://github.com/BR1ANJ3Sus3B/TI_-Soporte-en-Acci-n-/commit/2b609207011989ce724f7a7a9b75e703a38174ef"
                     }
                 ],
     "activities":  [
@@ -17923,20 +18147,31 @@
                                            "Brian Jesus Mendoza Marquez"
                                        ],
                            "branches":  [
-                                            "feature/mongodb-modelos\n  feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento",
-                                            "+ feature/react-pwa\n  remotes/origin/feature/react-pwa",
-                                            "feature/react-administracion\n  remotes/origin/feature/react-administracion",
-                                            "feature/api-autenticacion\n  remotes/origin/feature/api-autenticacion",
-                                            "feature/mongodb-modelos\n  remotes/origin/feature/mongodb-modelos"
+                                            "develop",
+                                            "docs/documentacion",
+                                            "docs/practica-navegacion-comparaciones",
+                                            "feature/api-autenticacion",
+                                            "feature/docker",
+                                            "feature/estructura-inicial",
+                                            "feature/flutter-autenticacion",
+                                            "feature/flutter-pantallas",
+                                            "feature/mobile-flutter",
+                                            "feature/mongodb-modelos",
+                                            "feature/monitoreo-grafana",
+                                            "feature/react-administracion",
+                                            "feature/react-pwa",
+                                            "feature/unity-misiones",
+                                            "feature/unity-movimiento",
+                                            "main"
                                         ],
                            "commitHashes":  [
-                                                "bdb8382a79c73d578130cdaaa0c2e084e4b1c475",
-                                                "a6a834a57eac85339035c2b0321f50cf75f82c22",
-                                                "3f6b89943da3fc3df4dfbdc1c48352ee54d56c0c",
-                                                "150a175702b69edfdfa64ae9b2503b2a4fb1618b",
-                                                "f6cf69f5de6903b1ca27b731895d5cf50a30377a",
-                                                "b2336220c1b850bb53888f63f4fb1673310b3ce6",
-                                                "d1c0f84d3e5358c48ee48bd384891beadd59b9ce"
+                                                "062b41afbc72c791e363e05fab0cf78e70ed78af",
+                                                "58a10923bdd2a14f40fef46bf3c90a80ee262613",
+                                                "214b55530de591c497276d1944637ea5383ca74b",
+                                                "7ccd49d4263ce300fee37b1bcf3208055aff2340",
+                                                "d8959ec18ae931402062135fafbe2f6a5b7a435f",
+                                                "f10c73ff7053cb0b1ef429c9c352f79721d931f5",
+                                                "a40ebbff94ee9d19f0aff62682bc192002891e70"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -17958,17 +18193,21 @@
                                            "Brian Jesus Mendoza Marquez"
                                        ],
                            "branches":  [
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n  feature/estructura-inicial\n+ feature/mobile-flutter\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones\n  remotes/origin/feature/estructura-inicial\n  remotes/origin/feature/mobile-flutter",
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones",
-                                            "feature/mongodb-modelos\n  feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento",
+                                            "docs/documentacion",
+                                            "docs/practica-navegacion-comparaciones",
+                                            "feature/docker",
+                                            "feature/estructura-inicial",
+                                            "feature/mobile-flutter",
+                                            "feature/monitoreo-grafana",
+                                            "feature/mongodb-modelos",
                                             "feature/unity-movimiento"
                                         ],
                            "commitHashes":  [
-                                                "cf2cbf255e520da3c3ad7e3d8ffa0916dfe5fbed",
-                                                "519adc50e52d9f455683cc9c040442867f233d2b",
-                                                "91bbf10f1e1108d5854670af166e781f01149a25",
-                                                "01ea712905f798472910e922f2bbe26b6fbebeca",
-                                                "2e4a3ddd5e4f407da9c5dc4b42c50d993d6e2b21"
+                                                "97842069f5503f1268fd369c89546917606ea9a5",
+                                                "a6a1a662c5cf60d44ec118fd92567a3821cfdc03",
+                                                "00e42a29f02b8cf40e7ca2e8690c843044ef7874",
+                                                "f4d4eadcdc8f057734f39e57f59192fdbfcf7130",
+                                                "6bdd1104cedbc347188da8ee54c10c0d8a486623"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -17990,30 +18229,30 @@
                                            "Brian Jesus Mendoza Marquez"
                                        ],
                            "branches":  [
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/mobile-flutter\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones\n  remotes/origin/feature/mobile-flutter",
-                                            "feature/unity-misiones\n  remotes/origin/feature/unity-misiones",
-                                            "+ feature/mobile-flutter\n  remotes/origin/feature/mobile-flutter",
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones",
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones",
-                                            "feature/mongodb-modelos\n  feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento",
-                                            "feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento",
-                                            "docs/practica-navegacion-comparaciones\n  remotes/origin/docs/practica-navegacion-comparaciones",
-                                            "+ feature/react-pwa\n  remotes/origin/feature/react-pwa"
+                                            "docs/documentacion",
+                                            "docs/practica-navegacion-comparaciones",
+                                            "feature/docker",
+                                            "feature/mobile-flutter",
+                                            "feature/monitoreo-grafana",
+                                            "feature/unity-misiones",
+                                            "feature/mongodb-modelos",
+                                            "feature/unity-movimiento",
+                                            "feature/react-pwa"
                                         ],
                            "commitHashes":  [
-                                                "ae775f5deae782e4838c4943cbc0a0295cd9a883",
-                                                "741378eeda64b0255fcd5c9f8ebef022eed9a184",
-                                                "0bf33f67c28de95e3516c1a0eff4bb031bbdf51d",
-                                                "5cd5983c191f0864bb8ace092780208d5d28324a",
-                                                "99cc893a3fef123179957420d648a7b03a974dcf",
-                                                "c9f3a69fd8273640c2817de23464c96ea79ea513",
-                                                "3441c32230cef73e64e6dd73bdc6e2e1a0bf1ad8",
-                                                "7e4a75ad7a8f4e60e4ff6c3dbb98321ccceefc69",
-                                                "e96ee800ec83958ba9eb9a8b3eab0938f66c3662",
-                                                "1481271fa554f6fdae5825a1cc020e183fca5e3e",
-                                                "3a2afa50a89e7c57b68ed8d716605bc42eeee259",
-                                                "9115f13fe5e51c0f4b94f068dec41833abe95532",
-                                                "f05fe9fdf15e1a8c7fa44b844a16fb3bca457af5"
+                                                "50e1e644b2bb51dc445dbae52d38909991121d0d",
+                                                "6ae1d17e44861e31c8d85ea558faa79625919c07",
+                                                "6479aff597c703226adc802c64f0fcca1f9d9650",
+                                                "0963f2338ae1b2a69a6a130ac0f05264f7b57c03",
+                                                "5c254c8df790c2d65f09a9a787fbf2d738f261e1",
+                                                "ce5f344684a83a45232cd1b5ee07803538d08456",
+                                                "06480367c036311c4e96b481390c3a1521e4bbae",
+                                                "e6bf4392f81acfd6dc542217b57c6ae39e5320a1",
+                                                "e1827eb81750eb86884e9aa0a7a4b440cc27735c",
+                                                "a4b954018f30e487da8a77b6dfcd5aaf24a29174",
+                                                "e10ce17251b9533dd469b69bb4f216102c2a896e",
+                                                "4b69cd99c6df05fabe797a7d372b606799729265",
+                                                "2d793d500d9fa69e072799419b80ff3a7c038dc8"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -18036,21 +18275,22 @@
                                            "Brian Jesus Mendoza Marquez"
                                        ],
                            "branches":  [
-                                            "feature/flutter-autenticacion\n  remotes/origin/feature/flutter-autenticacion",
-                                            "feature/flutter-pantallas\n  remotes/origin/feature/flutter-pantallas",
-                                            "+ feature/mobile-flutter\n  remotes/origin/feature/mobile-flutter",
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones",
-                                            "+ feature/react-pwa\n  remotes/origin/feature/react-pwa",
-                                            "+ feature/monitoreo-grafana"
+                                            "feature/flutter-autenticacion",
+                                            "feature/flutter-pantallas",
+                                            "feature/mobile-flutter",
+                                            "docs/documentacion",
+                                            "docs/practica-navegacion-comparaciones",
+                                            "feature/react-pwa",
+                                            "feature/monitoreo-grafana"
                                         ],
                            "commitHashes":  [
-                                                "85d0a49c0ab5d6bd306045cdbd6e795b6b40011f",
-                                                "002c5f8349be0208db306ff5ec7ff43da317f506",
-                                                "727b78611de8cd79bbf7ee454a0b65615f8860c8",
-                                                "07dab9a5cac45e127300f88340229f3ee181df9e",
-                                                "a0eb95024c0508dd02fa0e3ffd614d61072ba5e5",
-                                                "10e4c6f94ebe9d45f36635067cf9699b3971d39b",
-                                                "78564ece9145a08f33de1e468451c072c441fbe9"
+                                                "b3f34b472c728e11f89d044b4f7cba6cf27af775",
+                                                "da2e08034c6bae05fe2e43d87e75dc4d091457e0",
+                                                "ce6619b4fcac16a9d5e6d44e73a856211bab5536",
+                                                "9742e4393238ae7d1c16d0d7540609af7ca052a1",
+                                                "104952029e70bb800f9bf2975f1860ef48ea8557",
+                                                "07f2dd759a2a6dbc8805b96c425a323774f7985e",
+                                                "2d71ea459c37fd2ed7cb139ede1c3889c8ed72ea"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -18061,7 +18301,7 @@
                            "kind":  "observed-period",
                            "label":  "Documentacion y diseno",
                            "start":  "2026-10-10T16:33:22-06:00",
-                           "end":  "2026-11-13T11:15:48-06:00",
+                           "end":  "2026-11-14T21:13:28-06:00",
                            "module":  "Documentacion",
                            "phases":  [
                                           "Documentación"
@@ -18071,37 +18311,39 @@
                                            "Brian Jesus Mendoza Marquez \"3B"
                                        ],
                            "branches":  [
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/mobile-flutter\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones\n  remotes/origin/feature/mobile-flutter",
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones",
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones",
-                                            "docs/practica-navegacion-comparaciones\n  remotes/origin/docs/practica-navegacion-comparaciones",
-                                            "remotes/origin/docs/practica-navegacion-comparaciones",
-                                            "docs/documentacion\n  remotes/origin/docs/documentacion"
+                                            "docs/documentacion",
+                                            "docs/practica-navegacion-comparaciones",
+                                            "feature/docker",
+                                            "feature/mobile-flutter",
+                                            "feature/monitoreo-grafana"
                                         ],
                            "commitHashes":  [
-                                                "0ff521f7baf08902235c2316601181ba5d7294b1",
-                                                "75eb1deec5152ac18db9766494fc26c3069c8ec2",
-                                                "f367372b02e2b9b3c4fe8d1576054192aa4f64c7",
-                                                "6820485c5466ab1415ead7e913341b574932f83b",
-                                                "3195285d466823fc10c4abd8020c019dd2f21573",
-                                                "f67938400f60ef0ae7aed89698a65bcfdbcbcdb7",
-                                                "9e21e0b4172b6bdfa77797682e9cc389a47b03d0",
-                                                "fa66534627b3f80734fa70a1e6346b2195d6eab7",
-                                                "c2fa011d5a6ce62475923cbb4c51f76226761f9c",
-                                                "f0f3a04839ee749b9735ca50555a0d2146abe861",
-                                                "4e1cd3f07cd17ad6c8def5678e84760f7e7e3a3a",
-                                                "c38e880d31175a7442d9597c5c8e49ef053b2956",
-                                                "948fd07e947d62d89ba278f83e3a27b6acb9fe05",
-                                                "636a69b64893c151958a1a26ddb6a8bf57c95d02",
-                                                "16ff1c532397badd2666a5bfd98bbc1ccf00f15c",
-                                                "842e0893557193cca4123579ce65f8b2730aee57",
-                                                "b57b658878c1ca9618c3e8384b32dcf26187285b",
-                                                "741a10d9eba7fb5c9a8ae82518649d5fb047450e",
-                                                "26193f4b3425d7c5b8ea6d63362f129ae4d39e00",
-                                                "1e4210b2b5305111fd926dc08aa61b42a5871e08",
-                                                "6f74c6c58235114a799f3120ad8b4b21e76bf09f",
-                                                "5c4ee4cc86c2411a04a6bc3cfe2eee25a743411b",
-                                                "65b27ef4313a3f39774f12f29c6131b5f60df81b"
+                                                "63876738de8480ae9d2c9f7d2fff5e881ca2123e",
+                                                "d61e40234815dc49212f94298cf3ae7b0c389db1",
+                                                "bc424bfc0a1d695790b2a3d78885a200d75dd63c",
+                                                "61169c0e81a1ac8a8d67f33fa7f0648120cf205c",
+                                                "d2c21c712e48826b4a6c7b13aab2a4bf6f76f971",
+                                                "1bed689ea9942e3371b83a445ab62b6c8ff6c7a3",
+                                                "8a100bc77f50a23d710852e80121af54e55b3818",
+                                                "9afef3a3c48a69e5da068061423bc7291a4516a8",
+                                                "d7061d51423b2450b1cb8201ff1891fd284126bd",
+                                                "d061759fd950e4a6f3f464d81e5812a227194f0c",
+                                                "d5185e8fe5d978ea0395a55358136809efe74df2",
+                                                "29cf675863b5b1c1a8ca325dfaf934d11d1bba24",
+                                                "96fdb299732883e19dbe0fb8fe3198ac069d9b25",
+                                                "b5f3764135977292d5afee57fbaf68dd2cbd81c7",
+                                                "8b850593196b2aa8191e8ce1cec0a1a5e76578db",
+                                                "380d2e05a81f9a5f5307608435c739c46371f414",
+                                                "2fb616133009d5e6f41e946755607a7afe347e24",
+                                                "7302dee8b3eefe79151168d9b09596cd1073ee70",
+                                                "83e85309a775b06d3d3a56acb2cb78b98b161327",
+                                                "fb337d20e29342cf4870bc3a6da9fb6c57c843bd",
+                                                "78ccd110dc2ca2f4f27a809781913a2990bee321",
+                                                "481bc78f60fe26379e078abdef7da666ced42a74",
+                                                "a49c970e74841d25b9497e631721c8aa2cd71548",
+                                                "f7117dcbebd8e2038cf8325f1ad8de7e3ad3ac8a",
+                                                "619c80f33078b56ae5b6c0c42c5a0906bef83671",
+                                                "2b609207011989ce724f7a7a9b75e703a38174ef"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -18122,14 +18364,17 @@
                                            "Brian Jesus Mendoza Marquez"
                                        ],
                            "branches":  [
-                                            "+ feature/mobile-flutter\n  remotes/origin/feature/mobile-flutter",
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones",
-                                            "feature/unity-misiones\n  remotes/origin/feature/unity-misiones"
+                                            "feature/mobile-flutter",
+                                            "docs/documentacion",
+                                            "docs/practica-navegacion-comparaciones",
+                                            "feature/docker",
+                                            "feature/monitoreo-grafana",
+                                            "feature/unity-misiones"
                                         ],
                            "commitHashes":  [
-                                                "ec87280658afa9c6e2dcf4bbcafa98e1c8baaa5b",
-                                                "b622895bd3495d757462c3d52f39099090c60948",
-                                                "3e21b6f5edbb09ccfc10f9bb8af1dcc4a736a2c4"
+                                                "5fb357dbb004b7201edaebe2336c3c3ee5089be2",
+                                                "f6b5557239bbfcec9bf99483e5b211e443a33072",
+                                                "461423e40a400c91413b8752050dba83d39129df"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -18149,10 +18394,10 @@
                                            "Brian Jesus Mendoza Marquez"
                                        ],
                            "branches":  [
-                                            "+ feature/mobile-flutter\n  remotes/origin/feature/mobile-flutter"
+                                            "feature/mobile-flutter"
                                         ],
                            "commitHashes":  [
-                                                "5a5e406dcd0a649ac13fa9472efacea88d27ff99"
+                                                "8d3dfd5f6b89332ff6e55ded70047e449bdda4d0"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -18172,10 +18417,13 @@
                                            "Brian Jesus Mendoza Marquez"
                                        ],
                            "branches":  [
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  feature/docker\n+ feature/monitoreo-grafana\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                            "docs/documentacion",
+                                            "docs/practica-navegacion-comparaciones",
+                                            "feature/docker",
+                                            "feature/monitoreo-grafana"
                                         ],
                            "commitHashes":  [
-                                                "59ec65da187f7c43f412260d3164ec5128babc49"
+                                                "5c639b6475bef8502e1378b67a946de571c49f77"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -18195,10 +18443,11 @@
                                            "Brian Jesus Mendoza Marquez"
                                        ],
                            "branches":  [
-                                            "docs/documentacion\n  docs/practica-navegacion-comparaciones\n  remotes/origin/docs/documentacion\n  remotes/origin/docs/practica-navegacion-comparaciones"
+                                            "docs/documentacion",
+                                            "docs/practica-navegacion-comparaciones"
                                         ],
                            "commitHashes":  [
-                                                "c0292c82a562c86f8f8fd9cd338fdb0fc4d5ead5"
+                                                "7f435cd9cd91c3f90dd27ed7d720912b6d439cf0"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -18221,7 +18470,7 @@
                                             "feature/mongodb-modelos"
                                         ],
                            "commitHashes":  [
-                                                "57ccbb865ca74f524144d5b67c9fd72ef0945baa"
+                                                "2e80c1f7dfacac4a25903fca8a0024fdb8c730e2"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -18241,10 +18490,10 @@
                                            "Brian Jesus Mendoza Marquez"
                                        ],
                            "branches":  [
-                                            "feature/unity-movimiento\n  remotes/origin/feature/unity-movimiento"
+                                            "feature/unity-movimiento"
                                         ],
                            "commitHashes":  [
-                                                "74923b8a1c14dff444eebd6ad590a0d95c6f3d45"
+                                                "c90e764e91bb0c440b9ec44d08383d8887ed68ba"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -18264,10 +18513,10 @@
                                            "Brian Jesus Mendoza Marquez \"3B"
                                        ],
                            "branches":  [
-
+                                            "main"
                                         ],
                            "commitHashes":  [
-                                                "924e7bd0064a9defc4d9845146a6b4db6749c902"
+                                                "ed1e05e6b29c8f31298d67de2bb88e1feb47e402"
                                             ],
                            "realData":  true,
                            "estimated":  false,
@@ -18282,12 +18531,12 @@
                        "firstAuthoredAt":  "2026-10-03T17:04:50-06:00",
                        "lastAuthoredAt":  "2026-10-09T22:48:11-06:00",
                        "commitHashes":  [
-                                            "bdb8382a79c73d578130cdaaa0c2e084e4b1c475",
-                                            "3f6b89943da3fc3df4dfbdc1c48352ee54d56c0c",
-                                            "150a175702b69edfdfa64ae9b2503b2a4fb1618b",
-                                            "f6cf69f5de6903b1ca27b731895d5cf50a30377a",
-                                            "b2336220c1b850bb53888f63f4fb1673310b3ce6",
-                                            "d1c0f84d3e5358c48ee48bd384891beadd59b9ce"
+                                            "062b41afbc72c791e363e05fab0cf78e70ed78af",
+                                            "214b55530de591c497276d1944637ea5383ca74b",
+                                            "7ccd49d4263ce300fee37b1bcf3208055aff2340",
+                                            "d8959ec18ae931402062135fafbe2f6a5b7a435f",
+                                            "f10c73ff7053cb0b1ef429c9c352f79721d931f5",
+                                            "a40ebbff94ee9d19f0aff62682bc192002891e70"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18299,7 +18548,7 @@
                        "firstAuthoredAt":  "2026-10-05T17:23:00-06:00",
                        "lastAuthoredAt":  "2026-10-05T17:23:00-06:00",
                        "commitHashes":  [
-                                            "a6a834a57eac85339035c2b0321f50cf75f82c22"
+                                            "58a10923bdd2a14f40fef46bf3c90a80ee262613"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18311,12 +18560,12 @@
                        "firstAuthoredAt":  "2026-10-09T21:46:58-06:00",
                        "lastAuthoredAt":  "2026-11-10T15:04:01-06:00",
                        "commitHashes":  [
-                                            "cf2cbf255e520da3c3ad7e3d8ffa0916dfe5fbed",
-                                            "741378eeda64b0255fcd5c9f8ebef022eed9a184",
-                                            "b622895bd3495d757462c3d52f39099090c60948",
-                                            "74923b8a1c14dff444eebd6ad590a0d95c6f3d45",
-                                            "f05fe9fdf15e1a8c7fa44b844a16fb3bca457af5",
-                                            "3e21b6f5edbb09ccfc10f9bb8af1dcc4a736a2c4"
+                                            "97842069f5503f1268fd369c89546917606ea9a5",
+                                            "6ae1d17e44861e31c8d85ea558faa79625919c07",
+                                            "f6b5557239bbfcec9bf99483e5b211e443a33072",
+                                            "c90e764e91bb0c440b9ec44d08383d8887ed68ba",
+                                            "2d793d500d9fa69e072799419b80ff3a7c038dc8",
+                                            "461423e40a400c91413b8752050dba83d39129df"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18328,12 +18577,12 @@
                        "firstAuthoredAt":  "2026-10-09T22:38:52-06:00",
                        "lastAuthoredAt":  "2026-11-04T16:57:55-06:00",
                        "commitHashes":  [
-                                            "ae775f5deae782e4838c4943cbc0a0295cd9a883",
-                                            "99cc893a3fef123179957420d648a7b03a974dcf",
-                                            "519adc50e52d9f455683cc9c040442867f233d2b",
-                                            "c9f3a69fd8273640c2817de23464c96ea79ea513",
-                                            "1481271fa554f6fdae5825a1cc020e183fca5e3e",
-                                            "3a2afa50a89e7c57b68ed8d716605bc42eeee259"
+                                            "50e1e644b2bb51dc445dbae52d38909991121d0d",
+                                            "5c254c8df790c2d65f09a9a787fbf2d738f261e1",
+                                            "a6a1a662c5cf60d44ec118fd92567a3821cfdc03",
+                                            "ce5f344684a83a45232cd1b5ee07803538d08456",
+                                            "a4b954018f30e487da8a77b6dfcd5aaf24a29174",
+                                            "e10ce17251b9533dd469b69bb4f216102c2a896e"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18345,8 +18594,8 @@
                        "firstAuthoredAt":  "2026-10-09T22:47:43-06:00",
                        "lastAuthoredAt":  "2026-10-09T22:47:48-06:00",
                        "commitHashes":  [
-                                            "85d0a49c0ab5d6bd306045cdbd6e795b6b40011f",
-                                            "002c5f8349be0208db306ff5ec7ff43da317f506"
+                                            "b3f34b472c728e11f89d044b4f7cba6cf27af775",
+                                            "da2e08034c6bae05fe2e43d87e75dc4d091457e0"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18356,31 +18605,34 @@
                        "module":  "Documentacion",
                        "phase":  "Documentación",
                        "firstAuthoredAt":  "2026-10-10T16:33:22-06:00",
-                       "lastAuthoredAt":  "2026-11-13T11:15:48-06:00",
+                       "lastAuthoredAt":  "2026-11-14T21:13:28-06:00",
                        "commitHashes":  [
-                                            "0ff521f7baf08902235c2316601181ba5d7294b1",
-                                            "75eb1deec5152ac18db9766494fc26c3069c8ec2",
-                                            "f367372b02e2b9b3c4fe8d1576054192aa4f64c7",
-                                            "6820485c5466ab1415ead7e913341b574932f83b",
-                                            "3195285d466823fc10c4abd8020c019dd2f21573",
-                                            "f67938400f60ef0ae7aed89698a65bcfdbcbcdb7",
-                                            "9e21e0b4172b6bdfa77797682e9cc389a47b03d0",
-                                            "fa66534627b3f80734fa70a1e6346b2195d6eab7",
-                                            "c2fa011d5a6ce62475923cbb4c51f76226761f9c",
-                                            "f0f3a04839ee749b9735ca50555a0d2146abe861",
-                                            "4e1cd3f07cd17ad6c8def5678e84760f7e7e3a3a",
-                                            "c38e880d31175a7442d9597c5c8e49ef053b2956",
-                                            "948fd07e947d62d89ba278f83e3a27b6acb9fe05",
-                                            "636a69b64893c151958a1a26ddb6a8bf57c95d02",
-                                            "16ff1c532397badd2666a5bfd98bbc1ccf00f15c",
-                                            "842e0893557193cca4123579ce65f8b2730aee57",
-                                            "b57b658878c1ca9618c3e8384b32dcf26187285b",
-                                            "741a10d9eba7fb5c9a8ae82518649d5fb047450e",
-                                            "26193f4b3425d7c5b8ea6d63362f129ae4d39e00",
-                                            "1e4210b2b5305111fd926dc08aa61b42a5871e08",
-                                            "6f74c6c58235114a799f3120ad8b4b21e76bf09f",
-                                            "5c4ee4cc86c2411a04a6bc3cfe2eee25a743411b",
-                                            "65b27ef4313a3f39774f12f29c6131b5f60df81b"
+                                            "63876738de8480ae9d2c9f7d2fff5e881ca2123e",
+                                            "d61e40234815dc49212f94298cf3ae7b0c389db1",
+                                            "bc424bfc0a1d695790b2a3d78885a200d75dd63c",
+                                            "61169c0e81a1ac8a8d67f33fa7f0648120cf205c",
+                                            "d2c21c712e48826b4a6c7b13aab2a4bf6f76f971",
+                                            "1bed689ea9942e3371b83a445ab62b6c8ff6c7a3",
+                                            "8a100bc77f50a23d710852e80121af54e55b3818",
+                                            "9afef3a3c48a69e5da068061423bc7291a4516a8",
+                                            "d7061d51423b2450b1cb8201ff1891fd284126bd",
+                                            "d061759fd950e4a6f3f464d81e5812a227194f0c",
+                                            "d5185e8fe5d978ea0395a55358136809efe74df2",
+                                            "29cf675863b5b1c1a8ca325dfaf934d11d1bba24",
+                                            "96fdb299732883e19dbe0fb8fe3198ac069d9b25",
+                                            "b5f3764135977292d5afee57fbaf68dd2cbd81c7",
+                                            "8b850593196b2aa8191e8ce1cec0a1a5e76578db",
+                                            "380d2e05a81f9a5f5307608435c739c46371f414",
+                                            "2fb616133009d5e6f41e946755607a7afe347e24",
+                                            "7302dee8b3eefe79151168d9b09596cd1073ee70",
+                                            "83e85309a775b06d3d3a56acb2cb78b98b161327",
+                                            "fb337d20e29342cf4870bc3a6da9fb6c57c843bd",
+                                            "78ccd110dc2ca2f4f27a809781913a2990bee321",
+                                            "481bc78f60fe26379e078abdef7da666ced42a74",
+                                            "a49c970e74841d25b9497e631721c8aa2cd71548",
+                                            "f7117dcbebd8e2038cf8325f1ad8de7e3ad3ac8a",
+                                            "619c80f33078b56ae5b6c0c42c5a0906bef83671",
+                                            "2b609207011989ce724f7a7a9b75e703a38174ef"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18392,15 +18644,15 @@
                        "firstAuthoredAt":  "2026-10-10T17:19:39-06:00",
                        "lastAuthoredAt":  "2026-11-12T13:06:20-06:00",
                        "commitHashes":  [
-                                            "0bf33f67c28de95e3516c1a0eff4bb031bbdf51d",
-                                            "5cd5983c191f0864bb8ace092780208d5d28324a",
-                                            "91bbf10f1e1108d5854670af166e781f01149a25",
-                                            "01ea712905f798472910e922f2bbe26b6fbebeca",
-                                            "3441c32230cef73e64e6dd73bdc6e2e1a0bf1ad8",
-                                            "7e4a75ad7a8f4e60e4ff6c3dbb98321ccceefc69",
-                                            "e96ee800ec83958ba9eb9a8b3eab0938f66c3662",
-                                            "9115f13fe5e51c0f4b94f068dec41833abe95532",
-                                            "2e4a3ddd5e4f407da9c5dc4b42c50d993d6e2b21"
+                                            "6479aff597c703226adc802c64f0fcca1f9d9650",
+                                            "0963f2338ae1b2a69a6a130ac0f05264f7b57c03",
+                                            "00e42a29f02b8cf40e7ca2e8690c843044ef7874",
+                                            "f4d4eadcdc8f057734f39e57f59192fdbfcf7130",
+                                            "06480367c036311c4e96b481390c3a1521e4bbae",
+                                            "e6bf4392f81acfd6dc542217b57c6ae39e5320a1",
+                                            "e1827eb81750eb86884e9aa0a7a4b440cc27735c",
+                                            "4b69cd99c6df05fabe797a7d372b606799729265",
+                                            "6bdd1104cedbc347188da8ee54c10c0d8a486623"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18412,7 +18664,7 @@
                        "firstAuthoredAt":  "2026-10-10T17:43:24-06:00",
                        "lastAuthoredAt":  "2026-10-10T17:43:24-06:00",
                        "commitHashes":  [
-                                            "ec87280658afa9c6e2dcf4bbcafa98e1c8baaa5b"
+                                            "5fb357dbb004b7201edaebe2336c3c3ee5089be2"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18424,8 +18676,8 @@
                        "firstAuthoredAt":  "2026-10-10T18:39:55-06:00",
                        "lastAuthoredAt":  "2026-11-11T23:38:52-06:00",
                        "commitHashes":  [
-                                            "727b78611de8cd79bbf7ee454a0b65615f8860c8",
-                                            "10e4c6f94ebe9d45f36635067cf9699b3971d39b"
+                                            "ce6619b4fcac16a9d5e6d44e73a856211bab5536",
+                                            "07f2dd759a2a6dbc8805b96c425a323774f7985e"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18437,7 +18689,7 @@
                        "firstAuthoredAt":  "2026-10-10T18:44:33-06:00",
                        "lastAuthoredAt":  "2026-10-10T18:44:33-06:00",
                        "commitHashes":  [
-                                            "5a5e406dcd0a649ac13fa9472efacea88d27ff99"
+                                            "8d3dfd5f6b89332ff6e55ded70047e449bdda4d0"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18449,7 +18701,7 @@
                        "firstAuthoredAt":  "2026-10-19T16:53:01-06:00",
                        "lastAuthoredAt":  "2026-10-19T16:53:01-06:00",
                        "commitHashes":  [
-                                            "59ec65da187f7c43f412260d3164ec5128babc49"
+                                            "5c639b6475bef8502e1378b67a946de571c49f77"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18461,7 +18713,7 @@
                        "firstAuthoredAt":  "2026-10-20T17:30:18-06:00",
                        "lastAuthoredAt":  "2026-10-20T17:30:18-06:00",
                        "commitHashes":  [
-                                            "c0292c82a562c86f8f8fd9cd338fdb0fc4d5ead5"
+                                            "7f435cd9cd91c3f90dd27ed7d720912b6d439cf0"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18473,7 +18725,7 @@
                        "firstAuthoredAt":  "2026-10-25T20:49:25-06:00",
                        "lastAuthoredAt":  "2026-10-25T20:49:25-06:00",
                        "commitHashes":  [
-                                            "57ccbb865ca74f524144d5b67c9fd72ef0945baa"
+                                            "2e80c1f7dfacac4a25903fca8a0024fdb8c730e2"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18485,7 +18737,7 @@
                        "firstAuthoredAt":  "2026-10-26T17:18:24-06:00",
                        "lastAuthoredAt":  "2026-10-26T17:18:24-06:00",
                        "commitHashes":  [
-                                            "07dab9a5cac45e127300f88340229f3ee181df9e"
+                                            "9742e4393238ae7d1c16d0d7540609af7ca052a1"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18497,7 +18749,7 @@
                        "firstAuthoredAt":  "2026-11-10T16:08:29-06:00",
                        "lastAuthoredAt":  "2026-11-10T16:08:29-06:00",
                        "commitHashes":  [
-                                            "924e7bd0064a9defc4d9845146a6b4db6749c902"
+                                            "ed1e05e6b29c8f31298d67de2bb88e1feb47e402"
                                         ],
                        "realData":  true,
                        "estimated":  false
@@ -18509,8 +18761,8 @@
                        "firstAuthoredAt":  "2026-11-11T23:38:52-06:00",
                        "lastAuthoredAt":  "2026-11-12T16:25:29-06:00",
                        "commitHashes":  [
-                                            "a0eb95024c0508dd02fa0e3ffd614d61072ba5e5",
-                                            "78564ece9145a08f33de1e468451c072c441fbe9"
+                                            "104952029e70bb800f9bf2975f1860ef48ea8557",
+                                            "2d71ea459c37fd2ed7cb139ede1c3889c8ed72ea"
                                         ],
                        "realData":  true,
                        "estimated":  false

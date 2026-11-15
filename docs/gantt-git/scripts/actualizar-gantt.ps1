@@ -117,7 +117,16 @@ foreach ($entry in $entries) {
   $module = Get-Module $paths $meta[6]
   $phase = Get-Phase $meta[6] $module
   $activity = Get-ActivityClassification $paths $meta[6] $module
-  $branches = @(Invoke-GitText @('branch', '--all', '--no-color', '--contains', $meta[0]) -split "`n" | ForEach-Object { $_.Trim().TrimStart('*').Trim() } | Where-Object { $_ -and $_ -notmatch 'HEAD ->' })
+  # Guardar primero la salida evita que PowerShell interprete -split como parte
+  # de los argumentos de la llamada a la función. Cada commit conserva así las
+  # ramas reales que lo contienen para que el filtro del dashboard funcione.
+  $branchText = Invoke-GitText @('branch', '--all', '--no-color', '--contains', $meta[0])
+  $branchReferences = @(($branchText -split "`r?`n") | ForEach-Object { $_.Trim().TrimStart('*', '+').Trim() } | Where-Object { $_ -and $_ -notmatch 'HEAD ->' })
+  $localBranches = @($branchReferences | Where-Object { $_ -notmatch '^remotes/' })
+  $remoteOnlyBranches = @($branchReferences | Where-Object { $_ -match '^remotes/' } | ForEach-Object { $_ -replace '^remotes/[^/]+/', '' })
+  # Una rama local y su seguimiento origin/<rama> son la misma rama de
+  # desarrollo; se muestra una sola vez. Las ramas solo remotas se conservan.
+  $branches = @($localBranches + $remoteOnlyBranches | Select-Object -Unique)
   $commitUrl = if ($baseUrl) { "$baseUrl/commit/$($meta[0])" } else { $null }
   $commits.Add([ordered]@{
     hash = $meta[0]; shortHash = $meta[0].Substring(0, 12); parents = @($meta[1] -split ' ' | Where-Object { $_ }); author = [ordered]@{ name = $meta[2]; email = $meta[3] }
