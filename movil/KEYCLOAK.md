@@ -49,8 +49,10 @@ válido. iOS requiere macOS/Xcode para compilar y verificar el retorno del naveg
 
 - Las contraseñas se introducen en Keycloak, nunca en un formulario local de Flutter.
 - Login cancelado vuelve a la pantalla de acceso.
-- Access/refresh/ID tokens se conservan solo en memoria. Al cerrar el proceso,
-  se debe iniciar nuevamente el flujo; puede reutilizarse la sesión SSO del navegador.
+- Access/refresh/ID tokens se conservan cifrados mediante Android Keystore/iOS
+  Keychain. Al reiniciar, se intenta renovar la sesión con el refresh token antes
+  de mostrar contenido privado. Si Keycloak lo revocó o venció, se eliminan y
+  se vuelve a solicitar el acceso.
 - Se renueva el token antes de expirar y al volver del segundo plano. Si falla,
   se elimina la sesión local y las rutas privadas muestran el acceso.
 - `AuthService.instance.accessToken()` es el punto de acceso para futuras llamadas
@@ -67,7 +69,10 @@ válido. iOS requiere macOS/Xcode para compilar y verificar el retorno del naveg
 2. Cancelar un login: no debe abrir contenido privado.
 3. Cerrar sesión y pulsar Atrás: no debe recuperar las rutas privadas.
 4. Dejar vencer la sesión o revocarla en Keycloak y comprobar la renovación/salida.
-5. Reiniciar la aplicación: no debe haber tokens persistidos.
+5. Reiniciar la aplicación con un refresh token vigente y confirmar que restaura
+   la sesión; revocar el token en Keycloak y confirmar que regresa al login.
 
 Pruebas locales: `flutter analyze` y `flutter test`. Los tests con proveedor simulado
-no sustituyen la validación del navegador y el servidor real.
+no sustituyen la validación del navegador y el servidor real. Las reglas definitivas
+de roles y acceso a datos deben validarse también en la API; Flutter solo refleja los
+roles del token para presentación.

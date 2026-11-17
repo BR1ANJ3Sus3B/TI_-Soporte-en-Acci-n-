@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/data/mock_data.dart';
-import 'package:ti_soporte_accion/models/achievement.dart';
 import 'package:ti_soporte_accion/models/mission.dart';
-import 'package:ti_soporte_accion/services/achievement_notification_service.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
 import 'package:ti_soporte_accion/widgets/chips.dart';
+import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
 
 /// Pantalla que muestra el detalle completo de una misión.
 class MissionDetailScreen extends StatelessWidget {
@@ -15,10 +15,16 @@ class MissionDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final id = ModalRoute.of(context)?.settings.arguments as String?;
-    final mission = MockData.missions.firstWhere(
-      (Mission m) => m.id == id,
-      orElse: () => MockData.missions.first,
-    );
+    final matches = MockData.missions.where((Mission m) => m.id == id);
+    if (matches.isEmpty) {
+      return Scaffold(
+        appBar: AppBar(title: const Text('Detalle de misión')),
+        body: const Center(
+          child: Text('No se encontró esa misión de demostración.'),
+        ),
+      );
+    }
+    final mission = matches.first;
 
     return Scaffold(
       appBar: AppBar(
@@ -33,14 +39,13 @@ class MissionDetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  mission.title,
-                  style: const TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800,
-                  ),
+                const DemoDataNotice(
+                  message:
+                      'Este detalle procede del catálogo '
+                      'local de ejemplo; el servidor todavía no ha confirmado la misión ni su recompensa.',
                 ),
+                const SizedBox(height: 16),
+                Text(mission.title, style: AppTypography.heading(23)),
                 const SizedBox(height: 12),
                 Text(
                   mission.description,
@@ -124,14 +129,7 @@ class MissionDetailScreen extends StatelessWidget {
                   value: mission.difficultyLabel,
                 ),
                 const SizedBox(height: 24),
-                const Text(
-                  'Objetivos',
-                  style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
+                Text('Objetivos', style: AppTypography.heading(19)),
                 const SizedBox(height: 12),
                 Container(
                   padding: const EdgeInsets.all(16),
@@ -139,7 +137,7 @@ class MissionDetailScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[AppColors.card, Color(0xFF182235)],
+                      colors: <Color>[AppColors.card, AppColors.surfaceDark],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),
@@ -188,33 +186,44 @@ class MissionDetailScreen extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: FilledButton(
-                    onPressed: () {
-                      final Achievement achievement = MockData.achievements
-                          .firstWhere(
-                            (Achievement a) => a.category == mission.area,
-                            orElse: () => MockData.achievements.first,
-                          );
-                      AchievementNotificationService.instance.notifyUnlock(
-                        achievement,
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text(
-                            'Iniciar misión: acción simulada (prototipo visual).',
-                          ),
-                        ),
-                      );
-                    },
+                    onPressed: mission.isCompleted
+                        ? null
+                        : () {
+                            showDialog<void>(
+                              context: context,
+                              builder: (context) => AlertDialog(
+                                title: const Text(
+                                  'Iniciar desde el videojuego',
+                                ),
+                                content: const Text(
+                                  'La aplicación móvil no inicia misiones '
+                                  'ni otorga recompensas. La integración con Unity y el servidor '
+                                  'educativo aún está pendiente.',
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () => Navigator.pop(context),
+                                    child: const Text('Entendido'),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
                     style: FilledButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 14),
-                      backgroundColor: AppColors.primary,
+                      backgroundColor: AppColors.primaryCyan,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(999),
                       ),
                     ),
-                    child: const Text(
-                      'Iniciar misión',
+                    child: Text(
+                      mission.isCompleted
+                          ? 'Misión completada · demo'
+                          : mission.status == MissionStatus.inProgress
+                          ? 'Continuar en videojuego'
+                          : 'Iniciar en videojuego',
                       style: TextStyle(
+                        color: AppColors.backgroundDark,
                         fontSize: 16,
                         fontWeight: FontWeight.w700,
                       ),

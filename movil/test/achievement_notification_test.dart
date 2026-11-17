@@ -52,6 +52,6 @@ void main() {
 
   test('la rareza expone etiqueta y color', () {
     expect(AchievementRarity.legendary.label, 'Legendario');
-    expect(AchievementRarity.legendary.color, const Color(0xFFF59E0B));
+    expect(AchievementRarity.legendary.color, const Color(0xFFA855F7));
   });
 }

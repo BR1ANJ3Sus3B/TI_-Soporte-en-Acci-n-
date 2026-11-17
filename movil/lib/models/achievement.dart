@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ti_soporte_accion/theme/app_colors.dart';
 
 /// Rareza de un logro. Determina el tono visual de la notificación.
 enum AchievementRarity { common, uncommon, rare, epic, legendary }
@@ -44,11 +45,11 @@ extension AchievementRarityX on AchievementRarity {
 
   /// Color asociado a la rareza (borde e insignia).
   Color get color => switch (this) {
-    AchievementRarity.common => const Color(0xFF9CA3AF),
-    AchievementRarity.uncommon => const Color(0xFF22C55E),
-    AchievementRarity.rare => const Color(0xFF2563EB),
-    AchievementRarity.epic => const Color(0xFF7C3AED),
-    AchievementRarity.legendary => const Color(0xFFF59E0B),
+    AchievementRarity.common => AppColors.textSecondary,
+    AchievementRarity.uncommon => AppColors.successLight,
+    AchievementRarity.rare => AppColors.primaryCyan,
+    AchievementRarity.epic => AppColors.purpleSecondary,
+    AchievementRarity.legendary => AppColors.purple,
   };
 }
 

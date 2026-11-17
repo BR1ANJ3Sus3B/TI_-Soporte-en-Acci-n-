@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
 
 /// Superficie NovaTech reutilizable para tarjetas y secciones de contenido.
 class NovaPanel extends StatelessWidget {
@@ -23,9 +24,15 @@ class NovaPanel extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: AppColors.cardGradient,
         borderRadius: BorderRadius.circular(AppColors.radiusMedium),
-        border: Border.all(color: accent?.withValues(alpha: .65) ?? AppColors.border),
+        border: Border.all(
+          color: accent?.withValues(alpha: .65) ?? AppColors.border,
+        ),
         boxShadow: const <BoxShadow>[
-          BoxShadow(color: Color(0x33000000), blurRadius: 14, offset: Offset(0, 6)),
+          BoxShadow(
+            color: Color(0x33000000),
+            blurRadius: 8,
+            offset: Offset(0, 3),
+          ),
         ],
       ),
       child: child,
@@ -42,7 +49,7 @@ class NovaPanel extends StatelessWidget {
   }
 }
 
-/// Botón primario con el degradado oficial azul-cian.
+/// Botón primario cian de alto contraste.
 class NovaPrimaryButton extends StatelessWidget {
   const NovaPrimaryButton({
     super.key,
@@ -65,7 +72,11 @@ class NovaPrimaryButton extends StatelessWidget {
           gradient: AppColors.primaryGradient,
           borderRadius: BorderRadius.circular(999),
           boxShadow: const <BoxShadow>[
-            BoxShadow(color: Color(0x402563EB), blurRadius: 14, offset: Offset(0, 6)),
+            BoxShadow(
+              color: Color(0x224AE4EC),
+              blurRadius: 8,
+              offset: Offset(0, 3),
+            ),
           ],
         ),
         child: FilledButton.icon(
@@ -78,7 +89,7 @@ class NovaPrimaryButton extends StatelessWidget {
             shadowColor: Colors.transparent,
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
             shape: const StadiumBorder(),
-            textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
+            textStyle: AppTypography.heading(16),
           ),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
 
 /// Tarjeta estadística reutilizable para mostrar valores del jugador.
 class StatCard extends StatelessWidget {
@@ -31,7 +32,7 @@ class StatCard extends StatelessWidget {
         gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: <Color>[AppColors.card, Color(0xFF182235)],
+          colors: <Color>[AppColors.card, AppColors.surfaceDark],
         ),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.border),
@@ -50,11 +51,7 @@ class StatCard extends StatelessWidget {
           const Spacer(),
           Text(
             value,
-            style: const TextStyle(
-              color: AppColors.textPrimary,
-              fontSize: 20,
-              fontWeight: FontWeight.w700,
-            ),
+            style: AppTypography.metric(20, color: AppColors.textPrimary),
           ),
           const SizedBox(height: 4),
           Text(

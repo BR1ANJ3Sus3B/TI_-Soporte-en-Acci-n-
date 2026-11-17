@@ -3,24 +3,52 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-/// Sesión móvil OIDC. AppAuth gestiona PKCE, state y el navegador del sistema.
-/// Los tokens viven únicamente en memoria; la API deberá validarlos por su cuenta.
+/// Persistencia de la sesión a través del almacenamiento seguro del dispositivo.
+abstract interface class AuthTokenStore {
+  Future<String?> read();
+  Future<void> write(String value);
+  Future<void> clear();
+}
+
+class PlatformAuthTokenStore implements AuthTokenStore {
+  PlatformAuthTokenStore([FlutterSecureStorage? storage])
+    : _storage = storage ?? const FlutterSecureStorage();
+
+  static const _key = 'ti_soporte.oidc.session.v1';
+  final FlutterSecureStorage _storage;
+
+  @override
+  Future<String?> read() => _storage.read(key: _key);
+
+  @override
+  Future<void> write(String value) => _storage.write(key: _key, value: value);
+
+  @override
+  Future<void> clear() => _storage.delete(key: _key);
+}
+
+/// Sesión OIDC. AppAuth realiza Code + PKCE en el navegador del sistema.
+/// Los tokens se guardan cifrados por Keychain (iOS) / Keystore (Android).
 class AuthService extends ChangeNotifier {
   AuthService({
     FlutterAppAuth? appAuth,
+    AuthTokenStore? tokenStore,
     this.issuer = const String.fromEnvironment('KEYCLOAK_ISSUER'),
     this.clientId = const String.fromEnvironment(
       'KEYCLOAK_CLIENT_ID',
       defaultValue: 'ti-soporte-flutter',
     ),
     this.allowInsecure = const bool.fromEnvironment('KEYCLOAK_ALLOW_HTTP'),
-  }) : _appAuth = appAuth ?? const FlutterAppAuth();
+  }) : _appAuth = appAuth ?? const FlutterAppAuth(),
+       _tokenStore = tokenStore ?? PlatformAuthTokenStore();
 
   static final instance = AuthService();
   static const redirectUri = 'com.tisoporte.accion:/oauthredirect';
   static const _scopes = <String>['openid', 'profile', 'email'];
   final FlutterAppAuth _appAuth;
+  final AuthTokenStore _tokenStore;
   final String issuer;
   final String clientId;
   final bool allowInsecure;
@@ -30,9 +58,13 @@ class AuthService extends ChangeNotifier {
   DateTime? _expiresAt;
   Timer? _refreshTimer;
   Future<String?>? _refreshing;
+  Future<void>? _restoreFuture;
   int _generation = 0;
+  bool _initialized = false;
   Map<String, dynamic> _identity = <String, dynamic>{};
+  List<String> _roles = <String>[];
 
+  bool get isInitialized => _initialized;
   bool get isConfigured {
     final uri = Uri.tryParse(issuer);
     return clientId.isNotEmpty &&
@@ -53,8 +85,57 @@ class AuthService extends ChangeNotifier {
       (_identity['name'] ?? _identity['preferred_username'] ?? 'Usuario')
           .toString();
   String get email => (_identity['email'] ?? '').toString();
+  List<String> get roles => List<String>.unmodifiable(_roles);
+  String get roleLabel {
+    if (_roles.contains('administrador')) return 'Administrador';
+    if (_roles.contains('docente')) return 'Docente';
+    if (_roles.contains('jugador') || _roles.contains('estudiante')) {
+      return 'Jugador';
+    }
+    return 'Sin rol asignado';
+  }
+
   String get discoveryUrl =>
       '${issuer.replaceAll(RegExp(r'/$'), '')}/.well-known/openid-configuration';
+
+  /// Restaura una sesión segura y renueva tokens vencidos antes de habilitar rutas.
+  Future<void> restoreSession() => _restoreFuture ??= _restore();
+
+  Future<void> _restore() async {
+    try {
+      if (!isSupported || !isConfigured) return;
+      final raw = await _tokenStore.read();
+      if (raw == null) return;
+      final record = jsonDecode(raw) as Map<String, dynamic>;
+      _accessToken = record['accessToken'] as String?;
+      _refreshToken = record['refreshToken'] as String?;
+      _idToken = record['idToken'] as String?;
+      _expiresAt = DateTime.tryParse(record['expiresAt'] as String? ?? '');
+      if (_accessToken == null || _expiresAt == null) {
+        await _clearSession();
+        return;
+      }
+      _readIdentity();
+      if (_expiresAt!.isAfter(
+        DateTime.now().add(const Duration(seconds: 45)),
+      )) {
+        _scheduleRefresh();
+        notifyListeners();
+        return;
+      }
+      if (await _refresh() == null) await _clearSession();
+    } catch (_) {
+      _clearMemory();
+      try {
+        await _tokenStore.clear();
+      } catch (_) {
+        // Storage plugin unavailable (for example, a non-mobile test runner).
+      }
+    } finally {
+      _initialized = true;
+      notifyListeners();
+    }
+  }
 
   Future<bool> login() async {
     if (!isSupported) {
@@ -76,47 +157,92 @@ class AuthService extends ChangeNotifier {
         ),
       );
       if (generation != _generation) return false;
-      _accept(response);
+      await _accept(response);
+      _initialized = true;
       return true;
     } on FlutterAppAuthUserCancelledException {
       return false;
     }
   }
 
-  void _accept(TokenResponse response) {
+  Future<void> _accept(TokenResponse response) async {
     final expiry = response.accessTokenExpirationDateTime;
-    if (response.accessToken == null ||
-        response.accessToken!.isEmpty ||
+    final accessToken = response.accessToken;
+    if (accessToken == null ||
+        accessToken.isEmpty ||
         expiry == null ||
         !expiry.isAfter(DateTime.now())) {
       throw StateError('El servidor no devolvió una sesión válida.');
     }
-    _accessToken = response.accessToken;
-    _refreshToken = response.refreshToken ?? _refreshToken;
-    _idToken = response.idToken ?? _idToken;
+    final refreshToken = response.refreshToken ?? _refreshToken;
+    final idToken = response.idToken ?? _idToken;
+    final identity = _decodeIdentity(idToken);
+    final roles = _readRoles(identity);
+    await _tokenStore.write(
+      jsonEncode(<String, Object?>{
+        'accessToken': accessToken,
+        'refreshToken': refreshToken,
+        'idToken': idToken,
+        'expiresAt': expiry.toIso8601String(),
+      }),
+    );
+    _accessToken = accessToken;
+    _refreshToken = refreshToken;
+    _idToken = idToken;
     _expiresAt = expiry;
-    // Estos claims solo se usan para presentación, nunca para autorizar una API.
+    _identity = identity;
+    _roles = roles;
+    _initialized = true;
+    _scheduleRefresh();
+    notifyListeners();
+  }
+
+  Map<String, dynamic> _decodeIdentity(String? token) {
     try {
-      _identity = jsonDecode(
-        utf8.decode(
-          base64Url.decode(base64Url.normalize(_idToken!.split('.')[1])),
-        ),
+      if (token == null) return <String, dynamic>{};
+      final parts = token.split('.');
+      if (parts.length != 3) return <String, dynamic>{};
+      return jsonDecode(
+        utf8.decode(base64Url.decode(base64Url.normalize(parts[1]))),
       ) as Map<String, dynamic>;
     } catch (_) {
-      _identity = <String, dynamic>{};
+      return <String, dynamic>{};
     }
+  }
+
+  List<String> _readRoles(Map<String, dynamic> claims) {
+    final roles = <String>{};
+    final realmAccess = claims['realm_access'];
+    if (realmAccess is Map && realmAccess['roles'] is List) {
+      roles.addAll((realmAccess['roles'] as List).whereType<String>());
+    }
+    final resourceAccess = claims['resource_access'];
+    if (resourceAccess is Map) {
+      final client = resourceAccess[clientId];
+      if (client is Map && client['roles'] is List) {
+        roles.addAll((client['roles'] as List).whereType<String>());
+      }
+    }
+    return roles.toList()..sort();
+  }
+
+  void _readIdentity() {
+    _identity = _decodeIdentity(_idToken);
+    _roles = _readRoles(_identity);
+  }
+
+  void _scheduleRefresh() {
     _refreshTimer?.cancel();
-    final remaining = expiry.difference(DateTime.now());
+    final remaining = _expiresAt!.difference(DateTime.now());
     final delay = remaining > const Duration(seconds: 60)
         ? remaining - const Duration(seconds: 30)
         : remaining;
     _refreshTimer = Timer(delay, () {
       unawaited(accessToken());
     });
-    notifyListeners();
   }
 
-  /// Usar antes de cada llamada futura a la API. Nunca retorna un token vencido.
+  /// Usar antes de una futura llamada a API; nunca entrega tokens vencidos.
   Future<String?> accessToken() async {
     if (_accessToken == null) return null;
     if (_expiresAt!.isAfter(DateTime.now().add(const Duration(seconds: 45)))) {
@@ -127,8 +253,12 @@ class AuthService extends ChangeNotifier {
 
   Future<String?> _refresh() async {
     final generation = _generation;
-    if (_refreshToken == null) {
-      _clear();
+    if (_refreshToken == null || !isConfigured) {
+      try {
+        await _clearSession();
+      } catch (_) {
+        // The in-memory session is already removed even if secure storage fails.
+      }
       return null;
     }
     try {
@@ -143,18 +273,24 @@ class AuthService extends ChangeNotifier {
         ),
       );
       if (generation != _generation) return null;
-      _accept(response);
+      await _accept(response);
       return _accessToken;
     } catch (_) {
-      if (generation == _generation) _clear();
+      if (generation == _generation) {
+        try {
+          await _clearSession();
+        } catch (_) {
+          // Never leave an expired credential usable in memory.
+        }
+      }
       return null;
     }
   }
 
   Future<void> logout() async {
     final idToken = _idToken;
-    _clear();
-    if (idToken == null) return;
+    await _clearSession();
+    if (idToken == null || !isConfigured || !isSupported) return;
     await _appAuth.endSession(
       EndSessionRequest(
         idTokenHint: idToken,
@@ -165,13 +301,23 @@ class AuthService extends ChangeNotifier {
     );
   }
 
-  void _clear() {
+  Future<void> _clearSession() async {
+    _clearMemory();
+    try {
+      await _tokenStore.clear();
+    } finally {
+      notifyListeners();
+    }
+  }
+
+  void _clearMemory() {
     _generation++;
     _refreshTimer?.cancel();
     _accessToken = _refreshToken = _idToken = null;
     _expiresAt = null;
     _identity = <String, dynamic>{};
-    notifyListeners();
+    _roles = <String>[];
+    _initialized = true;
   }
 
   @override

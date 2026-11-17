@@ -5,6 +5,9 @@ import 'package:ti_soporte_accion/theme/app_colors.dart';
 import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
 import 'package:ti_soporte_accion/widgets/mission_card.dart';
 import 'package:ti_soporte_accion/widgets/xp_bar.dart';
+import 'package:ti_soporte_accion/services/auth_service.dart';
+import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
 
 /// Pantalla de inicio (Dashboard).
 ///
@@ -38,38 +41,19 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'Bienvenido, ${profile.name}',
-                        style: const TextStyle(
-                          color: AppColors.textPrimary,
-                          fontSize: 22,
-                          fontWeight: FontWeight.w800,
-                        ),
+                        'Bienvenido, ${AuthService.instance.displayName}',
+                        style: AppTypography.heading(24),
                       ),
                       const SizedBox(height: 8),
-                      Wrap(
-                        spacing: 12,
-                        runSpacing: 8,
-                        children: <Widget>[
-                          Text(
-                            'Nivel: ${profile.level}',
-                            style: const TextStyle(
-                              color: AppColors.cyan,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Text(
-                            'XP: ${profile.currentXp} / ${profile.xpForNextLevel}',
-                            style: const TextStyle(
-                              color: AppColors.textSecondary,
-                            ),
-                          ),
-                          Text(
-                            'Rango: ${profile.rank}',
-                            style: const TextStyle(
-                              color: AppColors.textSecondary,
-                            ),
-                          ),
-                        ],
+                      Text(
+                        'NovaTech Solutions · ${AuthService.instance.roleLabel}',
+                        style: AppTypography.label(14),
+                      ),
+                      const SizedBox(height: 12),
+                      const DemoDataNotice(
+                        message:
+                            'La misión, nivel y XP de esta '
+                            'pantalla son ejemplos locales. La API educativa todavía no está disponible.',
                       ),
                       const SizedBox(height: 16),
                       XpBar(
@@ -86,19 +70,10 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      const Text(
-                        'Misión actual',
-                        style: TextStyle(
-                          color: AppColors.textPrimary,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
+                      Text('Misión actual', style: AppTypography.heading(19)),
                       const SizedBox(height: 12),
                       MissionCard(
                         mission: mission,
-                        showStartButton:
-                            mission.status != MissionStatus.completed,
                         onTap: () {
                           Navigator.of(
                             context,
@@ -115,12 +90,15 @@ class HomeScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      const Text(
+                      Text(
                         'Actividad reciente',
-                        style: TextStyle(
-                          color: AppColors.textPrimary,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
+                        style: AppTypography.heading(19),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 8),
+                        child: Text(
+                          'Actividad ilustrativa, no obtenida de una cuenta.',
+                          style: AppTypography.label(12),
                         ),
                       ),
                       const SizedBox(height: 12),
@@ -130,18 +108,23 @@ class HomeScreen extends StatelessWidget {
                           gradient: const LinearGradient(
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
-                            colors: <Color>[AppColors.card, Color(0xFF182235)],
+                            colors: <Color>[
+                              AppColors.card,
+                              AppColors.surfaceDark,
+                            ],
                           ),
                           borderRadius: BorderRadius.circular(16),
                           border: Border.all(color: AppColors.border),
                         ),
                         child: const Column(
                           children: <Widget>[
-                            _ActivityItem(text: 'Equipo reparado'),
+                            _ActivityItem(text: 'Ejemplo: equipo reparado'),
                             Divider(color: AppColors.border, height: 24),
-                            _ActivityItem(text: 'Contraseña restablecida'),
+                            _ActivityItem(
+                              text: 'Ejemplo: contraseña restablecida',
+                            ),
                             Divider(color: AppColors.border, height: 24),
-                            _ActivityItem(text: 'Red diagnosticada'),
+                            _ActivityItem(text: 'Ejemplo: red diagnosticada'),
                           ],
                         ),
                       ),

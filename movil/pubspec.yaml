@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   flutter_appauth: ^13.0.0
+  flutter_secure_storage: ^11.2.0
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +59,19 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  fonts:
+    - family: SpaceGrotesk
+      fonts:
+        - asset: assets/fonts/SpaceGrotesk-Variable.ttf
+    - family: SpaceMono
+      fonts:
+        - asset: assets/fonts/SpaceMono-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/SpaceMono-Bold.ttf
+          weight: 700
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Variable.ttf
 
 # Icono de lanzamiento de TI: Soporte en Acción. La copia adaptive conserva un
 # margen oscuro de seguridad para las máscaras circulares de Android.
@@ -65,7 +79,7 @@ flutter_launcher_icons:
   android: true
   ios: true
   image_path: "assets/icons/Soporte en Acción Pixelado.png"
-  adaptive_icon_background: "#0B1120"
+  adaptive_icon_background: "#06132A"
   adaptive_icon_foreground: "assets/icons/ti_soporte_accion_adaptive.png"
   remove_alpha_ios: true
 

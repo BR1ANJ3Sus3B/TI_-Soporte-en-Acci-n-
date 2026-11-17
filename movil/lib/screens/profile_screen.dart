@@ -5,6 +5,8 @@ import 'package:ti_soporte_accion/widgets/character_card.dart';
 import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
 import 'package:ti_soporte_accion/widgets/stat_card.dart';
 import 'package:ti_soporte_accion/services/auth_service.dart';
+import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
 
 /// Pantalla de perfil del jugador.
 ///
@@ -29,13 +31,28 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const Text(
-                  'Perfil del jugador',
-                  style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w800,
-                  ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Perfil del jugador',
+                        style: AppTypography.heading(24),
+                      ),
+                    ),
+                    IconButton(
+                      tooltip: 'Abrir ajustes',
+                      onPressed: () =>
+                          Navigator.of(context).pushNamed('/settings'),
+                      icon: const Icon(Icons.settings_outlined),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                const DemoDataNotice(
+                  message:
+                      'XP, nivel, habilidades y logros '
+                      'son datos de ejemplo. La cuenta está autenticada, pero el perfil '
+                      'educativo todavía no viene de la API.',
                 ),
                 const SizedBox(height: 16),
                 Container(
@@ -44,7 +61,7 @@ class ProfileScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[AppColors.card, Color(0xFF182235)],
+                      colors: <Color>[AppColors.card, AppColors.surfaceDark],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),
@@ -67,15 +84,11 @@ class ProfileScreen extends StatelessWidget {
                           children: <Widget>[
                             Text(
                               AuthService.instance.displayName,
-                              style: const TextStyle(
-                                color: AppColors.textPrimary,
-                                fontSize: 18,
-                                fontWeight: FontWeight.w700,
-                              ),
+                              style: AppTypography.heading(18),
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              'Demostración: ${profile.rank} • Nivel ${profile.level}',
+                              AuthService.instance.roleLabel,
                               style: const TextStyle(
                                 color: AppColors.textSecondary,
                                 fontSize: 13,
@@ -83,10 +96,12 @@ class ProfileScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              'XP: ${profile.currentXp} / ${profile.xpForNextLevel}',
-                              style: const TextStyle(
-                                color: AppColors.cyan,
-                                fontWeight: FontWeight.w600,
+                              AuthService.instance.email.isEmpty
+                                  ? 'Correo no disponible'
+                                  : AuthService.instance.email,
+                              style: AppTypography.label(
+                                13,
+                                color: AppColors.textSecondary,
                               ),
                             ),
                           ],
@@ -96,12 +111,13 @@ class ProfileScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
+                Text('Estadísticas', style: AppTypography.heading(19)),
+                const SizedBox(height: 4),
                 const Text(
-                  'Estadísticas',
+                  'Valores locales de ejemplo, no verificados por el servidor.',
                   style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
+                    color: AppColors.textSecondary,
+                    fontSize: 12,
                   ),
                 ),
                 const SizedBox(height: 12),
@@ -142,14 +158,14 @@ class ProfileScreen extends StatelessWidget {
                       title: 'Programación',
                       value: profile.skills['Programación']?.toString() ?? '0',
                       icon: Icons.code_rounded,
-                      color: AppColors.primary,
+                      color: AppColors.purpleSecondary,
                     ),
                     StatCard(
                       title: 'Bases de datos',
                       value:
                           profile.skills['Bases de Datos']?.toString() ?? '0',
                       icon: Icons.storage_rounded,
-                      color: AppColors.primary,
+                      color: AppColors.purpleSecondary,
                     ),
                   ],
                 ),

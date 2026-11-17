@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ti_soporte_accion/theme/app_colors.dart';
 
 /// Estado de una misión dentro del catálogo.
 enum MissionStatus {
@@ -73,9 +74,9 @@ class Mission {
 
   /// Color asociado a la dificultad para usar en chips e indicadores.
   Color get difficultyColor => switch (difficulty) {
-    1 => const Color(0xFF22C55E),
-    2 => const Color(0xFFF59E0B),
-    _ => const Color(0xFFEF4444),
+    1 => AppColors.successLight,
+    2 => AppColors.warning,
+    _ => AppColors.error,
   };
 
   /// Indica si la misión ya fue completada.

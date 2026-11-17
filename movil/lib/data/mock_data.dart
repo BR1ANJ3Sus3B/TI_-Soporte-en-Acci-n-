@@ -5,6 +5,7 @@ import 'package:ti_soporte_accion/models/mission.dart';
 import 'package:ti_soporte_accion/models/player_profile.dart';
 import 'package:ti_soporte_accion/models/map_area.dart';
 import 'package:ti_soporte_accion/models/skill.dart';
+import 'package:ti_soporte_accion/theme/app_colors.dart';
 
 /// Datos simulados para visualizar todas las pantallas de la aplicaciÃ³n mÃ³vil.
 class MockData {
@@ -104,25 +105,25 @@ class MockData {
       name: 'Soporte Técnico',
       level: 4,
       icon: Icons.build_rounded,
-      color: Color(0xFF22C55E),
+      color: AppColors.successLight,
     ),
     Skill(
       name: 'Redes',
       level: 2,
       icon: Icons.wifi_tethering_rounded,
-      color: Color(0xFF06B6D4),
+      color: AppColors.primaryCyan,
     ),
     Skill(
       name: 'Programación',
       level: 3,
       icon: Icons.code_rounded,
-      color: Color(0xFF2563EB),
+      color: AppColors.purple,
     ),
     Skill(
       name: 'Bases de Datos',
       level: 2,
       icon: Icons.storage_rounded,
-      color: Color(0xFF7C3AED),
+      color: AppColors.purpleSecondary,
     ),
   ];
 
@@ -188,37 +189,37 @@ class MockData {
     MapArea(
       name: 'Soporte Técnico',
       icon: Icons.build_rounded,
-      color: Color(0xFF22C55E),
+      color: AppColors.successLight,
     ),
     MapArea(
       name: 'Recursos Humanos',
       icon: Icons.people_rounded,
-      color: Color(0xFF06B6D4),
+      color: AppColors.primaryCyan,
     ),
     MapArea(
       name: 'Desarrollo',
       icon: Icons.code_rounded,
-      color: Color(0xFF2563EB),
+      color: AppColors.purple,
     ),
     MapArea(
       name: 'Sala de Servidores',
       icon: Icons.dns_rounded,
-      color: Color(0xFF7C3AED),
+      color: AppColors.purpleSecondary,
     ),
     MapArea(
       name: 'Administración',
       icon: Icons.apartment_rounded,
-      color: Color(0xFFF59E0B),
+      color: AppColors.purple,
     ),
     MapArea(
       name: 'Dirección',
       icon: Icons.account_balance_rounded,
-      color: Color(0xFFEF4444),
+      color: AppColors.purpleSecondary,
     ),
     MapArea(
       name: 'Almacén',
       icon: Icons.inventory_2_rounded,
-      color: Color(0xFF9CA3AF),
+      color: AppColors.borderSecondary,
     ),
   ];
 

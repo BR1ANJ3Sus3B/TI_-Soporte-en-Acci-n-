@@ -1,71 +1,53 @@
 import 'package:flutter/material.dart';
 
-/// Paleta de colores central del estilo "TI: Soporte en Acción".
-///
-/// El proyecto usa un tema oscuro, tecnológico y tipo RPG. Todos los colores
-/// se declaran aquí para reutilizarlos en pantallas y widgets.
+/// Tokens de diseño de NovaTech basados en la especificación Stitch del proyecto.
 class AppColors {
   const AppColors._();
 
-  /// Fondo principal de la aplicación.
-  static const Color background = Color(0xFF0B1120);
-
-  /// Superficies elevadas (app bars, secciones).
-  static const Color surface = Color(0xFF111827);
-
-  /// Fondo de tarjetas y paneles.
-  static const Color card = Color(0xFF1F2937);
-
-  /// Azul tecnológico principal (acciones y acentos).
-  static const Color primary = Color(0xFF2563EB);
-
-  /// Cian para acentos y datos destacados.
-  static const Color cyan = Color(0xFF06B6D4);
-
-  /// Verde de éxito (misiones completadas).
-  static const Color success = Color(0xFF22C55E);
-
-  /// Amarillo de advertencia (misiones en progreso).
+  static const Color primaryCyan = Color(0xFF4AE4EC);
+  static const Color backgroundDark = Color(0xFF06132A);
+  static const Color surfaceDark = Color(0xFF020D25);
+  static const Color containerDark = Color(0xFF0F1B33);
+  static const Color success = Color(0xFF10B981);
+  static const Color successLight = Color(0xFF4ADE80);
   static const Color warning = Color(0xFFF59E0B);
+  static const Color error = Color(0xFFEF4444);
+  static const Color purple = Color(0xFFA855F7);
+  static const Color purpleSecondary = Color(0xFF8B5CF6);
+  static const Color textPrimary = Color(0xFFF8FAFC);
+  static const Color textSecondary = Color(0xFF94A3B8);
+  static const Color borderPrimary = Color(0xFF1E293B);
+  static const Color borderSecondary = Color(0xFF334155);
 
-  /// Rojo crítico (errores y dificultad alta).
-  static const Color danger = Color(0xFFEF4444);
-
-  /// Texto principal.
-  static const Color textPrimary = Color(0xFFF9FAFB);
-
-  /// Texto secundario y descripciones.
-  static const Color textSecondary = Color(0xFF9CA3AF);
-
-  /// Bordes y separadores sutiles.
-  static const Color border = Color(0xFF273449);
-
-  /// Superficie secundaria para aportar profundidad sin introducir colores
-  /// fuera de la paleta NovaTech.
-  static const Color cardHighlight = Color(0xFF182235);
+  // Alias de compatibilidad para conservar las APIs visuales existentes.
+  static const Color background = backgroundDark;
+  static const Color surface = surfaceDark;
+  static const Color card = containerDark;
+  static const Color primary = primaryCyan;
+  static const Color cyan = primaryCyan;
+  static const Color danger = error;
+  static const Color border = borderPrimary;
+  static const Color cardHighlight = surfaceDark;
 
   static const double radiusSmall = 12;
   static const double radiusMedium = 16;
   static const double radiusLarge = 20;
 
-  /// Degradado de fondo usado en toda la app.
   static const LinearGradient backgroundGradient = LinearGradient(
-    begin: Alignment.topCenter,
+    begin: Alignment.topLeft,
     end: Alignment.bottomCenter,
-    colors: <Color>[Color(0xFF0B1120), Color(0xFF0F172A), Color(0xFF0B1120)],
+    colors: <Color>[backgroundDark, surfaceDark],
   );
 
-  /// Gradiente usado en barras de experiencia y botones principales.
   static const LinearGradient primaryGradient = LinearGradient(
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
-    colors: <Color>[primary, cyan],
+    colors: <Color>[primaryCyan, Color(0xFF2DD4E0)],
   );
 
-  /// Fondo uniforme de paneles y tarjetas reutilizables.
   static const LinearGradient cardGradient = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: <Color>[card, cardHighlight],
+    colors: <Color>[containerDark, surfaceDark],
   );
 }

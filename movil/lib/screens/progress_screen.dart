@@ -4,6 +4,8 @@ import 'package:ti_soporte_accion/models/achievement.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
 import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
 import 'package:ti_soporte_accion/widgets/xp_bar.dart';
+import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
 
 /// Pantalla de progreso del jugador.
 ///
@@ -29,15 +31,14 @@ class ProgressScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const Text(
-                  'Progreso',
-                  style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 22,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
+                Text('Progreso', style: AppTypography.heading(24)),
                 const SizedBox(height: 8),
+                const DemoDataNotice(
+                  message:
+                      'Nivel, XP, habilidades y logros '
+                      'son ejemplos locales; no están verificados ni sincronizados.',
+                ),
+                const SizedBox(height: 12),
                 const Text(
                   'Crecimiento del jugador, habilidades y logros.',
                   style: TextStyle(
@@ -52,7 +53,7 @@ class ProgressScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[AppColors.card, Color(0xFF182235)],
+                      colors: <Color>[AppColors.card, AppColors.surfaceDark],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),
@@ -89,14 +90,7 @@ class ProgressScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Habilidades',
-                  style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
+                Text('Habilidades', style: AppTypography.heading(19)),
                 const SizedBox(height: 12),
                 Container(
                   padding: const EdgeInsets.all(16),
@@ -104,7 +98,7 @@ class ProgressScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[AppColors.card, Color(0xFF182235)],
+                      colors: <Color>[AppColors.card, AppColors.surfaceDark],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),
@@ -165,14 +159,7 @@ class ProgressScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Logros',
-                  style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
+                Text('Logros', style: AppTypography.heading(19)),
                 const SizedBox(height: 12),
                 Container(
                   padding: const EdgeInsets.all(16),
@@ -180,7 +167,7 @@ class ProgressScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[AppColors.card, Color(0xFF182235)],
+                      colors: <Color>[AppColors.card, AppColors.surfaceDark],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),
@@ -188,7 +175,7 @@ class ProgressScreen extends StatelessWidget {
                   child: Column(
                     children: achievements.map((Achievement a) {
                       final color = a.unlocked
-                          ? AppColors.success
+                          ? AppColors.successLight
                           : AppColors.textSecondary;
                       return InkWell(
                         onTap: () {

@@ -39,7 +39,7 @@ class CharacterCard extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: <Color>[AppColors.card, const Color(0xFF182235)],
+          colors: <Color>[AppColors.card, AppColors.surfaceDark],
         ),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: color.withValues(alpha: 0.6)),

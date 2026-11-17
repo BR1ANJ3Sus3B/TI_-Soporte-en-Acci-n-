@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/services/auth_service.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
 import 'package:ti_soporte_accion/widgets/nova_panel.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -60,13 +61,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: AppColors.cyan,
                       ),
                       const SizedBox(height: 20),
-                      const Text(
+                      Text(
                         'TI: Soporte en Acción',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: AppTypography.heading(26),
                       ),
                       const SizedBox(height: 16),
                       const Text(

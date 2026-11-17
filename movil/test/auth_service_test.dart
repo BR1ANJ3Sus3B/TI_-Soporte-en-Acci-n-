@@ -29,9 +29,12 @@ class FakeAppAuth extends FlutterAppAuth {
     }
     final claims = base64Url.encode(
       utf8.encode(
-        jsonEncode(<String, String>{
+        jsonEncode(<String, Object>{
           'name': 'Usuario de prueba',
           'email': 'test@example.com',
+          'realm_access': <String, Object>{
+            'roles': <String>['estudiante'],
+          },
         }),
       ),
     );
@@ -71,16 +74,34 @@ class FakeAppAuth extends FlutterAppAuth {
   }
 }
 
+class MemoryAuthTokenStore implements AuthTokenStore {
+  String? value;
+  @override
+  Future<String?> read() async => value;
+  @override
+  Future<void> write(String value) async {
+    this.value = value;
+  }
+
+  @override
+  Future<void> clear() async {
+    value = null;
+  }
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   late FakeAppAuth provider;
+  late MemoryAuthTokenStore tokenStore;
   late AuthService auth;
 
   setUp(() {
     debugDefaultTargetPlatformOverride = TargetPlatform.android;
     provider = FakeAppAuth();
+    tokenStore = MemoryAuthTokenStore();
     auth = AuthService(
       appAuth: provider,
+      tokenStore: tokenStore,
       issuer: 'https://id.example.com/realms/test',
     );
   });
@@ -93,7 +114,11 @@ void main() {
     expect(await auth.login(), isTrue);
     expect(auth.isAuthenticated, isTrue);
     expect(auth.displayName, 'Usuario de prueba');
+    expect(auth.email, 'test@example.com');
+    expect(auth.roles, contains('estudiante'));
+    expect(auth.roleLabel, 'Jugador');
     expect(await auth.accessToken(), 'access');
+    expect(tokenStore.value, isNotNull);
     expect(provider.request!.redirectUrl, AuthService.redirectUri);
   });
 
@@ -128,7 +153,83 @@ void main() {
     await expectLater(auth.logout(), throwsStateError);
     expect(auth.isAuthenticated, isFalse);
     expect(await auth.accessToken(), isNull);
+    expect(tokenStore.value, isNull);
   });
+
+  test('restaura la sesión segura después de recrear el servicio', () async {
+    final original = AuthService(
+      appAuth: provider,
+      tokenStore: tokenStore,
+      issuer: 'https://id.example.com/realms/test',
+    );
+    await original.login();
+    original.dispose();
+    final restarted = AuthService(
+      appAuth: provider,
+      tokenStore: tokenStore,
+      issuer: 'https://id.example.com/realms/test',
+    );
+    await restarted.restoreSession();
+    expect(restarted.isInitialized, isTrue);
+    expect(restarted.isAuthenticated, isTrue);
+    expect(await restarted.accessToken(), 'access');
+    expect(restarted.displayName, 'Usuario de prueba');
+    restarted.dispose();
+  });
+
+  test(
+    'renueva token vencido al restaurar y borra sesión si se revocó',
+    () async {
+      tokenStore.value = jsonEncode(<String, Object?>{
+        'accessToken': 'expired',
+        'refreshToken': 'refresh',
+        'idToken': null,
+        'expiresAt': DateTime.now()
+            .subtract(const Duration(minutes: 1))
+            .toIso8601String(),
+      });
+      await auth.restoreSession();
+      expect(auth.isAuthenticated, isTrue);
+      expect(await auth.accessToken(), 'renewed');
+
+      await auth.logout();
+      tokenStore.value = jsonEncode(<String, Object?>{
+        'accessToken': 'expired',
+        'refreshToken': 'refresh',
+        'idToken': null,
+        'expiresAt': DateTime.now()
+            .subtract(const Duration(minutes: 1))
+            .toIso8601String(),
+      });
+      provider.failRefresh = true;
+      final revokedSession = AuthService(
+        appAuth: provider,
+        tokenStore: tokenStore,
+        issuer: 'https://id.example.com/realms/test',
+      );
+      await revokedSession.restoreSession();
+      expect(revokedSession.isAuthenticated, isFalse);
+      expect(tokenStore.value, isNull);
+      revokedSession.dispose();
+    },
+  );
+
+  test(
+    'sesión expirada sin refresh token no conserva el access token',
+    () async {
+      tokenStore.value = jsonEncode(<String, Object?>{
+        'accessToken': 'expired',
+        'refreshToken': null,
+        'idToken': null,
+        'expiresAt': DateTime.now()
+            .subtract(const Duration(seconds: 1))
+            .toIso8601String(),
+      });
+      await auth.restoreSession();
+      expect(auth.isAuthenticated, isFalse);
+      expect(tokenStore.value, isNull);
+    },
+  );
 
   test(
     'una renovación tardía no restaura la sesión después del logout',

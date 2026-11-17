@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/models/achievement.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
+import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
 
 /// Pantalla de detalle de un logro.
 ///
@@ -45,6 +47,12 @@ class AchievementDetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
+                const DemoDataNotice(
+                  message:
+                      'Este logro pertenece al catálogo '
+                      'de demostración; su estado no está confirmado por Unity ni la API.',
+                ),
+                const SizedBox(height: 16),
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 28),
                   decoration: BoxDecoration(
@@ -61,8 +69,7 @@ class AchievementDetailScreen extends StatelessWidget {
                     boxShadow: <BoxShadow>[
                       BoxShadow(
                         color: rarityColor.withValues(alpha: 0.3),
-                        blurRadius: 22,
-                        spreadRadius: 1,
+                        blurRadius: 8,
                       ),
                     ],
                   ),
@@ -77,8 +84,8 @@ class AchievementDetailScreen extends StatelessWidget {
                           border: Border.all(color: rarityColor, width: 3),
                           boxShadow: <BoxShadow>[
                             BoxShadow(
-                              color: rarityColor.withValues(alpha: 0.5),
-                              blurRadius: 20,
+                              color: rarityColor.withValues(alpha: 0.12),
+                              blurRadius: 8,
                             ),
                           ],
                         ),
@@ -96,11 +103,7 @@ class AchievementDetailScreen extends StatelessWidget {
                         child: Text(
                           achievement.title,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: AppColors.textPrimary,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w800,
-                          ),
+                          style: AppTypography.heading(21),
                         ),
                       ),
                       const SizedBox(height: 10),
@@ -136,7 +139,7 @@ class AchievementDetailScreen extends StatelessWidget {
                     gradient: const LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: <Color>[AppColors.card, Color(0xFF182235)],
+                      colors: <Color>[AppColors.card, AppColors.surfaceDark],
                     ),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: AppColors.border),

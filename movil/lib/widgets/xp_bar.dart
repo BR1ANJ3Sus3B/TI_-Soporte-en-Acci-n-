@@ -22,6 +22,7 @@ class XpBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final progress = max <= 0 ? 0.0 : (current / max).clamp(0.0, 1.0);
+    final reduceMotion = MediaQuery.of(context).disableAnimations;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -41,6 +42,7 @@ class XpBar extends StatelessWidget {
                 '$current / $max XP',
                 style: const TextStyle(
                   color: AppColors.cyan,
+                  fontFamily: 'SpaceMono',
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
                 ),
@@ -50,7 +52,9 @@ class XpBar extends StatelessWidget {
         const SizedBox(height: 8),
         TweenAnimationBuilder<double>(
           tween: Tween<double>(begin: 0, end: progress),
-          duration: const Duration(milliseconds: 650),
+          duration: reduceMotion
+              ? Duration.zero
+              : const Duration(milliseconds: 650),
           curve: Curves.easeOutCubic,
           builder: (BuildContext context, double value, Widget? child) {
             return ClipRRect(

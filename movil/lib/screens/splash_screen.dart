@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ti_soporte_accion/services/auth_service.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
 
 /// Pantalla inicial de NovaTech; conserva el flujo automático hacia login.
 class SplashScreen extends StatefulWidget {
@@ -13,17 +15,31 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
     with SingleTickerProviderStateMixin {
+  late final bool _reduceMotion = WidgetsBinding
+      .instance
+      .platformDispatcher
+      .accessibilityFeatures
+      .disableAnimations;
   late final AnimationController _controller = AnimationController(
     vsync: this,
-    duration: const Duration(milliseconds: 700),
+    duration: _reduceMotion ? Duration.zero : const Duration(milliseconds: 700),
   )..forward();
 
   @override
   void initState() {
     super.initState();
-    Future<void>.delayed(const Duration(seconds: 2), () {
-      if (mounted) Navigator.of(context).pushReplacementNamed('/login');
-    });
+    _restoreAndContinue();
+  }
+
+  Future<void> _restoreAndContinue() async {
+    await AuthService.instance.restoreSession();
+    if (!_reduceMotion) {
+      await Future<void>.delayed(const Duration(milliseconds: 700));
+    }
+    if (!mounted) return;
+    Navigator.of(context).pushReplacementNamed(
+      AuthService.instance.isAuthenticated ? '/home' : '/login',
+    );
   }
 
   @override
@@ -43,7 +59,10 @@ class _SplashScreenState extends State<SplashScreen>
             opacity: fade,
             child: ScaleTransition(
               scale: Tween<double>(begin: .94, end: 1).animate(
-                CurvedAnimation(parent: _controller, curve: Curves.easeOutCubic),
+                CurvedAnimation(
+                  parent: _controller,
+                  curve: Curves.easeOutCubic,
+                ),
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -51,14 +70,13 @@ class _SplashScreenState extends State<SplashScreen>
                   Container(
                     width: 76,
                     height: 76,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       gradient: AppColors.primaryGradient,
                       boxShadow: <BoxShadow>[
                         BoxShadow(
-                          color: Color(0x552563EB),
-                          blurRadius: 28,
-                          spreadRadius: 2,
+                          color: AppColors.primaryCyan.withValues(alpha: .14),
+                          blurRadius: 14,
                         ),
                       ],
                     ),
@@ -69,14 +87,9 @@ class _SplashScreenState extends State<SplashScreen>
                     ),
                   ),
                   const SizedBox(height: 22),
-                  const Text(
+                  Text(
                     'TI: Soporte en Acción',
-                    style: TextStyle(
-                      color: AppColors.textPrimary,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 1.2,
-                    ),
+                    style: AppTypography.heading(24),
                   ),
                   const SizedBox(height: 10),
                   const Text(
