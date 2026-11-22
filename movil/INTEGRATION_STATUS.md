@@ -1,48 +1,49 @@
-# Integración Flutter — estado y dependencias
+# Integración Flutter/API — estado verificable
 
-## Implementado en esta rama
+## Implementado
 
-- Keycloak móvil por navegador del sistema con Authorization Code + PKCE.
-- Tokens de la sesión cifrados por Android Keystore / iOS Keychain, renovación y
-  restauración en el siguiente inicio cuando el refresh token sigue vigente.
-- Se leen nombre, correo y roles del ID token para presentación. La app no usa
-  esos claims para autorizar operaciones del servidor.
-- Misiones, objetivos, niveles, XP, habilidades, áreas, logros y actividad son
-  constantes de demostración bajo `lib/data/mock_data.dart`. Se señalan como tales
-  en las vistas.
-- El mapa actual es un mapa conceptual de áreas de oficina, no un mapa de niveles.
-- El botón de inicio de una misión explica que debe ejecutarse en Unity. No marca
-  el resultado como completado ni desbloquea logros/recompensas.
+- Flutter usa `API_BASE_URL` de compilación y manda access tokens Bearer para
+  perfil, misiones, detalle, áreas, progreso, especialidades y logros.
+- El cliente gestiona timeout, desconexión, JSON inválido, 401, 403 y reintento.
+  El modo demo solo se habilita explícitamente con `DEMO_MODE=true`.
+- La API Express/Mongoose implementa dichos endpoints, guías, niveles, intentos,
+  revisión administrativa, idempotencia y `/metrics`.
+- JWT valida RS256, issuer, audience, expiración y subject con JWKS de Keycloak.
+- MongoDB usa un volumen Docker nuevo `ti-soporte-api_api-mongo-data` conectado
+  por una red interna; Mongo no publica puerto ni recibe conexiones desde Flutter.
+- Los intentos enviados por jugador quedan `pending_verification`. No generan XP
+  hasta la revisión de un administrador; el valor se toma de la misión guardada.
+- Prometheus scrape jobs y dashboard JSON se añadieron en `api/`, sin crear otro
+  Grafana/Prometheus ni modificar su otra rama.
 
-## Bloqueo de API confirmado
+## Bloqueos reales de integración
 
-`../api/README.md` indica que la API es pendiente. En `../api/src/` las carpetas
-de rutas, modelos y servicios solo contienen `.gitkeep`; no hay `package.json`,
-servidor, endpoints ni contrato JSON. Por eso Flutter no configura una URL base,
-no inventa rutas ni simula una conexión HTTP exitosa. MongoDB tampoco es accesible
-desde la app: el camino esperado es `Flutter → API → MongoDB`.
+- Discovery confirmó el realm `TI Soporte en Acción`, issuer
+  `http://localhost:8080/realms/TI%20Soporte%20en%20Acci%C3%B3n`.
+- El cliente móvil `ti-soporte-flutter` no existe aún en ese realm. El endpoint
+  OIDC respondió `Client not found` para ese Client ID y callback.
+- Falta un Audience mapper en Keycloak y definir el `KEYCLOAK_AUDIENCE` real del
+  access token. Mientras tanto las rutas protegidas de la API devuelven
+  `503 keycloak_not_configured`; la salud de proceso/Mongo sí está disponible.
+- El `KC_ADMIN_PASSWORD` añadido al `.env` local ignorado por Git no es la clave
+  del admin del volumen Keycloak ya inicializado. Keycloak lo rechazó como
+  `invalid_grant`; el volumen se conservó, sin resetear usuarios.
+- El catálogo Mongo se mantiene vacío hasta cargar misiones, niveles, guías y
+  logros confirmados. No se sembraron datos mock como contenido real.
+- Unity no tiene cliente API en la rama revisada. El protocolo de resultados
+  espera revisión porque no existe atestación confiable del cliente de juego.
+- La PWA tiene sus lecturas previstas en `/profile`, `/missions` y
+  `/progress/specialties`, pero su sesión web no está integrada con esta API.
+- Los jobs de API/Mongo/Keycloak están en `api/prometheus-scrape.yaml` y el panel
+  en `api/grafana-dashboard.json`; deben integrarse al Prometheus/Grafana existente
+  desde su rama cuando se autorice integrar cambios entre ramas.
+- No se detectó teléfono/emulador Android y este entorno es Windows; no se probó
+  el navegador real ni se compiló iOS con Xcode.
 
-El documento `../docs/proyecto/README.md` enumera operaciones conceptuales
-(perfil, catálogo, guías, intentos y progreso), pero no define paths, métodos,
-esquemas de request/response, códigos de error, paginación, versionado ni
-audiencia. Antes de conectar la app, el backend debe publicar esos contratos y
-validar firma, issuer, audiencia, expiración, roles, propiedad del recurso e
-idempotencia de resultados.
+## Fuente de verdad y seguridad
 
-## Dependencias para completar el ecosistema
-
-| Área | Evidencia actual | Para completarla se requiere |
-|---|---|---|
-| Perfil | Nombre/correo desde Keycloak; estadísticas demo | Endpoint de perfil autenticado y política de edición |
-| Misiones | Catálogo demo y filtros por estado/área | Catálogo real, reglas de desbloqueo y estados del backend |
-| Guías | No hay pantalla ni modelos en la app móvil | Endpoints y contrato de guías/contenido |
-| Progreso | XP, habilidades y misiones demo | Fuente de verdad, historial, esquema de progreso y perfil |
-| Logros | Estados demo; no se generan al iniciar misión | Reglas server-side y fechas de desbloqueo verificables |
-| Unity | Proyecto separado; no hay cliente API funcional en Unity | Identidad compartida, envío idempotente de intentos y contrato de resultados |
-| PWA | Cliente separado; sin sesión web de Keycloak | Decidir SSO web/API; la sesión Flutter no se comparte directamente con el navegador |
-| Offline | No hay caché ni cola de sincronización | Contratos/versionado, políticas de conflicto y fuente de verdad antes de cachear |
-| Roles | Claims mostrados como información | Nombres definitivos y permisos aplicados por la API en cada operación |
-
-El inicio de sesión móvil aún requiere probarse con el issuer/realm real y el
-cliente público `ti-soporte-flutter`; la expiración, el refresh token y el retorno
-del navegador se verifican actualmente con proveedor simulado. La compilación de
+El identificador de dueño de los registros es el `sub` del token. El servidor no
+acepta subject/roles enviados por Flutter, no almacena passwords y no deja que el
+cliente otorgue XP. La API no calcula `nextLevelXp` mientras la regla de niveles
+no esté definida; Flutter lo muestra como no disponible en lugar de inventar una
+meta. El mapa Flutter representa categorías/áreas, no niveles.

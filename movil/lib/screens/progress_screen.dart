@@ -1,256 +1,287 @@
 import 'package:flutter/material.dart';
-import 'package:ti_soporte_accion/data/mock_data.dart';
 import 'package:ti_soporte_accion/models/achievement.dart';
+import 'package:ti_soporte_accion/services/app_data_repository.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
-import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
-import 'package:ti_soporte_accion/widgets/xp_bar.dart';
-import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
 import 'package:ti_soporte_accion/theme/app_typography.dart';
+import 'package:ti_soporte_accion/widgets/async_content.dart';
+import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
+import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
+import 'package:ti_soporte_accion/widgets/nova_panel.dart';
+import 'package:ti_soporte_accion/widgets/xp_bar.dart';
 
-/// Pantalla de progreso del jugador.
-///
-/// Muestra el crecimiento, barras de habilidades y logros desbloqueados/
-/// bloqueados.
 class ProgressScreen extends StatelessWidget {
   const ProgressScreen({super.key});
-
   static const String routeName = '/progress';
 
   @override
   Widget build(BuildContext context) {
-    final profile = MockData.player;
-    final skills = MockData.skills;
-    final achievements = MockData.achievements;
-
+    final repository = AppDataRepository.instance;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
         child: SafeArea(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Progreso', style: AppTypography.heading(24)),
-                const SizedBox(height: 8),
-                const DemoDataNotice(
-                  message:
-                      'Nivel, XP, habilidades y logros '
-                      'son ejemplos locales; no están verificados ni sincronizados.',
-                ),
-                const SizedBox(height: 12),
-                const Text(
-                  'Crecimiento del jugador, habilidades y logros.',
-                  style: TextStyle(
-                    color: AppColors.textSecondary,
-                    fontSize: 14,
-                  ),
-                ),
-                const SizedBox(height: 16),
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: <Color>[AppColors.card, AppColors.surfaceDark],
+          child: AsyncContent<ProgressPageData>(
+            load: repository.getProgressPage,
+            builder: (context, data) => SingleChildScrollView(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Progreso', style: AppTypography.heading(24)),
+                  const SizedBox(height: 12),
+                  if (repository.demoMode)
+                    const DemoDataNotice(
+                      message:
+                          'XP, niveles, habilidades y logros '
+                          'son datos locales de demostración, no resultados verificados.',
                     ),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppColors.border),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            'Nivel actual: ${profile.level}',
-                            style: const TextStyle(
-                              color: AppColors.textPrimary,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
+                  NovaPanel(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              data.progress.level == null
+                                  ? 'Nivel no disponible'
+                                  : 'Nivel ${data.progress.level}',
+                              style: AppTypography.heading(18),
                             ),
-                          ),
-                          Text(
-                            profile.rank,
-                            style: const TextStyle(
-                              color: AppColors.cyan,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 12),
-                      XpBar(
-                        current: profile.currentXp,
-                        max: profile.xpForNextLevel,
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Text('Habilidades', style: AppTypography.heading(19)),
-                const SizedBox(height: 12),
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: <Color>[AppColors.card, AppColors.surfaceDark],
-                    ),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppColors.border),
-                  ),
-                  child: Column(
-                    children: skills.map((skill) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Row(
-                                  children: <Widget>[
-                                    Icon(
-                                      skill.icon,
-                                      color: skill.color,
-                                      size: 18,
-                                    ),
-                                    const SizedBox(width: 10),
-                                    Text(
-                                      skill.name,
-                                      style: const TextStyle(
-                                        color: AppColors.textPrimary,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  'Nivel ${skill.level}',
-                                  style: TextStyle(
-                                    color: skill.color,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 8),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(999),
-                              child: Container(
-                                height: 8,
-                                color: AppColors.surface,
-                                child: FractionallySizedBox(
-                                  alignment: Alignment.centerLeft,
-                                  widthFactor: skill.progress,
-                                  child: Container(color: skill.color),
-                                ),
+                            Text(
+                              data.profile.rank,
+                              style: AppTypography.label(
+                                13,
+                                color: AppColors.primaryCyan,
                               ),
                             ),
                           ],
                         ),
-                      );
-                    }).toList(),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Text('Logros', style: AppTypography.heading(19)),
-                const SizedBox(height: 12),
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: <Color>[AppColors.card, AppColors.surfaceDark],
+                        const SizedBox(height: 12),
+                        XpBar(
+                          current: data.progress.xp,
+                          max: data.progress.nextLevelXp,
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: _ProgressCount(
+                                label: 'Completadas',
+                                value: data.progress.completedMissions,
+                                color: AppColors.successLight,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: _ProgressCount(
+                                label: 'En curso',
+                                value: data.progress.inProgressMissions,
+                                color: AppColors.warning,
+                              ),
+                            ),
+                          ],
+                        ),
+                        if (data.progress.updatedAt != null) ...[
+                          const SizedBox(height: 10),
+                          Text(
+                            'Actualizado ${data.progress.updatedAt!.toLocal()}',
+                            style: AppTypography.label(11),
+                          ),
+                        ],
+                      ],
                     ),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppColors.border),
                   ),
-                  child: Column(
-                    children: achievements.map((Achievement a) {
-                      final color = a.unlocked
-                          ? AppColors.successLight
-                          : AppColors.textSecondary;
-                      return InkWell(
-                        onTap: () {
-                          Navigator.of(context)
-                              .pushNamed('/achievement-detail', arguments: a);
-                        },
-                        borderRadius: BorderRadius.circular(12),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Icon(a.icon, color: color, size: 22),
-                              const SizedBox(width: 12),
-                              Expanded(
+                  const SizedBox(height: 20),
+                  Text('Habilidades', style: AppTypography.heading(19)),
+                  const SizedBox(height: 10),
+                  if (data.skills.isEmpty)
+                    const _EmptySection(
+                      text: 'No hay habilidades registradas para esta cuenta.',
+                    )
+                  else
+                    NovaPanel(
+                      child: Column(
+                        children: data.skills
+                            .map(
+                              (skill) => Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 9,
+                                ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      a.title,
-                                      style: TextStyle(
-                                        color: a.unlocked
-                                            ? AppColors.textPrimary
-                                            : AppColors.textSecondary,
-                                        fontWeight: FontWeight.w700,
-                                      ),
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          skill.icon,
+                                          color: skill.color,
+                                          size: 18,
+                                        ),
+                                        const SizedBox(width: 8),
+                                        Expanded(
+                                          child: Text(
+                                            skill.name,
+                                            style: AppTypography.body(14),
+                                          ),
+                                        ),
+                                        Text(
+                                          skill.level == null
+                                              ? '${(skill.progress * 100).round()}%'
+                                              : 'Nivel ${skill.level}',
+                                          style: AppTypography.metric(
+                                            12,
+                                            color: skill.color,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      a.description,
-                                      style: const TextStyle(
-                                        color: AppColors.textSecondary,
-                                        fontSize: 13,
-                                        height: 1.5,
+                                    const SizedBox(height: 7),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(999),
+                                      child: LinearProgressIndicator(
+                                        value: skill.progress,
+                                        minHeight: 7,
+                                        backgroundColor: AppColors.surfaceDark,
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                              skill.color,
+                                            ),
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              if (a.unlocked)
-                                const Icon(
-                                  Icons.verified_rounded,
-                                  color: AppColors.success,
-                                  size: 18,
-                                ),
-                            ],
-                          ),
-                        ),
-                      );
-                    }).toList(),
-                  ),
-                ),
-                const SizedBox(height: 80),
-              ],
+                            )
+                            .toList(),
+                      ),
+                    ),
+                  const SizedBox(height: 20),
+                  Text('Logros', style: AppTypography.heading(19)),
+                  const SizedBox(height: 10),
+                  if (data.achievements.isEmpty)
+                    const _EmptySection(
+                      text: 'No hay logros configurados en el servidor.',
+                    )
+                  else
+                    NovaPanel(
+                      child: Column(
+                        children: data.achievements
+                            .map(
+                              (achievement) =>
+                                  _AchievementRow(achievement: achievement),
+                            )
+                            .toList(),
+                      ),
+                    ),
+                  const SizedBox(height: 100),
+                ],
+              ),
             ),
           ),
         ),
       ),
       bottomNavigationBar: CustomBottomNav(
         currentIndex: 3,
-        onTap: (int index) {
-          switch (index) {
-            case 0:
-              Navigator.of(context).pushReplacementNamed('/home');
-            case 1:
-              Navigator.of(context).pushReplacementNamed('/missions');
-            case 2:
-              Navigator.of(context).pushReplacementNamed('/map');
-            case 3:
-              break;
-            case 4:
-              Navigator.of(context).pushReplacementNamed('/profile');
+        onTap: (index) {
+          const routes = <String>[
+            '/home',
+            '/missions',
+            '/map',
+            '/progress',
+            '/profile',
+          ];
+          if (index != 3) {
+            Navigator.of(context).pushReplacementNamed(routes[index]);
           }
         },
       ),
     );
   }
+}
+
+class _AchievementRow extends StatelessWidget {
+  const _AchievementRow({required this.achievement});
+  final Achievement achievement;
+
+  @override
+  Widget build(BuildContext context) {
+    final color = achievement.unlocked
+        ? AppColors.successLight
+        : AppColors.textSecondary;
+    return Semantics(
+      button: true,
+      label: '${achievement.title}, ${achievement.status.label}',
+      child: InkWell(
+        onTap: () =>
+            Navigator.of(context)
+                .pushNamed('/achievement-detail', arguments: achievement),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 9),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(
+                achievement.unlocked ? achievement.icon : Icons.lock_outline,
+                color: achievement.rarity?.color ?? AppColors.textSecondary,
+                size: 22,
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      achievement.title,
+                      style: AppTypography.heading(15, weight: FontWeight.w600),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      achievement.description,
+                      style: AppTypography.label(12),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      achievement.unlocked
+                          ? 'Desbloqueado · +${achievement.xp} XP'
+                          : 'Pendiente de una validación de servidor',
+                      style: AppTypography.label(11, color: color),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _EmptySection extends StatelessWidget {
+  const _EmptySection({required this.text});
+  final String text;
+  @override
+  Widget build(BuildContext context) =>
+      NovaPanel(child: Text(text, style: AppTypography.label(13)));
+}
+
+class _ProgressCount extends StatelessWidget {
+  const _ProgressCount({
+    required this.label,
+    required this.value,
+    required this.color,
+  });
+  final String label;
+  final int value;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) => Row(
+    children: [
+      Text('$value', style: AppTypography.metric(16, color: color)),
+      const SizedBox(width: 8),
+      Expanded(child: Text(label, style: AppTypography.label(12))),
+    ],
+  );
 }

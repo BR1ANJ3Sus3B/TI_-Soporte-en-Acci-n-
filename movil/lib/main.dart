@@ -46,20 +46,15 @@ class TiSoporteApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         SplashScreen.routeName: (_) => const SplashScreen(),
         LoginScreen.routeName: (_) => const LoginScreen(),
-        HomeScreen.routeName: (_) => const SessionGate(child: HomeScreen()),
-        MissionsScreen.routeName: (_) =>
-            const SessionGate(child: MissionsScreen()),
-        MissionDetailScreen.routeName: (_) =>
-            const SessionGate(child: MissionDetailScreen()),
-        MapScreen.routeName: (_) => const SessionGate(child: MapScreen()),
+        HomeScreen.routeName: (_) => const HomeScreen(),
+        MissionsScreen.routeName: (_) => const MissionsScreen(),
+        MissionDetailScreen.routeName: (_) => const MissionDetailScreen(),
+        MapScreen.routeName: (_) => const MapScreen(),
         ProfileScreen.routeName: (_) =>
             const SessionGate(child: ProfileScreen()),
-        ProgressScreen.routeName: (_) =>
-            const SessionGate(child: ProgressScreen()),
-        SettingsScreen.routeName: (_) =>
-            const SessionGate(child: SettingsScreen()),
-        AchievementDetailScreen.routeName: (_) =>
-            const SessionGate(child: AchievementDetailScreen()),
+        ProgressScreen.routeName: (_) => const ProgressScreen(),
+        SettingsScreen.routeName: (_) => const SettingsScreen(),
+        AchievementDetailScreen.routeName: (_) => const AchievementDetailScreen(),
       },
     );
   }

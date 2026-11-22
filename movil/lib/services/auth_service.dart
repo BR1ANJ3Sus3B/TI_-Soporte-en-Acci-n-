@@ -12,6 +12,9 @@ abstract interface class AuthTokenStore {
   Future<void> clear();
 }
 
+/// Un invitado usa únicamente datos locales; nunca recibe un token OIDC.
+enum SessionState { initializing, guest, authenticated, expired, signedOut }
+
 class PlatformAuthTokenStore implements AuthTokenStore {
   PlatformAuthTokenStore([FlutterSecureStorage? storage])
     : _storage = storage ?? const FlutterSecureStorage();
@@ -36,11 +39,8 @@ class AuthService extends ChangeNotifier {
     FlutterAppAuth? appAuth,
     AuthTokenStore? tokenStore,
     this.issuer = const String.fromEnvironment('KEYCLOAK_ISSUER'),
-    this.clientId = const String.fromEnvironment(
-      'KEYCLOAK_CLIENT_ID',
-      defaultValue: 'ti-soporte-flutter',
-    ),
-    this.allowInsecure = const bool.fromEnvironment('KEYCLOAK_ALLOW_HTTP'),
+    this.clientId = const String.fromEnvironment('KEYCLOAK_CLIENT_ID'),
+    this.allowHttpInDebug = const bool.fromEnvironment('KEYCLOAK_ALLOW_HTTP'),
   }) : _appAuth = appAuth ?? const FlutterAppAuth(),
        _tokenStore = tokenStore ?? PlatformAuthTokenStore();
 
@@ -51,7 +51,7 @@ class AuthService extends ChangeNotifier {
   final AuthTokenStore _tokenStore;
   final String issuer;
   final String clientId;
-  final bool allowInsecure;
+  final bool allowHttpInDebug;
   String? _accessToken;
   String? _refreshToken;
   String? _idToken;
@@ -61,17 +61,52 @@ class AuthService extends ChangeNotifier {
   Future<void>? _restoreFuture;
   int _generation = 0;
   bool _initialized = false;
+  bool _guest = false;
+  SessionState _sessionState = SessionState.initializing;
   Map<String, dynamic> _identity = <String, dynamic>{};
   List<String> _roles = <String>[];
 
   bool get isInitialized => _initialized;
-  bool get isConfigured {
+  bool get isGuest => _guest;
+  SessionState get sessionState => _sessionState;
+  bool get allowInsecure => kDebugMode && allowHttpInDebug;
+
+  String? get configurationIssue {
+    if (!isSupported) {
+      return 'El acceso con Keycloak está disponible en Android e iOS.';
+    }
+    if (issuer.trim().isEmpty) {
+      return 'Falta KEYCLOAK_ISSUER. Flutter no lee .env automáticamente; '
+          'edita keycloak.local.json con el issuer real y ejecuta '
+          'flutter run --dart-define-from-file=keycloak.local.json.';
+    }
+    if (issuer != issuer.trim()) {
+      return 'KEYCLOAK_ISSUER contiene espacios al inicio o al final.';
+    }
     final uri = Uri.tryParse(issuer);
-    return clientId.isNotEmpty &&
-        uri != null &&
-        uri.host.isNotEmpty &&
-        (uri.scheme == 'https' || (allowInsecure && uri.scheme == 'http'));
+    if (uri == null ||
+        uri.host.isEmpty ||
+        (uri.scheme != 'https' && uri.scheme != 'http')) {
+      return 'KEYCLOAK_ISSUER debe ser una URL absoluta https://.../realms/<realm> '
+          'copiada del issuer del servidor.';
+    }
+    if (uri.path.endsWith('/.well-known/openid-configuration')) {
+      return 'KEYCLOAK_ISSUER debe ser el issuer del realm, sin '
+          '/.well-known/openid-configuration.';
+    }
+    if (uri.scheme == 'http' && !allowInsecure) {
+      return 'HTTP solo está permitido en compilaciones debug si '
+          'KEYCLOAK_ALLOW_HTTP=true. Para producción usa HTTPS.';
+    }
+    if (clientId.trim().isEmpty) {
+      return 'Falta KEYCLOAK_CLIENT_ID. Indica el Client ID público confirmado '
+          'en Keycloak (la documentación del proyecto espera ti-soporte-flutter) '
+          'y vuelve a ejecutar con --dart-define-from-file=keycloak.local.json.';
+    }
+    return null;
   }
+
+  bool get isConfigured => configurationIssue == null;
 
   bool get isSupported =>
       !kIsWeb &&
@@ -103,10 +138,20 @@ class AuthService extends ChangeNotifier {
 
   Future<void> _restore() async {
     try {
-      if (!isSupported || !isConfigured) return;
-      final raw = await _tokenStore.read();
+      // Algunos runners de escritorio no registran el canal seguro. No deben
+      // bloquear la bienvenida ni el contenido público por ello.
+      final raw = await _tokenStore.read().timeout(
+        const Duration(milliseconds: 250),
+        onTimeout: () => null,
+      );
       if (raw == null) return;
       final record = jsonDecode(raw) as Map<String, dynamic>;
+      if (record['guest'] == true) {
+        _guest = true;
+        _sessionState = SessionState.guest;
+        return;
+      }
+      if (!isSupported || !isConfigured) return;
       _accessToken = record['accessToken'] as String?;
       _refreshToken = record['refreshToken'] as String?;
       _idToken = record['idToken'] as String?;
@@ -133,6 +178,9 @@ class AuthService extends ChangeNotifier {
       }
     } finally {
       _initialized = true;
+      if (!_guest && !isAuthenticated && _sessionState == SessionState.initializing) {
+        _sessionState = SessionState.signedOut;
+      }
       notifyListeners();
     }
   }
@@ -165,6 +213,15 @@ class AuthService extends ChangeNotifier {
     }
   }
 
+  /// Persiste la elección de invitado sin crear ni simular una sesión remota.
+  Future<void> continueAsGuest() async {
+    _clearMemory();
+    _guest = true;
+    _sessionState = SessionState.guest;
+    await _tokenStore.write(jsonEncode(<String, Object?>{'guest': true}));
+    notifyListeners();
+  }
+
   Future<void> _accept(TokenResponse response) async {
     final expiry = response.accessTokenExpirationDateTime;
     final accessToken = response.accessToken;
@@ -193,6 +250,8 @@ class AuthService extends ChangeNotifier {
     _identity = identity;
     _roles = roles;
     _initialized = true;
+    _guest = false;
+    _sessionState = SessionState.authenticated;
     _scheduleRefresh();
     notifyListeners();
   }
@@ -301,6 +360,9 @@ class AuthService extends ChangeNotifier {
     );
   }
 
+  /// Limpia la sesión local si la API responde 401; no abre el navegador.
+  Future<void> expireSession() => _clearSession();
+
   Future<void> _clearSession() async {
     _clearMemory();
     try {
@@ -318,6 +380,8 @@ class AuthService extends ChangeNotifier {
     _identity = <String, dynamic>{};
     _roles = <String>[];
     _initialized = true;
+    _guest = false;
+    _sessionState = SessionState.expired;
   }
 
   @override

@@ -1,6 +1,7 @@
 {
   "realm": "ti-soporte",
   "enabled": true,
+  "loginTheme": "novatech",
   "displayName": "TI: Soporte en Acción",
   "registrationAllowed": true,
   "registrationEmailAsUsername": true,
@@ -41,6 +42,21 @@
       "redirectUris": ["com.tisoporte.accion:/oauthredirect"],
       "webOrigins": [],
       "attributes": { "pkce.code.challenge.method": "S256", "post.logout.redirect.uris": "com.tisoporte.accion:/oauthredirect" },
+      "defaultClientScopes": ["profile", "email", "roles", "web-origins", "ti-soporte-api"]
+    },
+    {
+      "clientId": "ti-soporte-flutter-web",
+      "name": "TI Soporte Flutter Web (development)",
+      "enabled": true,
+      "publicClient": true,
+      "protocol": "openid-connect",
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "redirectUris": ["http://localhost:*/*", "http://127.0.0.1:*/*"],
+      "webOrigins": ["http://localhost:*", "http://127.0.0.1:*"],
+      "attributes": { "pkce.code.challenge.method": "S256", "post.logout.redirect.uris": "+" },
       "defaultClientScopes": ["profile", "email", "roles", "web-origins", "ti-soporte-api"]
     }
   ]

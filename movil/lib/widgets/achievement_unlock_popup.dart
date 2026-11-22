@@ -30,7 +30,8 @@ class AchievementUnlockPopup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final rarityColor = achievement.rarity.color;
+    final rarityColor = achievement.rarity?.color ?? AppColors.primaryCyan;
+    final rarityLabel = achievement.rarity?.label ?? 'Logro';
 
     return Material(
       color: Colors.transparent,
@@ -45,8 +46,7 @@ class AchievementUnlockPopup extends StatelessWidget {
             boxShadow: <BoxShadow>[
               BoxShadow(
                 color: rarityColor.withValues(alpha: 0.35),
-                blurRadius: 18,
-                spreadRadius: 1,
+                blurRadius: 8,
               ),
               const BoxShadow(
                 color: Colors.black54,
@@ -108,10 +108,7 @@ class AchievementUnlockPopup extends StatelessWidget {
                       const SizedBox(height: 6),
                       Row(
                         children: <Widget>[
-                          _RarityTag(
-                            label: achievement.rarity.label,
-                            color: rarityColor,
-                          ),
+                          _RarityTag(label: rarityLabel, color: rarityColor),
                           const SizedBox(width: 8),
                           Text(
                             '+${achievement.xp} XP',

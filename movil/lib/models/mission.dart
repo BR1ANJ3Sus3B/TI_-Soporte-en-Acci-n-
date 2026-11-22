@@ -30,6 +30,7 @@ class Mission {
     required this.xpReward,
     required this.status,
     required this.objectives,
+    this.requirements = const <String>[],
   });
 
   /// Identificador único de la misión.
@@ -65,6 +66,9 @@ class Mission {
   /// Lista de objetivos que debe cumplir el jugador.
   final List<String> objectives;
 
+  /// Condiciones de acceso publicadas por la API, si existen.
+  final List<String> requirements;
+
   /// Etiqueta legible de la dificultad.
   String get difficultyLabel => switch (difficulty) {
     1 => 'Fácil',
@@ -81,4 +85,43 @@ class Mission {
 
   /// Indica si la misión ya fue completada.
   bool get isCompleted => status == MissionStatus.completed;
+
+  factory Mission.fromJson(Map<String, dynamic> json) {
+    final rawDifficulty = json['difficultyLevel'] ?? json['difficulty'];
+    final difficulty = rawDifficulty is num
+        ? rawDifficulty.toInt()
+        : switch (rawDifficulty?.toString().toLowerCase()) {
+            'básica' || 'basica' || 'basic' => 1,
+            'media' || 'medium' => 2,
+            _ => 3,
+          };
+    final rawStatus = json['status']?.toString().toLowerCase();
+    final status = switch (rawStatus) {
+      'completada' || 'completed' => MissionStatus.completed,
+      'en progreso' ||
+      'in_progress' ||
+      'in progress' => MissionStatus.inProgress,
+      _ => MissionStatus.available,
+    };
+    return Mission(
+      id: json['id'] as String,
+      title: json['title'] as String,
+      description: json['description'] as String,
+      area: (json['area'] ?? json['category']) as String,
+      department: (json['department'] ?? '') as String,
+      affectedUser: (json['affectedUser'] ?? '') as String,
+      difficulty: difficulty,
+      estimatedTime:
+          (json['estimatedTime'] ?? json['duration'] ?? '') as String,
+      xpReward: ((json['xpReward'] ?? json['xp']) as num).toInt(),
+      status: status,
+      objectives: (json['objectives'] as List<dynamic>? ?? const <dynamic>[])
+          .whereType<String>()
+          .toList(growable: false),
+      requirements:
+          (json['requirements'] as List<dynamic>? ?? const <dynamic>[])
+              .whereType<String>()
+              .toList(growable: false),
+    );
+  }
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/services/auth_service.dart';
+import 'package:ti_soporte_accion/services/app_data_repository.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
 import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
 import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
 import 'package:ti_soporte_accion/widgets/nova_panel.dart';
@@ -32,6 +34,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = AuthService.instance;
+    final repository = AppDataRepository.instance;
     return Scaffold(
       appBar: AppBar(title: const Text('Ajustes')),
       body: Container(
@@ -107,12 +110,24 @@ class SettingsScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               const SizedBox(height: 12),
-              const DemoDataNotice(
-                message:
-                    'La API aún no está implementada. '
-                    'Misiones, progreso, habilidades y logros son datos de ejemplo y '
-                    'no se sincronizan con Unity ni la PWA.',
-              ),
+              if (repository.demoMode)
+                const DemoDataNotice(
+                  message:
+                      'Modo de demostración activo. '
+                      'Los datos educativos no se sincronizan con Unity ni la PWA.',
+                )
+              else
+                Text(
+                  repository.apiConfigurationIssue ??
+                      'API_BASE_URL configurada; el acceso real depende de que API/MongoDB '
+                          'estén activos y Keycloak emita la audiencia requerida.',
+                  style: AppTypography.label(
+                    13,
+                    color: repository.apiConfigured
+                        ? AppColors.warning
+                        : AppColors.error,
+                  ),
+                ),
               const SizedBox(height: 20),
               Text(
                 'Privacidad y seguridad',
@@ -122,9 +137,8 @@ class SettingsScreen extends StatelessWidget {
               const NovaPanel(
                 child: Text(
                   'La contraseña se solicita directamente a Keycloak. Los tokens '
-                  'se guardan en el almacenamiento seguro del sistema (Android '
-                  'Keystore / iOS Keychain). La API educativa debe validar cada token '
-                  'y aplicar los permisos en el servidor.',
+                  'se guardan en Android Keystore / iOS Keychain. La API debe validar '
+                  'firma, issuer, audiencia, expiración y permisos en cada solicitud.',
                   style: TextStyle(color: AppColors.textSecondary, height: 1.5),
                 ),
               ),

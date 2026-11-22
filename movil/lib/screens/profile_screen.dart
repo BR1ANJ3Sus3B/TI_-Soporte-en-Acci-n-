@@ -1,196 +1,164 @@
 import 'package:flutter/material.dart';
-import 'package:ti_soporte_accion/data/mock_data.dart';
-import 'package:ti_soporte_accion/theme/app_colors.dart';
-import 'package:ti_soporte_accion/widgets/character_card.dart';
-import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
-import 'package:ti_soporte_accion/widgets/stat_card.dart';
+import 'package:ti_soporte_accion/models/player_profile.dart';
+import 'package:ti_soporte_accion/services/app_data_repository.dart';
 import 'package:ti_soporte_accion/services/auth_service.dart';
-import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
+import 'package:ti_soporte_accion/theme/app_colors.dart';
 import 'package:ti_soporte_accion/theme/app_typography.dart';
+import 'package:ti_soporte_accion/widgets/async_content.dart';
+import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
+import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
+import 'package:ti_soporte_accion/widgets/nova_panel.dart';
+import 'package:ti_soporte_accion/widgets/stat_card.dart';
 
-/// Pantalla de perfil del jugador.
-///
-/// Muestra la información personal, estadísticas, avatar y personajes
-/// importantes de la historia.
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
-
   static const String routeName = '/profile';
 
   @override
   Widget build(BuildContext context) {
-    final profile = MockData.player;
-    final characters = MockData.characters;
-
+    final repository = AppDataRepository.instance;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
         child: SafeArea(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        'Perfil del jugador',
-                        style: AppTypography.heading(24),
-                      ),
-                    ),
-                    IconButton(
-                      tooltip: 'Abrir ajustes',
-                      onPressed: () =>
-                          Navigator.of(context).pushNamed('/settings'),
-                      icon: const Icon(Icons.settings_outlined),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                const DemoDataNotice(
-                  message:
-                      'XP, nivel, habilidades y logros '
-                      'son datos de ejemplo. La cuenta está autenticada, pero el perfil '
-                      'educativo todavía no viene de la API.',
-                ),
-                const SizedBox(height: 16),
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: <Color>[AppColors.card, AppColors.surfaceDark],
-                    ),
-                    borderRadius: BorderRadius.circular(16),
-                    border: Border.all(color: AppColors.border),
-                  ),
-                  child: Row(
-                    children: <Widget>[
-                      CircleAvatar(
-                        radius: 32,
-                        backgroundColor: AppColors.cyan.withValues(alpha: 0.25),
-                        child: const Icon(
-                          Icons.person,
-                          color: AppColors.cyan,
-                          size: 32,
-                        ),
-                      ),
-                      const SizedBox(width: 16),
+          child: AsyncContent<PlayerProfile>(
+            load: repository.getProfile,
+            builder: (context, profile) => SingleChildScrollView(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
                       Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(
-                              AuthService.instance.displayName,
-                              style: AppTypography.heading(18),
-                            ),
-                            const SizedBox(height: 6),
-                            Text(
-                              AuthService.instance.roleLabel,
-                              style: const TextStyle(
-                                color: AppColors.textSecondary,
-                                fontSize: 13,
+                        child: Text('Perfil', style: AppTypography.heading(24)),
+                      ),
+                      IconButton(
+                        tooltip: 'Abrir ajustes',
+                        onPressed: () =>
+                            Navigator.of(context).pushNamed('/settings'),
+                        icon: const Icon(Icons.settings_outlined),
+                      ),
+                      IconButton(
+                        tooltip: repository.demoMode
+                            ? 'La edición requiere el perfil del servidor'
+                            : 'Editar nombre visible',
+                        onPressed: repository.demoMode
+                            ? null
+                            : () => _editDisplayName(
+                                context,
+                                repository,
+                                profile.name,
                               ),
-                            ),
-                            const SizedBox(height: 6),
-                            Text(
-                              AuthService.instance.email.isEmpty
-                                  ? 'Correo no disponible'
-                                  : AuthService.instance.email,
-                              style: AppTypography.label(
-                                13,
-                                color: AppColors.textSecondary,
-                              ),
-                            ),
-                          ],
-                        ),
+                        icon: const Icon(Icons.edit_outlined),
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(height: 20),
-                Text('Estadísticas', style: AppTypography.heading(19)),
-                const SizedBox(height: 4),
-                const Text(
-                  'Valores locales de ejemplo, no verificados por el servidor.',
-                  style: TextStyle(
-                    color: AppColors.textSecondary,
-                    fontSize: 12,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                GridView.count(
-                  crossAxisCount: 2,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisSpacing: 12,
-                  mainAxisSpacing: 12,
-                  childAspectRatio: 1.4,
-                  children: <Widget>[
-                    StatCard(
-                      title: 'Misiones completadas',
-                      value: profile.missionsCompleted.toString(),
-                      icon: Icons.assignment_turned_in_rounded,
-                      color: AppColors.success,
+                  if (repository.demoMode) ...[
+                    const DemoDataNotice(
+                      message:
+                          'Estadísticas de ejemplo; la identidad '
+                          'de la cuenta sí procede de la sesión Keycloak.',
                     ),
-                    StatCard(
-                      title: 'Incidentes resueltos',
-                      value: profile.incidentsResolved.toString(),
-                      icon: Icons.check_circle_rounded,
-                      color: AppColors.cyan,
-                    ),
-                    StatCard(
-                      title: 'Soporte',
-                      value:
-                          profile.skills['Soporte Técnico']?.toString() ?? '0',
-                      icon: Icons.build_rounded,
-                      color: AppColors.success,
-                    ),
-                    StatCard(
-                      title: 'Redes',
-                      value: profile.skills['Redes']?.toString() ?? '0',
-                      icon: Icons.wifi_tethering_rounded,
-                      color: AppColors.cyan,
-                    ),
-                    StatCard(
-                      title: 'Programación',
-                      value: profile.skills['Programación']?.toString() ?? '0',
-                      icon: Icons.code_rounded,
-                      color: AppColors.purpleSecondary,
-                    ),
-                    StatCard(
-                      title: 'Bases de datos',
-                      value:
-                          profile.skills['Bases de Datos']?.toString() ?? '0',
-                      icon: Icons.storage_rounded,
-                      color: AppColors.purpleSecondary,
-                    ),
+                    const SizedBox(height: 16),
                   ],
-                ),
-                const SizedBox(height: 20),
-                const Text(
-                  'Personajes importantes',
-                  style: TextStyle(
-                    color: AppColors.textPrimary,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
+                  NovaPanel(
+                    child: Row(
+                      children: [
+                        const CircleAvatar(
+                          backgroundColor: AppColors.surfaceDark,
+                          child: Icon(
+                            Icons.person,
+                            color: AppColors.primaryCyan,
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                profile.name,
+                                style: AppTypography.heading(18),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                profile.rank,
+                                style: AppTypography.label(13),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                AuthService.instance.email.isEmpty
+                                    ? 'Correo no disponible'
+                                    : AuthService.instance.email,
+                                style: AppTypography.label(12),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                const SizedBox(height: 12),
-                SizedBox(
-                  height: 170,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: characters.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return CharacterCard(character: characters[index]);
-                    },
+                  const SizedBox(height: 20),
+                  Text(
+                    'Estadísticas educativas',
+                    style: AppTypography.heading(19),
                   ),
-                ),
-                const SizedBox(height: 80),
-              ],
+                  const SizedBox(height: 8),
+                  GridView.count(
+                    crossAxisCount: 2,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    childAspectRatio: 1.45,
+                    children: [
+                      StatCard(
+                        title: 'Misiones completadas',
+                        value: _displayCount(profile.missionsCompleted),
+                        icon: Icons.task_alt_rounded,
+                        color: AppColors.successLight,
+                      ),
+                      StatCard(
+                        title: 'Incidentes aprobados',
+                        value: _displayCount(profile.incidentsResolved),
+                        icon: Icons.verified_rounded,
+                        color: AppColors.primaryCyan,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 12),
+                  NovaPanel(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          profile.level == null
+                              ? 'Nivel no disponible'
+                              : 'Nivel ${profile.level}',
+                          style: AppTypography.heading(17),
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          profile.currentXp == null
+                              ? 'XP no disponible'
+                              : 'XP: ${profile.currentXp}',
+                          style: AppTypography.metric(13),
+                        ),
+                        if (profile.xpForNextLevel == null)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 6),
+                            child: Text(
+                              'El backend no define el umbral del siguiente nivel.',
+                              style: AppTypography.label(12),
+                            ),
+                          ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 100),
+                ],
+              ),
             ),
           ),
         ),
@@ -198,20 +166,89 @@ class ProfileScreen extends StatelessWidget {
       bottomNavigationBar: CustomBottomNav(
         currentIndex: 4,
         onTap: (int index) {
-          switch (index) {
-            case 0:
-              Navigator.of(context).pushReplacementNamed('/home');
-            case 1:
-              Navigator.of(context).pushReplacementNamed('/missions');
-            case 2:
-              Navigator.of(context).pushReplacementNamed('/map');
-            case 3:
-              Navigator.of(context).pushReplacementNamed('/progress');
-            case 4:
-              break;
+          const routes = <String>[
+            '/home',
+            '/missions',
+            '/map',
+            '/progress',
+            '/profile',
+          ];
+          if (index != 4) {
+            Navigator.of(context).pushReplacementNamed(routes[index]);
           }
         },
       ),
     );
+  }
+
+  static String _displayCount(int? count) => count?.toString() ?? '—';
+
+  static Future<void> _editDisplayName(
+    BuildContext context,
+    AppDataRepository repository,
+    String currentName,
+  ) async {
+    final controller = TextEditingController(text: currentName);
+    String? validationMessage;
+    final newName = await showDialog<String>(
+      context: context,
+      builder: (dialogContext) => StatefulBuilder(
+        builder: (context, setDialogState) => AlertDialog(
+          title: const Text('Nombre visible'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              TextField(
+                controller: controller,
+                autofocus: true,
+                maxLength: 80,
+                textCapitalization: TextCapitalization.words,
+                decoration: const InputDecoration(labelText: 'Nombre'),
+              ),
+              if (validationMessage != null)
+                Text(
+                  validationMessage!,
+                  style: const TextStyle(color: AppColors.error),
+                ),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(dialogContext),
+              child: const Text('Cancelar'),
+            ),
+            FilledButton(
+              onPressed: () {
+                final value = controller.text.trim();
+                if (value.isEmpty) {
+                  setDialogState(
+                    () => validationMessage = 'El nombre no puede estar vacío.',
+                  );
+                  return;
+                }
+                Navigator.pop(dialogContext, value);
+              },
+              child: const Text('Guardar'),
+            ),
+          ],
+        ),
+      ),
+    );
+    controller.dispose();
+    if (newName == null || !context.mounted) {
+      return;
+    }
+    try {
+      await repository.updateDisplayName(newName);
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Nombre actualizado en el servidor.')),
+      );
+      Navigator.of(context).pushReplacementNamed(ProfileScreen.routeName);
+    } catch (error) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(error.toString())));
+    }
   }
 }

@@ -1,12 +1,12 @@
 # TI: Soporte en Acción · aplicación móvil
 
-Aplicación Flutter del proyecto educativo ambientado en NovaTech Solutions. Presenta el recorrido del jugador con datos simulados: inicio, misiones, mapa de áreas, progreso, perfil, logros y ajustes.
+Aplicación Flutter del proyecto educativo ambientado en NovaTech Solutions. Por defecto solicita datos a la API; las pantallas de demostración local se activan explícitamente con `DEMO_MODE=true`.
 
 ## Tecnologías
 
 - Flutter y Dart con Material 3.
 - Sistema visual Stitch/Cybersecurity Neon con fuentes Space Grotesk, Space Mono e Inter.
-- Datos mock locales; no hay dependencia directa de MongoDB.
+- Cliente HTTP Bearer hacia la API; MongoDB permanece únicamente detrás del backend.
 
 ## Pantallas implementadas
 
@@ -23,14 +23,16 @@ sigue siendo demostrativo. Ver [configuración de Keycloak](KEYCLOAK.md).
 
 ```text
 lib/
-├── data/mock_data.dart          # jugador, misiones, zonas, personajes y logros
+├── data/mock_data.dart          # ejemplos usados solo en DEMO_MODE y tests
 ├── models/                      # modelos de dominio
 ├── screens/                     # pantallas del jugador
-├── services/                    # sesión Keycloak y cola de notificaciones de logros
+├── services/                    # sesión Keycloak, HTTP y repositorio de datos
 ├── theme/                       # AppColors y AppTheme
 └── widgets/                     # navegación, tarjetas, XP, paneles y popup
 test/
 ├── achievement_notification_test.dart
+├── api_client_test.dart
+├── api_model_test.dart
 ├── auth_service_test.dart
 ├── mission_ui_test.dart
 ├── stitch_design_test.dart
@@ -47,36 +49,55 @@ Los widgets reutilizables incluyen `NovaPanel`, `NovaPrimaryButton`, `DemoDataNo
 
 Desde `movil/`:
 
-```bash
+```powershell
 flutter pub get
-flutter run
+Copy-Item keycloak.local.json.example keycloak.local.json
+# Edita keycloak.local.json: completa el Client ID solo cuando exista en Keycloak.
+flutter run --dart-define-from-file=keycloak.local.json
 ```
+
+Flutter no carga variables desde `.env`; el archivo local se usa mediante
+`--dart-define-from-file` y está ignorado por Git. Consulta
+[KEYCLOAK.md](KEYCLOAK.md) para emulador, teléfono físico y ajustes del cliente.
+Para iniciar API/MongoDB local (usa un volumen nuevo y privado):
+
+```powershell
+# Desde la raíz del repositorio; inicia primero Keycloak y el stack de monitoreo.
+Copy-Item infra/api/.env.example infra/api/.env
+docker compose -f infra/api/compose.yaml up -d --build --wait
+```
+
+En teléfono físico conectado por USB reenvía ambos puertos: `adb reverse tcp:8080 tcp:8080`
+y `adb reverse tcp:3000 tcp:3000`. El cliente Flutter requiere que se cree en
+Keycloak y que la API tenga configurada la audiencia del access token antes de que
+las rutas protegidas devuelvan datos.
 
 ## Validación
 
-```bash
-dart format .
+```powershell
+dart format lib test
 flutter analyze
 flutter test
+flutter build apk --debug
 ```
 
 Sin variables de Keycloak la app muestra la configuración pendiente. Para iniciar
 sesión real, usar el comando de [KEYCLOAK.md](KEYCLOAK.md) en Android/iOS.
 
-Las pruebas cubren el arranque, las notificaciones y el ciclo de sesión con un
-proveedor simulado. El inicio/cierre real debe comprobarse en un dispositivo.
+Las pruebas cubren el cliente HTTP, serialización/modelos, rutas, filtros,
+autenticación con proveedor simulado y diseño. El inicio/cierre real aún requiere
+el cliente de Keycloak y un dispositivo.
 
-## Pendiente de integración
+## Pendiente de integración verificado
 
-- Configurar el cliente móvil en el servidor Keycloak y validar el recorrido real en dispositivo.
-- Implementar API REST; actualmente `api/` solo contiene README y `.gitkeep`, sin servidor ni endpoints.
-- No conectar Flutter directamente a MongoDB; la base solo estará detrás de la API.
-- Sustituir misiones, mapas, logros, XP, habilidades y actividad simulados por respuestas documentadas de API.
-- Acordar contratos de perfil, catálogo, niveles, progreso y logros antes de implementar repositorios.
-- Aplicar permisos de forma autoritativa en la API; la app solo muestra roles del token.
-- Sincronizar resultados verificados de Unity y contenido de la PWA mediante la API común.
-- Definir caché offline/sync y resolución de conflicto cuando el backend establezca su fuente de verdad.
+- Crear el cliente público `ti-soporte-flutter` en el realm local `TI Soporte en Acción` y registrar el callback; el servidor aún responde `Client not found` para ese cliente.
+- Añadir a Keycloak el Audience mapper que se acuerde y definir `KEYCLOAK_AUDIENCE` en `infra/api/.env`; hasta entonces las rutas protegidas de la API responden `503` por configuración OIDC incompleta.
+- El backend Node/Express/Mongoose y el Compose API/Mongo están implementados y arrancan. Poblar el catálogo Mongo con misiones, niveles, guías y logros revisados; la API parte vacía y no carga ejemplos como datos reales.
+- Integrar Unity como fuente verificable de intentos; el endpoint actual deja los reportes pendientes y un administrador debe aprobarlos antes de acreditar XP.
+- Acordar el login web de la PWA y su consumo del mismo progreso; la sesión móvil no se comparte directamente con el navegador.
+- Definir umbrales de nivel/XP y políticas de caché/sincronización offline antes de calcular progreso o sincronizar conflictos.
+- Hacer una prueba real de login/logout en Android físico; no se detectó dispositivo durante esta validación. iOS requiere macOS/Xcode.
 
 El detalle de bloqueos y contratos pendientes está en [INTEGRATION_STATUS.md](INTEGRATION_STATUS.md).
 
-Las pantallas actuales mantienen el acceso del jugador y usan datos mock; los roles futuros no se simulan como un sistema de seguridad real.
+Los datos simulados solo se activan con `--dart-define=DEMO_MODE=true`; el modo normal consulta la API y muestra carga, error, vacío y reintento. La autorización de recursos sigue siendo responsabilidad del backend.

@@ -4,6 +4,9 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+$RepositoryRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
+Set-Location $RepositoryRoot
+if ((git branch --show-current) -ne 'feature/mobile-flutter') { throw 'Este script solo puede ejecutarse en feature/mobile-flutter.' }
 if (-not (Get-Command docker -ErrorAction SilentlyContinue)) { throw 'Docker CLI no está instalado.' }
 docker info *> $null
 if ($LASTEXITCODE -ne 0) { throw 'Docker Desktop no está en ejecución.' }
@@ -20,6 +23,6 @@ if (-not (Test-Path infra/api/.env)) {
 
 docker network inspect ti-soporte-monitoring_default *> $null
 if ($LASTEXITCODE -ne 0) { docker network create ti-soporte-monitoring_default | Out-Null }
-Push-Location infra/keycloak; docker compose up -d; Pop-Location
-Push-Location infra/api; docker compose up -d; Pop-Location
+Push-Location infra/keycloak; docker compose config --quiet; docker compose up -d; Pop-Location
+Push-Location infra/api; docker compose config --quiet; docker compose up -d --build api; Pop-Location
 Write-Host 'Servicios iniciados. Espera healthchecks y ejecuta scripts/run-flutter.ps1.'

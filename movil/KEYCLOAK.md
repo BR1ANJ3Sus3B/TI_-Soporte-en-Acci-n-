@@ -5,9 +5,39 @@ La integración directa pertenece a Flutter, no a la PWA. Se usa
 público sin secreto. Implementación de acceso para **Android e iOS**; Windows y
 Flutter web muestran un aviso de plataforma no compatible con este acceso móvil.
 
+## Resultado de la inspección del servidor
+
+La inspección confirmó que Keycloak 26.4 está accesible localmente y que el realm
+existente es `TI Soporte en Acción`. Su issuer de discovery es:
+
+```text
+http://localhost:8080/realms/TI%20Soporte%20en%20Acci%C3%B3n
+```
+
+El realm `ti-soporte` no existe en esta instancia. La petición OIDC para el Client
+ID `ti-soporte-flutter` devuelve **Client not found**: ese ID solo figuraba como
+propuesta en la documentación, pero el cliente no está creado en el realm real.
+El Compose local inicia Keycloak con un volumen; no importa realms ni clientes.
+
+`infra/keycloak/.env.example` declara `KC_ADMIN_PASSWORD`. Se añadió una contraseña
+al `.env` local ignorado por Git, pero Keycloak la rechazó al probarla como
+administrador: `KC_BOOTSTRAP_ADMIN_PASSWORD` solo inicializa el admin de un volumen
+nuevo; no cambia el admin guardado en un volumen ya inicializado. No se borró ni
+recreó ese volumen. Usa las credenciales del admin ya existente para crear el
+cliente en el realm actual; no hace falta recrear el realm ni los usuarios.
+
+```text
+https://<host-real>/realms/<realm-real>/.well-known/openid-configuration
+```
+
+La variable `KEYCLOAK_ISSUER` usa exactamente el `issuer` que devuelve ese JSON,
+sin añadir `/.well-known/openid-configuration`. Flutter ya añade ese sufijo.
+
 ## Cliente del servidor
 
-En el realm existente (no es necesario eliminar ni recrear usuarios), crear:
+En el realm existente (no elimines ni recrees usuarios), comprueba que exista el
+cliente público indicado abajo. Si falta, créalo; el repositorio no aprovisiona
+ese cliente automáticamente:
 
 | Opción | Valor |
 | --- | --- |
@@ -25,22 +55,70 @@ recuperación de contraseña en el realm si se desean esas opciones en su formul
 El cliente anterior de la PWA puede deshabilitarse manualmente cuando se confirme
 que no tiene otros consumidores. No se modifica el servidor automáticamente.
 
-## Ejecutar en Android
+## Configurar Flutter sin guardar valores locales en Git
+
+`String.fromEnvironment` se resuelve **al compilar**: Flutter no lee `.env` por
+sí solo. Copia la plantilla desde `movil/`. El issuer local comprobado viene
+prellenado; el Client ID queda vacío porque no está creado en Keycloak. Completa
+ese campo en el archivo local ignorado por Git:
+
+```powershell
+Copy-Item keycloak.local.json.example keycloak.local.json
+# Define KEYCLOAK_CLIENT_ID con el ID que registres en el realm existente.
+flutter pub get
+flutter run --dart-define-from-file=keycloak.local.json
+```
+
+El Client ID propuesto por la documentación es `ti-soporte-flutter`; úsalo solo
+si lo creas con ese ID. La plantilla local permite HTTP en debug. No uses ese valor
+para release: usa HTTPS y `KEYCLOAK_ALLOW_HTTP=false`.
+
+El mismo archivo se pasa a una compilación así:
+
+```powershell
+flutter build apk --debug --dart-define-from-file=keycloak.local.json
+```
+
+## Acceder desde Android físico
+
+`10.0.2.2` es la dirección especial del emulador Android y **no sirve para un
+teléfono físico**. Para desarrollo USB, si el Keycloak local realmente está
+escuchando en el PC en el puerto 8080, usa el puente de ADB:
+
+```powershell
+adb devices
+adb reverse tcp:8080 tcp:8080
+```
+
+El discovery comprobado anuncia `http://localhost:8080/realms/TI%20Soporte%20en%20Acci%C3%B3n`.
+Para el móvil por USB, usa ese mismo issuer junto con `adb reverse` para que el
+teléfono alcance el servidor del PC. El Client ID seguirá pendiente hasta crearlo
+en Keycloak. Después:
+
+```powershell
+flutter run --dart-define-from-file=keycloak.local.json
+```
+
+Alternativamente, usa un host HTTPS alcanzable desde el teléfono. El PC reportó
+`192.168.1.87` como su IPv4 Wi-Fi durante esta inspección, pero esa dirección puede
+cambiar y **no** es el issuer publicado por el servidor comprobado. Para usar LAN,
+el teléfono y el PC deben estar en la misma red, el firewall permitir el puerto y
+Keycloak debe anunciar en discovery esa autoridad pública. No cambies el issuer
+por una IP sin configurar y volver a comprobar discovery.
+
+## Ejecutar en emulador Android
 
 Desde `movil/`, con un emulador Android y Keycloak local en el puerto 8080:
 
 ```powershell
 flutter pub get
-flutter run --dart-define="KEYCLOAK_ISSUER=http://10.0.2.2:8080/realms/ti-soporte" --dart-define="KEYCLOAK_CLIENT_ID=ti-soporte-flutter" --dart-define="KEYCLOAK_ALLOW_HTTP=true"
+flutter run --dart-define-from-file=keycloak.local.json
 ```
 
-Usar el nombre **real** del realm: si se llama `TI Soporte en Acción`, el segmento
-de URL será `TI%20Soporte%20en%20Acci%C3%B3n`. La URL issuer no incluye
-`/.well-known/openid-configuration`; la app añade ese sufijo.
+Usa el realm que confirme el servidor, no un nombre supuesto. Para un emulador,
+`10.0.2.2` reemplaza el host del PC si el discovery y Keycloak permiten esa URL;
+el `issuer` que anuncie el servidor debe coincidir con el configurado en Flutter.
 
-`10.0.2.2` apunta al PC desde el emulador Android. En teléfono físico, utilizar
-la dirección accesible del PC o un dominio HTTPS. Revisar que el discovery publique
-endpoints alcanzables desde el dispositivo y el mismo issuer configurado.
 HTTP se permite solo como opción explícita de desarrollo y el manifiesto Android
 lo habilita solo en debug. Para release e iOS usar un issuer HTTPS con certificado
 válido. iOS requiere macOS/Xcode para compilar y verificar el retorno del navegador.

@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:ti_soporte_accion/data/mock_data.dart';
+import 'package:ti_soporte_accion/models/map_area.dart';
+import 'package:ti_soporte_accion/services/app_data_repository.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
+import 'package:ti_soporte_accion/widgets/async_content.dart';
 import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
 import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
-import 'package:ti_soporte_accion/theme/app_typography.dart';
 
-/// Pantalla que representa las áreas de la empresa (mapa).
 class MapScreen extends StatelessWidget {
-  const MapScreen({super.key});
-
+  const MapScreen({super.key, this.repository});
+  final AppDataRepository? repository;
   static const String routeName = '/map';
 
   @override
   Widget build(BuildContext context) {
-    final areas = MockData.areas;
-
+    final repository = this.repository ?? AppDataRepository.instance;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
@@ -23,90 +23,104 @@ class MapScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Mapa de la empresa', style: AppTypography.heading(24)),
+              children: [
+                Text('Mapa de áreas', style: AppTypography.heading(24)),
                 const SizedBox(height: 8),
-                const Text(
-                  'Mapa conceptual de áreas de NovaTech; no representa niveles desbloqueables.',
-                  style: TextStyle(
-                    color: AppColors.textSecondary,
-                    fontSize: 14,
+                Text(
+                  'Mapa conceptual de áreas de NovaTech, sin geolocalización.',
+                  style: AppTypography.label(14),
+                ),
+                if (repository.demoMode) ...[
+                  const SizedBox(height: 12),
+                  const DemoDataNotice(
+                    message:
+                        'Áreas de demostración, no niveles ni '
+                        'desbloqueos confirmados.',
                   ),
-                ),
+                ] else ...[
+                  const SizedBox(height: 8),
+                  Text(
+                    'Áreas derivadas del catálogo publicado en la API.',
+                    style: AppTypography.label(
+                      12,
+                      color: AppColors.primaryCyan,
+                    ),
+                  ),
+                ],
                 const SizedBox(height: 16),
-                const DemoDataNotice(
-                  message:
-                      'Áreas ilustrativas. La API aún no '
-                      'proporciona niveles ni estados de desbloqueo.',
-                ),
-                const SizedBox(height: 12),
                 Expanded(
-                  child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 12,
-                          mainAxisSpacing: 12,
-                          childAspectRatio: 1.1,
-                        ),
-                    itemCount: areas.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      final area = areas[index];
-                      return Semantics(
-                        button: true,
-                        label: 'Ver misiones de ${area.name}',
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context)
-                                .pushNamed('/missions', arguments: area.name);
+                  child: AsyncContent<List<MapArea>>(
+                    load: repository.getAreas,
+                    isEmpty: (areas) => areas.isEmpty,
+                    emptyMessage: 'La API aún no ha publicado áreas asociadas a misiones.',
+                    builder: (context, areas) => LayoutBuilder(
+                      builder: (context, constraints) {
+                        final columns = constraints.maxWidth >= 560 ? 3 : 2;
+                        return GridView.builder(
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: columns,
+                                crossAxisSpacing: 12,
+                                mainAxisSpacing: 12,
+                                childAspectRatio: 1.1,
+                              ),
+                          itemCount: areas.length,
+                          itemBuilder: (context, index) {
+                            final area = areas[index];
+                            return Semantics(
+                              button: true,
+                              label: 'Ver misiones de ${area.name}',
+                              child: Material(
+                                color: Colors.transparent,
+                                child: InkWell(
+                                  borderRadius: BorderRadius.circular(
+                                    AppColors.radiusMedium,
+                                  ),
+                                  onTap: () => Navigator.of(context).pushNamed(
+                                    '/missions',
+                                    arguments: area.name,
+                                  ),
+                                  child: Container(
+                                    padding: const EdgeInsets.all(16),
+                                    decoration: BoxDecoration(
+                                      gradient: AppColors.cardGradient,
+                                      borderRadius: BorderRadius.circular(
+                                        AppColors.radiusMedium,
+                                      ),
+                                      border: Border.all(
+                                        color: area.color.withValues(
+                                          alpha: .65,
+                                        ),
+                                      ),
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          area.icon,
+                                          color: area.color,
+                                          size: 28,
+                                        ),
+                                        const SizedBox(height: 12),
+                                        Text(
+                                          area.name,
+                                          textAlign: TextAlign.center,
+                                          style: AppTypography.heading(
+                                            16,
+                                            weight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
                           },
-                          child: Container(
-                            padding: const EdgeInsets.all(16),
-                            decoration: BoxDecoration(
-                              gradient: const LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: <Color>[
-                                  AppColors.card,
-                                  AppColors.surfaceDark,
-                                ],
-                              ),
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(
-                                color: area.color.withValues(alpha: 0.7),
-                              ),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Container(
-                                  padding: const EdgeInsets.all(12),
-                                  decoration: BoxDecoration(
-                                    color: area.color.withValues(alpha: 0.2),
-                                    borderRadius: BorderRadius.circular(999),
-                                  ),
-                                  child: Icon(
-                                    area.icon,
-                                    color: area.color,
-                                    size: 26,
-                                  ),
-                                ),
-                                const SizedBox(height: 12),
-                                Text(
-                                  area.name,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    color: AppColors.textPrimary,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
-                    },
+                        );
+                      },
+                    ),
                   ),
                 ),
               ],
@@ -117,17 +131,15 @@ class MapScreen extends StatelessWidget {
       bottomNavigationBar: CustomBottomNav(
         currentIndex: 2,
         onTap: (int index) {
-          switch (index) {
-            case 0:
-              Navigator.of(context).pushReplacementNamed('/home');
-            case 1:
-              Navigator.of(context).pushReplacementNamed('/missions');
-            case 2:
-              break;
-            case 3:
-              Navigator.of(context).pushReplacementNamed('/progress');
-            case 4:
-              Navigator.of(context).pushReplacementNamed('/profile');
+          const routes = <String>[
+            '/home',
+            '/missions',
+            '/map',
+            '/progress',
+            '/profile',
+          ];
+          if (index != 2) {
+            Navigator.of(context).pushReplacementNamed(routes[index]);
           }
         },
       ),

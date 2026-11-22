@@ -19,6 +19,8 @@ class Achievement {
     this.xp = 0,
     this.category = 'General',
     this.rarity = AchievementRarity.common,
+    this.unlockedAt,
+    this.criteriaDescription = '',
   });
 
   final String id;
@@ -29,7 +31,39 @@ class Achievement {
   final AchievementStatus status;
   final int xp;
   final String category;
-  final AchievementRarity rarity;
+  final AchievementRarity? rarity;
+  final DateTime? unlockedAt;
+  final String criteriaDescription;
+
+  factory Achievement.fromJson(Map<String, dynamic> json) {
+    final icon = switch (json['icon']) {
+      'shield' => Icons.shield_rounded,
+      'rocket' => Icons.rocket_launch_rounded,
+      _ => Icons.emoji_events_rounded,
+    };
+    final rarity = switch (json['rarity']) {
+      'uncommon' => AchievementRarity.uncommon,
+      'rare' => AchievementRarity.rare,
+      'epic' => AchievementRarity.epic,
+      'legendary' => AchievementRarity.legendary,
+      'common' => AchievementRarity.common,
+      _ => null,
+    };
+    final unlocked = json['unlocked'] == true;
+    return Achievement(
+      id: json['id'] as String,
+      title: json['title'] as String,
+      description: json['description'] as String,
+      icon: icon,
+      unlocked: unlocked,
+      status: unlocked ? AchievementStatus.unlocked : AchievementStatus.locked,
+      xp: (json['xp'] as num?)?.toInt() ?? 0,
+      category: json['category'] as String? ?? 'General',
+      rarity: rarity,
+      unlockedAt: DateTime.tryParse(json['date'] as String? ?? ''),
+      criteriaDescription: json['criteriaDescription'] as String? ?? '',
+    );
+  }
 }
 
 /// Utilidades visuales de la rareza de un logro.

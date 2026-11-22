@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ti_soporte_accion/data/mock_data.dart';
 import 'package:ti_soporte_accion/models/mission.dart';
+import 'package:ti_soporte_accion/services/app_data_repository.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
+import 'package:ti_soporte_accion/theme/app_typography.dart';
+import 'package:ti_soporte_accion/widgets/async_content.dart';
 import 'package:ti_soporte_accion/widgets/custom_bottom_nav.dart';
 import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
 import 'package:ti_soporte_accion/widgets/mission_card.dart';
@@ -9,7 +11,8 @@ import 'package:ti_soporte_accion/widgets/mission_card.dart';
 enum _MissionFilter { all, inProgress, available, completed }
 
 class MissionsScreen extends StatefulWidget {
-  const MissionsScreen({super.key});
+  const MissionsScreen({super.key, this.repository});
+  final AppDataRepository? repository;
   static const String routeName = '/missions';
 
   @override
@@ -29,16 +32,7 @@ class _MissionsScreenState extends State<MissionsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final missions = MockData.missions.where((mission) {
-      final matchesArea = _area == null || mission.area == _area;
-      final matchesFilter = switch (_filter) {
-        _MissionFilter.all => true,
-        _MissionFilter.inProgress => mission.status == MissionStatus.inProgress,
-        _MissionFilter.available => mission.status == MissionStatus.available,
-        _MissionFilter.completed => mission.status == MissionStatus.completed,
-      };
-      return matchesArea && matchesFilter;
-    }).toList()..sort((a, b) => a.id.compareTo(b.id));
+    final repository = widget.repository ?? AppDataRepository.instance;
 
     return Scaffold(
       body: Container(
@@ -51,17 +45,27 @@ class _MissionsScreenState extends State<MissionsScreen> {
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
                 child: Text(
                   _area == null ? 'Misiones' : 'Misiones · $_area',
-                  style: Theme.of(context).textTheme.headlineMedium,
+                  style: AppTypography.heading(24),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: DemoDataNotice(
-                  message:
-                      'Catálogo local de demostración. '
-                      'No hay misiones disponibles confirmadas por un servidor.',
+              if (repository.demoMode)
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: DemoDataNotice(
+                    message: 'Catálogo local de demostración; no proviene del servidor.',
+                  ),
+                )
+              else
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    'Catálogo recibido de la API autenticada.',
+                    style: AppTypography.label(
+                      12,
+                      color: AppColors.primaryCyan,
+                    ),
+                  ),
                 ),
-              ),
               const SizedBox(height: 12),
               SizedBox(
                 height: 42,
@@ -78,29 +82,47 @@ class _MissionsScreenState extends State<MissionsScreen> {
               ),
               const SizedBox(height: 12),
               Expanded(
-                child: missions.isEmpty
-                    ? Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(24),
-                          child: Text(
-                            'No hay misiones de demostración con este filtro.',
-                            textAlign: TextAlign.center,
-                            style: Theme.of(context).textTheme.bodyLarge
-                                ?.copyWith(color: AppColors.textSecondary),
-                          ),
+                child: AsyncContent<List<Mission>>(
+                  load: repository.getMissions,
+                  isEmpty: (missions) => missions.isEmpty,
+                  emptyMessage: repository.demoMode
+                      ? 'No hay misiones de demostración.'
+                      : 'La API aún no tiene misiones publicadas para esta cuenta.',
+                  builder: (context, catalog) {
+                    final missions = catalog.where((mission) {
+                      final matchesArea =
+                          _area == null || mission.area == _area;
+                      final matchesFilter = switch (_filter) {
+                        _MissionFilter.all => true,
+                        _MissionFilter.inProgress =>
+                          mission.status == MissionStatus.inProgress,
+                        _MissionFilter.available =>
+                          mission.status == MissionStatus.available,
+                        _MissionFilter.completed =>
+                          mission.status == MissionStatus.completed,
+                      };
+                      return matchesArea && matchesFilter;
+                    }).toList()..sort((a, b) => a.id.compareTo(b.id));
+                    if (missions.isEmpty) {
+                      return const Center(
+                        child: Text(
+                          'No hay misiones que coincidan con este filtro.',
                         ),
-                      )
-                    : ListView.builder(
-                        padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                        itemCount: missions.length,
-                        itemBuilder: (context, index) => MissionCard(
-                          mission: missions[index],
-                          onTap: () => Navigator.of(context).pushNamed(
-                            '/mission-detail',
-                            arguments: missions[index].id,
-                          ),
+                      );
+                    }
+                    return ListView.builder(
+                      padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+                      itemCount: missions.length,
+                      itemBuilder: (context, index) => MissionCard(
+                        mission: missions[index],
+                        onTap: () => Navigator.of(context).pushNamed(
+                          '/mission-detail',
+                          arguments: missions[index].id,
                         ),
                       ),
+                    );
+                  },
+                ),
               ),
             ],
           ),

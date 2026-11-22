@@ -3,12 +3,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ti_soporte_accion/screens/mission_detail_screen.dart';
 import 'package:ti_soporte_accion/screens/missions_screen.dart';
 import 'package:ti_soporte_accion/services/achievement_notification_service.dart';
+import 'package:ti_soporte_accion/services/app_data_repository.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   testWidgets('permite filtrar el catálogo demo por estado', (tester) async {
-    await tester.pumpWidget(const MaterialApp(home: MissionsScreen()));
+    final repository = AppDataRepository(demoMode: true);
+    await tester.pumpWidget(
+      MaterialApp(home: MissionsScreen(repository: repository)),
+    );
+    await tester.pumpAndSettle();
     expect(find.text('No puedo iniciar sesión'), findsOneWidget);
     expect(find.text('Sin conexión a Internet'), findsOneWidget);
     await tester.scrollUntilVisible(
@@ -28,7 +33,25 @@ void main() {
   testWidgets('un identificador de misión inválido no muestra otra misión', (
     tester,
   ) async {
-    await tester.pumpWidget(const MaterialApp(home: MissionDetailScreen()));
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Builder(
+          builder: (context) => TextButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                settings: const RouteSettings(arguments: 'not-a-mission'),
+                builder: (_) => MissionDetailScreen(
+                  repository: AppDataRepository(demoMode: true),
+                ),
+              ),
+            ),
+            child: const Text('Abrir identificador inválido'),
+          ),
+        ),
+      ),
+    );
+    await tester.tap(find.text('Abrir identificador inválido'));
+    await tester.pumpAndSettle();
     expect(
       find.text('No se encontró esa misión de demostración.'),
       findsOneWidget,
@@ -45,7 +68,9 @@ void main() {
             onPressed: () => Navigator.of(context).push(
               MaterialPageRoute<void>(
                 settings: const RouteSettings(arguments: 'm02'),
-                builder: (_) => const MissionDetailScreen(),
+                builder: (_) => MissionDetailScreen(
+                  repository: AppDataRepository(demoMode: true),
+                ),
               ),
             ),
             child: const Text('Abrir misión'),

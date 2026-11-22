@@ -1,0 +1,377 @@
+openapi: 3.1.0
+info:
+  title: "TI: Soporte en Acción API"
+  version: 1.0.0
+  description: >-
+    API REST autenticada con access tokens OIDC de Keycloak. MongoDB es interno;
+    los clientes móviles, Unity y web nunca se conectan a MongoDB directamente.
+servers:
+  - url: http://localhost:3000/api/v1
+    description: Desarrollo local
+security:
+  - bearerAuth: []
+paths:
+  /health/live:
+    get:
+      security: []
+      summary: Liveness del proceso API
+      responses:
+        '200': { description: API activa }
+  /health/ready:
+    get:
+      security: []
+      summary: Estado de MongoDB y configuración OIDC
+      responses:
+        '200': { description: API y MongoDB listos }
+        '503': { description: MongoDB no está listo }
+  /metrics:
+    get:
+      security: []
+      summary: Métricas Prometheus sin datos de usuario ni tokens
+      responses:
+        '200': { description: Exposition format Prometheus }
+  /profile:
+    get:
+      summary: Perfil de la cuenta autenticada
+      responses:
+        '200':
+          description: Perfil y progreso resumido de `sub` autenticado
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Profile' }
+        '401': { description: Token ausente, inválido o vencido }
+        '503': { description: Validación Keycloak no configurada }
+    patch:
+      summary: Actualiza solo el nombre visible del usuario autenticado
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [displayName]
+              properties:
+                displayName: { type: string, minLength: 1, maxLength: 80 }
+      responses:
+        '200': { description: Perfil actualizado }
+        '400': { description: Campos inválidos o protegidos }
+  /missions:
+    get:
+      summary: Catálogo de misiones publicadas y estado del usuario
+      responses:
+        '200':
+          description: Lista del catálogo; vacía si aún no se cargó contenido
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Mission' }
+  /missions/{code}:
+    get:
+      summary: Detalle de misión publicada
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Misión y requisitos
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Mission' }
+        '404': { description: Misión no publicada o inexistente }
+  /areas:
+    get:
+      summary: Áreas derivadas de misiones publicadas
+      responses:
+        '200': { description: Lista de áreas }
+  /levels:
+    get:
+      summary: Niveles y requisitos explícitos de desbloqueo
+      responses:
+        '200': { description: Niveles configurados por administrador }
+  /progress:
+    get:
+      summary: Progreso de la cuenta autenticada
+      responses:
+        '200':
+          description: XP y misiones almacenados en MongoDB
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Progress' }
+  /progress/specialties:
+    get:
+      summary: Habilidades para la PWA y Flutter
+      responses:
+        '200':
+          description: Lista de habilidades; vacía si no hay datos validados
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Specialty' }
+  /achievements:
+    get:
+      summary: Catálogo de logros y estado del usuario
+      responses:
+        '200':
+          description: Logros configurados y desbloqueos validados
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Achievement' }
+  /guides:
+    get:
+      summary: Guías publicadas
+      responses:
+        '200':
+          description: Lista de guías públicas
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Guide' }
+  /guides/{code}:
+    get:
+      summary: Contenido de una guía publicada
+      parameters:
+        - in: path
+          name: code
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Guía publicada
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Guide' }
+        '404': { description: Guía inexistente o no publicada }
+  /attempts:
+    get:
+      summary: Intentos de la cuenta autenticada
+      responses:
+        '200': { description: Historial de intentos propios }
+    post:
+      summary: Registra un intento idempotente pendiente de verificación
+      description: >-
+        El envío no otorga XP. Solo un administrador puede validar el intento;
+        una fuente de confianza para Unity queda pendiente de definir.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [attemptId, missionCode, outcome]
+              properties:
+                attemptId: { type: string, minLength: 8, maxLength: 128 }
+                missionCode: { type: string, maxLength: 80 }
+                outcome: { type: string, enum: [success, failure] }
+                durationSeconds: { type: integer, minimum: 0, maximum: 604800 }
+      responses:
+        '202': { description: Recibido, pendiente de revisión y sin recompensa }
+        '409': { description: attemptId repetido con otro contenido }
+  /admin/attempts:
+    get:
+      summary: Lista intentos para el rol administrador
+      responses:
+        '200': { description: Intentos según estado }
+        '403': { description: Se requiere el rol administrador }
+  /admin/users:
+    get:
+      summary: Lista perfiles conocidos sin contraseñas ni tokens (rol administrador)
+      responses:
+        '200': { description: Perfiles asociados a subjects de Keycloak }
+        '403': { description: Se requiere el rol administrador }
+  /admin/attempts/{id}/review:
+    post:
+      summary: Aprueba o rechaza un intento. El XP se calcula desde la misión en MongoDB.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [approved]
+              properties:
+                approved: { type: boolean }
+      responses:
+        '200': { description: Estado final e XP acreditado, si corresponde }
+        '403': { description: Se requiere el rol administrador }
+  /admin/missions:
+    post:
+      summary: Crea una misión como administrador
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [code, title, category, description, difficulty, duration, xpReward, level]
+              properties:
+                code: { type: string, maxLength: 80 }
+                title: { type: string, maxLength: 160 }
+                category: { type: string, maxLength: 80 }
+                description: { type: string, maxLength: 4000 }
+                difficulty: { type: string, enum: [Básica, Media, Avanzada] }
+                duration: { type: string, maxLength: 40 }
+                xpReward: { type: integer, minimum: 0, maximum: 100000 }
+                level: { type: integer, minimum: 1, maximum: 1000 }
+                objectives: { type: array, items: { type: string, maxLength: 300 } }
+                requirements: { type: array, items: { type: string, maxLength: 300 } }
+                active: { type: boolean }
+      responses:
+        '201': { description: Misión creada }
+        '403': { description: Se requiere el rol administrador }
+  /admin/guides:
+    post:
+      summary: Crea una guía como administrador
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [code, title, content, category]
+              properties:
+                code: { type: string, maxLength: 80 }
+                title: { type: string, maxLength: 160 }
+                content: { type: string, maxLength: 50000 }
+                category: { type: string, maxLength: 80 }
+                type: { type: string, maxLength: 40 }
+                description: { type: string, maxLength: 1000 }
+                order: { type: integer, minimum: 0 }
+                published: { type: boolean }
+      responses:
+        '201': { description: Guía creada }
+        '403': { description: Se requiere el rol administrador }
+  /admin/levels:
+    post:
+      summary: Define un nivel y sus requisitos explícitos (rol administrador)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [code, title, order]
+              properties:
+                code: { type: string, maxLength: 80 }
+                title: { type: string, maxLength: 120 }
+                description: { type: string, maxLength: 2000 }
+                order: { type: integer, minimum: 1, maximum: 1000 }
+                requiredMissionCodes: { type: array, items: { type: string, maxLength: 300 } }
+                unlockedByDefault: { type: boolean }
+                active: { type: boolean }
+      responses:
+        '201': { description: Nivel creado }
+        '403': { description: Se requiere el rol administrador }
+  /admin/achievements:
+    post:
+      summary: Publica definición de logro sin desbloquearlo (rol administrador)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [code, title, description]
+              properties:
+                code: { type: string, maxLength: 80 }
+                title: { type: string, maxLength: 160 }
+                description: { type: string, maxLength: 2000 }
+                criteriaDescription: { type: string, maxLength: 1000 }
+                xpReward: { type: integer, minimum: 0, maximum: 100000 }
+                icon: { type: string, enum: [award, shield, rocket] }
+                active: { type: boolean }
+      responses:
+        '201': { description: Logro creado }
+        '403': { description: Se requiere el rol administrador }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Profile:
+      type: object
+      required: [id, name, role, level, xp, missionsCompleted, incidentsResolved]
+      properties:
+        id: { type: string, description: Keycloak subject }
+        name: { type: string }
+        email: { type: [string, 'null'] }
+        role: { type: string }
+        roles: { type: array, items: { type: string } }
+        level: { type: [integer, 'null'] }
+        xp: { type: integer, minimum: 0 }
+        currentXp: { type: integer, minimum: 0 }
+        nextLevelXp: { type: [integer, 'null'], description: Null until a level threshold is configured }
+        missionsCompleted: { type: integer, minimum: 0 }
+        incidentsResolved: { type: integer, minimum: 0 }
+        updatedAt: { type: string, format: date-time }
+    Mission:
+      type: object
+      required: [id, title, category, description, difficulty, duration, xp, status, level, objectives, requirements]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        category: { type: string }
+        description: { type: string }
+        difficulty: { type: string, enum: [Básica, Media, Avanzada] }
+        duration: { type: string }
+        xp: { type: integer, minimum: 0 }
+        status: { type: string, enum: [Disponible, 'En progreso', Completada] }
+        level: { type: integer, minimum: 1 }
+        department: { type: string }
+        affectedUser: { type: string }
+        objectives: { type: array, items: { type: string } }
+        requirements: { type: array, items: { type: string } }
+    Progress:
+      type: object
+      required: [userId, xp, completedMissionIds, inProgressMissionIds, updatedAt]
+      properties:
+        userId: { type: string, description: Keycloak subject }
+        level: { type: [integer, 'null'] }
+        xp: { type: integer, minimum: 0 }
+        nextLevelXp: { type: [integer, 'null'] }
+        completedMissionIds: { type: array, items: { type: string } }
+        inProgressMissionIds: { type: array, items: { type: string } }
+        missionStates: { type: array, items: { type: object } }
+        updatedAt: { type: string, format: date-time }
+    Specialty:
+      type: object
+      required: [name, progress, icon]
+      properties:
+        name: { type: string }
+        progress: { type: number, minimum: 0, maximum: 1 }
+        icon: { type: string, enum: [headset, network, shield, code, database] }
+    Achievement:
+      type: object
+      required: [id, title, description, xp, unlocked, icon]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        description: { type: string }
+        xp: { type: integer, minimum: 0 }
+        unlocked: { type: boolean }
+        date: { type: [string, 'null'], format: date-time }
+        icon: { type: string, enum: [award, shield, rocket] }
+        criteriaDescription: { type: string }
+    Guide:
+      type: object
+      required: [id, title, description, category, type]
+      properties:
+        id: { type: string }
+        title: { type: string }
+        description: { type: string }
+        category: { type: string }
+        type: { type: string }
+        content: { type: string, description: "Only returned by GET /guides/{code}" }

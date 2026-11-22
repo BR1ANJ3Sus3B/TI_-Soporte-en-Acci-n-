@@ -13,6 +13,10 @@ crear el realm `ti-soporte` y el cliente público `ti-soporte-flutter` siguiendo
 [movil/KEYCLOAK.md](../../movil/KEYCLOAK.md). Si ya existe un realm, conservarlo y
 configurar su URL real en Flutter. Los usuarios y roles permanecen en el volumen.
 
-Esta configuración usa `start-dev`. No ejecutar dos copias de este servicio al
-mismo tiempo ni borrar el volumen existente para cambiar de cliente. La migración
-de la PWA a Flutter no exige borrar cuentas. La PWA ya no usa Keycloak directamente.
+Health/metrics de Keycloak usan el puerto interno 9000 en la red Docker
+`ti-soporte-monitoring_default`; el puerto no se publica en el host.
+
+Esta configuración usa `start-dev`. Inicia primero el stack de monitoreo para que
+exista la red compartida. No ejecutar dos copias de este servicio al mismo tiempo
+ni borrar el volumen existente para cambiar de cliente. La migración de la PWA a
+Flutter no exige borrar cuentas. La PWA ya no usa Keycloak directamente.

@@ -1,0 +1,18 @@
+# Añadir estos jobs a la configuración de Prometheus existente cuando se integre
+# esta rama con feature/monitoreo-grafana. No crea otro Prometheus.
+scrape_configs:
+  - job_name: ti-soporte-api
+    metrics_path: /metrics
+    authorization:
+      type: Bearer
+      credentials_file: /run/secrets/ti_soporte_api_metrics_token
+    static_configs:
+      - targets: ["api:3000"]
+  - job_name: ti-soporte-mongodb
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["mongodb-exporter:9216"]
+  - job_name: ti-soporte-keycloak
+    metrics_path: /metrics
+    static_configs:
+      - targets: ["keycloak:9000"]

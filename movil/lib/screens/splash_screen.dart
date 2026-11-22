@@ -38,7 +38,9 @@ class _SplashScreenState extends State<SplashScreen>
     }
     if (!mounted) return;
     Navigator.of(context).pushReplacementNamed(
-      AuthService.instance.isAuthenticated ? '/home' : '/login',
+      (AuthService.instance.isAuthenticated || AuthService.instance.isGuest)
+          ? '/home'
+          : '/login',
     );
   }
 

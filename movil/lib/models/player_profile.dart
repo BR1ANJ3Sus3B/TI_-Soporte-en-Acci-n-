@@ -6,12 +6,12 @@ class PlayerProfile {
   const PlayerProfile({
     required this.name,
     required this.rank,
-    required this.level,
-    required this.currentXp,
-    required this.xpForNextLevel,
+    this.level,
+    this.currentXp,
+    this.xpForNextLevel,
     required this.skills,
-    required this.missionsCompleted,
-    required this.incidentsResolved,
+    this.missionsCompleted,
+    this.incidentsResolved,
   });
 
   /// Nombre visible del jugador.
@@ -21,26 +21,51 @@ class PlayerProfile {
   final String rank;
 
   /// Nivel actual del jugador.
-  final int level;
+  final int? level;
 
   /// Experiencia acumulada en el nivel actual.
-  final int currentXp;
+  final int? currentXp;
 
   /// Experiencia necesaria para subir al siguiente nivel.
-  final int xpForNextLevel;
+  final int? xpForNextLevel;
 
   /// Habilidades con su nivel de dominio.
   final Map<String, int> skills;
 
   /// Cantidad de misiones completadas.
-  final int missionsCompleted;
+  final int? missionsCompleted;
 
   /// Cantidad de incidentes resueltos.
-  final int incidentsResolved;
+  final int? incidentsResolved;
 
   /// Porcentaje de avance dentro del nivel actual (0.0 a 1.0).
   double get xpProgress {
-    if (xpForNextLevel <= 0) return 0;
-    return (currentXp / xpForNextLevel).clamp(0.0, 1.0);
+    if (xpForNextLevel == null || xpForNextLevel! <= 0 || currentXp == null) {
+      return 0;
+    }
+    return (currentXp! / xpForNextLevel!).clamp(0.0, 1.0);
+  }
+
+  factory PlayerProfile.fromJson(Map<String, dynamic> json) {
+    final rawSkills = json['skills'];
+    final skills = <String, int>{};
+    if (rawSkills is Map) {
+      rawSkills.forEach((key, value) {
+        if (key is String && value is num) skills[key] = value.toInt();
+      });
+    }
+    int? optionalInt(Object? value) => value is num ? value.toInt() : null;
+    return PlayerProfile(
+      name: json['name'] as String? ?? 'Usuario',
+      rank: json['role'] as String? ?? 'Sin rol asignado',
+      level: optionalInt(json['level']),
+      currentXp: optionalInt(json['currentXp'] ?? json['xp']),
+      xpForNextLevel: optionalInt(
+        json['xpForNextLevel'] ?? json['nextLevelXp'],
+      ),
+      skills: skills,
+      missionsCompleted: optionalInt(json['missionsCompleted']),
+      incidentsResolved: optionalInt(json['incidentsResolved']),
+    );
   }
 }

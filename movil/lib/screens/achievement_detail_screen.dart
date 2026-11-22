@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/models/achievement.dart';
+import 'package:ti_soporte_accion/services/app_data_repository.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
 import 'package:ti_soporte_accion/widgets/demo_data_notice.dart';
 import 'package:ti_soporte_accion/theme/app_typography.dart';
@@ -29,7 +30,9 @@ class AchievementDetailScreen extends StatelessWidget {
       );
     }
 
-    final rarityColor = achievement.rarity.color;
+    final rarityColor = achievement.rarity?.color ?? AppColors.textSecondary;
+    final rarityLabel = achievement.rarity?.label ?? 'No especificada';
+    final demoMode = AppDataRepository.instance.demoMode;
     final bool unlocked =
         achievement.unlocked ||
         achievement.status == AchievementStatus.unlocked;
@@ -47,12 +50,14 @@ class AchievementDetailScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                const DemoDataNotice(
-                  message:
-                      'Este logro pertenece al catálogo '
-                      'de demostración; su estado no está confirmado por Unity ni la API.',
-                ),
-                const SizedBox(height: 16),
+                if (demoMode) ...[
+                  const DemoDataNotice(
+                    message:
+                        'Este logro pertenece al catálogo de demostración; '
+                        'su estado no está confirmado por Unity ni la API.',
+                  ),
+                  const SizedBox(height: 16),
+                ],
                 Container(
                   padding: const EdgeInsets.symmetric(vertical: 28),
                   decoration: BoxDecoration(
@@ -120,7 +125,7 @@ class AchievementDetailScreen extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          achievement.rarity.label,
+                          rarityLabel,
                           style: TextStyle(
                             color: rarityColor,
                             fontSize: 12,
@@ -165,7 +170,7 @@ class AchievementDetailScreen extends StatelessWidget {
                       _InfoRow(
                         icon: Icons.emoji_events_rounded,
                         title: 'Rareza',
-                        value: achievement.rarity.label,
+                        value: rarityLabel,
                         valueColor: rarityColor,
                       ),
                       const SizedBox(height: 14),
@@ -175,6 +180,21 @@ class AchievementDetailScreen extends StatelessWidget {
                         value: '+${achievement.xp} XP',
                         valueColor: AppColors.success,
                       ),
+                      if (achievement.criteriaDescription.isNotEmpty) ...[
+                        const SizedBox(height: 12),
+                        Text(
+                          'Requisito: ${achievement.criteriaDescription}',
+                          style: AppTypography.label(13),
+                        ),
+                      ],
+                      if (achievement.unlockedAt != null) ...[
+                        const SizedBox(height: 14),
+                        _InfoRow(
+                          icon: Icons.calendar_today_rounded,
+                          title: 'Desbloqueado el',
+                          value: achievement.unlockedAt!.toLocal().toString(),
+                        ),
+                      ],
                       const SizedBox(height: 14),
                       _InfoRow(
                         icon: unlocked

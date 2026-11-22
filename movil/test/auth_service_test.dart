@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ti_soporte_accion/screens/login_screen.dart';
 import 'package:ti_soporte_accion/services/auth_service.dart';
 import 'package:ti_soporte_accion/widgets/session_gate.dart';
 
@@ -102,6 +103,7 @@ void main() {
     auth = AuthService(
       appAuth: provider,
       tokenStore: tokenStore,
+      clientId: 'ti-soporte-flutter',
       issuer: 'https://id.example.com/realms/test',
     );
   });
@@ -160,6 +162,7 @@ void main() {
     final original = AuthService(
       appAuth: provider,
       tokenStore: tokenStore,
+      clientId: 'ti-soporte-flutter',
       issuer: 'https://id.example.com/realms/test',
     );
     await original.login();
@@ -167,6 +170,7 @@ void main() {
     final restarted = AuthService(
       appAuth: provider,
       tokenStore: tokenStore,
+      clientId: 'ti-soporte-flutter',
       issuer: 'https://id.example.com/realms/test',
     );
     await restarted.restoreSession();
@@ -205,6 +209,7 @@ void main() {
       final revokedSession = AuthService(
         appAuth: provider,
         tokenStore: tokenStore,
+        clientId: 'ti-soporte-flutter',
         issuer: 'https://id.example.com/realms/test',
       );
       await revokedSession.restoreSession();
@@ -251,6 +256,71 @@ void main() {
       const MaterialApp(home: SessionGate(child: Text('Contenido privado'))),
     );
     expect(find.text('Contenido privado'), findsNothing);
-    expect(find.text('Iniciar sesión con Keycloak'), findsOneWidget);
+    expect(find.text('Ver opciones de cuenta'), findsOneWidget);
+  });
+
+  testWidgets('la bienvenida oculta detalles de configuración de Keycloak', (
+    tester,
+  ) async {
+    debugDefaultTargetPlatformOverride = null;
+    await tester.pumpWidget(const MaterialApp(home: LoginScreen()));
+    expect(find.textContaining('KEYCLOAK_ISSUER'), findsNothing);
+    final button = tester.widget<FilledButton>(
+      find.widgetWithText(FilledButton, 'Comenzar como invitado'),
+    );
+    expect(button.onPressed, isNotNull);
+  });
+
+  test('describe issuer ausente y evita activar HTTP fuera de debug permitido', () {
+    final noIssuer = AuthService(
+      appAuth: provider,
+      tokenStore: tokenStore,
+      clientId: 'ti-soporte-flutter',
+    );
+    expect(noIssuer.isConfigured, isFalse);
+    expect(noIssuer.configurationIssue, contains('KEYCLOAK_ISSUER'));
+
+    final httpWithoutOptIn = AuthService(
+      appAuth: provider,
+      tokenStore: tokenStore,
+      clientId: 'ti-soporte-flutter',
+      issuer: 'http://localhost:8080/realms/ti-soporte',
+    );
+    expect(httpWithoutOptIn.isConfigured, isFalse);
+    expect(httpWithoutOptIn.configurationIssue, contains('HTTPS'));
+
+    final discoveryUrlInsteadOfIssuer = AuthService(
+      appAuth: provider,
+      tokenStore: tokenStore,
+      clientId: 'ti-soporte-flutter',
+      issuer:
+          'https://id.example.com/realms/test/.well-known/openid-configuration',
+    );
+    expect(discoveryUrlInsteadOfIssuer.isConfigured, isFalse);
+    expect(discoveryUrlInsteadOfIssuer.configurationIssue, contains('sin'));
+
+    final noClient = AuthService(
+      appAuth: provider,
+      tokenStore: tokenStore,
+      issuer: 'https://id.example.com/realms/test',
+      clientId: '',
+    );
+    expect(noClient.isConfigured, isFalse);
+    expect(noClient.configurationIssue, contains('KEYCLOAK_CLIENT_ID'));
+
+    final localDebugHttp = AuthService(
+      appAuth: provider,
+      tokenStore: tokenStore,
+      issuer: 'http://localhost:8080/realms/test',
+      clientId: 'ti-soporte-flutter',
+      allowHttpInDebug: true,
+    );
+    expect(localDebugHttp.isConfigured, isTrue);
+
+    noIssuer.dispose();
+    httpWithoutOptIn.dispose();
+    discoveryUrlInsteadOfIssuer.dispose();
+    noClient.dispose();
+    localDebugHttp.dispose();
   });
 }

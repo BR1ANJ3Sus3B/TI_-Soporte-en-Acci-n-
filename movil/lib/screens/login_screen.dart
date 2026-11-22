@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/services/auth_service.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
-import 'package:ti_soporte_accion/widgets/nova_panel.dart';
 import 'package:ti_soporte_accion/theme/app_typography.dart';
+import 'package:ti_soporte_accion/widgets/nova_panel.dart';
 
+/// Entrada pública: la cuenta es optativa y el invitado no toca Keycloak.
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
   static const String routeName = '/login';
@@ -14,105 +15,75 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _busy = false;
-  String? _error;
+  String? _message;
+
+  Future<void> _continueAsGuest() async {
+    if (_busy) return;
+    setState(() => _busy = true);
+    await AuthService.instance.continueAsGuest();
+    if (mounted) {
+      Navigator.of(context).pushNamedAndRemoveUntil('/home', (_) => false);
+    }
+  }
 
   Future<void> _login() async {
+    final auth = AuthService.instance;
     if (_busy) return;
-    setState(() {
-      _busy = true;
-      _error = null;
-    });
+    if (!auth.isSupported || !auth.isConfigured) {
+      setState(() => _message = auth.configurationIssue ??
+          'Este destino no tiene un adaptador OIDC configurado. Puedes continuar como invitado.');
+      return;
+    }
+    setState(() { _busy = true; _message = null; });
     try {
-      final success = await AuthService.instance.login();
+      final success = await auth.login();
       if (success && mounted) {
         Navigator.of(context).pushNamedAndRemoveUntil('/home', (_) => false);
       }
     } catch (_) {
-      if (mounted) {
-        setState(
-          () => _error = 'No se pudo iniciar sesión. Revisa la conexión y la configuración de Keycloak.',
-        );
-      }
+      if (mounted) setState(() => _message = 'No fue posible iniciar sesión. Inténtalo más tarde o continúa como invitado.');
     } finally {
       if (mounted) setState(() => _busy = false);
     }
   }
 
   @override
-  Widget build(BuildContext context) {
-    final auth = AuthService.instance;
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
-        child: SafeArea(
-          child: Center(
-            child: SingleChildScrollView(
-              padding: const EdgeInsets.all(24),
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 430),
-                child: NovaPanel(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      const Icon(
-                        Icons.support_agent_rounded,
-                        size: 58,
-                        color: AppColors.cyan,
-                      ),
-                      const SizedBox(height: 20),
-                      Text(
-                        'TI: Soporte en Acción',
-                        textAlign: TextAlign.center,
-                        style: AppTypography.heading(26),
-                      ),
-                      const SizedBox(height: 16),
-                      const Text(
-                        'Inicia sesión con tu cuenta de NovaTech. Las credenciales '
-                        'se solicitan en Keycloak mediante el navegador del dispositivo.',
-                      ),
-                      const SizedBox(height: 24),
-                      ElevatedButton.icon(
-                        onPressed:
-                            !_busy && auth.isConfigured && auth.isSupported
-                            ? _login
-                            : null,
-                        icon: const Icon(Icons.login),
-                        label: Text(
-                          _busy
-                              ? 'Iniciando sesión…'
-                              : 'Iniciar sesión con Keycloak',
-                        ),
-                      ),
-                      if (_busy) const LinearProgressIndicator(),
-                      if (!auth.isSupported)
-                        const Text(
-                          'El inicio de sesión móvil está disponible en Android e iOS.',
-                        ),
-                      if (!auth.isConfigured)
-                        const Text(
-                          'Configuración pendiente: define KEYCLOAK_ISSUER y '
-                          'KEYCLOAK_CLIENT_ID al ejecutar Flutter.',
-                        ),
-                      if (_error != null)
-                        Text(
-                          _error!,
-                          style: const TextStyle(color: Colors.redAccent),
-                        ),
-                      const SizedBox(height: 16),
-                      const Text(
-                        'Misiones y progreso siguen siendo datos de demostración '
-                        'hasta conectar la API educativa.',
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
-                  ),
+  Widget build(BuildContext context) => Scaffold(
+    body: Container(
+      decoration: const BoxDecoration(gradient: AppColors.backgroundGradient),
+      child: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 430),
+              child: NovaPanel(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    const Icon(Icons.support_agent_rounded, size: 62, color: AppColors.cyan),
+                    const SizedBox(height: 16),
+                    Text('TI: Soporte en Acción', textAlign: TextAlign.center, style: AppTypography.heading(27)),
+                    const SizedBox(height: 6),
+                    Text('NOVATECH SOLUTIONS', textAlign: TextAlign.center, style: AppTypography.label(12, color: AppColors.cyan)),
+                    const SizedBox(height: 18),
+                    Text('Aprende a resolver retos de soporte TI, explora misiones y avanza a tu ritmo.', textAlign: TextAlign.center, style: AppTypography.body(15, color: AppColors.textSecondary)),
+                    const SizedBox(height: 26),
+                    FilledButton.icon(onPressed: _busy ? null : _continueAsGuest, icon: const Icon(Icons.play_arrow_rounded), label: const Text('Comenzar como invitado')),
+                    const SizedBox(height: 10),
+                    OutlinedButton.icon(onPressed: _busy ? null : _login, icon: const Icon(Icons.login_rounded), label: const Text('Iniciar sesión')),
+                    TextButton(onPressed: _busy ? null : _login, child: const Text('Crear una cuenta gratis')),
+                    const SizedBox(height: 12),
+                    const Text('Con una cuenta puedes sincronizar tu progreso entre dispositivos, personalizar tu perfil y obtener logros verificados. Como invitado, tu progreso permanece solo en este dispositivo.', textAlign: TextAlign.center, style: TextStyle(color: AppColors.textSecondary, fontSize: 12, height: 1.4)),
+                    if (_busy) const Padding(padding: EdgeInsets.only(top: 14), child: LinearProgressIndicator()),
+                    if (_message != null) Padding(padding: const EdgeInsets.only(top: 14), child: Text(_message!, textAlign: TextAlign.center, style: AppTypography.body(13, color: AppColors.warning))),
+                  ],
                 ),
               ),
             ),
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
 }

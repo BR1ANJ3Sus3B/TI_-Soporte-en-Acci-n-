@@ -11,17 +11,20 @@ class XpBar extends StatelessWidget {
   });
 
   /// Experiencia actual.
-  final int current;
+  final int? current;
 
   /// Experiencia máxima para el siguiente nivel.
-  final int max;
+  final int? max;
 
   /// Muestra etiqueta con valores numéricos.
   final bool showLabel;
 
   @override
   Widget build(BuildContext context) {
-    final progress = max <= 0 ? 0.0 : (current / max).clamp(0.0, 1.0);
+    final target = max;
+    final earned = current;
+    final hasTarget = target != null && target > 0 && earned != null;
+    final progress = hasTarget ? (earned / target).clamp(0.0, 1.0) : 0.0;
     final reduceMotion = MediaQuery.of(context).disableAnimations;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +42,11 @@ class XpBar extends StatelessWidget {
                 ),
               ),
               Text(
-                '$current / $max XP',
+                earned == null
+                    ? 'XP no disponible'
+                    : hasTarget
+                    ? '$earned / $target XP'
+                    : '$earned XP',
                 style: const TextStyle(
                   color: AppColors.cyan,
                   fontFamily: 'SpaceMono',
@@ -50,31 +57,37 @@ class XpBar extends StatelessWidget {
             ],
           ),
         const SizedBox(height: 8),
-        TweenAnimationBuilder<double>(
-          tween: Tween<double>(begin: 0, end: progress),
-          duration: reduceMotion
-              ? Duration.zero
-              : const Duration(milliseconds: 650),
-          curve: Curves.easeOutCubic,
-          builder: (BuildContext context, double value, Widget? child) {
-            return ClipRRect(
-              borderRadius: BorderRadius.circular(999),
-              child: Container(
-                height: 10,
-                color: AppColors.card,
-                child: FractionallySizedBox(
-                  alignment: Alignment.centerLeft,
-                  widthFactor: value,
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      gradient: AppColors.primaryGradient,
+        if (!hasTarget)
+          const Text(
+            'Meta de nivel no disponible en la API.',
+            style: TextStyle(color: AppColors.textSecondary, fontSize: 12),
+          )
+        else
+          TweenAnimationBuilder<double>(
+            tween: Tween<double>(begin: 0, end: progress),
+            duration: reduceMotion
+                ? Duration.zero
+                : const Duration(milliseconds: 650),
+            curve: Curves.easeOutCubic,
+            builder: (BuildContext context, double value, Widget? child) {
+              return ClipRRect(
+                borderRadius: BorderRadius.circular(999),
+                child: Container(
+                  height: 10,
+                  color: AppColors.card,
+                  child: FractionallySizedBox(
+                    alignment: Alignment.centerLeft,
+                    widthFactor: value,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        gradient: AppColors.primaryGradient,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            );
-          },
-        ),
+              );
+            },
+          ),
       ],
     );
   }

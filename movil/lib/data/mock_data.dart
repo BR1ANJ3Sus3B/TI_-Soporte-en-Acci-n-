@@ -146,6 +146,7 @@ class MockData {
         'Resolver',
         'Cerrar ticket',
       ],
+      requirements: <String>[],
     ),
     Mission(
       id: 'm02',
@@ -164,6 +165,7 @@ class MockData {
         'Comprobar router',
         'Resolver',
       ],
+      requirements: <String>[],
     ),
     Mission(
       id: 'm03',
@@ -181,6 +183,7 @@ class MockData {
         'Identificar causa',
         'Aplicar solución',
       ],
+      requirements: <String>[],
     ),
   ];
 
