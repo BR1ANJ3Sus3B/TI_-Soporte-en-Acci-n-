@@ -1,0 +1,47 @@
+{
+  "realm": "ti-soporte",
+  "enabled": true,
+  "displayName": "TI: Soporte en Acción",
+  "registrationAllowed": true,
+  "registrationEmailAsUsername": true,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "rememberMe": true,
+  "resetPasswordAllowed": true,
+  "verifyEmail": false,
+  "bruteForceProtected": true,
+  "permanentLockout": false,
+  "failureFactor": 5,
+  "waitIncrementSeconds": 60,
+  "quickLoginCheckMilliSeconds": 1000,
+  "maxFailureWaitSeconds": 900,
+  "defaultRole": { "name": "default-roles-ti-soporte", "composite": true, "clientRole": false, "composites": { "realm": ["jugador"] } },
+  "roles": { "realm": [ { "name": "jugador", "description": "Usuario educativo básico", "composite": false, "clientRole": false } ] },
+  "clientScopes": [
+    {
+      "name": "ti-soporte-api",
+      "protocol": "openid-connect",
+      "attributes": { "include.in.token.scope": "true", "display.on.consent.screen": "false" },
+      "protocolMappers": [
+        { "name": "api-audience", "protocol": "openid-connect", "protocolMapper": "oidc-audience-mapper", "consentRequired": false, "config": { "included.client.audience": "ti-soporte-api", "access.token.claim": "true", "id.token.claim": "false", "introspection.token.claim": "true" } }
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "ti-soporte-flutter",
+      "name": "TI Soporte Flutter",
+      "enabled": true,
+      "publicClient": true,
+      "protocol": "openid-connect",
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "redirectUris": ["com.tisoporte.accion:/oauthredirect"],
+      "webOrigins": [],
+      "attributes": { "pkce.code.challenge.method": "S256", "post.logout.redirect.uris": "com.tisoporte.accion:/oauthredirect" },
+      "defaultClientScopes": ["profile", "email", "roles", "web-origins", "ti-soporte-api"]
+    }
+  ]
+}
