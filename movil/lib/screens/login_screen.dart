@@ -20,9 +20,20 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> _continueAsGuest() async {
     if (_busy) return;
     setState(() => _busy = true);
-    await AuthService.instance.continueAsGuest();
-    if (mounted) {
-      Navigator.of(context).pushNamedAndRemoveUntil('/home', (_) => false);
+    try {
+      await AuthService.instance.continueAsGuest();
+      if (mounted) {
+        Navigator.of(context).pushNamedAndRemoveUntil('/home', (_) => false);
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(
+          () => _message =
+              'No se pudo guardar el acceso de invitado. Inténtalo de nuevo.',
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
     }
   }
 

@@ -166,6 +166,7 @@ class AuthService extends ChangeNotifier {
       if (_expiresAt!.isAfter(
         DateTime.now().add(const Duration(seconds: 45)),
       )) {
+        _sessionState = SessionState.authenticated;
         _scheduleRefresh();
         notifyListeners();
         return;
@@ -352,7 +353,7 @@ class AuthService extends ChangeNotifier {
 
   Future<void> logout() async {
     final idToken = _idToken;
-    await _clearSession();
+    await _clearSession(state: SessionState.signedOut);
     if (idToken == null || !isConfigured || !isSupported) return;
     await _appAuth.endSession(
       EndSessionRequest(
@@ -372,8 +373,11 @@ class AuthService extends ChangeNotifier {
     if (!_guest && _accessToken == rejectedToken) await _clearSession();
   }
 
-  Future<void> _clearSession() async {
+  Future<void> _clearSession({
+    SessionState state = SessionState.expired,
+  }) async {
     _clearMemory();
+    _sessionState = state;
     try {
       await _tokenStore.clear();
     } finally {

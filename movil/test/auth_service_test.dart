@@ -156,6 +156,7 @@ void main() {
     expect(auth.isAuthenticated, isFalse);
     expect(await auth.accessToken(), isNull);
     expect(tokenStore.value, isNull);
+    expect(auth.sessionState, SessionState.signedOut);
   });
 
   test('restaura la sesión segura después de recrear el servicio', () async {
@@ -176,6 +177,7 @@ void main() {
     await restarted.restoreSession();
     expect(restarted.isInitialized, isTrue);
     expect(restarted.isAuthenticated, isTrue);
+    expect(restarted.sessionState, SessionState.authenticated);
     expect(await restarted.accessToken(), 'access');
     expect(restarted.displayName, 'Usuario de prueba');
     restarted.dispose();

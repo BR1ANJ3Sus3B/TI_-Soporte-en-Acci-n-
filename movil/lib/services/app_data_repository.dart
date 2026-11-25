@@ -102,9 +102,13 @@ class AppDataRepository {
     if (_guest) {
       try {
         if (_api.isConfigured) {
-          return _asList(await _api.getPublicJson('/missions'))
+          final catalog = _asList(await _api.getPublicJson('/missions'))
               .map(Mission.fromJson)
               .toList(growable: false);
+          return _guestMissions(
+            await GuestProgressStore.instance.read(),
+            catalog: catalog,
+          );
         }
       } on ApiException {
         // El catálogo incorporado permite seguir aprendiendo sin conexión.
@@ -267,7 +271,10 @@ class AppDataRepository {
     );
   }
 
-  List<Mission> _guestMissions(GuestProgress progress) => MockData.missions
+  List<Mission> _guestMissions(
+    GuestProgress progress, {
+    List<Mission>? catalog,
+  }) => (catalog ?? MockData.missions)
       .map(
         (mission) => Mission(
           id: mission.id,
