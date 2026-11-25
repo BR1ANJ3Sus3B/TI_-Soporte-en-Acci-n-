@@ -11,7 +11,7 @@ class FakeAuthService extends AuthService {
   @override
   Future<String?> accessToken() async => 'unit-test-token';
   @override
-  Future<void> expireSession() async {
+  Future<void> expireSessionForToken(String rejectedToken) async {
     expired = true;
   }
 }
@@ -56,6 +56,31 @@ void main() {
     );
     await expectLater(client.getJson('/profile'), throwsA(isA<ApiException>()));
     expect(auth.expired, isTrue);
+    client.close();
+    auth.dispose();
+  });
+
+  test('401 público no invalida sesión ni envía token', () async {
+    final auth = FakeAuthService();
+    final client = ApiClient(
+      baseUrl: 'https://api.example.test/api/v1',
+      authService: auth,
+      client: MockClient((request) async {
+        expect(request.headers.containsKey('Authorization'), isFalse);
+        return http.Response('{"error":{"code":"missing_bearer_token"}}', 401);
+      }),
+    );
+    await expectLater(
+      client.getPublicJson('/missions'),
+      throwsA(
+        isA<ApiException>().having(
+          (e) => e.failure,
+          'failure',
+          ApiFailure.forbidden,
+        ),
+      ),
+    );
+    expect(auth.expired, isFalse);
     client.close();
     auth.dispose();
   });

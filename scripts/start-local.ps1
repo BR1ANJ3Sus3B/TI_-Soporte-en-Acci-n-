@@ -1,28 +1,28 @@
-param(
-  [Parameter(Mandatory = $false)][string]$KeycloakAdminPassword,
-  [Parameter(Mandatory = $false)][string]$MetricsBearerToken
-)
-
 $ErrorActionPreference = 'Stop'
 $RepositoryRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
-Set-Location $RepositoryRoot
-if ((git branch --show-current) -ne 'feature/mobile-flutter') { throw 'Este script solo puede ejecutarse en feature/mobile-flutter.' }
-if (-not (Get-Command docker -ErrorAction SilentlyContinue)) { throw 'Docker CLI no está instalado.' }
+if ((git -C $RepositoryRoot branch --show-current) -ne 'feature/mobile-flutter') {
+  throw "Expected feature/mobile-flutter at '$RepositoryRoot'."
+}
+if (-not (Get-Command docker -ErrorAction SilentlyContinue)) {
+  throw 'Docker CLI is not installed.'
+}
 docker info *> $null
-if ($LASTEXITCODE -ne 0) { throw 'Docker Desktop no está en ejecución.' }
-
-if (-not (Test-Path infra/keycloak/.env)) {
-  if ([string]::IsNullOrWhiteSpace($KeycloakAdminPassword)) { throw 'Indica -KeycloakAdminPassword para crear infra/keycloak/.env.' }
-  "KC_ADMIN_PASSWORD=$KeycloakAdminPassword" | Set-Content infra/keycloak/.env -NoNewline
-}
-if (-not (Test-Path infra/api/.env)) {
-  if ([string]::IsNullOrWhiteSpace($MetricsBearerToken)) { throw 'Indica -MetricsBearerToken para crear infra/api/.env.' }
-  Copy-Item infra/api/.env.example infra/api/.env
-  Add-Content infra/api/.env "`nMETRICS_BEARER_TOKEN=$MetricsBearerToken"
+if ($LASTEXITCODE -ne 0) {
+  throw 'Docker Desktop is not running.'
 }
 
-docker network inspect ti-soporte-monitoring_default *> $null
-if ($LASTEXITCODE -ne 0) { docker network create ti-soporte-monitoring_default | Out-Null }
-Push-Location infra/keycloak; docker compose config --quiet; docker compose up -d; Pop-Location
-Push-Location infra/api; docker compose config --quiet; docker compose up -d --build api; Pop-Location
-Write-Host 'Servicios iniciados. Espera healthchecks y ejecuta scripts/run-flutter.ps1.'
+$KeycloakEnv = Join-Path $RepositoryRoot 'infra/keycloak/.env'
+$ApiEnv = Join-Path $RepositoryRoot 'infra/api/.env'
+if (-not (Test-Path -LiteralPath $KeycloakEnv) -or -not (Test-Path -LiteralPath $ApiEnv)) {
+  throw 'Local .env files are missing. This script does not create/replace secrets or provision configuration.'
+}
+
+# `docker compose start` solo arranca contenedores que ya existen; no crea,
+# rebuilds images or replaces services or volumes.
+docker compose -f (Join-Path $RepositoryRoot 'infra/keycloak/compose.yaml') --env-file $KeycloakEnv start
+if ($LASTEXITCODE -ne 0) { throw 'Could not start existing Keycloak containers.' }
+docker compose -f (Join-Path $RepositoryRoot 'infra/api/compose.yaml') --env-file $ApiEnv start
+if ($LASTEXITCODE -ne 0) { throw 'Could not start existing API/MongoDB containers.' }
+
+Write-Host 'Started existing containers only; no service was created or rebuilt.'
+Write-Host 'Run scripts/check-services.ps1, then scripts/run-flutter.ps1.'

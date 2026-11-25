@@ -1,156 +1,112 @@
-# Keycloak en la aplicación Flutter
+# Keycloak en Flutter Android
 
-La integración directa pertenece a Flutter, no a la PWA. Se usa
-`flutter_appauth` con Authorization Code + PKCE, navegador del sistema y cliente
-público sin secreto. Implementación de acceso para **Android e iOS**; Windows y
-Flutter web muestran un aviso de plataforma no compatible con este acceso móvil.
+La app usa `flutter_appauth` con Authorization Code + PKCE en el navegador del
+sistema; es un cliente público y no lleva Client Secret. La pantalla Stitch y el
+modo invitado siguen disponibles aunque no se compile con Keycloak.
 
-## Resultado de la inspección del servidor
+## Configuración local verificada
 
-La inspección confirmó que Keycloak 26.4 está accesible localmente y que el realm
-existente es `TI Soporte en Acción`. Su issuer de discovery es:
+Inspección local del 2026-11-22:
 
-```text
-http://localhost:8080/realms/TI%20Soporte%20en%20Acci%C3%B3n
-```
+- Keycloak 26.4 está activo en el puerto `8080`.
+- El realm usado por Flutter y la API es `ti-soporte`.
+- Discovery devuelve exactamente `http://localhost:8080/realms/ti-soporte` como
+  issuer; el sufijo `/.well-known/openid-configuration` se añade internamente.
+- `ti-soporte-flutter` acepta una solicitud de autorización con callback
+  `com.tisoporte.accion:/oauthredirect` y scope `openid`.
+- El realm devuelve `invalid_scope` al pedir `profile` o `email`. Flutter solicita
+  `openid ti-soporte-api`: Discovery anuncia este scope de API y la solicitud
+  de autorización con ambos llega al formulario de Keycloak. La audiencia del
+  token emitido debe validarse con una autenticación real; no basta Discovery.
+- La API responde `/health/ready` con MongoDB conectado y configuración Keycloak.
+- También existe el realm `TI Soporte en Acción`, pero no es el issuer seleccionado
+  ni el issuer de la API activa.
 
-El realm `ti-soporte` no existe en esta instancia. La petición OIDC para el Client
-ID `ti-soporte-flutter` devuelve **Client not found**: ese ID solo figuraba como
-propuesta en la documentación, pero el cliente no está creado en el realm real.
-El Compose local inicia Keycloak con un volumen; no importa realms ni clientes.
+Discovery responde URLs con `localhost`. En Android físico se conserva ese issuer
+y se crea ADB reverse para que el teléfono llegue al PC. No reemplaces el issuer por
+`10.0.2.2` (solo emulador) ni por una IP LAN que Discovery no publique.
 
-`infra/keycloak/.env.example` declara `KC_ADMIN_PASSWORD`. Se añadió una contraseña
-al `.env` local ignorado por Git, pero Keycloak la rechazó al probarla como
-administrador: `KC_BOOTSTRAP_ADMIN_PASSWORD` solo inicializa el admin de un volumen
-nuevo; no cambia el admin guardado en un volumen ya inicializado. No se borró ni
-recreó ese volumen. Usa las credenciales del admin ya existente para crear el
-cliente en el realm actual; no hace falta recrear el realm ni los usuarios.
+## Causa del mensaje «Falta KEYCLOAK_ISSUER»
 
-```text
-https://<host-real>/realms/<realm-real>/.well-known/openid-configuration
-```
+`AuthService` lee `KEYCLOAK_ISSUER` con `String.fromEnvironment`, que es un valor
+de compilación. Flutter no carga `.env` ni `keycloak.local.json` automáticamente.
+El APK instalado en el teléfono tenía hora de instalación 12:49:50 y el APK debug
+en `movil/build/app/outputs/flutter-apk/app-debug.apk` hora 12:49:37 del
+2026-11-22. Esa compilación anterior se hizo con `flutter build apk --debug` sin
+`--dart-define-from-file`; por eso el valor compilado quedó vacío aunque el JSON
+local existiera. Además, el repositorio habitual está en otra rama/worktree sin
+`movil/` ni `scripts/run-flutter.ps1`; compilar desde allí tampoco usa estos cambios.
 
-La variable `KEYCLOAK_ISSUER` usa exactamente el `issuer` que devuelve ese JSON,
-sin añadir `/.well-known/openid-configuration`. Flutter ya añade ese sufijo.
+## Ejecutar desde el worktree correcto
 
-## Cliente del servidor
-
-En el realm existente (no elimines ni recrees usuarios), comprueba que exista el
-cliente público indicado abajo. Si falta, créalo; el repositorio no aprovisiona
-ese cliente automáticamente:
-
-| Opción | Valor |
-| --- | --- |
-| Client ID | `ti-soporte-flutter` |
-| Client authentication | Off |
-| Standard flow | On |
-| Implicit flow | Off |
-| Direct access grants | Off |
-| PKCE challenge method | S256 |
-| Valid redirect URIs | `com.tisoporte.accion:/oauthredirect` |
-| Valid post logout redirect URIs | `com.tisoporte.accion:/oauthredirect` |
-
-No se necesita un origen web para el cliente nativo. Configurar registro y
-recuperación de contraseña en el realm si se desean esas opciones en su formulario.
-El cliente anterior de la PWA puede deshabilitarse manualmente cuando se confirme
-que no tiene otros consumidores. No se modifica el servidor automáticamente.
-
-## Configurar Flutter sin guardar valores locales en Git
-
-`String.fromEnvironment` se resuelve **al compilar**: Flutter no lee `.env` por
-sí solo. Copia la plantilla desde `movil/`. El issuer local comprobado viene
-prellenado; el Client ID queda vacío porque no está creado en Keycloak. Completa
-ese campo en el archivo local ignorado por Git:
+El archivo local `movil/keycloak.local.json` ya existe, tiene JSON válido y contiene
+el issuer/Client ID comprobados. Está ignorado por Git; no lo copies a otra rama.
+Desde PowerShell ejecuta el script por su ruta completa:
 
 ```powershell
-Copy-Item keycloak.local.json.example keycloak.local.json
-# Define KEYCLOAK_CLIENT_ID con el ID que registres en el realm existente.
+& 'C:\Users\jesus\AppData\Local\Temp\opencode\ti-flutter-keycloak\scripts\run-flutter.ps1'
+```
+
+Con un solo Android conectado lo detecta automáticamente. Si hay varios:
+
+```powershell
+flutter devices
+& 'C:\Users\jesus\AppData\Local\Temp\opencode\ti-flutter-keycloak\scripts\run-flutter.ps1' -DeviceId '<id real de flutter devices>'
+```
+
+El script comprueba JSON, issuer/Client ID no vacíos, Discovery, readiness de API,
+ejecuta un test de Dart con esos defines, configura/verifica `adb reverse` para
+8080 y 3000, y luego invoca `flutter run` desde `movil/` con el JSON como argumento
+de compilación. No crea el JSON ni permite autenticación con valores vacíos.
+
+Para usar solamente el modo invitado, sin configurar Keycloak:
+
+```powershell
+& 'C:\Users\jesus\AppData\Local\Temp\opencode\ti-flutter-keycloak\scripts\run-flutter.ps1' -GuestOnly
+```
+
+También se puede compilar explícitamente desde la raíz del worktree correcto:
+
+```powershell
+Set-Location 'C:\Users\jesus\AppData\Local\Temp\opencode\ti-flutter-keycloak\movil'
 flutter pub get
-flutter run --dart-define-from-file=keycloak.local.json
-```
-
-El Client ID propuesto por la documentación es `ti-soporte-flutter`; úsalo solo
-si lo creas con ese ID. La plantilla local permite HTTP en debug. No uses ese valor
-para release: usa HTTPS y `KEYCLOAK_ALLOW_HTTP=false`.
-
-El mismo archivo se pasa a una compilación así:
-
-```powershell
+flutter analyze
+flutter test
 flutter build apk --debug --dart-define-from-file=keycloak.local.json
 ```
 
-## Acceder desde Android físico
+El script `run-flutter.ps1` además ejecuta `test/build_configuration_test.dart` con
+`VERIFY_KEYCLOAK_DART_DEFINES=true` y compara los valores compilados con los del JSON;
+no pases defines al suite completo porque sus tests de valores por defecto se
+ejecutan deliberadamente sin configuración. En debug se registra únicamente si
+issuer o Client ID están presentes, el ambiente y un identificador de build; nunca
+valores, contraseñas o tokens.
 
-`10.0.2.2` es la dirección especial del emulador Android y **no sirve para un
-teléfono físico**. Para desarrollo USB, si el Keycloak local realmente está
-escuchando en el PC en el puerto 8080, usa el puente de ADB:
+## Red y callback Android
 
-```powershell
-adb devices
-adb reverse tcp:8080 tcp:8080
-```
-
-El discovery comprobado anuncia `http://localhost:8080/realms/TI%20Soporte%20en%20Acci%C3%B3n`.
-Para el móvil por USB, usa ese mismo issuer junto con `adb reverse` para que el
-teléfono alcance el servidor del PC. El Client ID seguirá pendiente hasta crearlo
-en Keycloak. Después:
+El teléfono detectado para esta verificación es Android 15, modelo `23053RN02L`,
+ADB `44994d2c7d76`. El script ejecuta y verifica:
 
 ```powershell
-flutter run --dart-define-from-file=keycloak.local.json
+adb -s <id-detectado> reverse tcp:8080 tcp:8080
+adb -s <id-detectado> reverse tcp:3000 tcp:3000
+adb -s <id-detectado> reverse --list
 ```
 
-Alternativamente, usa un host HTTPS alcanzable desde el teléfono. El PC reportó
-`192.168.1.87` como su IPv4 Wi-Fi durante esta inspección, pero esa dirección puede
-cambiar y **no** es el issuer publicado por el servidor comprobado. Para usar LAN,
-el teléfono y el PC deben estar en la misma red, el firewall permitir el puerto y
-Keycloak debe anunciar en discovery esa autoridad pública. No cambies el issuer
-por una IP sin configurar y volver a comprobar discovery.
+El manifiesto registra el callback `com.tisoporte.accion:/oauthredirect`, que
+coincide con `AuthService.redirectUri`. Android permite cleartext solo en debug;
+AppAuth permite HTTP solo mediante `KEYCLOAK_ALLOW_HTTP=true` en debug. Release
+mantiene HTTP deshabilitado. No se desactiva validación TLS.
 
-## Ejecutar en emulador Android
+## Estado de autenticación y pruebas
 
-Desde `movil/`, con un emulador Android y Keycloak local en el puerto 8080:
+Discovery y el formulario de autorización fueron comprobados sin enviar credenciales.
+No se ha completado un login con usuario real, ni comprobado un token real contra
+`/api/v1/profile`; no se inventa esa evidencia. Para ello se necesita una cuenta de
+prueba autorizada. El test de dart-defines demuestra configuración de compilación,
+no una autenticación.
 
-```powershell
-flutter pub get
-flutter run --dart-define-from-file=keycloak.local.json
-```
-
-Usa el realm que confirme el servidor, no un nombre supuesto. Para un emulador,
-`10.0.2.2` reemplaza el host del PC si el discovery y Keycloak permiten esa URL;
-el `issuer` que anuncie el servidor debe coincidir con el configurado en Flutter.
-
-HTTP se permite solo como opción explícita de desarrollo y el manifiesto Android
-lo habilita solo en debug. Para release e iOS usar un issuer HTTPS con certificado
-válido. iOS requiere macOS/Xcode para compilar y verificar el retorno del navegador.
-
-## Sesión
-
-- Las contraseñas se introducen en Keycloak, nunca en un formulario local de Flutter.
-- Login cancelado vuelve a la pantalla de acceso.
-- Access/refresh/ID tokens se conservan cifrados mediante Android Keystore/iOS
-  Keychain. Al reiniciar, se intenta renovar la sesión con el refresh token antes
-  de mostrar contenido privado. Si Keycloak lo revocó o venció, se eliminan y
-  se vuelve a solicitar el acceso.
-- Se renueva el token antes de expirar y al volver del segundo plano. Si falla,
-  se elimina la sesión local y las rutas privadas muestran el acceso.
-- `AuthService.instance.accessToken()` es el punto de acceso para futuras llamadas
-  a la API; no devuelve tokens vencidos. La API deberá validar firma, issuer,
-  audiencia, expiración y permisos.
-- Ajustes → Cerrar sesión elimina primero los tokens y solicita logout a Keycloak.
-  Si el navegador no completa el logout, se informa que solo se cerró la sesión local.
-- El perfil muestra la identidad de la sesión; XP, logros y misiones siguen siendo
-  datos de demostración. No existe todavía sincronización con la API educativa.
-
-## Comprobar en dispositivo
-
-1. Iniciar sesión y confirmar retorno a `/home` e identidad en Perfil/Ajustes.
-2. Cancelar un login: no debe abrir contenido privado.
-3. Cerrar sesión y pulsar Atrás: no debe recuperar las rutas privadas.
-4. Dejar vencer la sesión o revocarla en Keycloak y comprobar la renovación/salida.
-5. Reiniciar la aplicación con un refresh token vigente y confirmar que restaura
-   la sesión; revocar el token en Keycloak y confirmar que regresa al login.
-
-Pruebas locales: `flutter analyze` y `flutter test`. Los tests con proveedor simulado
-no sustituyen la validación del navegador y el servidor real. Las reglas definitivas
-de roles y acceso a datos deben validarse también en la API; Flutter solo refleja los
-roles del token para presentación.
+La salida debug `[build-config]` muestra solo `issuerConfigured`,
+`clientIdConfigured`, `environment` y `buildId`. Las contraseñas se escriben solo en
+Keycloak; tokens se guardan en Keystore/Keychain. Ajustes → Cerrar sesión elimina la
+sesión local y solicita logout a Keycloak.

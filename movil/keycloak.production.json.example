@@ -1,0 +1,8 @@
+{
+  "KEYCLOAK_ISSUER": "",
+  "KEYCLOAK_CLIENT_ID": "",
+  "KEYCLOAK_ALLOW_HTTP": "false",
+  "API_BASE_URL": "",
+  "API_ALLOW_HTTP": "false",
+  "DEMO_MODE": "false"
+}

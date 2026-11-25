@@ -52,6 +52,15 @@ describe('Keycloak JWT validation (local JWKS fixture)', () => {
     assert.deepEqual(claims.realm_access.roles, ['estudiante']);
   });
 
+  it('rechaza un token expirado aunque firma, issuer y audience sean correctos', async () => {
+    const token = await new SignJWT({})
+      .setProtectedHeader({ alg: 'RS256', kid: 'local-test-key' })
+      .setIssuer(issuer).setAudience('ti-soporte-api').setSubject('user-123')
+      .setIssuedAt().setExpirationTime(Math.floor(Date.now() / 1000) - 60)
+      .sign(privateKey);
+    await assert.rejects(() => verifyAccessToken(token, config), { code: 'ERR_JWT_EXPIRED' });
+  });
+
   it('rechaza issuer y audience distintos', async () => {
     const buildToken = (tokenIssuer, audience) => new SignJWT({})
       .setProtectedHeader({ alg: 'RS256', kid: 'local-test-key' })

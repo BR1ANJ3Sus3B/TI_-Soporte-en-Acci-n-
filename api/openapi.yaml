@@ -11,6 +11,52 @@ servers:
 security:
   - bearerAuth: []
 paths:
+  /auth/register:
+    post:
+      security: []
+      summary: Registro nativo con credencial de servicio Keycloak (sin crear sesión)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [name, email, password]
+              properties:
+                name: { type: string, minLength: 2, maxLength: 100 }
+                email: { type: string, format: email, maxLength: 254 }
+                password:
+                  type: string
+                  format: password
+                  writeOnly: true
+                  minLength: 12
+                  maxLength: 128
+                  description: Requiere mayúscula, minúscula, número y símbolo; aplica además política Keycloak.
+      responses:
+        '202': { description: Solicitud recibida; respuesta neutral que no revela existencia de cuenta }
+        '400': { description: Datos o transporte inválidos; también política Keycloak rechazada }
+        '429': { description: Límite compartido de registro y reenvío excedido }
+        '503': { description: Credencial de servicio, permisos, Keycloak o correo no disponibles }
+  /auth/resend-verification:
+    post:
+      security: []
+      summary: Solicita un nuevo enlace de verificación sin revelar si existe la cuenta
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: false
+              required: [email]
+              properties:
+                email: { type: string, format: email, maxLength: 254 }
+      responses:
+        '202': { description: Solicitud recibida; no implica entrega de correo }
+        '400': { description: Correo o transporte inválido }
+        '429': { description: Esperar antes de reintentar }
+        '503': { description: Registro o correo no disponibles }
   /health/live:
     get:
       security: []

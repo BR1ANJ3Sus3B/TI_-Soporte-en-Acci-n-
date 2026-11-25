@@ -28,10 +28,16 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         manifestPlaceholders["appAuthRedirectScheme"] = "com.tisoporte.accion"
+        manifestPlaceholders["usesCleartextTraffic"] = "false"
     }
 
     buildTypes {
+        debug {
+            // El issuer HTTP de desarrollo sólo se usa a través de adb reverse.
+            manifestPlaceholders["usesCleartextTraffic"] = "true"
+        }
         release {
+            manifestPlaceholders["usesCleartextTraffic"] = "false"
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")

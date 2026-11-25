@@ -86,7 +86,9 @@ class ApiClient {
     if (configIssue != null) {
       throw ApiException(ApiFailure.configuration, configIssue);
     }
-    final token = requiresAuthentication ? await _authService.accessToken() : null;
+    final token = requiresAuthentication
+        ? await _authService.accessToken()
+        : null;
     if (requiresAuthentication && token == null) {
       throw const ApiException(
         ApiFailure.unauthorized,
@@ -98,9 +100,7 @@ class ApiClient {
     final normalizedPath = path.startsWith('/') ? path.substring(1) : path;
     final uri = Uri.parse(normalizedBase).resolve(normalizedPath);
     try {
-      final headers = <String, String>{
-        'Accept': 'application/json',
-      };
+      final headers = <String, String>{'Accept': 'application/json'};
       if (token != null) headers['Authorization'] = 'Bearer $token';
       if (body != null) headers['Content-Type'] = 'application/json';
       final request = http.Request(method, uri)..headers.addAll(headers);
@@ -110,8 +110,41 @@ class ApiClient {
           .timeout(const Duration(seconds: 12));
       final response = await http.Response.fromStream(streamed)
           .timeout(const Duration(seconds: 12));
+      if (kDebugMode) {
+        // Never log token values, payloads, query strings or server messages.
+        const knownCodes = {
+          'missing_bearer_token',
+          'invalid_token',
+          'forbidden',
+          'keycloak_unavailable',
+          'keycloak_not_configured',
+        };
+        String reason = 'none';
+        try {
+          final decoded = jsonDecode(response.body);
+          final code = decoded is Map ? decoded['error'] : null;
+          if (code is Map && knownCodes.contains(code['code'])) {
+            reason = code['code'] as String;
+          }
+        } catch (_) {
+          /* Non-JSON responses have no safe error code. */
+        }
+        final route = normalizedPath.split('/').first;
+        debugPrint(
+          '[api] method=$method route=/api/v1/$route '
+          'status=${response.statusCode} state=${_authService.sessionState.name} '
+          'tokenPresent=${token != null} private=$requiresAuthentication reason=$reason',
+        );
+      }
       if (response.statusCode == 401) {
-        await _authService.expireSession();
+        if (!requiresAuthentication) {
+          throw const ApiException(
+            ApiFailure.forbidden,
+            'El servicio de contenido público no está disponible.',
+            statusCode: 401,
+          );
+        }
+        await _authService.expireSessionForToken(token!);
         throw const ApiException(
           ApiFailure.unauthorized,
           'El servidor rechazó la sesión. Vuelve a iniciar sesión.',

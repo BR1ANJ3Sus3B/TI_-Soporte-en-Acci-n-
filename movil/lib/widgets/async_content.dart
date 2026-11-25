@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ti_soporte_accion/services/api_client.dart';
+import 'package:ti_soporte_accion/services/auth_service.dart';
 import 'package:ti_soporte_accion/theme/app_colors.dart';
 import 'package:ti_soporte_accion/theme/app_typography.dart';
 import 'package:ti_soporte_accion/widgets/nova_panel.dart';
@@ -64,11 +65,30 @@ class _AsyncContentState<T> extends State<AsyncContent<T>> {
                     ),
                   ),
                   const SizedBox(height: 12),
-                  OutlinedButton.icon(
-                    onPressed: _retry,
-                    icon: const Icon(Icons.refresh_rounded),
-                    label: const Text('Reintentar'),
-                  ),
+                  if (error is ApiException &&
+                      error.failure == ApiFailure.unauthorized) ...[
+                    OutlinedButton(
+                      onPressed: () =>
+                          Navigator.of(context)
+                              .pushNamedAndRemoveUntil('/login', (_) => false),
+                      child: const Text('Iniciar sesión'),
+                    ),
+                    TextButton(
+                      onPressed: () async {
+                        await AuthService.instance.continueAsGuest();
+                        if (context.mounted) {
+                          Navigator.of(context)
+                              .pushNamedAndRemoveUntil('/home', (_) => false);
+                        }
+                      },
+                      child: const Text('Continuar como invitado'),
+                    ),
+                  ] else
+                    OutlinedButton.icon(
+                      onPressed: _retry,
+                      icon: const Icon(Icons.refresh_rounded),
+                      label: const Text('Reintentar'),
+                    ),
                 ],
               ),
             ),

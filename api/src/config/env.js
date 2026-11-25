@@ -10,6 +10,15 @@ export const env = Object.freeze({
   corsOrigins: csv(process.env.CORS_ORIGINS ?? 'http://localhost:5173,http://localhost:4173'),
   logLevel: process.env.LOG_LEVEL ?? 'info',
   metricsBearerToken: process.env.METRICS_BEARER_TOKEN ?? '',
+  registration: {
+    baseUrl: process.env.KEYCLOAK_ADMIN_BASE_URL ?? '',
+    realm: process.env.KEYCLOAK_REGISTRATION_REALM ?? 'ti-soporte',
+    clientId: process.env.KEYCLOAK_REGISTRATION_CLIENT_ID ?? '',
+    clientSecret: process.env.KEYCLOAK_REGISTRATION_CLIENT_SECRET ?? '',
+    allowHttp: process.env.REGISTRATION_ALLOW_HTTP === 'true',
+  },
+  // Set only to the trusted TLS reverse proxy IP/subnet, never arbitrary clients.
+  trustedProxy: process.env.TRUSTED_PROXY ?? '',
 });
 
 export function isAuthConfigured(config = env) {

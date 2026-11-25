@@ -7,15 +7,18 @@ import { ApiError, errorHandler } from './errors.js';
 import { observeHttpRequests, registry } from './metrics.js';
 import * as defaultModels from './models/index.js';
 import { createApiRouter } from './routes/api.js';
+import { createRegistrationRouter } from './routes/registration.js';
 
 export function createApp({
   config = env,
   models = defaultModels,
   verifier,
+  registrationService,
   databaseConnection = mongoose.connection,
 } = {}) {
   const app = express();
   app.disable('x-powered-by');
+  if (config.trustedProxy) app.set('trust proxy', config.trustedProxy);
   app.use(helmet());
   app.use(cors({
     origin(origin, callback) {
@@ -54,6 +57,7 @@ export function createApp({
     }
   });
 
+  app.use('/api/v1/auth', createRegistrationRouter({ config, service: registrationService }));
   app.use('/api/v1', createApiRouter({ models, verifier, config }));
   app.use((_request, _response, next) => next(new ApiError(404, 'not_found', 'La ruta solicitada no existe.')));
   app.use(errorHandler);

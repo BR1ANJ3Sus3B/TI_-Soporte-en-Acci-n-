@@ -47,23 +47,28 @@ class ProgressPageData {
 /// Fuente única para pantallas móviles. Demo solo se activa explícitamente con
 /// `--dart-define=DEMO_MODE=true`; por defecto consulta la API configurada.
 class AppDataRepository {
-  AppDataRepository({ApiClient? api, bool? demoMode})
-    : _api = api ?? ApiClient(),
+  AppDataRepository({ApiClient? api, bool? demoMode, AuthService? authService})
+    : _auth = authService ?? AuthService.instance,
+      _api = api ?? ApiClient(authService: authService),
       demoMode = demoMode ?? const bool.fromEnvironment('DEMO_MODE');
 
   static final instance = AppDataRepository();
   final ApiClient _api;
+  final AuthService _auth;
   final bool demoMode;
   bool get apiConfigured => _api.isConfigured;
   String? get apiConfigurationIssue => _api.configurationIssue;
-  bool get _guest => AuthService.instance.isGuest;
+  bool get _guest => _auth.isGuest;
 
   Future<PlayerProfile> getProfile() async {
     if (_guest) {
       final progress = await GuestProgressStore.instance.read();
       return PlayerProfile(
-        name: 'Invitado', rank: 'Progreso local', level: 1,
-        currentXp: progress.xp, xpForNextLevel: 500,
+        name: 'Invitado',
+        rank: 'Progreso local',
+        level: 1,
+        currentXp: progress.xp,
+        xpForNextLevel: 500,
         skills: MockData.player.skills,
         missionsCompleted: progress.completedMissionIds.length,
         incidentsResolved: 0,
@@ -73,8 +78,8 @@ class AppDataRepository {
     final json = _asMap(await _api.getJson('/profile'));
     return PlayerProfile.fromJson(<String, dynamic>{
       ...json,
-      'name': json['name'] ?? AuthService.instance.displayName,
-      'role': json['role'] ?? AuthService.instance.roleLabel,
+      'name': json['name'] ?? _auth.displayName,
+      'role': json['role'] ?? _auth.roleLabel,
     });
   }
 
@@ -98,7 +103,8 @@ class AppDataRepository {
       try {
         if (_api.isConfigured) {
           return _asList(await _api.getPublicJson('/missions'))
-              .map(Mission.fromJson).toList(growable: false);
+              .map(Mission.fromJson)
+              .toList(growable: false);
         }
       } on ApiException {
         // El catálogo incorporado permite seguir aprendiendo sin conexión.
@@ -106,7 +112,7 @@ class AppDataRepository {
       return _guestMissions(await GuestProgressStore.instance.read());
     }
     if (demoMode) return List<Mission>.unmodifiable(MockData.missions);
-    return _asList(await _api.getJson('/missions'))
+    return _asList(await _api.getPublicJson('/missions'))
         .map(Mission.fromJson)
         .toList(growable: false);
   }
@@ -117,7 +123,11 @@ class AppDataRepository {
       try {
         return catalog.firstWhere((mission) => mission.id == id);
       } on StateError {
-        throw const ApiException(ApiFailure.notFound, 'La misión ya no está disponible.', statusCode: 404);
+        throw const ApiException(
+          ApiFailure.notFound,
+          'La misión ya no está disponible.',
+          statusCode: 404,
+        );
       }
     }
     if (demoMode) {
@@ -132,7 +142,7 @@ class AppDataRepository {
       }
     }
     return Mission.fromJson(
-      _asMap(await _api.getJson('/missions/${Uri.encodeComponent(id)}')),
+      _asMap(await _api.getPublicJson('/missions/${Uri.encodeComponent(id)}')),
     );
   }
 
@@ -147,7 +157,7 @@ class AppDataRepository {
   Future<List<Achievement>> getAchievements() async {
     if (_guest) return List<Achievement>.unmodifiable(MockData.achievements);
     if (demoMode) return List<Achievement>.unmodifiable(MockData.achievements);
-    return _asList(await _api.getJson('/achievements'))
+    return _asList(await _api.getPublicJson('/achievements'))
         .map(Achievement.fromJson)
         .toList(growable: false);
   }
@@ -155,7 +165,7 @@ class AppDataRepository {
   Future<List<MapArea>> getAreas() async {
     if (_guest) return List<MapArea>.unmodifiable(MockData.areas);
     if (demoMode) return List<MapArea>.unmodifiable(MockData.areas);
-    return _asList(await _api.getJson('/areas'))
+    return _asList(await _api.getPublicJson('/areas'))
         .map(MapArea.fromJson)
         .toList(growable: false);
   }
@@ -164,7 +174,9 @@ class AppDataRepository {
     if (_guest) {
       final progress = await GuestProgressStore.instance.read();
       return ProgressSummary(
-        level: 1, xp: progress.xp, nextLevelXp: 500,
+        level: 1,
+        xp: progress.xp,
+        nextLevelXp: 500,
         completedMissions: progress.completedMissionIds.length,
         inProgressMissions: progress.inProgressMissionIds.length,
       );
@@ -243,26 +255,39 @@ class AppDataRepository {
         current.inProgressMissionIds.contains(missionId)) {
       return;
     }
-    await GuestProgressStore.instance.write(GuestProgress(
-      completedMissionIds: current.completedMissionIds,
-      inProgressMissionIds: <String>[...current.inProgressMissionIds, missionId],
-      xp: current.xp,
-    ));
+    await GuestProgressStore.instance.write(
+      GuestProgress(
+        completedMissionIds: current.completedMissionIds,
+        inProgressMissionIds: <String>[
+          ...current.inProgressMissionIds,
+          missionId,
+        ],
+        xp: current.xp,
+      ),
+    );
   }
 
   List<Mission> _guestMissions(GuestProgress progress) => MockData.missions
-      .map((mission) => Mission(
-            id: mission.id, title: mission.title, description: mission.description,
-            area: mission.area, department: mission.department,
-            affectedUser: mission.affectedUser, difficulty: mission.difficulty,
-            estimatedTime: mission.estimatedTime, xpReward: mission.xpReward,
-            objectives: mission.objectives, requirements: mission.requirements,
-            status: progress.completedMissionIds.contains(mission.id)
-                ? MissionStatus.completed
-                : progress.inProgressMissionIds.contains(mission.id)
-                    ? MissionStatus.inProgress
-                    : MissionStatus.available,
-          ))
+      .map(
+        (mission) => Mission(
+          id: mission.id,
+          title: mission.title,
+          description: mission.description,
+          area: mission.area,
+          department: mission.department,
+          affectedUser: mission.affectedUser,
+          difficulty: mission.difficulty,
+          estimatedTime: mission.estimatedTime,
+          xpReward: mission.xpReward,
+          objectives: mission.objectives,
+          requirements: mission.requirements,
+          status: progress.completedMissionIds.contains(mission.id)
+              ? MissionStatus.completed
+              : progress.inProgressMissionIds.contains(mission.id)
+              ? MissionStatus.inProgress
+              : MissionStatus.available,
+        ),
+      )
       .toList(growable: false);
 
   static Map<String, dynamic> _asMap(dynamic value) {

@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:ti_soporte_accion/config/app_build_config.dart';
 
 /// Persistencia de la sesión a través del almacenamiento seguro del dispositivo.
 abstract interface class AuthTokenStore {
@@ -38,15 +39,16 @@ class AuthService extends ChangeNotifier {
   AuthService({
     FlutterAppAuth? appAuth,
     AuthTokenStore? tokenStore,
-    this.issuer = const String.fromEnvironment('KEYCLOAK_ISSUER'),
-    this.clientId = const String.fromEnvironment('KEYCLOAK_CLIENT_ID'),
-    this.allowHttpInDebug = const bool.fromEnvironment('KEYCLOAK_ALLOW_HTTP'),
+    this.issuer = AppBuildConfig.keycloakIssuer,
+    this.clientId = AppBuildConfig.keycloakClientId,
+    this.allowHttpInDebug = AppBuildConfig.keycloakAllowHttp,
   }) : _appAuth = appAuth ?? const FlutterAppAuth(),
        _tokenStore = tokenStore ?? PlatformAuthTokenStore();
 
   static final instance = AuthService();
   static const redirectUri = 'com.tisoporte.accion:/oauthredirect';
-  static const _scopes = <String>['openid', 'profile', 'email'];
+  // Discovery advertises this API scope; request its audience mapper as well.
+  static const _scopes = <String>['openid', 'ti-soporte-api'];
   final FlutterAppAuth _appAuth;
   final AuthTokenStore _tokenStore;
   final String issuer;
@@ -178,7 +180,9 @@ class AuthService extends ChangeNotifier {
       }
     } finally {
       _initialized = true;
-      if (!_guest && !isAuthenticated && _sessionState == SessionState.initializing) {
+      if (!_guest &&
+          !isAuthenticated &&
+          _sessionState == SessionState.initializing) {
         _sessionState = SessionState.signedOut;
       }
       notifyListeners();
@@ -362,6 +366,11 @@ class AuthService extends ChangeNotifier {
 
   /// Limpia la sesión local si la API responde 401; no abre el navegador.
   Future<void> expireSession() => _clearSession();
+
+  /// Ignore late responses from a previous account/session or a guest request.
+  Future<void> expireSessionForToken(String rejectedToken) async {
+    if (!_guest && _accessToken == rejectedToken) await _clearSession();
+  }
 
   Future<void> _clearSession() async {
     _clearMemory();

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ti_soporte_accion/screens/registration_screen.dart';
+import 'package:ti_soporte_accion/config/app_build_config.dart';
 import 'package:ti_soporte_accion/screens/achievement_detail_screen.dart';
 import 'package:ti_soporte_accion/screens/home_screen.dart';
 import 'package:ti_soporte_accion/screens/login_screen.dart';
@@ -20,6 +22,7 @@ import 'package:ti_soporte_accion/widgets/session_gate.dart';
 final GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
+  AppBuildConfig.logDiagnostics();
   runApp(const TiSoporteApp());
 }
 
@@ -44,6 +47,7 @@ class TiSoporteApp extends StatelessWidget {
         );
       },
       routes: <String, WidgetBuilder>{
+        RegistrationScreen.routeName: (_) => const RegistrationScreen(),
         SplashScreen.routeName: (_) => const SplashScreen(),
         LoginScreen.routeName: (_) => const LoginScreen(),
         HomeScreen.routeName: (_) => const HomeScreen(),
@@ -54,7 +58,8 @@ class TiSoporteApp extends StatelessWidget {
             const SessionGate(child: ProfileScreen()),
         ProgressScreen.routeName: (_) => const ProgressScreen(),
         SettingsScreen.routeName: (_) => const SettingsScreen(),
-        AchievementDetailScreen.routeName: (_) => const AchievementDetailScreen(),
+        AchievementDetailScreen.routeName: (_) =>
+            const AchievementDetailScreen(),
       },
     );
   }
