@@ -1,35 +1,28 @@
-# PWA · TI: Soporte en Acción
+# TI: Soporte en Acción · PWA
+
+PWA educativa en React, TypeScript y Vite para NovaTech Solutions. Permite explorar contenido público como invitado, conservar actividad local y, cuando se proveen las variables autorizadas, iniciar sesión con Keycloak mediante Authorization Code + PKCE S256.
 
 ## Desarrollo
 
 ```powershell
-npm ci
+npm install
 npm run dev
-```
-
-La PWA se inicia en http://localhost:5173. La demostración pública está en `/demo`.
-Para producción: `npm run build` y `npm run start:ssr` (puerto 4173).
-
-## Autenticación
-
-Keycloak corresponde a la **aplicación móvil Flutter**, en la rama
-`feature/mobile-flutter`. La integración directa OIDC de esta PWA se retiró:
-no realiza redirecciones, intercambio de códigos ni almacenamiento de tokens.
-Las antiguas variables `VITE_KEYCLOAK_*` ya no se utilizan y se pueden retirar
-del entorno local. No se necesita un cliente `ti-soporte-pwa` para esta versión.
-
-Las rutas protegidas siguen cerradas; quitar Keycloak no concede permisos ni
-convierte los paneles administrativos en públicos. `/demo` y los recursos públicos
-siguen disponibles. El mecanismo de sesión web queda pendiente de definir con la API.
-Iniciar sesión en Flutter no inicia automáticamente una sesión en la PWA.
-
-## Datos y validación
-
-Las misiones y el progreso todavía son datos demostrativos. `apiClient` conserva
-la URL `VITE_API_BASE_URL`, pero no adjunta tokens de Flutter ni inventa sesiones.
-Un futuro backend debe comprobar identidad y permisos antes de exponer datos privados.
-
-```powershell
+npm run typecheck
 npm run lint
+npm test
 npm run build
 ```
+
+## Servicios externos
+
+Copiar `.env.example` a `.env.local` y completar sólo los valores provisionados por infraestructura. No hay endpoints verificables versionados en este repositorio; por ello todas las rutas REST son configurables por ambiente y las vistas privadas no fabrican datos si faltan.
+
+La aplicación no persiste contraseñas ni tokens en `localStorage`; el token de acceso de Keycloak se mantiene en `sessionStorage` durante la pestaña. El cliente Keycloak debe ser público, tener redirección web registrada (`https://<host>/`) y permitir PKCE S256.
+
+## Offline
+
+Vite PWA genera el manifiesto y service worker. Precarga el shell de la aplicación y aplica `NetworkFirst` únicamente a respuestas de API públicas bajo `/api/`; no cachea las rutas privadas `/me`. El avance de invitado se guarda en IndexedDB, con `localStorage` como respaldo de compatibilidad, y se identifica visualmente como local; no se sube ni genera XP/recompensas.
+
+## Contratos pendientes de confirmar
+
+Para habilitar datos reales, la API debe publicar y autorizar las rutas configuradas como `VITE_API_*_PATH`: misiones, niveles, logros, guías, perfil propio, progreso propio y estado de monitoreo. Los contratos deben validar Bearer tokens del realm de Keycloak y resolver conflictos/sincronización del progreso en servidor.

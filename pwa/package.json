@@ -1,14 +1,15 @@
 {
   "name": "ti-soporte-en-accion-pwa",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && vite build --ssr src/entry-server.tsx --outDir dist/server",
-    "lint": "eslint . --max-warnings=0",
-    "preview": "vite preview",
-    "start:ssr": "node server.mjs"
+    "build": "node ./node_modules/typescript/bin/tsc -b && node ./node_modules/vite/bin/vite.js build",
+    "typecheck": "node ./node_modules/typescript/bin/tsc -b --pretty false",
+    "lint": "node ./node_modules/eslint/bin/eslint.js . --max-warnings=0",
+    "test": "node tests/guest-progress.test.mjs",
+    "preview": "node ./node_modules/vite/bin/vite.js preview"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
